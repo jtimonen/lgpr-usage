@@ -1,13 +1,13 @@
 # Demos and experiments using the lgpr package
 
 ## demos
-The easiest way to study the demos is to open the html files using any web browser or other software. The demos contain code blocks, which can be run in R if the `lgpr`package is installed. There are six demo files:
+The easiest way to study the demos is to open the *.html* files using any web browser or other software. The demos contain code blocks, which can be run in R if the `lgpr`package is installed. There are six demo files:
 * `01_basic` - basic usage of the package
 * `02_realdata` - modeling the classic orthodont and sleepstudy datasets
 * `03_comparison` - comparison with linear mixed effect modeling
 * `04_disease` - modeling nonstationary disease effects with different modeling options
 * `05_nongaussian` - modeling discrete count data using a non-Gaussian observation model
-* `06_prediction` - computing out-of-sample predictions
+* `06_predicting` - computing out-of-sample predictions
 
 ## experiments
 Contains codes for reproducing the experiments in the manuscript.
