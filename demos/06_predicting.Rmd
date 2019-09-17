@@ -47,8 +47,9 @@ We fit a model to the training data, with all covariates included.
 ```{r fit, fig.width=7, fig.height=6}
 fit <- lgp(formula = y ~ id + age + sex + location,
            data    = split$train,
-           iter    = 800, 
-           chains  = 1)
+           iter    = 1200, 
+           chains  = 1,
+           refresh = 600)
 ```
 
 
@@ -57,11 +58,13 @@ Now we can predict outside the data.
 t_pred <- seq(0, 42, length.out = 100)
 X_pred <- create_test_points(fit, t_pred)
 PRED   <- lgp_predict(fit, X_pred, samples = "mean")
-plot_predictions(fit, PRED, test_data = split$test)
+plot_posterior_predictions(fit, mode = "predictive", PRED = PRED, test_data = split$test)
 ```
 
 Using the function `lgp_test`, we can compute predictions at the test points and 
-compute the log-posterior predictive density.
+compute the mean log-posterior predictive density.
 ```{r test, fig.width=7, fig.height=7}
-lgp_test(fit, test_data = split$test, plot = TRUE, samples = "all")
+TEST <- lgp_test(fit, test_data = split$test, plot = TRUE, samples = "all")
+print(TEST$mlppd)
+TEST$plot
 ```

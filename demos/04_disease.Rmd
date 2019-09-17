@@ -16,18 +16,18 @@ vignette: >
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "##"
+  comment = "#"
 )
 ```
 
-This vignette demonstrates how to use the `lgpr` package to generate artificial longitudinal data with a disease component and fit differents models to for it. 
+This vignette demonstrates how to use the `lgpr` package to generate artificial longitudinal data with a disease component and fit models with specialized disease effect modeling features. 
 
 ```{r load}
 library("lgpr")
 ```
 
 ## Basic non-stationary disease effect modeling
-
+First we demonstrate basic non-stationary disease effect modeling. We simulate data with 14 individuals, half of which are cases and half are controls.
 ```{r disease_1, fig.width=7, fig.height=4.5}
 # generate data -----------------------------------------------------------
 set.seed(543)
@@ -67,7 +67,7 @@ plot_posterior_f(fit, PRED, n_sds = 2, componentwise = TRUE)
 
 
 ## Modeling a heterogeneous disease effect
-
+Next we demonstrate disease effect modeling with heterogeneous disease effects. We generate the data so that only 2 of the 7 diseased individuals experience a disease effect.
 ```{r disease_2, fig.width=7, fig.height=4.5}
 # generate data -----------------------------------------------------------
 set.seed(12333)
@@ -105,6 +105,8 @@ plot_posterior_f(fit, PRED, componentwise = T)
 
 
 ## Modeling the uncertainty of the disease onset
+Finally we demonstrate how to model the disease effect time of each case individual as an uncertain parameter.
+We generate data where the true effect times are drawn from `onset_fun`, but they become only after a timepoint drawn from `obs_fun`. We fit two models, one using a uniform prior (`p1`) for the onset times, and one using an exponential prior for the difference of true and observed onset times (`p2`).
 
 ```{r disease_3, fig.width=7, fig.height=4.5}
 # define functions for drawing real and observed onset time
