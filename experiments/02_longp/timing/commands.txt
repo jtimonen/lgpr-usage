@@ -1,0 +1,3 @@
+
+sacct -j 43651632 --format=JobID,MaxRss,elapsed > timing/lgpr.txt
+

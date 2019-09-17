@@ -1,3 +1,0 @@
-                        LonGP      lgpr
-disAge relevant     0.6755556 0.7744444
-disAge not relevant 0.7755556 0.8333333

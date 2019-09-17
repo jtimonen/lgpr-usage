@@ -10,7 +10,7 @@ The easiest way to study the demos is to open the *.html* files using any web br
 * `06_predicting` - computing out-of-sample predictions
 
 ## experiments
-Contains codes for reproducing the experiments in the manuscript. Each subfolder has an experiment info which describes how to repeat the experiment. Experiments involve fitting models for different data sets in parallel, and shell scripts for doing this on a computing cluster are provided. There are six different experiments:
+Contains codes for reproducing the experiments in the manuscript. Experiments involve fitting models for different data sets in parallel, and shell scripts for doing this on a computing cluster are provided. There are also scripts for collecting the final results and plotting ROC curves or other result figures, after the models have been fit for all data sets. There are six different experiments:
 
 * `01_lme4` - comparison with linear mixed effect modeling and scalability testing
 * `02_longp` - comparison with *LonGP* (https://www.nature.com/articles/s41467-019-09785-8)

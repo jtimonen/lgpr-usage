@@ -1,0 +1,7 @@
+/scratch/work/timonej3/R/
+Loading required package: ggplot2
+Loading required package: ggpubr
+Loading required package: magrittr
+                        LonGP      lgpr
+disAge relevant     0.6511111 0.7511111
+disAge not relevant 0.7500000 0.8322222
