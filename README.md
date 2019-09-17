@@ -12,7 +12,7 @@ The easiest way to study the demos is to open the *.html* files using any web br
 ## experiments
 Contains codes for reproducing the experiments in the manuscript. Each subfolder has an experiment info which describes how to repeat the experiment. Experiments involve fitting models for different data sets in parallel, and shell scripts for doing this on a computing cluster are provided.
 
-* `01_lme4` - comparison with linear mixed effect modeling
+* `01_lme4` - comparison with linear mixed effect modeling and scalability testing
 * `02_longp` - comparison with *LonGP* (https://www.nature.com/articles/s41467-019-09785-8)
 * `03_heter` - heterogeneous disease effect modeling
 * `04_uncrt` - modeling uncertainty of disease onset
