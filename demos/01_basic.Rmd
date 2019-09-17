@@ -1,0 +1,106 @@
+---
+title: "Basic usage of the lgpr package"
+author: "Juho Timonen"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+#  pdf_document:
+#    toc: true     
+vignette: >
+  %\VignetteIndexEntry{Basic usage of the lgpr package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#"
+)
+```
+
+This vignette demonstrates how to use the `lgpr` package to generate artificial longitudinal data, fit a model and infer covariate relevances. 
+
+```{r load}
+library("lgpr")
+```
+
+## Example 1
+In this example we generate a data set with 16 individuals and have 6 measurement time points for each. In addition to age and id, we generate the categorical covariates sex and location, of which only sex is relevant.
+
+### Data simulation
+```{r basic_1_sim, fig.width=7, fig.height=4.5}
+# generate artificial data --------------------------------------------------
+set.seed(123)
+simData <- simulate_data(N           = 16,
+                        t_data       = seq(12, 72, by = 12),
+                        covariates   = c(    2,2),
+                        lengthscales = c(12,24,12,12),
+                        relevances   = c(1,1,1,0),
+                        names        = c("sex", "location"),
+                        t_jitter     = 0.5)
+
+data <- simData$data
+plot_simdata(simData, componentwise = T)
+```
+
+### Fitting the model
+```{r basic_1_fit, fig.width=7, fig.height=4.5}
+# create and fit a model --------------------------------------------------
+fit <- lgp(formula  = y ~ id + age + sex + location,
+           data     = data,
+           iter     = 800, 
+           chains   = 1)
+```
+
+
+### Determining covariate relevances
+The covariate selection information using the default 95% threshold for total explained variance
+is stored in `fit@covariate_selection`. The function `plot_components` can visualize the inferred components, averaged over all parameter samples.
+```{r basic_1_vis, fig.width=7, fig.height=4.5}
+print(fit@covariate_selection)
+plot(fit)
+plot_components(fit)
+```
+
+
+### Prediction
+The `lgp_predict` function can be used to compute out-of-sample predictions. Here we use the posterior mean hyperparameters to compute the posterior predictive distribution.
+```{r basic_1_pred, fig.width=7, fig.height=5.5}
+t_test <- seq(0, 100, length.out = 100)
+X_test <- create_test_points(fit, t_test)
+PRED   <- lgp_predict(fit, X_test, samples = "mean")
+plot_posterior_y(fit, PRED)
+
+```
+
+
+## Example 2
+This example includes also other continuous covariates than age.
+
+
+```{r basic_2, fig.width=7, fig.height=4.5}
+# generate data -----------------------------------------------------------
+set.seed(123)
+simData <- simulate_data(N            = 16,
+                         t_data       = seq(12, 72, by = 12),
+                         covariates   = c(    1,1,2,2),
+                         lengthscales = c(12,24,1,1,12,12),
+                         relevances   = c(1,1,1,0,1,0),
+                         names        = c("bloodPh", "bloodPressure",
+                                          "sex", "location"))
+
+data <- simData$data
+plot_simdata(simData, componentwise = T)
+
+# create and fit a model --------------------------------------------------
+fit <- lgp(formula = y ~ id + age + bloodPh + bloodPressure + sex + location,
+           data    = data,
+           iter    = 800, 
+           chains  = 1)
+
+
+# visualization -----------------------------------------------------------
+plot_components(fit)
+```

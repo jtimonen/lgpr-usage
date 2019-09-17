@@ -1,0 +1,67 @@
+---
+title: "Out-of-sample prediction using the lgpr package"
+author: "Juho Timonen"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+#  pdf_document:
+#    toc: true     
+vignette: >
+  %\VignetteIndexEntry{Out-of-sample prediction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#"
+)
+```
+
+This vignette demonstrates computing, visualizing and evaluating model predictions at separate test points.
+
+```{r load}
+library("lgpr")
+```
+
+First we create some data and split it into training and test points.
+```{r datagen, fig.width=7, fig.height=6}
+set.seed(123)
+simData <- simulate_data(N            = 16,
+                         t_data       = seq(6, 36, by = 4),
+                         covariates   = c(    2,2),
+                         lengthscales = c(6,6,6,6),
+                         relevances   = c(1,1,1,0),
+                         names        = c("sex", "location"),
+                         t_jitter     = 0.2,
+                         snr          = 5)
+
+data  <- simData$data
+split <- lgpr:::split_data_random(data, p_test = 0.2)
+plot_simdata(simData, i_test = split$i_test)
+```
+
+We fit a model to the training data, with all covariates included.
+```{r fit, fig.width=7, fig.height=6}
+fit <- lgp(formula = y ~ id + age + sex + location,
+           data    = split$train,
+           iter    = 800, 
+           chains  = 1)
+```
+
+
+Now we can predict outside the data.
+```{r pred, fig.width=7, fig.height=6}
+t_pred <- seq(0, 42, length.out = 100)
+X_pred <- create_test_points(fit, t_pred)
+PRED   <- lgp_predict(fit, X_pred, samples = "mean")
+plot_predictions(fit, PRED, test_data = split$test)
+```
+
+Using the function `lgp_test`, we can compute predictions at the test points and 
+compute the log-posterior predictive density.
+```{r test, fig.width=7, fig.height=7}
+lgp_test(fit, test_data = split$test, plot = TRUE, samples = "all")
+```

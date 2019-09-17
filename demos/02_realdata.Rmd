@@ -1,0 +1,80 @@
+---
+title: "Using lgpr on real data sets"
+author: "Juho Timonen"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+#  pdf_document:
+#    toc: true     
+vignette: >
+  %\VignetteIndexEntry{Using lgpr on real data sets}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#"
+)
+```
+
+This vignette demonstrates how to use the `lgpr` package with the classic 
+`sleepstudy` and `Orthodont` data sets.
+
+```{r load}
+library("lgpr")
+require(ggplot2)
+require(lme4) # the sleepstudy data is in this package
+require(nlme) # the Orthodont data is in this package
+```
+
+
+## Sleepstudy data
+
+```{r sleepstudy, fig.width=7, fig.height=4}
+fit <- lgp(formula = Reaction ~ Days + Subject,
+           data = sleepstudy,
+           time_variable = "Days",
+           id_variable = "Subject",
+           iter = 800,
+           chains = 1)
+
+plot_components(fit)
+```
+
+```{r sleepstudy_pred, fig.width=7, fig.height=8.5}
+plot_posterior_f(fit)
+```
+
+
+## Orthodont data
+```{r orthodont, fig.width=7, fig.height=4}
+# data into numeric format ------------------------------------------------
+data <- data.frame(data.matrix(as.data.frame(Orthodont)))
+
+# view data ---------------------------------------------------------------
+
+head(data)
+ggplot(data, aes(x = age, y = distance, group = Subject)) + 
+  geom_point() +
+  geom_line() + 
+  facet_wrap( ~ Sex)
+
+# fit model ---------------------------------------------------------------
+
+fit <- lgp(distance ~ Subject + age + Sex,  
+           data = data,
+           id_variable = "Subject",
+           iter = 800,
+           chains = 1)
+
+plot(fit)
+plot_components(fit)
+```
+
+```{r orthodont_pred, fig.width=7, fig.height=8}
+plot_posterior_f(fit)
+```
+

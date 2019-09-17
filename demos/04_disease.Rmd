@@ -1,0 +1,157 @@
+---
+title: "Disease effect modeling using the lgpr package"
+author: "Juho Timonen"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+#  pdf_document:
+#    toc: true     
+vignette: >
+  %\VignetteIndexEntry{Disease effect modeling using the lgpr package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "##"
+)
+```
+
+This vignette demonstrates how to use the `lgpr` package to generate artificial longitudinal data with a disease component and fit differents models to for it. 
+
+```{r load}
+library("lgpr")
+```
+
+## Basic non-stationary disease effect modeling
+
+```{r disease_1, fig.width=7, fig.height=4.5}
+# generate data -----------------------------------------------------------
+set.seed(543)
+simData <- simulate_data(N            = 14,
+                         t_data       = seq(12, 96, by = 12),
+                         covariates   = c(    0, 2,2),
+                         relevances   = c(1,1,1, 0,1),
+                         lengthscales = c(18,24, 1, 18,18),
+                         onset_range  = c(40,60),
+                         names        = c("diseaseAge", "sex", "location"),
+                         t_jitter     = 1,
+                         snr          = 5)
+
+data <- simData$data
+plot_simdata(simData, componentwise = T)
+plot_simdata(simData, componentwise = F)
+
+# create and fit a model --------------------------------------------------
+fit <- lgp(formula = y ~ id + age + diseaseAge + sex + location,
+           data    = data,
+           iter    = 1000, 
+           chains  = 1)
+
+# visualization -----------------------------------------------------------
+plot_components(fit)
+plot_inputwarp(fit)
+
+# prediction --------------------------------------------------------------
+t_test <- seq(0, 100, length.out = 100)
+X_test <- create_test_points(fit, t_test)
+PRED   <- lgp_predict(fit, X_test, samples = "mean")
+
+plot_posterior_y(fit, PRED, n_sds = 2)
+plot_posterior_f(fit, PRED, n_sds = 2)
+plot_posterior_f(fit, PRED, n_sds = 2, componentwise = TRUE)
+```
+
+
+## Modeling a heterogeneous disease effect
+
+```{r disease_2, fig.width=7, fig.height=4.5}
+# generate data -----------------------------------------------------------
+set.seed(12333)
+simData <- simulate_data(N            = 14,
+                         t_data       = seq(12, 96, by = 12),
+                         covariates   = c(    0, 2,2),
+                         relevances   = c(1,1,1, 0,1),
+                         lengthscales = c(18,24, 1, 18,18),
+                         onset_range  = c(40,60),
+                         snr          = 5,
+                         N_affected   = 2,
+                         t_jitter     = 1)
+
+data <- simData$data
+plot_simdata(simData, componentwise = T)
+plot_simdata(simData, componentwise = F)
+
+# create and fit a model with heterogeneous disease effect ----------------
+fit <- lgp(formula      = y ~ id + age + diseaseAge + z1 + z2,
+           data         = data,
+           equal_effect = FALSE,
+           iter         = 1000, 
+           chains       = 1)
+
+# visualization -----------------------------------------------------------
+plot_beta(fit)
+plot_components(fit)
+
+# predictions -------------------------------------------------------------
+t_test <- seq(0, 100, length.out=120)
+X_test <- create_test_points(fit, t_test)
+PRED   <- lgp_predict(fit, X_test, samples = "mean")
+plot_posterior_f(fit, PRED, componentwise = T)
+```
+
+
+## Modeling the uncertainty of the disease onset
+
+```{r disease_3, fig.width=7, fig.height=4.5}
+# define functions for drawing real and observed onset time
+onset_fun <- function(){rnorm(n = 1, mean = 40, sd = 2)}
+obs_fun   <- function(t){t + rnorm(n=1, mean = 20, sd = 4)}
+
+# simulate data
+set.seed(123)
+simData <- simulate_data(N            = 14,
+                         t_data       = seq(12, 96, by = 12),
+                         covariates   = c(    0,2,2),
+                         relevances   = c(1,1,1, 0,1),
+                         lengthscales = c(18,24, 1, 18,18),
+                         onset_range  = onset_fun,
+                         t_observed   = obs_fun,
+                         snr          = 5)
+
+data <- simData$data
+plot_simdata(simData, componentwise = F)
+plot_simdata(simData, componentwise = T)
+
+# define priors and fit models -------------------------------------------
+
+# Uniform prior for onset
+p1 <- prior_default()
+f1 <- lgp(formula   = y ~ id + age + diseaseAge + z1 + z2,
+          data     = data,
+          prior    = p1,
+          iter     = 1000, 
+          chains   = 1,
+          uncertain_diagnosis = TRUE)
+
+# Exponential prior (relative to observed) for onset
+p2       <- prior_default()
+p2$onset <- list(type="gamma_before_backwards", shape = 1, rate = 0.1)
+f2 <- lgp(formula   = y ~ id + age + diseaseAge + z1 + z2,
+          data     = data,
+          prior    = p2,
+          iter     = 1000, 
+          chains   = 1,
+          uncertain_diagnosis = TRUE)
+
+
+# visualizations ----------------------------------------------------------
+plot_onset(f1)
+plot_posterior_f(f1)
+
+plot_onset(f2)
+plot_posterior_f(f2)
+```

@@ -1,0 +1,19 @@
+varIndex=1  varName=age interaction=1 selected=1  kernelType=1
+varIndex=2  varName=diseaseAge interaction=0 selected=0 kernelType=3 a=0.500000 b=0 c=40.000000
+varIndex=3  varName=x1 interaction=0 selected=0 kernelType=1
+varIndex=4  varName=x2 interaction=0 selected=0 kernelType=1
+varIndex=5  varName=x3 interaction=0 selected=0 kernelType=1
+varIndex=6  varName=x4 interaction=0 selected=0 kernelType=1
+varIndex=7  varName=z1  interaction=1 selected=0  kernelType=5
+varIndex=8  varName=z2  interaction=1 selected=0  kernelType=5
+varIndex=9  varName=z3  interaction=1 selected=0  kernelType=5
+varIndex=10  varName=z4  interaction=1 selected=0  kernelType=5
+varIndex=11  varName=id  interaction=1 selected=1  kernelType=5
+discreteCovariateInteraction=0
+looCutOff=0.8
+scvCutOff=0.95
+nBBSample=20000
+comVarCutOff=0.01
+maxRunTime=Inf
+maxIdleTime=120
+genTestX=0 ageInd=1 RawXFilledFile='' testXFilledFile=''
