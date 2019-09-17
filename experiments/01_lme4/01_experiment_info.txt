@@ -1,0 +1,6 @@
+The experiment is done in the following steps:
+
+   - Run the shell script 01_lgpr.sh
+   - It calls the R script 01_lgpr.R several times to repeat the experiment many times
+   - 01_lgpr.R simulates one data set and fits the lgpr model
+   - Running 01_post.R will fit the lme4 model to each data set and collect the results
