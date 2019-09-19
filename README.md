@@ -1,7 +1,7 @@
 # Demos and experiments using the lgpr package
 
 ## demos
-The demos are in *.html* format, and after downloading them you can open them using any web browser or other software. To avoid downloading, you can view the demos at https://users.aalto.fi/~timonej3/2-lgpr.html. The demos contain code blocks, which can be run in R if the `lgpr` package is installed.
+The demos are in *.html* format, and after downloading you can open them using any web browser or other software. To avoid downloading, you can view the demos also at https://users.aalto.fi/~timonej3/2-lgpr.html. The demos contain code blocks, which can be run in R if the `lgpr` package is installed.
 * `01_basic` - basic usage of the package
 * `02_realdata` - modeling the classic orthodont and sleepstudy datasets
 * `03_comparison` - comparison with linear mixed effect modeling
