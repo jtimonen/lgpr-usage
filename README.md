@@ -1,4 +1,4 @@
-# Demos and experiments using the lgpr package
+# Demos and experiments using the R-package 'lgpr'
 
 ## demos
 The demos are in *.html* format, and after downloading you can open them using any web browser or other software. To avoid downloading, you can view the demos also at https://users.aalto.fi/~timonej3/2-lgpr.html. The demos contain code blocks, which can be run in R if the `lgpr` package is installed.
