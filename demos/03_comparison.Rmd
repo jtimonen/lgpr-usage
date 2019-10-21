@@ -83,7 +83,7 @@ fit_lgp <- lgp(y ~ id + age + z1 + z2 + z3,
                   data    = data,
                   iter    = 1000, 
                   chains  = 1,
-                  refresh = 1000)
+                  refresh = 0)
 plot(fit_lgp)
 plot_components(fit_lgp)
 ```

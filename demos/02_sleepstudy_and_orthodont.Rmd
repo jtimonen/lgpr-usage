@@ -1,5 +1,5 @@
 ---
-title: "Using lgpr on real data sets"
+title: "Analysing the sleepstudy and Orthodont datasets using lgpr"
 author: "Juho Timonen"
 date: "`r Sys.Date()`"
 output: 
@@ -8,7 +8,7 @@ output:
 #  pdf_document:
 #    toc: true     
 vignette: >
-  %\VignetteIndexEntry{Using lgpr on real data sets}
+  %\VignetteIndexEntry{Analysing the sleepstudy and Orthodont datasets using lgpr}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -39,7 +39,8 @@ fit <- lgp(formula = Reaction ~ Days + Subject,
            time_variable = "Days",
            id_variable = "Subject",
            iter = 800,
-           chains = 1)
+           chains = 1,
+           refresh = 0)
 
 plot_components(fit)
 ```
@@ -68,7 +69,8 @@ fit <- lgp(distance ~ Subject + age + Sex,
            data = data,
            id_variable = "Subject",
            iter = 800,
-           chains = 1)
+           chains = 1,
+           refresh = 0)
 
 plot(fit)
 plot_components(fit)

@@ -3,7 +3,7 @@
 ## demos
 The demos are in *.html* format, and after downloading you can open them using any web browser or other software. To avoid downloading, you can view the demos also at https://users.aalto.fi/~timonej3/2-lgpr.html. The demos contain code blocks, which can be run in R if the `lgpr` package is installed.
 * `01_basic` - basic usage of the package
-* `02_realdata` - modeling the classic orthodont and sleepstudy datasets
+* `02_sleepstudy_and_orthodont` - modeling the classic orthodont and sleepstudy datasets
 * `03_comparison` - comparison with linear mixed effect modeling
 * `04_disease` - modeling nonstationary disease effects with different modeling options
 * `05_nongaussian` - modeling discrete count data using a non-Gaussian observation model

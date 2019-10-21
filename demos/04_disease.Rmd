@@ -36,7 +36,7 @@ simData <- simulate_data(N            = 14,
                          covariates   = c(    0, 2,2),
                          relevances   = c(1,1,1, 0,1),
                          lengthscales = c(18,24, 1, 18,18),
-                         onset_range  = c(40,60), # effect times drawn from this range
+                         t_effect_range = c(40,60), # effect times drawn from this range
                          names        = c("diseaseAge", "sex", "location"),
                          t_jitter     = 1,
                          snr          = 5)
@@ -49,7 +49,8 @@ plot_simdata(simData, componentwise = F)
 fit <- lgp(formula = y ~ id + age + diseaseAge + sex + location,
            data    = data,
            iter    = 2000, 
-           chains  = 1)
+           chains  = 1,
+           refresh = 0)
 
 # visualization -----------------------------------------------------------
 plot_components(fit)
@@ -76,7 +77,7 @@ simData <- simulate_data(N            = 14,
                          covariates   = c(    0, 2,2),
                          relevances   = c(1,1,1, 0,1),
                          lengthscales = c(18,24, 1, 18,18),
-                         onset_range  = c(40,60), # effect times drawn from this range
+                         t_effect_range = c(40,60), # effect times drawn from this range
                          snr          = 5,
                          N_affected   = 2,
                          t_jitter     = 1)
@@ -90,7 +91,8 @@ fit <- lgp(formula      = y ~ id + age + diseaseAge + z1 + z2,
            data         = data,
            equal_effect = FALSE, # this option allows heterogeneous effects
            iter         = 2000, 
-           chains       = 1)
+           chains       = 1,
+           refresh      = 0)
 
 # visualization -----------------------------------------------------------
 plot_beta(fit)
@@ -119,7 +121,7 @@ simData <- simulate_data(N            = 14,
                          covariates   = c(    0,2,2),
                          relevances   = c(1,1,1, 0,1),
                          lengthscales = c(18,24, 1, 18,18),
-                         onset_range  = onset_fun, # true effect times drawn from this range
+                         t_effect_range = onset_fun, # true effect times drawn from this range
                          t_observed   = obs_fun, # time of disease detection drawn from this
                          snr          = 5)
 
@@ -136,7 +138,8 @@ f1 <- lgp(formula   = y ~ id + age + diseaseAge + z1 + z2,
           prior    = p1,
           iter     = 2000, 
           chains   = 1,
-          uncertain_diagnosis = TRUE) # this option allows uncertain effect time
+          refresh  = 0,
+          uncertain_effect_time = TRUE) # this option allows uncertain effect time
 
 # Exponential prior (relative to observed onset) for effect time
 p2       <- prior_default()
@@ -146,7 +149,8 @@ f2 <- lgp(formula   = y ~ id + age + diseaseAge + z1 + z2,
           prior    = p2,
           iter     = 2000, 
           chains   = 1,
-          uncertain_diagnosis = TRUE) # this option allows uncertain effect time
+          refresh  = 0,
+          uncertain_effect_time = TRUE) # this option allows uncertain effect time
 
 
 # visualizations ----------------------------------------------------------
