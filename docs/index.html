@@ -281,7 +281,10 @@ $(document).ready(function () {
            <a href="installation.html">Installation</a>
         </li>
 	      <li>
-           <a href="manual.pdf">Documentation</a>
+           <a href="manual.pdf">Documentation (pdf)</a>
+        </li>
+        <li>
+           <a href="https://github.com/jtimonen/lgpr">Source code (github)</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -312,14 +315,27 @@ $(document).ready(function () {
 <div class="col-sm-12">
 
 <br>
+<div id="lgpr-info" class="section level3">
+<h3> Info </h3>
 <hr>
+<i>lgpr</i> is an R package for <b>L</b>ongitudinal <b>G</b>aussian <b>P</b>rocess <b>R</b>egression. It includes
+<br>
+<br>
+<ul>
+	<li> Bayesian nonparametric modeling of longitudinal data using additive Gaussian process regression </li>
+	<li> Selection of categorical and continuous covariates, and interpretable visualization of covariate effects </li>
+	<li> Disease effect modeling either homogeneously or heterogeneously across diagnosed patients </li>
+  <li> Modeling uncertainty in the disease effect time </li>
+ <li> Various observation models: Gaussian, Poisson Negative Binomial, Bernoulli and binomial </li>
+  <li> Efficient posterior inference using <a href="https://mc-stan.org/">Stan</a> </li>
+</ul>
+</div>
+<br>
+<br>
+
 <div id="lgpr-tutorials" class="section level3">
 <h3>Tutorials</h3>
-
-The tutorials contain code blocks, which can be run in R if the <a href="https://github.com/jtimonen/lgpr">lgpr</a> package is installed.
-<br>
-<br>
-
+<hr>
 <ul>
 	<li> <a href="01_basic.html">Demo 1: Basic usage</a>  </li>
 	<li> <a href="02_sleepstudy_and_orthodont.html">Demo 2: Classic orthodont and sleepstudy datasets</a> </li>
@@ -329,6 +345,7 @@ The tutorials contain code blocks, which can be run in R if the <a href="https:/
         <li> <a href= "06_predicting.html">Demo 6: Out-of-sample prediction</a> </li>
 
 </ul>
+
 </div>
 </div>
 

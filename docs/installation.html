@@ -270,7 +270,7 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">lgpr</a>
+      <a class="navbar-brand" href="installation.html">lgpr</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -281,7 +281,10 @@ $(document).ready(function () {
            <a href="installation.html">Installation</a>
         </li>
 	      <li>
-           <a href="manual.pdf">Documentation</a>
+           <a href="manual.pdf">Documentation (pdf)</a>
+        </li>
+        <li>
+           <a href="https://github.com/jtimonen/lgpr">Source code (github)</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -312,14 +315,13 @@ $(document).ready(function () {
 <div class="col-sm-12">
 
 <br>
-<hr>
 <div id="lgpr-installation" class="section level3">
 <h3>Installation instructions</h3>
-<br>
+<hr>
 <br>
 
 <h4> 1. Install rstan</h4>
-To avoid problems, we recommend first installing the <code>rstan</code> package using <a href="https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started">these  instructions</a>.
+To avoid problems, we recommend first installing the <code>rstan</code> package using <a href="https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started">these instructions</a>.
 <br>
 <br>
 
@@ -330,16 +332,16 @@ To avoid problems, we recommend first installing the <code>rstan</code> package 
     <li> download or clone this repository </li>
     <li> put it in directory **lgpr** under parent directory **parent-dir* </li>
     <li> go to **parent-dir** on command line or Rstudio terminal </li>
-    <li> run <code> R CMD build lgpr </code>  </li>
+    <li> run <code>R CMD build lgpr</code>  </li>
     <li> this will build the package into **lgpr_X.Y.Z.tar.gz** </li>
-    <li> install the package using <code> R CMD INSTALL lgpr_X.Y.Z.tar.gz </code> </li>
+    <li> install the package using <code>R CMD INSTALL lgpr_X.Y.Z.tar.gz</code> </li>
 </ul>
 <br>
 
 <b> B) Using devtools:</b>
 <ul>
     <li> Install the `devtools` package, for example by running <code>`install.packages('devtools')</code> </li>
-    <li> Run <code> devtools::install_github('jtimonen/lgpr', build_vignettes = TRUE) </code> </li>
+    <li> Run <code>devtools::install_github('jtimonen/lgpr', build_vignettes = TRUE)</code> </li>
 </ul>
 
 </div>
