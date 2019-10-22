@@ -313,22 +313,35 @@ $(document).ready(function () {
 
 <br>
 <hr>
-<div id="lgpr-tutorials" class="section level3">
-<h3>Tutorials</h3>
-
-The tutorials contain code blocks, which can be run in R if the <a href="https://github.com/jtimonen/lgpr">lgpr</a> package is installed.
+<div id="lgpr-installation" class="section level3">
+<h3>Installation instructions</h3>
 <br>
 <br>
 
+<h4> 1. Install rstan</h4>
+To avoid problems, we recommend first installing the <code>rstan</code> package using <a href="https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started">these  instructions</a>.
+<br>
+<br>
+
+<h4> 2. Install lgpr</h4>
+
+<b> A) On command line or Rstudio terminal:</b>
 <ul>
-	<li> <a href="01_basic.html">Demo 1: Basic usage</a>  </li>
-	<li> <a href="02_sleepstudy_and_orthodont.html">Demo 2: Classic orthodont and sleepstudy datasets</a> </li>
-	<li> <a href= "03_comparison.html">Demo 3: Comparison with linear mixed effect modeling</a> </li>
-        <li> <a href="04_disease.html">Demo 4: Nonstationary disease effects and different disease modeling options</a>  </li>
-        <li> <a href="05_nongaussian.html">Demo 5: Modeling count data using a non-Gaussian observation model</a> </li>
-        <li> <a href= "06_predicting.html">Demo 6: Out-of-sample prediction</a> </li>
-
+    <li> download or clone this repository </li>
+    <li> put it in directory **lgpr** under parent directory **parent-dir* </li>
+    <li> go to **parent-dir** on command line or Rstudio terminal </li>
+    <li> run <code> R CMD build lgpr </code>  </li>
+    <li> this will build the package into **lgpr_X.Y.Z.tar.gz** </li>
+    <li> install the package using <code> R CMD INSTALL lgpr_X.Y.Z.tar.gz </code> </li>
 </ul>
+<br>
+
+<b> B) Using devtools:</b>
+<ul>
+    <li> Install the `devtools` package, for example by running <code>`install.packages('devtools')</code> </li>
+    <li> Run <code> devtools::install_github('jtimonen/lgpr', build_vignettes = TRUE) </code> </li>
+</ul>
+
 </div>
 </div>
 
