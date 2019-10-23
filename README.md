@@ -1,6 +1,6 @@
 
 ## Tutorials, installation and documentation
-See [this page](https://jtimonen.github.io/lgpr-usage/)
+See [this page](https://jtimonen.github.io/lgpr-usage/).
 
 ## Experiments
 The `experiments` directory contains codes for reproducing the experiments in the manuscript. Experiments involve fitting models for different data sets in parallel, and shell scripts for doing this on a computing cluster are provided. There are also scripts for collecting the final results and plotting ROC curves or other result figures, after the models have been fit for all data sets. There are six different experiments:
