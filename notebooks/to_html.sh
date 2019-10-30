@@ -1,3 +1,3 @@
 #!/bin/sh
-ipython nbconvert --to html *.ipynb
+jupyter nbconvert --to html *.ipynb
 mv *.html ../docs
