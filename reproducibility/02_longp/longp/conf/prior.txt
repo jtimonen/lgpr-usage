@@ -1,0 +1,2 @@
+priorID=1     priorFunc=prior_loggaussian()   mu=0   s2=1
+priorID=2     priorFunc=prior_sqrtt()   mu=0   s2=1   nu=20
