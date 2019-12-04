@@ -1,0 +1,2 @@
+sacct -j 47385399 --format=JobID,MaxRss,elapsed > runtimes_lgpr.txt
+sacct -j 47386983 --format=JobID,MaxRss,elapsed > runtimes_longp.txt

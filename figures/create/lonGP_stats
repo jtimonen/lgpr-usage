@@ -1,0 +1,11 @@
+Accuracies (diseaseAge relevant):
+   lgpr: 0.814
+   lonGP: 0.65
+ 
+Accuracies (diseaseAge not relevant):
+   lgpr: 0.87
+   lonGP: 0.752
+ 
+Runtimes: 
+   lgpr: 58 min 21 s (+- 1 min 33 s) 
+   lonGP: 4 h 40 min 11 s (+- 1h 43 min 10 s) 
