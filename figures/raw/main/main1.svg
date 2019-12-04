@@ -41,12 +41,12 @@
      id="namedview24682"
      showgrid="false"
      inkscape:zoom="0.88846657"
-     inkscape:cx="508.91714"
-     inkscape:cy="201.78644"
+     inkscape:cx="435.70221"
+     inkscape:cy="318.58871"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g18355-6"
+     inkscape:current-layer="surface3409"
      showguides="false"
      fit-margin-top="1"
      fit-margin-left="1"
@@ -11169,47 +11169,6 @@
        id="path18104-8"
        d="m 433.24129,180.3015 h 83.55078"
        style="fill:none;stroke:#000000;stroke-width:1.06697798;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="200.54089"
-       y="427.48828"
-       id="text15947-5"
-       transform="rotate(-45)"><tspan
-         sodipodi:role="line"
-         x="200.54089"
-         y="427.48828"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9px;line-height:125%;font-family:'Courier New';-inkscape-font-specification:'Courier New'"
-         id="tspan15957-8">id</tspan><tspan
-         sodipodi:role="line"
-         x="200.54089"
-         y="438.73828"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9px;line-height:125%;font-family:'Courier New';-inkscape-font-specification:'Courier New'"
-         id="tspan15951-7"> </tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="233.11397"
-       y="417.90784"
-       id="text15947-5-8"
-       transform="rotate(-45)"><tspan
-         sodipodi:role="line"
-         x="233.11397"
-         y="417.90784"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9px;line-height:125%;font-family:'Courier New';-inkscape-font-specification:'Courier New'"
-         id="tspan15951-7-5">age</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="215.63519"
-       y="459.14929"
-       id="text15947-5-8-2"
-       transform="rotate(-45)"><tspan
-         sodipodi:role="line"
-         x="215.63519"
-         y="459.14929"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9px;line-height:125%;font-family:'Courier New';-inkscape-font-specification:'Courier New'"
-         id="tspan15951-7-5-8">sex</tspan></text>
     <g
        id="g29263"
        transform="translate(-15.973963,22.909057)">
@@ -12080,6 +12039,48 @@
          x="56.752071"
          id="tspan14101-6-9-8"
          sodipodi:role="line">c</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.75"
+       x="-162.71832"
+       y="449.27377"
+       id="text5798"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan5796"
+         x="-162.71832"
+         y="449.27377"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:helvetica;-inkscape-font-specification:'helvetica Italic';stroke-width:0.75"
+         dy="0 0 0 0 0">id <tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6px;font-family:helvetica;-inkscape-font-specification:helvetica;letter-spacing:0px"
+   id="tspan5846"
+   dy="0">x</tspan> age</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.99999952px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.75"
+       x="-133.74989"
+       y="466.03726"
+       id="text5798-2"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan5796-4"
+         x="-133.74989"
+         y="466.03726"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:helvetica;-inkscape-font-specification:'helvetica Italic';stroke-width:0.75">age</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.99999952px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.75"
+       x="-171.22765"
+       y="483.81995"
+       id="text5798-8"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan5796-6"
+         x="-171.22765"
+         y="483.81995"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:helvetica;-inkscape-font-specification:'helvetica Italic';stroke-width:0.75">sex <tspan
+   style="-inkscape-font-specification:helvetica;font-family:helvetica;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:5.99999994px"
+   id="tspan5844">x</tspan> age</tspan></text>
   </g>
   <g
      id="surface1"
