@@ -2,6 +2,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
+
+
+
+
+
 <head>
 
 <meta charset="utf-8" />
@@ -65,9 +70,12 @@ h6 {
   text-align: left;
 }
 </style>
-
-
 </head>
+
+
+
+
+
 
 <body>
 
@@ -275,16 +283,19 @@ $(document).ready(function () {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-           <a href="index.html">Tutorials</a>
+           <a href="#info">Info</a>
         </li>
-       	<li>
-           <a href="installation.html">Installation</a>
+        <li>
+           <a href="#installation">Installation</a>
+        </li>
+        <li>
+           <a href="#tutorials">Tutorials</a>
+        </li>
+        <li>
+           <a href="#reproducibility">Reproducibility</a>
         </li>
 	      <li>
            <a href="manual.pdf">Documentation (pdf)</a>
-        </li>
-        <li>
-           <a href="https://github.com/jtimonen/lgpr">Source code (github)</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -315,15 +326,16 @@ $(document).ready(function () {
 <div class="col-sm-12">
 
 <br>
-<div id="lgpr-info" class="section level3">
+<div id="info" class="section level3">
 <h3> Info </h3>
 <hr>
+
 <i>lgpr</i> is an R package for <b>L</b>ongitudinal <b>G</b>aussian <b>P</b>rocess <b>R</b>egression. It includes
 <br>
 <br>
 <ul>
 	<li> Bayesian nonparametric modeling of longitudinal data using additive Gaussian process regression </li>
-	<li> Selection of categorical and continuous covariates, and interpretable visualization of covariate effects </li>
+	<li> Covariate selection (categorical, continuous, interaction) and interpretable visualization of covariate effects </li>
 	<li> Disease effect modeling either homogeneously or heterogeneously across diagnosed patients </li>
   <li> Modeling uncertainty in the disease effect time </li>
  <li> Various observation models: Gaussian, Poisson Negative Binomial, Bernoulli and binomial </li>
@@ -331,14 +343,48 @@ $(document).ready(function () {
 </ul>
 </div>
 <br>
+
+<img src="main1.png" alt="Overview" width="700"
+         height="500">
+
+<br>
+<br>
+<br>
+<div id="installation" class="section level3">
+<h3>Installation</h3>
 <hr>
-<img src="main1.png" alt="Overview" width="800"
-         height="600">
-<hr>
+
+To avoid problems, we recommend first installing the <code>rstan</code> package using <a href="https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started">these instructions</a>. Then,
+one can install <code>lgpr</code> in two ways.
+<br>
 <br>
 
-<div id="lgpr-tutorials" class="section level3">
+<b> A) Using devtools:</b>
+<ul>
+    <li> Install the <code>devtools</code> package, for example by running <code>install.packages('devtools')</code> </li>
+    <li> Run <code>devtools::install_github('jtimonen/lgpr')</code> </li>
+</ul>
+
+<b> B) On command line or Rstudio terminal:</b>
+<ul>
+    <li> download or clone <a href="https://github.com/jtimonen/lgpr">lgpr</a> </li>
+    <li> put it in directory **lgpr** under parent directory **parent-dir* </li>
+    <li> go to **parent-dir** on command line or Rstudio terminal </li>
+    <li> run <code>R CMD build lgpr</code>  </li>
+    <li> this will build the package into **lgpr_X.Y.Z.tar.gz** </li>
+    <li> install the package using <code>R CMD INSTALL lgpr_X.Y.Z.tar.gz</code> </li>
+</ul>
+<br>
+
+</div>
+
+<br>
+<br>
+<div id="tutorials" class="section level3">
 <h3>Tutorials</h3>
+<hr>
+
+These tutorials are a good place to get started with <code>lgpr</code>.
 <ul>
 	<li> <a href="basic.html">Basic tutorial</a>  </li>
 	<li> <a href="proteomics.html">Longitudinal proteomics data analysis</a></li>
@@ -349,25 +395,34 @@ $(document).ready(function () {
 </ul>
 <br>
 
-<div id="lgpr-classic" class="section level3">
-<h3>Analysing famous longitudinal data sets with lgpr</h3>
-These two classic data sets that are commonly used to demonstrate linear mixed models.
+These notebooks demostrate longitudinal GP modeling of classic data sets that are commonly used to demonstrate linear mixed models.
 <ul>
-        <li> <a href="orthodont.html">Analysing the Orthodont data set</a></li>
+  <li> <a href="orthodont.html">Analysing the Orthodont data set</a></li>
 	<li> <a href="sleepstudy.html">Analysing the sleepstudy data set</a></li>
 </ul>
 <br>
 
-<div id="lgpr-reproduce" class="section level3">
-<h3>Reproducing the results in the manuscript</h3>
-Code link to be added soon.
+</div>
 
+<br>
+<br>
+<div id="reproducibility" class="section level3">
+<h3>Reproducibility</h3>
+<hr>
+
+<ul>
+	<li> The package source code is available <a href="https://github.com/jtimonen/lgpr">here</a>. </li>
+  <li>  Code for reproducing the experiments and many figures of our manuscript is <a href="https://github.com/jtimonen/lgpr-usage">here</a>. </li>
+</ul>
+
+<br>
+<br>
+<br>
+<br>
+<br>
 
 </div>
 </div>
-
-</div>
-
 <script>
 
 // add bootstrap table styles to pandoc tables
@@ -391,6 +446,7 @@ $(document).ready(function () {
   })();
 </script>
 
+</div>
 </div>
 </body>
 </html>
