@@ -41,8 +41,8 @@
      id="namedview24682"
      showgrid="false"
      inkscape:zoom="0.88846657"
-     inkscape:cx="435.70221"
-     inkscape:cy="318.58871"
+     inkscape:cx="481.15083"
+     inkscape:cy="366.43201"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -3166,6 +3166,15 @@
   <g
      id="surface3409"
      transform="translate(-46.941498,-39.927578)">
+    <rect
+       ry="8.5528831"
+       rx="8.1599188"
+       y="36.440613"
+       x="36.389606"
+       height="465.12726"
+       width="657.59369"
+       id="rect5797"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.38889241;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill" />
     <g
        clip-path="url(#clip7)"
        id="g18222"
@@ -11285,121 +11294,117 @@
          y="69.812355"
          style="font-size:11px;line-height:0"> </tspan></text>
     <g
-       id="g18355-6"
-       transform="translate(164.40782,-18.083285)">
-      <g
-         id="g18408"
-         transform="translate(28.335094,17.647123)">
-        <ellipse
-           style="opacity:1;fill:#a3b5c8;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-           id="path18352-5"
-           cx="51.254234"
-           cy="63.959023"
-           rx="9.8688288"
-           ry="10.028003" />
-        <text
-           xml:space="preserve"
-           style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           x="46.663067"
+       transform="translate(192.74291,-0.436162)"
+       id="g18408">
+      <ellipse
+         ry="10.028003"
+         rx="9.8688288"
+         cy="63.959023"
+         cx="51.254234"
+         id="path18352-5"
+         style="opacity:1;fill:#a3b5c8;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         id="text18344-4"
+         y="67.525276"
+         x="46.663067"
+         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:0;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, ';fill:#ffffff;fill-opacity:1"
            y="67.525276"
-           id="text18344-4"><tspan
-             sodipodi:role="line"
-             id="tspan18346-7"
-             x="46.663067"
-             y="67.525276"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:0;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, ';fill:#ffffff;fill-opacity:1">2.</tspan></text>
-      </g>
-      <g
-         id="g18355-9"
-         transform="translate(198.98159,12.079785)">
-        <g
-           id="g18413"
-           transform="translate(-6.4,0.76734192)">
-          <ellipse
-             style="opacity:1;fill:#a3b5c8;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-             id="path18352-6"
-             cx="51.254234"
-             cy="68.759018"
-             rx="9.8688288"
-             ry="10.028003" />
-          <text
-             xml:space="preserve"
-             style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-             x="46.663067"
-             y="72.325272"
-             id="text18344-7"><tspan
-               sodipodi:role="line"
-               id="tspan18346-6"
-               x="46.663067"
-               y="72.325272"
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:0;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, ';fill:#ffffff;fill-opacity:1">3.</tspan></text>
-        </g>
-      </g>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:helvetica;-inkscape-font-specification:helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         x="-57.036449"
-         y="96.448112"
-         id="text18422"><tspan
-           sodipodi:role="line"
-           x="-57.036449"
-           y="96.448112"
-           id="tspan18456"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;line-height:100%;font-family:helvetica;-inkscape-font-specification:helvetica">Data and model </tspan><tspan
-           sodipodi:role="line"
-           x="-57.036449"
-           y="107.44811"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;line-height:100%;font-family:helvetica;-inkscape-font-specification:helvetica"
-           id="tspan18460">formula as input</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:helvetica;-inkscape-font-specification:helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         x="106.54314"
-         y="94.005241"
-         id="text18426"><tspan
-           sodipodi:role="line"
-           x="106.54314"
-           y="94.005241"
-           id="tspan18430"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;line-height:100%;font-family:helvetica;-inkscape-font-specification:helvetica">Parameter</tspan><tspan
-           sodipodi:role="line"
-           x="106.54314"
-           y="105.00524"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;line-height:100%;font-family:helvetica;-inkscape-font-specification:helvetica"
-           id="tspan18434">inference</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:helvetica;-inkscape-font-specification:helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         x="271.99869"
-         y="87.505241"
-         id="text18422-9"><tspan
-           sodipodi:role="line"
-           x="271.99869"
-           y="87.505241"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;line-height:100%;font-family:helvetica;-inkscape-font-specification:helvetica"
-           id="tspan18464">Selecting relevant</tspan><tspan
-           sodipodi:role="line"
-           x="271.99869"
-           y="98.505241"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;line-height:100%;font-family:helvetica;-inkscape-font-specification:helvetica"
-           id="tspan28775">components / </tspan><tspan
-           sodipodi:role="line"
-           x="271.99869"
-           y="109.50524"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;line-height:100%;font-family:helvetica;-inkscape-font-specification:helvetica"
-           id="tspan5740">covariates</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         x="442.85254"
-         y="155.94371"
-         id="text28777"><tspan
-           sodipodi:role="line"
-           x="442.85254"
-           y="155.94371"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;line-height:100%;font-family:Webdings;-inkscape-font-specification:Webdings"
-           id="tspan28799"> </tspan></text>
+           x="46.663067"
+           id="tspan18346-7"
+           sodipodi:role="line">2.</tspan></text>
     </g>
+    <g
+       transform="translate(363.38941,-6.0035)"
+       id="g18355-9">
+      <g
+         transform="translate(-6.4,0.76734192)"
+         id="g18413">
+        <ellipse
+           ry="10.028003"
+           rx="9.8688288"
+           cy="68.759018"
+           cx="51.254234"
+           id="path18352-6"
+           style="opacity:1;fill:#a3b5c8;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+        <text
+           id="text18344-7"
+           y="72.325272"
+           x="46.663067"
+           style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:0;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, ';fill:#ffffff;fill-opacity:1"
+             y="72.325272"
+             x="46.663067"
+             id="tspan18346-6"
+             sodipodi:role="line">3.</tspan></text>
+      </g>
+    </g>
+    <text
+       id="text18422"
+       y="78.36483"
+       x="107.37137"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:helvetica;-inkscape-font-specification:helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;line-height:100%;font-family:helvetica;-inkscape-font-specification:helvetica"
+         id="tspan18456"
+         y="78.36483"
+         x="107.37137"
+         sodipodi:role="line">Data and model </tspan><tspan
+         id="tspan18460"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;line-height:100%;font-family:helvetica;-inkscape-font-specification:helvetica"
+         y="89.36483"
+         x="107.37137"
+         sodipodi:role="line">formula as input</tspan></text>
+    <text
+       id="text18426"
+       y="75.921959"
+       x="270.95096"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:helvetica;-inkscape-font-specification:helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;line-height:100%;font-family:helvetica;-inkscape-font-specification:helvetica"
+         id="tspan18430"
+         y="75.921959"
+         x="270.95096"
+         sodipodi:role="line">Parameter</tspan><tspan
+         id="tspan18434"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;line-height:100%;font-family:helvetica;-inkscape-font-specification:helvetica"
+         y="86.921959"
+         x="270.95096"
+         sodipodi:role="line">inference</tspan></text>
+    <text
+       id="text18422-9"
+       y="69.421959"
+       x="436.40649"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:helvetica;-inkscape-font-specification:helvetica;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan18464"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;line-height:100%;font-family:helvetica;-inkscape-font-specification:helvetica"
+         y="69.421959"
+         x="436.40649"
+         sodipodi:role="line">Selecting relevant</tspan><tspan
+         id="tspan28775"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;line-height:100%;font-family:helvetica;-inkscape-font-specification:helvetica"
+         y="80.421959"
+         x="436.40649"
+         sodipodi:role="line">covariates / </tspan><tspan
+         id="tspan5740"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;line-height:100%;font-family:helvetica;-inkscape-font-specification:helvetica"
+         y="91.421959"
+         x="436.40649"
+         sodipodi:role="line">interactions</tspan></text>
+    <text
+       id="text28777"
+       y="137.86043"
+       x="607.26038"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan28799"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;line-height:100%;font-family:Webdings;-inkscape-font-specification:Webdings"
+         y="137.86043"
+         x="607.26038"
+         sodipodi:role="line"> </tspan></text>
     <g
        id="g29406"
        transform="translate(-64.526358,-2.9717095)">
