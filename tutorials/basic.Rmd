@@ -1,0 +1,106 @@
+---
+title: "Using the lgpr package"
+author: "Juho Timonen"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+#  pdf_document:
+#    toc: true     
+vignette: >
+  %\VignetteIndexEntry{Using the lgpr package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#"
+)
+```
+
+```{r load}
+library(ggplot2)
+library(lgpr)
+```
+
+## Simulating artificial data
+In this tutorial we generate an artificial longitudinal data set and analyse it. Our consists of 16 individuals and 6 measurement time points for each.
+
+```{r simulate, fig.width=7.2, fig.height=7}
+# generate data
+set.seed(321)
+simData <- simulate_data(N           = 16,
+                        t_data       = seq(12, 72, by = 12),
+                        covariates   = c(    2,2),
+                        lengthscales = c(12,24,12,12),
+                        relevances   = c(1,1,1,0),
+                        names        = c("sex", "location"),
+                        t_jitter     = 1.0,
+                        snr          = 3)
+
+# plot data for each individual separately
+plot_simdata(simData) + theme(text=element_text(size=12))
+```
+
+As can be seen from the following plot, the data was generated so that covariates age, id, and sex are relevant, whereas location is not.
+
+```{r plot_sim, fig.width=7.2, fig.height=5}
+# plot each generated component separately
+plot_components_simdata(simData, font_size = 9) 
+```
+
+## Fitting a model
+
+We fit a model with all covariates included. In general, it would be a good idea to use multiple, longer chains (arguments `iter` and `chains`).
+
+```{r fit, fig.width=7.2, fig.height=5}
+fit <- lgp(formula  = y ~ id + age + sex + location,
+           data     = simData$data,
+           iter     = 2000, 
+           chains   = 2,
+           refresh  = 0,
+           verbose  = TRUE)
+```
+
+## Visualising covariate effects
+
+We can visualize the inferred covariate effects and confirm that the effect of location is very small compared to that of other covariates.
+
+
+```{r plot_components, fig.width=7.2, fig.height=5}
+ttt    <- seq(0, 100, length.out = 60)
+X_pred <- create_test_points(fit, ttt)
+PRED   <- lgp_predict(fit, X_pred, samples = 'map')
+p      <- plot_components_posterior(fit, PRED=PRED, font_size = 9)
+p
+```
+
+Here we compute the posterior distributions of each component ($f_{(j)}$), and the sum of all components ($f_{sum}$) at a dense time grid of 100 points, using MAP hyperparameter estimates. For each component, the shaded ribbons indicate the $95\%$ posterior interval, and the solid lines are the posterior mean. To confirm that the fitted model makes sense, we can plot the posterior predictive distribution of the model, for each individual, along with the data points.
+
+```{r plot_pred, fig.width=7.2, fig.height=7}
+plot_posterior_y(fit, PRED) + theme(text=element_text(size=12))
+```
+
+## Component relevances and selection probabilities
+
+```{r print, fig.width=7.2, fig.height=7}
+print(fit)
+```
+
+The component relevances, non-probabilistic selection results and selection probabilities are reported above. As is seen, the location component is not selected and therefore correctly classified as irrelevant. The following plot shows the distribution of relevance for each component over all posterior samples.
+
+```{r sel, fig.width=6.2, fig.height=4}
+plot(fit) + theme(text=element_text(size=12))
+```
+
+## Selection probabilities with uncertain threshold
+
+The component relevances, non-probabilistic selection results and selection probabilities are reported above. As is seen, the location component is not selected and therefore correctly classified as irrelevant. The following plot shows the distribution of relevance for each component over all posterior samples.
+```{r prob, fig.width=6.2, fig.height=4}
+sel <- selection_prob(fit)
+print(round(sel$prob, 4)) # print selection probabilities, computed by weighing thresholds with Beta(100,5)
+plt <- sel$plot + theme_bw() + theme(text=element_text(size=12))
+plt
+```
