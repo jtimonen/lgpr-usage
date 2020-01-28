@@ -11,13 +11,19 @@ ui <- dashboardPage(
   dashboardHeader(title = "Results"),
   dashboardSidebar(
     sidebarMenu(
-      menuItem("Table: RNA-seq", icon = icon("columns"), tabName = "table1")
+      menuItem("Table: Narrow input warp", icon = icon("columns"), tabName = "table1")
+    ),
+    sidebarMenu(
+      menuItem("Table: Wide input warp", icon = icon("columns"), tabName = "table2")
     )
   ),
   dashboardBody(
     tabItems(
       tabItem(tabName = "table1",
               DT::dataTableOutput("t1")
+      ),
+      tabItem(tabName = "table2",
+              DT::dataTableOutput("t2")
       )
     )
   )
@@ -34,11 +40,18 @@ server <- function(input, output, session) {
   }
   
   # Data tables
+  icols <- c(1:10)
   output$t1 <- DT::renderDataTable({
-    fn <- normalizePath(file.path('../results.rds'))
+    fn <- normalizePath(file.path('../results_wide.rds'))
     df <- readRDS(fn)
     df <- round_df(df, digits = 3)
-    DT::datatable(df)
+    DT::datatable(df[,icols])
+  })
+  output$t2 <- DT::renderDataTable({
+    fn <- normalizePath(file.path('../results_narrow.rds'))
+    df <- readRDS(fn)
+    df <- round_df(df, digits = 3)
+    DT::datatable(df[,icols])
   })
   
 }
