@@ -14,7 +14,7 @@
    viewBox="0 0 193.35046 126.55581"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="demo_heterogeneous.svg">
   <defs
      id="defs2">
@@ -1282,16 +1282,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="221.00849"
-     inkscape:cy="252.91434"
+     inkscape:zoom="1.4"
+     inkscape:cx="313.98445"
+     inkscape:cy="160.64599"
      inkscape:document-units="mm"
      inkscape:current-layer="g823"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-width="1845"
+     inkscape:window-height="1145"
+     inkscape:window-x="75"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      fit-margin-left="1"
      fit-margin-top="3"
@@ -1305,7 +1305,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1318,6 +1318,16 @@
        transform="matrix(0.17227804,0,0,-0.17227804,4.4386336,181.10772)"
        inkscape:label="demo_heterogeneous_raw"
        id="g823">
+      <rect
+         style="opacity:1;fill:#feffff;fill-opacity:1;stroke:none;stroke-width:1.45132399;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect47919"
+         width="1140.8746"
+         height="748.15039"
+         x="-0.80989444"
+         y="-1007.1571"
+         transform="scale(1,-1)"
+         rx="132.28043"
+         ry="12.543832" />
       <g
          id="g825" />
       <g
