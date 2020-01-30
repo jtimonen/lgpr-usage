@@ -42,13 +42,13 @@ server <- function(input, output, session) {
   # Data tables
   icols <- c(1:10)
   output$t1 <- DT::renderDataTable({
-    fn <- normalizePath(file.path('../results_wide.rds'))
+    fn <- normalizePath(file.path('../res/results_wide.rds'))
     df <- readRDS(fn)
     df <- round_df(df, digits = 3)
     DT::datatable(df[,icols])
   })
   output$t2 <- DT::renderDataTable({
-    fn <- normalizePath(file.path('../results_narrow.rds'))
+    fn <- normalizePath(file.path('../res/results_narrow.rds'))
     df <- readRDS(fn)
     df <- round_df(df, digits = 3)
     DT::datatable(df[,icols])
