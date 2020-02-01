@@ -14,6 +14,12 @@ There are seven different experiments:
 * `03_heter` - heterogeneous disease effect modeling
 * `04_effect_time` - modeling uncertainty of disease effect time
 * `05_nb` - experiment with negative binomial distributed count data
-* `06_proteomics` - longitudinal proteomics data set modeling with a homogeneous disease effect
-* `07_proteomics_heter` - longitudinal proteomics data set modeling with a heterogeneous disease effect
-* `08_rna-seq` - analysis of longitudinal RNA-seq data from CD4+ cells (data not publicly available)
+* `06_proteomics` - longitudinal proteomics data set [1] modeling with a homogeneous disease effect
+* `07_proteomics_heter` - longitudinal proteomics data set [1] modeling with a heterogeneous disease effect
+* `08_rna-seq` - analysis of longitudinal RNA-seq data from CD4+ cells [2]
+
+## References 
+
+*[1]* Liu *et al.* Temporal expression profiling of plasma proteins reveals oxidative stress in early stages of Type 1 Diabetes progression (2018). *Journal of proteomics* 172: 100-110. doi:10.1016/j.jprot.2017.10.004
+
+*[2]* Kallionpää *et al.* Early Detection of Peripheral Blood Cell Signature in Children Developing β-Cell Autoimmunity at a Young Age (2019). *Diabetes*  68(10):2024-2034. doi:10.2337/db19-0287
