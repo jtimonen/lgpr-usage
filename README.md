@@ -14,5 +14,6 @@ There are seven different experiments:
 * `03_heter` - heterogeneous disease effect modeling
 * `04_effect_time` - modeling uncertainty of disease effect time
 * `05_nb` - experiment with negative binomial distributed count data
-* `06_proteomics` - proteomics data set modeling with a homogeneous disease effect
-* `07_proteomics_heter` - proteomics data set modeling with a heterogeneous disease effect
+* `06_proteomics` - longitudinal proteomics data set modeling with a homogeneous disease effect
+* `07_proteomics_heter` - longitudinal proteomics data set modeling with a heterogeneous disease effect
+* `08_rna-seq` - analysis of longitudinal RNA-seq data from CD4+ cells (data not publicly available)
