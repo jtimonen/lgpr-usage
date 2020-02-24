@@ -1,5 +1,5 @@
 ---
-title: "Nonparametric modeling of longitudinal data"
+title: "Modeling longitudinal biomedical data"
 subtitle: "CS-E5890 - Statistical Genetics and Personalised Medicine"
 author: Juho Timonen
 date: February 28, 2020
@@ -8,9 +8,11 @@ output:
   ioslides_presentation:
     smaller: true
     css: styles.css
+    number_sections: true
+    toc: true
+    toc_depth: 2
 header-includes:
    - \usepackage{caption}
-   - \captionsetup[figure]{font=\scriptsize}
 bibliography: bibliography.bib
 ---
 
@@ -21,6 +23,7 @@ bibliography: bibliography.bib
 library(lgpr)
 library(lme4)
 library(lattice)
+library(ggplot2)
 ```
 
 
@@ -43,11 +46,181 @@ library(lattice)
 - Makes it possible to indentify of disease predictors
 - We focus on purely observational data, instead of studying the effect of some treatment
 
+- Examples
+  * joo @liu2018
+  * juu @stewart2018
+  * jaa @kallionpaa2019
 
----
+## Example: longitudinal proteomics
 
-```{r, cars, fig.cap="A scatterplot.", echo=TRUE}
-plot(cars)
+- Longitudinal profile of 2000 proteins in blood of children with Type 1 Diabetes (T1D) was measured by @liu2018
+
+```{r, proteomics, echo = FALSE, message = FALSE, results='hide'}
+#Function for reading data
+readLiuData <- function(parentDir, protein){
+  fn_X   <- paste(parentDir,"/liu_preproc_X.csv",sep="")
+  fn_Y   <- paste(parentDir,"/liu_preproc_Y.csv",sep="")
+  X_data <- read.csv(fn_X, header=TRUE, sep=",")
+  X_data <- X_data[,1:5]
+  Y_data <- read.csv(fn_Y, header=TRUE, sep=",")
+  names  <- colnames(Y_data)
+  if(!is.character(protein)){
+    pname <- names[protein]
+  }else{
+    pname <- protein
+  }
+  cat("Read data for protein '", pname, "'. \n", sep = "")
+  y      <- Y_data[[pname]]
+  notnan <- which(!is.nan(y))
+  n_nan  <- length(which(is.nan(y)))
+  data   <- data.frame(cbind(X_data, y))
+  data   <- data[notnan, ]
+  cat("Removed ", n_nan , " rows with NaN value for the response variable.\n", sep = "")
+  return(data)
+}
+
+dat <- readLiuData('../../data/proteomics', 475)
+h <- plot_data(dat, highlight = "diseaseAge")
+h + theme(plot.title = element_blank()) + xlab('Age (months)') + ylab('Normalized protein abundance')
 ```
+
+
+
+# Statistical modeling
+
+## Motivation for modeling
+
+- Longitudinal studies typically collect measurements of several variables, which can be
+    * continuous (age, blood pressure)
+    * discrete (number of sequencing reads for some gene)
+    * categorical (sex, nationality)
+    
+- In addition to their type, the variables differ in how expensive and invasive they are to measure
+
+- Statistical modeling is needed to obtain interpretable associations between the variables
+    * helps in understanding disease development
+    * can reduce future measurement costs
+    
+- Another goal can be to build a predictive model
+
+## Regression
+
+- Regression analysis can reveal associations between a *response variable* and *covariates*
+
+- The response variable can be 
+    * continuous (abundance of some protein in blood)
+    * discrete (number of sequencing reads for some gene)
+    * a proportion (percentage of methylated reads at some location)
+    
+- Covariates can be
+    * continuous (age, blood pressure)
+    * categorical (sex, nationality)
+    
+## Example longitudinal data
+
+```{r, dataframe, echo=FALSE}
+head(dat, 20)
+```
+- One row is one observation, one column is one covariate
+
+## Notation
+
+- We will use notation where
+    * we have $n$ observations $\left \lbrace (y_i, \boldsymbol{x}_i) \right \rbrace_{i=1}^n$
+    * $y_i$ is the value of the response variable in observation $i$
+    * $\boldsymbol{x}_i$ is the vector of covariate values in observation $i$
+    
+    $$
+    \boldsymbol{x}_i = \begin{bmatrix}x_{i1}, &\ldots, &x_{iD} \end{bmatrix}
+    $$
+    * $x_{id}$ is the value of covariate $d$ in observation $i$
+    * $D$ is the total number of covariates
+
+- Also we define
+    * $\boldsymbol{y} = \begin{bmatrix}y_{1}, &\ldots, &y_{n} \end{bmatrix}^{\top}$
+    * $\boldsymbol{X}$ as an $n \times D$ matrix where row $i$ is $\boldsymbol{x}_i$
+    
+## Problems with standard linear model
+
+- Consider the linear regression model
+$$
+\begin{equation}
+\boldsymbol{y} = \boldsymbol{X} \boldsymbol{w} + \boldsymbol{\epsilon},
+\end{equation}
+$$
+where
+    * $\boldsymbol{w} = \begin{bmatrix} w_{1}, &\ldots, & w_{D} \end{bmatrix}^{\top}$ is a vector of regression coefficients
+    * $\boldsymbol{\epsilon} = \begin{bmatrix}\epsilon_{1}, &\ldots, &\epsilon_{n} \end{bmatrix}^{\top}$ and $\epsilon_i \sim \mathcal{N}(0, \sigma_{\epsilon}^2)$, i.i.d for all $i = 1, \ldots, n$
+
+
+$~$
+
+- There are three problems:
+
+    1. How to represent **categorical covariates** numerically so that the regression coefficients make sense
+    2. If the response variable is not continuous, the **Gaussian noise** assumption does not make sense
+    3. If many of the measurements are from the same individual, the **i.i.d noise** assumption does not make sense
+
+## Encoding categorical covariates
+
+$~$
+*1. How to represent categorical covariates numerically so that the regression coefficients make sense*
+$~$
+$~$
+
+- This is not really a problem
+
+- A covariate $x_{\text{country}}$ which can take values *"Finland"* or *"Estonia"* can represented so that 
+$$
+\begin{align*}
+x_{\text{country}} &= 0 & \text{means Finland} \\
+x_{\text{country}} &= 1 & \text{means Estonia} \\
+\end{align*}
+$$
+
+- Now the corresponding regression coefficient can be interpreted as the difference between the two countries
+
+- This can be extended to categorical covariates with more than two values, but requires creating additional covariates (e.g. *dummy coding*)
+
+- See for example https://stats.idre.ucla.edu/spss/faq/coding-systems-for-categorical-variables-in-regression-analysis-2/
+
+## Generalized linear models
+
+$~$
+*2. If the response variable is not continuous, the Gaussian noise assumption does not make sense*
+$~$
+$~$
+
+- Different types of response variables can be modeled with the appropriate observation model using *generalized linear models*
+- For now we assume that the response variable is continuous and the Gaussian noise assumption makes sense
+
+## Correlated noise
+
+$~$
+*3. If many of the measurements are from the same individual, the i.i.d noise assumption does not make sense*
+$~$
+$~$
+
+- This is always the case with longitudinal data
+- Measurements corresponding to the same individual are correlated
+- Requires *hierarchical* modeling
+
+# Linear mixed models
+
+## Linear mixed-effect models
+- Linear mixed model:
+$$
+\boldsymbol{y} = \boldsymbol{X} \boldsymbol{w} + \boldsymbol{Z}\boldsymbol{u} +  \boldsymbol{\epsilon},
+$$
+where
+    * $\boldsymbol{w}$ is an unknown vector of *fixed effects*
+    * $\boldsymbol{u}$ is an unknown vector of *random effects*
+    * $\boldsymbol{X}$ and $\boldsymbol{Z}$ are design matrices
+    
+- Assumptions:
+    * $\boldsymbol{u} \sim \mathcal{N}\left(\boldsymbol{0}, \boldsymbol{G} \right)$
+    * $\epsilon_i \sim \mathcal{N}(0, \sigma_{\epsilon}^2)$ i.i.d
+
+- We see that this means $\mathbb{E}(\boldsymbol{y})=X \boldsymbol{w}$
 
 ## References
