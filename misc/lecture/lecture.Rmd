@@ -1,0 +1,53 @@
+---
+title: "Nonparametric modeling of longitudinal data"
+subtitle: "CS-E5890 - Statistical Genetics and Personalised Medicine"
+author: Juho Timonen
+date: February 28, 2020
+
+output:
+  ioslides_presentation:
+    smaller: true
+    css: styles.css
+header-includes:
+   - \usepackage{caption}
+   - \captionsetup[figure]{font=\scriptsize}
+bibliography: bibliography.bib
+---
+
+# Introduction
+
+```{r, setup, echo=FALSE, fig.height=1, message=FALSE}
+#devtools::install_github('jtimonen/lgpr')
+library(lgpr)
+library(lme4)
+library(lattice)
+```
+
+
+## Longitudinal studies 
+
+- Same observational units are measured at multiple time points
+- Also called *panel studies*
+- Example from @belenky2003:
+ 
+```{r, sleepstudy, echo=FALSE, fig.height=4.6}
+ xyplot(Reaction ~ Days | Subject, sleepstudy,
+        xlab = "Days of sleep deprivation",
+        ylab = "Average reaction time (ms)", aspect = "xy")
+```
+
+## Biomedical longitudinal data
+
+- The longitudinal study design is common in biomedicine
+- Observational units are individual persons (patients)
+- Makes it possible to indentify of disease predictors
+- We focus on purely observational data, instead of studying the effect of some treatment
+
+
+---
+
+```{r, cars, fig.cap="A scatterplot.", echo=TRUE}
+plot(cars)
+```
+
+## References

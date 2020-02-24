@@ -1,0 +1,6 @@
+*.html
+.DS_Store
+.Rhistory
+.RData
+*.pdf
+
