@@ -1,0 +1,21 @@
+---
+title: "5.1a Additive GPs for longitudinal data"
+bibliography: bibliography.bib
+---
+
+- An underlying unobserved signal $f: \mathcal{X} \rightarrow \mathbb{R}$ is linked to the measured responses $\boldsymbol{y}$ through a likelihood function, which is based on a statistical observation model. 
+
+- The process $f$ is assumed to consist of $J$ low-dimensional additive components, so that 
+$$
+f(\boldsymbol{x}) = f^{(1)}(\boldsymbol{x}) + \ldots + f^{(J)}(\boldsymbol{x}),
+$$
+where each $f^{(j)}, j = 1, \ldots, J$ is a function of only one or two covariates. 
+
+- Decomposition into additive components allows us to obtain interpretable covariate effects after fitting the model. 
+
+<br>
+<a href="04_gp_4.html" class="previous">&larr; Previous</a>
+<a href="05_lgpr_1b.html" class="next">Next &rarr;</a>
+<br>
+<br>
+<hr>

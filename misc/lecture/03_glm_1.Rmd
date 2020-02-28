@@ -1,0 +1,24 @@
+---
+title: "3.1 Linear mixed-effect models"
+bibliography: bibliography.bib
+---
+
+- We begin by just stating the model
+$$
+\boldsymbol{y} = \boldsymbol{X} \boldsymbol{w} + \boldsymbol{Z}\boldsymbol{u} +  \boldsymbol{\epsilon},
+$$
+where
+    * $\boldsymbol{w}$ is a vector of $p$ *fixed effects*
+    * $\boldsymbol{u}$ is a vector of $q$ *random effects*
+    * $\boldsymbol{X}$ (size $n \times p$) and $\boldsymbol{Z}$  (size $n \times q$) are design matrices
+    * $\boldsymbol{u} \sim \mathcal{N}\left(\boldsymbol{0}, \boldsymbol{G} \right)$ and $\boldsymbol{G}$ is a variance-covariance matrix that is estimated
+    * $\epsilon_i \sim \mathcal{N}(0, \sigma_{\epsilon}^2)$ i.i.d (usually)
+    
+- Observed: $\boldsymbol{X}$, $\boldsymbol{Z}$, $\boldsymbol{y}$
+
+<br>
+<a href="02_modeling_8.html" class="previous">&larr; Previous</a>
+<a href="03_glm_2.html" class="next">Next &rarr;</a>
+<br>
+<br>
+<hr>

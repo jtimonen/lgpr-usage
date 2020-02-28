@@ -1,4 +1,50 @@
-slides > slide {
-  background: linear-gradient(#ffffff, #ffffff 85%, #ffffff);
-  background-color: white;
+/* Fonts */
+body{
+  /*font-family: Helvetica;*/
+  font-size: 12pt;
 }
+
+li{
+  font-family: Helvetica;
+  font-size: 20pt;
+  margin-bottom: 6px;
+}
+
+h1{
+  margin-top: 20px;
+  font-size: 26pt;
+  margin-bottom: 10px;
+}
+h2{
+  margin-top: 20px;
+  font-size: 24pt;
+  margin-bottom: 10px;
+}
+
+a{
+  margin-top: 5px;
+  font-size: 18px;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+  padding: 6px 12px;
+}
+
+.next {
+  background-color: #33A5FF;
+  color: white;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+  padding: 6px 12px;
+}
+
+body {
+  margin-top: 20px;
+}
+

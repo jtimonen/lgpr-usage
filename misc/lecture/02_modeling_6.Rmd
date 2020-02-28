@@ -1,0 +1,33 @@
+---
+title: "2.6 Encoding categorical covariates"
+bibliography: bibliography.bib
+---
+
+$~$
+*1. How to represent categorical covariates numerically so that the regression coefficients make sense*
+$~$
+$~$
+
+- This is not really a problem
+
+- A covariate $x_{\text{country}}$ which can take values *"Finland"* or *"Estonia"* can represented so that 
+$$
+\begin{align*}
+x_{\text{country}} &= 0 & \text{means Finland} \\
+x_{\text{country}} &= 1 & \text{means Estonia} \\
+\end{align*}
+$$
+
+- Now the corresponding regression coefficient can be interpreted as the difference between the two countries
+
+- This can be extended to categorical covariates with more than two values, but requires creating additional covariates (e.g. *dummy coding*)
+
+- See for example https://stats.idre.ucla.edu/spss/faq/coding-systems-for-categorical-variables-in-regression-analysis-2/
+   
+   
+<br>
+<a href="02_modeling_5.html" class="previous">&larr; Previous</a>
+<a href="02_modeling_7.html" class="next">Next &rarr;</a>
+<br>
+<br>
+<hr>

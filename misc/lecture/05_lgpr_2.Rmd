@@ -1,0 +1,39 @@
+---
+title: "5.2 Shared effects"
+bibliography: bibliography.bib
+---
+
+- Shared effects of continuous covariates (such as age) can be modeled using the exponentiated quadratic kernel
+
+$$
+k_{\text{eq}}(x,x' \mid \alpha, \ell) = \alpha^2 \exp \left( -\frac{(x-x')^2}{2 \ell^2}\right)
+$$
+
+- We see that
+    + Covariance of function values at points $x$ and $x'$ is be large if they are close to each other, and close to zero if they are far away
+    + Parameter $\ell$ determines how rapidly the function can vary
+
+```{r, gp4, echo=FALSE, message=FALSE}
+library(lgpr)
+library(MASS)
+set.seed(34)
+N <- 100
+x <- seq(0,10,length.out=N)
+
+ker <- function(x1,x2){lgpr:::kernel_se(x1, x2, 1, 2)}
+K <- ker(x,x)
+m <- rep(0, N)
+
+f <- mvrnorm(n = 1, m, K)
+plot(x,f,'l',col='firebrick3',ylim=c(-3,3),main='lenghtscale = 2')
+points(x[20], f[20], pch=16)
+points(x[35], f[35], pch=16)
+```
+
+
+<br>
+<a href="05_lgpr_1b.html" class="previous">&larr; Previous</a>
+<a href="05_lgpr_3.html" class="next">Next &rarr;</a>
+<br>
+<br>
+<hr>

@@ -1,0 +1,20 @@
+---
+title: "2.8 Correlated noise"
+bibliography: bibliography.bib
+---
+
+$~$
+*3. If many of the measurements are from the same individual, the i.i.d noise assumption does not make sense*
+$~$
+$~$
+
+- This is always the case with longitudinal data
+- Measurements corresponding to the same individual are correlated
+- Requires *hierarchical* modeling
+   
+<br>
+<a href="02_modeling_7.html" class="previous">&larr; Previous</a>
+<a href="03_glm_1.html" class="next">Next &rarr;</a>
+<br>
+<br>
+<hr>

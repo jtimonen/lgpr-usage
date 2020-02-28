@@ -1,0 +1,23 @@
+---
+title: "1.2 Biomedical longitudinal data"
+bibliography: bibliography.bib
+---
+
+- The longitudinal study design is common in biomedicine
+- Observational units are individual persons (subjects)
+- Makes it possible to indentify of disease predictors
+- We focus on purely observational data, instead of studying the effect of some treatment
+
+- Recent examples
+    + Proteomics: @liu2018
+    + Metagenomics: @stewart2018
+    + RNA-sequencing: @kallionpaa2019
+
+<br>
+<a href="01_intro_1.html" class="previous">&larr; Previous</a>
+<a href="01_intro_3.html" class="next">Next &rarr;</a>
+<br>
+<br>
+<hr>
+
+##### References

@@ -1,0 +1,54 @@
+---
+title: "Statistical Genetics and Personalised Medicine"
+subtitle: "Lecture 1 - Modeling longitudinal biomedical data"
+author: Juho Timonen, Aalto University
+date: February 28, 2020
+---
+
+<br>
+<hr>
+<br>
+
+```{r, setup, echo=FALSE, fig.height=1, message=FALSE}
+#devtools::install_github('jtimonen/lgpr')
+library(lgpr)
+library(lme4)
+library(lattice)
+library(ggplot2)
+```
+
+```{r, proteomics_introfig, echo = FALSE, message = FALSE, results='hide', fig.width=8, fig.align='center', fig.height=4}
+#Function for reading data
+readLiuData <- function(parentDir, protein){
+  fn_X   <- paste(parentDir,"/liu_preproc_X.csv",sep="")
+  fn_Y   <- paste(parentDir,"/liu_preproc_Y.csv",sep="")
+  X_data <- read.csv(fn_X, header=TRUE, sep=",")
+  X_data <- X_data[,1:5]
+  Y_data <- read.csv(fn_Y, header=TRUE, sep=",")
+  names  <- colnames(Y_data)
+  if(!is.character(protein)){
+    pname <- names[protein]
+  }else{
+    pname <- protein
+  }
+  cat("Read data for protein '", pname, "'. \n", sep = "")
+  y      <- Y_data[[pname]]
+  notnan <- which(!is.nan(y))
+  n_nan  <- length(which(is.nan(y)))
+  data   <- data.frame(cbind(X_data, y))
+  data   <- data[notnan, ]
+  cat("Removed ", n_nan , " rows with NaN value for the response variable.\n", sep = "")
+  return(data)
+}
+
+dat <- readLiuData('../../data/proteomics', 475)
+h <- plot_data(dat, highlight = "diseaseAge")
+h <- h + theme_void() + theme(plot.title = element_blank()) +
+  theme(plot.subtitle = element_blank()) + xlab('Age (months)')
+h
+```
+
+<br>
+<a href="01_intro_1.html" class="next">Next &rarr;</a>
+<br>
+

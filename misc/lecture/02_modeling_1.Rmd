@@ -1,0 +1,24 @@
+---
+title: "2.1 Motivation for statistical modeling"
+bibliography: bibliography.bib
+---
+
+- Longitudinal studies typically collect measurements of several variables, which can be
+    * continuous (age, blood pressure)
+    * discrete (number of sequencing reads for some gene)
+    * categorical (sex, nationality)
+    
+- In addition to their type, the variables differ in how expensive and invasive they are to measure
+
+- Statistical modeling is needed to obtain interpretable associations between the variables
+    * helps in understanding disease development
+    * can reduce future measurement costs
+    
+- Another goal can be to build a predictive model
+
+<br>
+<a href="01_intro_3.html" class="previous">&larr; Previous</a>
+<a href="02_modeling_2.html" class="next">Next &rarr;</a>
+<br>
+<br>
+<hr>

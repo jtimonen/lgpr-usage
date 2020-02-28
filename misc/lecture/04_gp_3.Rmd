@@ -1,0 +1,26 @@
+---
+title: "4.3 GP definition"
+bibliography: bibliography.bib
+---
+
+- A Gaussian process is a collection of random variables, any finite number of which has a multivariate normal distribution
+
+- A function $f: \mathcal{X} \rightarrow \mathbb{R}$ has a GP prior 
+$$
+f(\boldsymbol{x}) \sim \mathcal{GP}\left(m(\boldsymbol{x}), k(\boldsymbol{x}, \boldsymbol{x}') \right)$$
+with mean function $m(\boldsymbol{x})$ and covariance function $k(\boldsymbol{x}, \boldsymbol{x}')$, if for any finite number of inputs $\{\boldsymbol{x}_p \in \mathcal{X} \}_{p=1}^P$, the vector of function values $\boldsymbol{f} = \left[f(\boldsymbol{x_1}), \ldots, f(\boldsymbol{x}_P) \right]^\top$ has a multivariate normal prior
+$$
+\boldsymbol{f} \sim \mathcal{N}\left(\boldsymbol{m},\boldsymbol{K} \right)
+$$
+with mean vector $\boldsymbol{m} = \left[m(\boldsymbol{x_1}), \ldots, m(\boldsymbol{x}_P) \right]^\top$ and covariance matrix $\boldsymbol{K} \in \mathcal{X}^{P \times P}$ with entries $\{ \boldsymbol{K} \}_{ij} = k(\boldsymbol{x}_i, \boldsymbol{x}_j)$. 
+
+- @rasmussen2006
+
+<br>
+<a href="04_gp_2.html" class="previous">&larr; Previous</a>
+<a href="04_gp_4.html" class="next">Next &rarr;</a>
+<br>
+<br>
+<hr>
+
+##### References

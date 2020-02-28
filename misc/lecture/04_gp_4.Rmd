@@ -1,0 +1,32 @@
+---
+title: "4.4 Kernel function"
+bibliography: bibliography.bib
+---
+
+- Often, zero mean function $m(\boldsymbol{x}) = 0$ is used. 
+
+- The covariance (or kernel) function encodes information about the covariance of function values at different points. Choosing a suitable kernel function therefore is an essential part of GP modeling.
+
+```{r, gp4, echo=FALSE, message=FALSE}
+library(lgpr)
+library(MASS)
+set.seed(34)
+N <- 100
+x <- seq(0,10,length.out=N)
+
+ker <- function(x1,x2){lgpr:::kernel_se(x1, x2, 1, 0.5)}
+K <- ker(x,x)
+m <- rep(0, N)
+
+f <- mvrnorm(n = 1, m, K)
+plot(x,f,'l',col='firebrick3',ylim=c(-3,3),main='lenghtscale = 0.5')
+points(x[20], f[20], pch=16)
+points(x[35], f[35], pch=16)
+```
+
+<br>
+<a href="04_gp_3.html" class="previous">&larr; Previous</a>
+<a href="04_gp_5.html" class="next">Next &rarr;</a>
+<br>
+<br>
+<hr>

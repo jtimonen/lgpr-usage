@@ -1,0 +1,21 @@
+
+---
+title: "2.3 Example longitudinal data"
+bibliography: bibliography.bib
+---
+
+- This is just to give an idea what kind of variables we might be dealing with
+- One row is one observation, one column is one variable
+- **y** is the response variable, others are covariates
+- Notice that also subject **id** is a covariate
+- We come back to **diseaseAge** later
+```{r, dataframe, echo=FALSE}
+print(dat[100:150,], row.names = FALSE)
+```
+
+<br>
+<a href="02_modeling_2.html" class="previous">&larr; Previous</a>
+<a href="02_modeling_4.html" class="next">Next &rarr;</a>
+<br>
+<br>
+<hr>

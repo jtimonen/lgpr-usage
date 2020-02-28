@@ -1,0 +1,26 @@
+---
+title: "5.1b Additive GPs for longitudinal data"
+bibliography: bibliography.bib
+---
+
+- Each component has a GP prior 
+$$
+f^{(j)}( \boldsymbol{x}) \sim \mathcal{GP}(0, \alpha_j^2 k_j(\boldsymbol{x}, \boldsymbol{x}'))$$
+and we can write 
+$$
+    f(\boldsymbol{x}) \sim \mathcal{GP}\left(0, k(\boldsymbol{x},\boldsymbol{x}') \right),
+$$
+where $k(\boldsymbol{x},\boldsymbol{x}')  = \sum_{j=1}^J \alpha_j^2 k_j(\boldsymbol{x},\boldsymbol{x}’)$. 
+
+- Parameter $\alpha_j$ determines how much component $j$ can vary
+
+- The base kernel functions $k_j(\boldsymbol{x},\boldsymbol{x}’)$ are constructed based on what covariates are included in the model
+
+- We can study the relevances of different covariates based on posterior distributions of each component $f^{(j)}$. 
+
+<br>
+<a href="05_lgpr_1.html" class="previous">&larr; Previous</a>
+<a href="05_lgpr_2.html" class="next">Next &rarr;</a>
+<br>
+<br>
+<hr>

@@ -1,0 +1,31 @@
+---
+title: "2.5 Problems with standard linear model"
+bibliography: bibliography.bib
+---
+
+- Consider the linear regression model
+$$
+\begin{equation}
+\boldsymbol{y} = \boldsymbol{X} \boldsymbol{w} + \boldsymbol{\epsilon},
+\end{equation}
+$$
+where
+    * $\boldsymbol{w} = \begin{bmatrix} w_{1}, &\ldots, & w_{D} \end{bmatrix}^{\top}$ is a vector of regression coefficients
+    * $\boldsymbol{\epsilon} = \begin{bmatrix}\epsilon_{1}, &\ldots, &\epsilon_{n} \end{bmatrix}^{\top}$ and $\epsilon_i \sim \mathcal{N}(0, \sigma_{\epsilon}^2)$, i.i.d for all $i = 1, \ldots, n$
+
+
+$~$
+
+- There are three problems:
+
+    1. How to represent **categorical covariates** numerically so that the regression coefficients make sense
+    2. If the response variable is not continuous, the **Gaussian noise** assumption does not make sense
+    3. If many of the measurements are from the same individual, the **i.i.d noise** assumption does not make sense
+
+
+<br>
+<a href="02_modeling_4.html" class="previous">&larr; Previous</a>
+<a href="02_modeling_6.html" class="next">Next &rarr;</a>
+<br>
+<br>
+<hr>

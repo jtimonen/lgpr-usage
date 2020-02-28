@@ -1,0 +1,38 @@
+---
+title: "3.3 Example with R: Sleepstudy data"
+bibliography: bibliography.bib
+---
+
+- The covariates are *Days* (time from beginning of experiment) and 
+*Subject* (subject id)
+- *Reaction* (reaction time in milliseconds) is our response variable
+
+```{r, dat3}
+library(lattice)
+library(ggplot2)
+library(lme4) # data is in this package
+head(sleepstudy) # prints first 6 rows
+```
+
+- We plot the data
+
+```{r, plot2, fig.width=8}
+xyplot(Reaction ~ Days | Subject, sleepstudy, type = c("g","p","r"),
+       index = function(x,y) coef(lm(y ~ x))[1],
+       xlab = "Days of sleep deprivation",
+       ylab = "Average reaction time (ms)", aspect = "xy")
+```
+
+- We fit a mixed model where *Subject* is a random effect
+
+```{r, fit2, fig.width=8}
+fit <- lmer(Reaction ~ Days + (Days|Subject), sleepstudy)
+summary(fit)
+```
+
+<br>
+<a href="03_glm_1.html" class="previous">&larr; Previous</a>
+<a href="04_gp_1.html" class="next">Next &rarr;</a>
+<br>
+<br>
+<hr>

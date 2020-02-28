@@ -1,0 +1,28 @@
+name: "lecture-1"
+output:
+  html_document:
+    number_sections: true
+    theme: spacelab
+    include:
+        after_body: footer.html
+    header-includes:
+        - \usepackage{color}
+        - \usepackage{amsmath}
+        - \usepackage{amssymb}
+    css: styles.css
+    
+navbar:
+  title: "Lecture 1"
+  left:
+    - text: "1. Introduction"
+      href: 01_intro_1.html
+    - text: "2. Modeling"
+      href: 02_modeling_1.html
+    - text: "3. Mixed models"
+      href: 03_glm_1.html
+    - text: "4. GP"
+      href: 04_gp_1.html
+    - text: "5. Longitudinal GP modeling"
+      href: 05_lgpr_1.html
+    
+bibliography: bibliography.bib

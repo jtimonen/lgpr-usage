@@ -1,0 +1,19 @@
+---
+title: "2.7 Generalized linear models"
+bibliography: bibliography.bib
+---
+
+$~$
+*2. If the response variable is not continuous, the Gaussian noise assumption does not make sense*
+$~$
+$~$
+
+- Different types of response variables can be modeled with the appropriate observation model using *generalized linear models*
+- For now we assume that the response variable is continuous and the Gaussian noise assumption makes sense
+
+<br>
+<a href="02_modeling_6.html" class="previous">&larr; Previous</a>
+<a href="02_modeling_8.html" class="next">Next &rarr;</a>
+<br>
+<br>
+<hr>

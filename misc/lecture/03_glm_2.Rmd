@@ -1,0 +1,25 @@
+---
+title: "3.2 Fixed and random effects"
+bibliography: bibliography.bib
+---
+
+- In a standard linear model
+$$
+\boldsymbol{y} = \boldsymbol{X} \color{darkgray}{\boldsymbol{w}} +  \boldsymbol{\epsilon}
+$$
+all effects $\color{darkgray}{\boldsymbol{w}}$ are fixed effects
+
+- This might be ok, if we assume that data contains observations of all possible values of all **categorical covariates** (possible for example for sex/group)
+
+- However, when the subject **id** is one covariate, this is not possible
+
+- We can only assume that the observed individuals are a random sample from a population
+
+- Therefore we want to model **id** as a random effect
+
+<br>
+<a href="03_glm_1.html" class="previous">&larr; Previous</a>
+<a href="03_glm_3.html" class="next">Next &rarr;</a>
+<br>
+<br>
+<hr>

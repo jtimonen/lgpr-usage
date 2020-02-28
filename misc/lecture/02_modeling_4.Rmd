@@ -1,0 +1,27 @@
+---
+title: "2.4 Notation"
+bibliography: bibliography.bib
+---
+
+- We will use notation where
+    * we have $n$ observations $\left \lbrace (y_i, \boldsymbol{x}_i) \right \rbrace_{i=1}^n$
+    * $y_i$ is the value of the response variable in observation $i$
+    * $\boldsymbol{x}_i$ is the vector of covariate values in observation $i$
+    
+    $$
+    \boldsymbol{x}_i = \begin{bmatrix}x_{i1}, &\ldots, &x_{iD} \end{bmatrix}
+    $$
+    * $x_{id}$ is the value of covariate $d$ in observation $i$
+    * $D$ is the total number of covariates
+
+- Also we define
+    * $\boldsymbol{y} = \begin{bmatrix}y_{1}, &\ldots, &y_{n} \end{bmatrix}^{\top}$
+    * $\boldsymbol{X}$ as an $n \times D$ matrix where row $i$ is $\boldsymbol{x}_i$
+ 
+   
+<br>
+<a href="02_modeling_3.html" class="previous">&larr; Previous</a>
+<a href="02_modeling_5.html" class="next">Next &rarr;</a>
+<br>
+<br>
+<hr>

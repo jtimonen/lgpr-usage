@@ -1,0 +1,71 @@
+---
+title: "4.2 Idea of GPs"
+bibliography: bibliography.bib
+---
+
+- Here we are modeling function $f(x): \mathbb{R} \rightarrow \mathbb{R}$ as a GP
+
+- *A priori*, we expect the function $f$ to be something like these:
+```{r, gp1, echo=FALSE, message=FALSE}
+library(lgpr)
+library(MASS)
+set.seed(123)
+N <- 100
+x <- seq(0,10,length.out=N)
+ker <- function(x1,x2){lgpr:::kernel_se(x1, x2, 1, 1)}
+K <- ker(x,x)
+m <- rep(0, N)
+
+f <- mvrnorm(n = 1, m, K)
+plot(x,f,'l',col='firebrick3',ylim=c(-3,3),main='Draws from p(f)')
+
+for(i in 1:4){
+    f <- mvrnorm(n = 1, m, K)
+    lines(x,f,'l',col='firebrick3')
+}
+```
+
+- After observing data we update our beliefs (posterior):
+```{r, gp2, echo=FALSE, message=FALSE}
+xdat <- c(2,3,5)
+ydat <- c(1,1.5,0.5)
+sig <- 0.3
+Ky <- ker(xdat,xdat) + sig^2*diag(length(xdat))
+Ks <- ker(x,xdat)
+mu <- Ks%*%solve(Ky)%*%ydat
+Sigma <- K - Ks%*%solve(Ky)%*%t(Ks)
+
+plot(xdat,ydat,pch=16,xlim=c(0,10),ylim=c(-3,3),
+     main='Draws from p(f | Data)',
+      ylab='f', xlab='x')
+for(i in 1:4){
+    f <- mvrnorm(n = 1, mu, Sigma)
+    lines(x,f,'l',col='firebrick3')
+}
+```
+
+
+- After observing more data:
+```{r, gp3, echo=FALSE, message=FALSE}
+xdat <- c(2,3,4,5,5.5,6,6.5,7,8)
+ydat <- c(1,1.5,1.2,0.5,-0.5,-1,-1.2,-0.5,-1)
+Ky <- ker(xdat,xdat) + sig^2*diag(length(xdat))
+Ks <- ker(x,xdat)
+mu <- Ks%*%solve(Ky)%*%ydat
+Sigma <- K - Ks%*%solve(Ky)%*%t(Ks)
+
+plot(xdat,ydat,pch=16,xlim=c(0,10),ylim=c(-3,3),
+     main='Draws from p(f | Data)',
+     ylab='f', xlab='x')
+for(i in 1:4){
+    f <- mvrnorm(n = 1, mu, Sigma)
+    lines(x,f,'l',col='firebrick3')
+}
+```
+
+<br>
+<a href="04_gp_1.html" class="previous">&larr; Previous</a>
+<a href="04_gp_3.html" class="next">Next &rarr;</a>
+<br>
+<br>
+<hr>

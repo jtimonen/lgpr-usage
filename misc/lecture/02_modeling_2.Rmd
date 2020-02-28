@@ -1,0 +1,22 @@
+---
+title: "2.2 Regression"
+bibliography: bibliography.bib
+---
+
+- Regression analysis can reveal associations between a *response variable* and *covariates*
+
+- The response variable can be 
+    * continuous (abundance of some protein in blood)
+    * discrete (number of sequencing reads for some gene)
+    * a proportion (percentage of methylated reads at some location)
+    
+- Covariates can be
+    * continuous (age, blood pressure)
+    * categorical (sex, nationality)
+   
+<br>
+<a href="02_modeling_1.html" class="previous">&larr; Previous</a>
+<a href="02_modeling_3.html" class="next">Next &rarr;</a>
+<br>
+<br>
+<hr>
