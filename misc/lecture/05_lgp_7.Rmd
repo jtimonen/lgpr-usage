@@ -1,0 +1,17 @@
+---
+title: "5.7 Interpretable and heterogeneous disease effects"
+bibliography: bibliography.bib
+---
+
+- The lgpr package has different options for disease effect modeling
+
+![](figs/disease.png)
+
+![](figs/warp.png)
+
+<br>
+<a href="05_lgp_6.html" class="previous">&larr; Previous</a>
+<a href="05_lgp_8.html" class="next">Next &rarr;</a>
+<br>
+<br>
+<hr>

@@ -1,5 +1,5 @@
 ---
-title: "5.2 Shared effects"
+title: "5.4 Shared effects"
 bibliography: bibliography.bib
 ---
 
@@ -25,15 +25,15 @@ K <- ker(x,x)
 m <- rep(0, N)
 
 f <- mvrnorm(n = 1, m, K)
-plot(x,f,'l',col='firebrick3',ylim=c(-3,3),main='lenghtscale = 2')
+plot(x,f,'l',col='firebrick3',ylim=c(-3,3),main='lenghtscale = 2',lwd=2,xlab='age')
 points(x[20], f[20], pch=16)
 points(x[35], f[35], pch=16)
 ```
 
 
 <br>
-<a href="05_lgpr_1b.html" class="previous">&larr; Previous</a>
-<a href="05_lgpr_3.html" class="next">Next &rarr;</a>
+<a href="05_lgp_3.html" class="previous">&larr; Previous</a>
+<a href="05_lgp_5.html" class="next">Next &rarr;</a>
 <br>
 <br>
 <hr>

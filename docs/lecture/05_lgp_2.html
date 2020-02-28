@@ -11,7 +11,7 @@
 
 
 
-<title>5.3 Category effects</title>
+<title>5.2 Additive GPs for longitudinal data</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -273,7 +273,7 @@ $(document).ready(function () {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="01_intro_1.html">1. Introduction</a>
+  <a href="01_intro_0.html">1. Introduction</a>
 </li>
 <li>
   <a href="02_modeling_1.html">2. Modeling</a>
@@ -282,10 +282,13 @@ $(document).ready(function () {
   <a href="03_glm_1.html">3. Mixed models</a>
 </li>
 <li>
-  <a href="04_gp_1.html">4. GP</a>
+  <a href="04_gp_1.html">4. GPs</a>
 </li>
 <li>
-  <a href="05_lgpr_1.html">5. Longitudinal GP modeling</a>
+  <a href="05_lgp_1.html">5. Longitudinal GP modeling</a>
+</li>
+<li>
+  <a href="06_res_1.html">6. Real data</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -299,31 +302,19 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">5.3 Category effects</h1>
+<h1 class="title toc-ignore">5.2 Additive GPs for longitudinal data</h1>
 
 </div>
 
 
 <ul>
-<li>Effects of categorical covariates (such as id or sex) can be modeled as deviations from a shared age effect using <span class="math display">\[
-k_{\text{cat}\times\text{age}}(\boldsymbol{x},\boldsymbol{x}&#39;  \mid \ell_{\text{cat}}) =  k_{\text{zerosum}}(x_{\text{cat}}, x_{\text{cat}}&#39;) \cdot k_{\text{eq}}(x_{\text{age}},x_{\text{age}}&#39; \mid \ell_{\text{cat}}),
-\]</span> where the zero-sum kernel is</li>
+<li><p>An underlying unobserved signal <span class="math inline">\(f: \mathcal{X} \rightarrow \mathbb{R}\)</span> is linked to the measured responses <span class="math inline">\(\boldsymbol{y}\)</span> through a likelihood function, which is based on a statistical observation model.</p></li>
+<li><p>The process <span class="math inline">\(f\)</span> is assumed to consist of <span class="math inline">\(J\)</span> low-dimensional additive components, so that <span class="math display">\[
+f(\boldsymbol{x}) = f^{(1)}(\boldsymbol{x}) + \ldots + f^{(J)}(\boldsymbol{x}),
+\]</span> where each <span class="math inline">\(f^{(j)}, j = 1, \ldots, J\)</span> is a function of only one or two covariates.</p></li>
+<li><p>Decomposition into additive components allows us to obtain interpretable covariate effects after fitting the model.</p></li>
 </ul>
-<p><span class="math display">\[
-    k_{\text{zerosum}}(r,r&#39;) = 
-    \begin{cases}
-    -\frac{1}{M-1} \hspace{0.5cm} \text{ if } r \neq r&#39;\\
-    1 \hspace{1.25cm} \text{ if } r = r&#39;
-    \end{cases}
-\]</span></p>
-<ul>
-<li><p>Here <span class="math inline">\(\boldsymbol{x}_{\text{cat}}\)</span> is any categorical covariate can <span class="math inline">\(M\)</span> is the number of observed categories for it</p></li>
-<li><p>This kernel has a property that if <span class="math inline">\(f:\mathbb{R} \times \{1, \ldots, M\} \rightarrow \mathbb{R}\)</span> is modeled as a GP <span class="math display">\[
-f \sim \mathcal{GP}(0, k_{\text{cat}\times\text{age}}),
-\]</span> the sum <span class="math inline">\(\sum_{r=1}^M f(t,r)\)</span> is always zero for any <span class="math inline">\(t\)</span></p></li>
-<li><p>This means that <span class="math inline">\(f\)</span> represents a time-dependent category-specific deviation from the shared age effect</p></li>
-</ul>
-<br> <a href="05_lgpr_2.html" class="previous">← Previous</a> <a href="05_lgpr_4.html" class="next">Next →</a> <br> <br>
+<br> <a href="05_lgp_1.html" class="previous">← Previous</a> <a href="05_lgp_3.html" class="next">Next →</a> <br> <br>
 <hr>
 
 <br>

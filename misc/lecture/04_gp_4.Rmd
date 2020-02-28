@@ -26,7 +26,7 @@ points(x[35], f[35], pch=16)
 
 <br>
 <a href="04_gp_3.html" class="previous">&larr; Previous</a>
-<a href="04_gp_5.html" class="next">Next &rarr;</a>
+<a href="05_lgp_1.html" class="next">Next &rarr;</a>
 <br>
 <br>
 <hr>

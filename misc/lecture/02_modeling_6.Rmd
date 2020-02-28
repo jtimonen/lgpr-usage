@@ -4,7 +4,7 @@ bibliography: bibliography.bib
 ---
 
 $~$
-*1. How to represent categorical covariates numerically so that the regression coefficients make sense*
+<font size="5">*1. How to represent categorical covariates numerically so that the regression coefficients make sense*</font>
 $~$
 $~$
 

@@ -11,7 +11,7 @@
 
 
 
-<title>5.1a Additive GPs for longitudinal data</title>
+<title>Overview</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -273,7 +273,7 @@ $(document).ready(function () {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="01_intro_1.html">1. Introduction</a>
+  <a href="01_intro_0.html">1. Introduction</a>
 </li>
 <li>
   <a href="02_modeling_1.html">2. Modeling</a>
@@ -282,10 +282,13 @@ $(document).ready(function () {
   <a href="03_glm_1.html">3. Mixed models</a>
 </li>
 <li>
-  <a href="04_gp_1.html">4. GP</a>
+  <a href="04_gp_1.html">4. GPs</a>
 </li>
 <li>
-  <a href="05_lgpr_1.html">5. Longitudinal GP modeling</a>
+  <a href="05_lgp_1.html">5. Longitudinal GP modeling</a>
+</li>
+<li>
+  <a href="06_res_1.html">6. Real data</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -299,19 +302,19 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">5.1a Additive GPs for longitudinal data</h1>
+<h1 class="title toc-ignore">Overview</h1>
 
 </div>
 
 
 <ul>
-<li><p>An underlying unobserved signal <span class="math inline">\(f: \mathcal{X} \rightarrow \mathbb{R}\)</span> is linked to the measured responses <span class="math inline">\(\boldsymbol{y}\)</span> through a likelihood function, which is based on a statistical observation model.</p></li>
-<li><p>The process <span class="math inline">\(f\)</span> is assumed to consist of <span class="math inline">\(J\)</span> low-dimensional additive components, so that <span class="math display">\[
-f(\boldsymbol{x}) = f^{(1)}(\boldsymbol{x}) + \ldots + f^{(J)}(\boldsymbol{x}),
-\]</span> where each <span class="math inline">\(f^{(j)}, j = 1, \ldots, J\)</span> is a function of only one or two covariates.</p></li>
-<li><p>Decomposition into additive components allows us to obtain interpretable covariate effects after fitting the model.</p></li>
+<li><p>Longitudinal data: multiple measurements from same individuals</p></li>
+<li><p>Modeling longitudinal data requires specialized statistical methods, because measurements of the same individual are intercorrelated</p></li>
+<li><p>Linear mixed models (random and fixed effects)</p></li>
+<li><p>Additive Gaussian process regression modeling (no parametric assumptions like in linear models)</p></li>
+<li><p>Modeling disease effects, which can be assumed to occur rapidly near the disease initiation</p></li>
 </ul>
-<br> <a href="04_gp_4.html" class="previous">← Previous</a> <a href="05_lgpr_1b.html" class="next">Next →</a> <br> <br>
+<br> <a href="index.html" class="previous">← Previous</a> <a href="01_intro_1.html" class="next">Next</a> <br> <br>
 <hr>
 
 <br>

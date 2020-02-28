@@ -1,0 +1,23 @@
+---
+title: "6.3 Summary"
+bibliography: bibliography.bib
+---
+
+- Modeling longitudinal data requires specialized methods, because measurements of the same individual are intercorrelated
+
+- (Generalized) linear mixed models have random effects (for example for subject id)
+
+- Additive GP modeling with specialized kernels allows similar modeling but without parametric assumptions
+
+- Disease effects can be assumed to occur near the disease initiation, and thus modeled using a non-stationary GP for the disease-related age
+
+- Here we were always modeling one response variable at a time
+
+- Next lecture: modeling multiple response variables simultaneously in  similar applications
+
+<br>
+<a href="06_res_2.html" class="previous">&larr; Previous</a>
+<a href="index.html" class="next">Back to start</a>
+<br>
+<br>
+<hr>

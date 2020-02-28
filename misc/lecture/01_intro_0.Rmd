@@ -1,0 +1,21 @@
+---
+title: "Overview"
+bibliography: bibliography.bib
+---
+
+- Longitudinal data: multiple measurements from same individuals
+
+- Modeling longitudinal data requires specialized statistical methods, because measurements of the same individual are intercorrelated
+
+- Linear mixed models (random and fixed effects)
+
+- Additive Gaussian process regression modeling (no parametric assumptions like in linear models)
+
+- Modeling disease effects, which can be assumed to occur rapidly near the disease initiation
+
+<br>
+<a href="index.html" class="previous">&larr; Previous</a>
+<a href="01_intro_1.html" class="next">Next</a>
+<br>
+<br>
+<hr>

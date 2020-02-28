@@ -1,0 +1,20 @@
+---
+title: "5.8 Bayesian inference"
+bibliography: bibliography.bib
+---
+
+- The additive GP models have a lot of unknown parameters, such as 
+    + the component magnitude parameters $\alpha_j$
+    + kernel lengthscale parameters $\ell$
+    + possible parameters of the observation model, e.g. noise variance
+    
+- They are assigned priors, and their posterior is sampled using the Hamiltonian Monte Carlo sampler in [Stan](https://mc-stan.org)
+
+- After fitting the model, we can study the inferred components, and how relevant different covariates are in explaining the response variable
+
+<br>
+<a href="05_lgp_7.html" class="previous">&larr; Previous</a>
+<a href="06_res_1.html" class="next">Next &rarr;</a>
+<br>
+<br>
+<hr>

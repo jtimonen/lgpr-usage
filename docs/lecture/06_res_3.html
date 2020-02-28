@@ -11,7 +11,7 @@
 
 
 
-<title>5.4 Disease effects</title>
+<title>6.3 Summary</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -273,7 +273,7 @@ $(document).ready(function () {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="01_intro_1.html">1. Introduction</a>
+  <a href="01_intro_0.html">1. Introduction</a>
 </li>
 <li>
   <a href="02_modeling_1.html">2. Modeling</a>
@@ -282,10 +282,13 @@ $(document).ready(function () {
   <a href="03_glm_1.html">3. Mixed models</a>
 </li>
 <li>
-  <a href="04_gp_1.html">4. GP</a>
+  <a href="04_gp_1.html">4. GPs</a>
 </li>
 <li>
-  <a href="05_lgpr_1.html">5. Longitudinal GP modeling</a>
+  <a href="05_lgp_1.html">5. Longitudinal GP modeling</a>
+</li>
+<li>
+  <a href="06_res_1.html">6. Real data</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -299,20 +302,20 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">5.4 Disease effects</h1>
+<h1 class="title toc-ignore">6.3 Summary</h1>
 
 </div>
 
 
 <ul>
-<li><p>Disease effects can be modeled using a nonstationary kernel for the disease-related age <span class="math inline">\(x_{\text{disAge}}\)</span>, i.e. time from disease initiation or onset.</p></li>
-<li><p>This is motivated by the assumption that most changes in that function component occur near the event of disease occurrence, i.e. near <span class="math inline">\(x_{\text{disAge}} = 0\)</span>.</p></li>
-<li><p>Nonstationarity is achieved by first mapping the inputs through a monotonic nonlinear input warping function <span class="math display">\[
-\omega(x) = 2 \cdot \left(\frac{1}{1 + e^{-a x}} - \frac{1}{2} \right)
-\]</span> where the parameter <span class="math inline">\(a\)</span> controls the warping steepness</p></li>
-<li><p>Then exponentiated quadratic kernel is then used for the warped inputs</p></li>
+<li><p>Modeling longitudinal data requires specialized methods, because measurements of the same individual are intercorrelated</p></li>
+<li><p>(Generalized) linear mixed models have random effects (for example for subject id)</p></li>
+<li><p>Additive GP modeling with specialized kernels allows similar modeling but without parametric assumptions</p></li>
+<li><p>Disease effects can be assumed to occur near the disease initiation, and thus modeled using a non-stationary GP for the disease-related age</p></li>
+<li><p>Here we were always modeling one response variable at a time</p></li>
+<li><p>Next lecture: modeling multiple response variables simultaneously in similar applications</p></li>
 </ul>
-<br> <a href="05_lgpr_3.html" class="previous">← Previous</a> <a href="05_lgpr_4.html" class="next">Next →</a> <br> <br>
+<br> <a href="06_res_2.html" class="previous">← Previous</a> <a href="index.html" class="next">Back to start</a> <br> <br>
 <hr>
 
 <br>

@@ -1,0 +1,16 @@
+---
+title: "6.1 Real data example: proteomics"
+bibliography: bibliography.bib
+---
+
+- Data and inferred components for one protein in the data of @liu2018
+![](figs/prot.png)
+
+<br>
+<a href="05_lgp_8.html" class="previous">&larr; Previous</a>
+<a href="06_res_2.html" class="next">Next &rarr;</a>
+<br>
+<br>
+<hr>
+
+##### References

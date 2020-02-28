@@ -15,14 +15,16 @@ navbar:
   title: "Lecture 1"
   left:
     - text: "1. Introduction"
-      href: 01_intro_1.html
+      href: 01_intro_0.html
     - text: "2. Modeling"
       href: 02_modeling_1.html
     - text: "3. Mixed models"
       href: 03_glm_1.html
-    - text: "4. GP"
+    - text: "4. GPs"
       href: 04_gp_1.html
     - text: "5. Longitudinal GP modeling"
-      href: 05_lgpr_1.html
+      href: 05_lgp_1.html
+    - text: "6. Real data"
+      href: 06_res_1.html
     
 bibliography: bibliography.bib

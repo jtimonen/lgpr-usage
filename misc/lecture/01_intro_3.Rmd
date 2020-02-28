@@ -3,9 +3,9 @@ title: "1.3 Example: longitudinal proteomics"
 bibliography: bibliography.bib
 ---
 
-- Longitudinal profile of 2000 proteins in blood of children with Type 1 Diabetes (T1D) was measured by @liu2018
+- Longitudinal profile of about 2000 proteins in blood of children with Type 1 Diabetes (T1D) was measured by @liu2018
 
-```{r, proteomics, echo = FALSE, message = FALSE, results='hide'}
+```{r, proteomics, echo = FALSE, message = FALSE, results='hide', fig.width=9}
 dat <- readLiuData('../../data/proteomics', 475)
 h <- plot_data(dat, highlight = "diseaseAge")
 h + theme(plot.title = element_blank()) + xlab('Age (months)') + ylab('Normalized protein abundance')

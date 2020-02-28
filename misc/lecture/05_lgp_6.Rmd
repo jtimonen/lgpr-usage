@@ -1,5 +1,5 @@
 ---
-title: "5.4 Disease effects"
+title: "5.6 Disease effects"
 bibliography: bibliography.bib
 ---
 
@@ -15,10 +15,11 @@ where the parameter $a$ controls the warping steepness
 
 - Then exponentiated quadratic kernel is then used for the warped inputs
 
+![](figs/warp2.png)
 
 <br>
-<a href="05_lgpr_3.html" class="previous">&larr; Previous</a>
-<a href="05_lgpr_4.html" class="next">Next &rarr;</a>
+<a href="05_lgp_5.html" class="previous">&larr; Previous</a>
+<a href="05_lgp_7.html" class="next">Next &rarr;</a>
 <br>
 <br>
 <hr>

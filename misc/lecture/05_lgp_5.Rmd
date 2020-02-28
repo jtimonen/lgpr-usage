@@ -1,0 +1,74 @@
+---
+title: "5.5 Category effects"
+bibliography: bibliography.bib
+---
+
+- Effects of categorical covariates (such as id or sex) can be modeled as deviations from a shared age effect using
+$$
+    k_{\text{cat}\times\text{age}}(\boldsymbol{x},\boldsymbol{x}'  \mid \ell_{\text{cat}}) =  k_{\text{zerosum}}(x_{\text{cat}}, x_{\text{cat}}') \cdot k_{\text{eq}}(x_{\text{age}},x_{\text{age}}' \mid \ell_{\text{cat}}),
+$$
+where the zero-sum kernel is
+
+$$
+    k_{\text{zerosum}}(r,r') = 
+    \begin{cases}
+    -\frac{1}{M-1} \hspace{0.5cm} \text{ if } r \neq r'\\
+    1 \hspace{1.25cm} \text{ if } r = r'
+    \end{cases}
+$$
+
+- Here $\boldsymbol{x}_{\text{cat}}$ is any categorical covariate can $M$ is the number of observed categories for it
+
+- This kernel has a property that if $f:\mathbb{R} \times \{1, \ldots, M\} \rightarrow \mathbb{R}$ is modeled as a GP 
+$$
+f \sim \mathcal{GP}(0, k_{\text{cat}\times\text{age}}),
+$$
+the sum $\sum_{r=1}^M f(t,r)$ is always zero for any $t$
+
+- This means that $f$ represents a time-dependent category-specific deviation from the shared age effect 
+
+- Example with $M=2$
+```{r, gp5, echo=FALSE, message=FALSE}
+library(lgpr)
+library(MASS)
+set.seed(12)
+N <- 100
+x <- seq(0,10,length.out=N)
+xx <- rep(x, 2)
+id <- rep(c(1,2), each=N)
+
+ker <- function(x1,x2){lgpr:::kernel_se(x1[,1], x2[,1], 1, 1.5)*lgpr:::kernel_zerosum(x1[,2], x2[,2], 2)}
+X <- cbind(xx,id)
+K <- ker(X,X)
+m <- rep(0, N*2)
+
+f <- mvrnorm(n = 1, m, K)
+plot(x,f[1:N],'l',col='firebrick3',ylim=c(-3,3),
+     main = 'red=Male, blue=Female',lwd=2,ylab='f',xlab='age')
+lines(x,f[(N+1):(2*N)],'l',col='steelblue3',lwd=2,ylim=c(-3,3))
+```
+
+- Example with $M=3$
+```{r, gp6, echo=FALSE, message=FALSE}
+x <- seq(0,10,length.out=N)
+xx <- rep(x, 3)
+id <- rep(c(1,2,3), each=N)
+
+ker <- function(x1,x2){lgpr:::kernel_se(x1[,1], x2[,1], 1, 2.5)*lgpr:::kernel_zerosum(x1[,2], x2[,2], 3)}
+X <- cbind(xx,id)
+K <- ker(X,X)
+m <- rep(0, N*3)
+
+f <- mvrnorm(n = 1, m, K)
+plot(x,f[1:N],'l',col='firebrick3',ylim=c(-3,3),lwd=2,
+     main='red=Finland, blue=Estonia, green=Russia', ylab='f',xlab='age')
+lines(x,f[(N+1):(2*N)],'l',col='steelblue3',ylim=c(-3,3),lwd=2)
+lines(x,f[(2*N+1):(3*N)],'l',col='darkgreen',ylim=c(-3,3),lwd=2)
+```
+
+<br>
+<a href="05_lgp_4.html" class="previous">&larr; Previous</a>
+<a href="05_lgp_6.html" class="next">Next &rarr;</a>
+<br>
+<br>
+<hr>

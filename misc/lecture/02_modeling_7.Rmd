@@ -4,7 +4,7 @@ bibliography: bibliography.bib
 ---
 
 $~$
-*2. If the response variable is not continuous, the Gaussian noise assumption does not make sense*
+<font size="5">*2. If the response variable is not continuous, the Gaussian noise assumption does not make sense*</font>
 $~$
 $~$
 

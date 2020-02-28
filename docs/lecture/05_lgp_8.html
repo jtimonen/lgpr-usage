@@ -11,7 +11,7 @@
 
 
 
-<title>5.2 Shared effects</title>
+<title>5.8 Bayesian inference</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -273,7 +273,7 @@ $(document).ready(function () {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="01_intro_1.html">1. Introduction</a>
+  <a href="01_intro_0.html">1. Introduction</a>
 </li>
 <li>
   <a href="02_modeling_1.html">2. Modeling</a>
@@ -282,10 +282,13 @@ $(document).ready(function () {
   <a href="03_glm_1.html">3. Mixed models</a>
 </li>
 <li>
-  <a href="04_gp_1.html">4. GP</a>
+  <a href="04_gp_1.html">4. GPs</a>
 </li>
 <li>
-  <a href="05_lgpr_1.html">5. Longitudinal GP modeling</a>
+  <a href="05_lgp_1.html">5. Longitudinal GP modeling</a>
+</li>
+<li>
+  <a href="06_res_1.html">6. Real data</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -299,26 +302,22 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">5.2 Shared effects</h1>
+<h1 class="title toc-ignore">5.8 Bayesian inference</h1>
 
 </div>
 
 
 <ul>
-<li>Shared effects of continuous covariates (such as age) can be modeled using the exponentiated quadratic kernel</li>
-</ul>
-<p><span class="math display">\[
-k_{\text{eq}}(x,x&#39; \mid \alpha, \ell) = \alpha^2 \exp \left( -\frac{(x-x&#39;)^2}{2 \ell^2}\right)
-\]</span></p>
+<li>The additive GP models have a lot of unknown parameters, such as
 <ul>
-<li>We see that
-<ul>
-<li>Covariance of function values at points <span class="math inline">\(x\)</span> and <span class="math inline">\(x&#39;\)</span> is be large if they are close to each other, and close to zero if they are far away</li>
-<li>Parameter <span class="math inline">\(\ell\)</span> determines how rapidly the function can vary</li>
+<li>the component magnitude parameters <span class="math inline">\(\alpha_j\)</span></li>
+<li>kernel lengthscale parameters <span class="math inline">\(\ell\)</span></li>
+<li>possible parameters of the observation model, e.g. noise variance</li>
 </ul></li>
+<li><p>They are assigned priors, and their posterior is sampled using the Hamiltonian Monte Carlo sampler in <a href="https://mc-stan.org">Stan</a></p></li>
+<li><p>After fitting the model, we can study the inferred components, and how relevant different covariates are in explaining the response variable</p></li>
 </ul>
-<p><img src="05_lgpr_2_files/figure-html/gp4-1.png" width="672" /></p>
-<br> <a href="05_lgpr_1b.html" class="previous">← Previous</a> <a href="05_lgpr_3.html" class="next">Next →</a> <br> <br>
+<br> <a href="05_lgp_7.html" class="previous">← Previous</a> <a href="06_res_1.html" class="next">Next →</a> <br> <br>
 <hr>
 
 <br>

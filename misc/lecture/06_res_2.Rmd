@@ -1,0 +1,16 @@
+---
+title: "6.2 Real data example: RNA-seq read count data"
+bibliography: bibliography.bib
+---
+
+- Data and inferred components for one gene in the data of @kallionpaa2019
+![](figs/siah.png)
+
+<br>
+<a href="06_res_1.html" class="previous">&larr; Previous</a>
+<a href="06_res_3.html" class="next">Next &rarr;</a>
+<br>
+<br>
+<hr>
+
+##### References

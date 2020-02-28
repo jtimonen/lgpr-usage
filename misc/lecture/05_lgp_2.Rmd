@@ -1,5 +1,5 @@
 ---
-title: "5.1a Additive GPs for longitudinal data"
+title: "5.2 Additive GPs for longitudinal data"
 bibliography: bibliography.bib
 ---
 
@@ -14,8 +14,8 @@ where each $f^{(j)}, j = 1, \ldots, J$ is a function of only one or two covariat
 - Decomposition into additive components allows us to obtain interpretable covariate effects after fitting the model. 
 
 <br>
-<a href="04_gp_4.html" class="previous">&larr; Previous</a>
-<a href="05_lgpr_1b.html" class="next">Next &rarr;</a>
+<a href="05_lgp_1.html" class="previous">&larr; Previous</a>
+<a href="05_lgp_3.html" class="next">Next &rarr;</a>
 <br>
 <br>
 <hr>
