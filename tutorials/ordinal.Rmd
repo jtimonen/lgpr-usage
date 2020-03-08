@@ -1,0 +1,103 @@
+---
+title: "Using lgpr with ordinal response"
+author: "Juho Timonen"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+#  pdf_document:
+#    toc: true     
+vignette: >
+  %\VignetteIndexEntry{Using lgpr with ordinal response}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#"
+)
+```
+
+The ordinal observation model is currently not part of the master branch of `lgpr`, but you can install it with `devtools::install_github('jtimonen/lgpr', ref='ordinal')`.
+
+```{r load}
+library(ggplot2)
+library(lgpr)
+```
+
+## Simulating ordinal data
+We first simulate a process.
+```{r simulate, fig.width=7.2, fig.height=4}
+# Simulate data
+set.seed(123)
+cuts <- c(-1,0.5)
+lc1 <- 'firebrick3'
+lc2 <- "steelblue3"
+simData <- simulate_data(N=6, t_data=c(10,20,30,40,50,60,70,80,90,100))
+dat <- simData$data
+p <- plot_data(dat) + 
+  geom_hline(yintercept = cuts[1], color = lc1) +
+  geom_hline(yintercept = cuts[2], color = lc2)
+p <- p + ggtitle('Simulation: horizontal lines show cut points')
+p
+```
+
+We discretize the response into values 1, 2 and 3 using cut points, i.e. thresholds, -1 (red line) and 0.5 (blue line).
+```{r ord, fig.width=7.2, fig.height=4}
+# Make response ordinal
+y <- dat$y
+y_ord <- rep(2, length(y))
+y_ord[y < cuts[1]] <- 1
+y_ord[y > cuts[2]] <- 3
+dat$y <- y_ord
+p <- plot_data(dat)
+p + theme(panel.grid.minor = element_blank())
+```
+
+## Fitting a model with ordinal response
+Now we fit an additive GP model $f^{(sum)} = f^{(1)}(id, age) + f^{(2)}(age)$ with ordinal observation model for response $y$.
+```{r fit, fig.width=7.2, fig.height=4}
+# Fit model
+fit <- lgp(formula    = y ~ id + age, 
+           data       = dat, 
+           likelihood = 'ordinal',
+           control    = list(adapt_delta=0.95),
+           parallel   = TRUE,
+           refresh    = 0)
+```
+
+*Note*: computing the proportion of noise is not yet implemented in a sensible way for ordinal responses, so do not trust the inferred relevance values.
+```{r show, fig.width=7.2, fig.height=4}
+print(fit)
+```
+
+## Visualising components and inferred cut points
+We plot the average inferred function $f^{(sum)} = f^{(1)}(id, age) + f^{(2)}(age)$ and the posterior means of the cut points
+```{r vis1, fig.width=7.2, fig.height=4}
+# Get function components
+ff <- get_function_components(fit)
+f_sum <- ff[,,3]
+f_sum_mean <- apply(f_sum, 2, mean)
+df <- data.frame(dat$id, dat$age, f_sum_mean)
+colnames(df) <- c("id", "age", "f_sum") 
+plt <- ggplot(df, aes(x=age, group=id, y=f_sum)) + geom_line()
+
+# Get inferred cutpoints
+cut_points <- get_cutpoints(fit)
+cmeans <- colMeans(cut_points)
+cstds  <- apply(cut_points, 2, sd)
+plt <- plt + geom_hline(yintercept=cmeans[1], color = lc1, alpha=1)
+plt <- plt + geom_hline(yintercept=cmeans[2], color = lc2, alpha=11)
+plt <- plt + ggtitle('Horizontal lines show inferred cut points')
+plt
+```
+
+We can also visualize their variance
+```{r vis2, fig.width=7.2, fig.height=5}
+# Plot all samples of cut points
+plt <- plt + geom_hline(yintercept=cut_points[,1], color = lc1, alpha=0.02)
+plt <- plt + geom_hline(yintercept=cut_points[,2], color = lc2, alpha=0.02)
+plt
+```
