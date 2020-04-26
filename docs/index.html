@@ -355,27 +355,29 @@ Static release v0.33.0: <a href="https://doi.org/10.5281/zenodo.3632542"><img sr
 <h3>Installation</h3>
 <hr>
 
-To avoid problems, we recommend first installing the <code>rstan</code> package using <a href="https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started">these instructions</a>. Then,
-one can install <code>lgpr</code> in two ways.
+We recommend first installing the <code>rstan</code> package using <a href="https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started">these instructions</a>. Then, one can install <code>lgpr</code> in two ways.
 <br>
 <br>
 
-<b> A) Using devtools:</b>
+<h4> A) Using devtools:</h4>
 <ul>
     <li> Install the <code>devtools</code> package, for example by running <code>install.packages('devtools')</code> </li>
     <li> Run <code>devtools::install_github('jtimonen/lgpr')</code> </li>
 </ul>
 
-<b> B) On command line or Rstudio terminal:</b>
+<h4> B) On command line or Rstudio terminal:</h4>
 <ul>
     <li> download or clone <a href="https://github.com/jtimonen/lgpr">lgpr</a> </li>
-    <li> put it in directory **lgpr** under parent directory **parent-dir* </li>
+    <li> put it in directory **lgpr** under parent directory **parent-dir** </li>
     <li> go to **parent-dir** on command line or Rstudio terminal </li>
     <li> run <code>R CMD build lgpr</code>  </li>
     <li> this will build the package into **lgpr_X.Y.Z.tar.gz** </li>
     <li> install the package using <code>R CMD INSTALL lgpr_X.Y.Z.tar.gz</code> </li>
 </ul>
 <br>
+
+<h4>Notes for Windows users:</h4>
+We dont have any pre-compiled binaries distributed yet, so the only way to install <code>lgpr</code> is from source. To compile the Stan code included in the package, you need to have your toolchain setup properly. On Windows, install Rtools as explained <a href="https://github.com/stan-dev/rstan/wiki/Installing-RStan-from-source-on-Windows#configuration">here</a>. You also need to do the "Configuration" step, as described in the above link.
 
 </div>
 
