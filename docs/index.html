@@ -387,7 +387,10 @@ We recommend first installing the <code>rstan</code> package using <a href="http
 
 <h4>Notes for R >= 4.0 users:</h4>
 <p>
-  If you run into installation problems, see <a href="https://discourse.mc-stan.org/t/dealing-with-r-4-0/14586">this topic</a>
+  The package currently might not compile on all operating systems with R version 4.0.
+  This is problem is being investigated. It most likely stems from the fact that the Makevars and Makevars.win files of lgpr are setting compiler, include, or other paths that cause problems with 4.0, which no longer requires manual configuration of compiler paths.
+  
+See <a href="https://discourse.mc-stan.org/t/dealing-with-r-4-0/14586">this topic</a>
 </p>
 
 </div>
