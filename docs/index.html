@@ -361,7 +361,7 @@ Static release v0.33.0: <a href="https://doi.org/10.5281/zenodo.3632542"><img sr
     <li> Linux is the preferred operating system. However, the package works also on Mac and Windows. We dont have pre-compiled binaries distributed yet, so the only way to install <code>lgpr</code> is from source. 
     To compile the Stan code included in the package on Windows or Mac, you need to have your toolchain setup properly. See
     the <i>Windows and Mac installation notes</i> below.</li>
-    <li>R versions 3.4-3.6 are recommended. See the <i>R versions 4.0.0 and later</i> section below.</li>
+    <li>R version 3.4 or later is required
     <li> The dependency <code>rstan</code> can be installed using <a href="https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started">these instructions</a>. 
 </ul>
 
@@ -385,11 +385,8 @@ Static release v0.33.0: <a href="https://doi.org/10.5281/zenodo.3632542"><img sr
 <p>On Windows, install Rtools as explained <a href="https://github.com/stan-dev/rstan/wiki/Installing-RStan-from-source-on-Windows#configuration">here</a>. You also need to complete the <i>"Configuration"</i> step, as described in the above link. On Mac, see toolchain configuration <a href="https://github.com/stan-dev/rstan/wiki/Installing-RStan-from-source-on-a-Mac">here</a>.
 </p>
 
-<h4>R versions 4.0.0 and later:</h4>
 <p>
-  The package currently might not compile on Mac and Windows with R versions 4.0 or later. It stems from the fact that compilation changed with 4.0, since it no longer requires manual configuration of compiler paths. Currently, we recommend using R versions 3.4-3.6 instead, as the problem with 4.0 is not yet solved.
-  
-See <a href="https://discourse.mc-stan.org/t/dealing-with-r-4-0/14586">this topic</a> and <a href="https://github.com/stan-dev/rstantools/issues/76 ">this thread</a> for more info.
+  <b>Note:</b> The package currently might not compile on Mac and Windows with some recently updated versions of StanHeaders or rstantools. The problem is being inverstigated. See <a href="https://github.com/stan-dev/rstantools/issues/76">this thread</a> for more info.
 </p>
 
 </div>
