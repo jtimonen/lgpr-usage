@@ -359,29 +359,17 @@ Static release v0.33.0: <a href="https://doi.org/10.5281/zenodo.3632542"><img sr
 
   <ul>
     <li> Linux is the preferred operating system. However, the package works also on Mac and Windows. We dont have pre-compiled binaries distributed yet, so the only way to install <i>lgpr</i> is from source. 
-    To compile the Stan code included in the package on Windows or Mac, you need to have your toolchain setup properly. See
-    the <i>Windows and Mac installation notes</i> below.</li>
+    To compile the Stan code included in the package on Windows or Mac, you need to have your toolchain setup properly. 
+    <ul>
+        <li> On Windows, install Rtools as explained <a href="https://github.com/stan-dev/rstan/wiki/Installing-RStan-from-source-on-Windows#configuration">here</a>. You also need to complete the <i>"Configuration"</i> step, as described in the above link. </li>
+  
+  <li> On Mac, see toolchain configuration <a href="https://github.com/stan-dev/rstan/wiki/Installing-RStan-from-source-on-a-Mac">here</a>.</li>
+    </ul>
     <li>R version 3.4 or later is required</li>
 </ul>
 
-
-<h4> Installation on Linux</h4>
+<h4> Installation steps</h4>
 <ul>
-    <li> Install the <i>devtools</i> package if you don't have it, for example by using <code>install.packages('devtools')</code> </li>
-    
-  <li> Install the dependency <i>rstan</i> using <a href="https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started">these instructions</a>
-  
-    <li> Install <i>lgpr</i> using  <code>devtools::install_github('jtimonen/lgpr', dependencies = TRUE)</code> </li>
-</ul>
-
-
-<h4> Installation on Windows ans MacOS</h4>
-<ul>
-  
-  <li> On Windows, install Rtools as explained <a href="https://github.com/stan-dev/rstan/wiki/Installing-RStan-from-source-on-Windows#configuration">here</a>. You also need to complete the <i>"Configuration"</i> step, as described in the above link. </li>
-  
-  <li> On Mac, see toolchain configuration <a href="https://github.com/stan-dev/rstan/wiki/Installing-RStan-from-source-on-a-Mac">here</a>.</li>
-  
       <li> Install the <i>devtools</i> package if you don't have it, for example by using <code>install.packages('devtools')</code> </li>
       
     <li> Install the dependency <i>rstan</i> using <a href="https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started">these instructions</a>
@@ -394,7 +382,7 @@ Static release v0.33.0: <a href="https://doi.org/10.5281/zenodo.3632542"><img sr
 
 
 <p>
-  <b>Note:</b> The exact version 2.0.0 of <i>rstantools</i> is required on Mac and Windows due to problems with some recently updated versions of <i>StanHeaders</i> or <i>rstantools</i>. The problem is being inverstigated. See <a href="https://github.com/stan-dev/rstantools/issues/76">this thread</a> for more info.
+  <b>Note:</b> The exact version 2.0.0 of <i>rstantools</i> is recommended due to problems with some recently updated versions of <i>StanHeaders</i> or <i>rstantools</i>. The problem is being inverstigated. See <a href="https://github.com/stan-dev/rstantools/issues/76">this thread</a> for more info.
 </p>
 
 </div>
