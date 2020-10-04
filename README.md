@@ -5,7 +5,13 @@ This repository contains tutorials and experiments with the R package **lgpr** (
 Tutorials in html format, package documentation and installation instructions can be found [here](https://jtimonen.github.io/lgpr-usage/).
 
 ## Reproducibility
-The `reproducibility` directory contains codes for reproducing the experiments in the manuscript. Experiments involve fitting models for different data sets in parallel, and shell scripts for doing this on a computing cluster are provided. There are also scripts for collecting the final results and plotting ROC curves after the models have been fit for all data sets.
+The `reproducibility` directory contains codes for reproducing the experiments in the manuscript using `lgpr` version `0.33`, which can be installed via
+
+```
+devtools::install_github('jtimonen/lgpr', ref = "v0")
+```
+
+Experiments involve fitting models for different data sets in parallel, and shell scripts for doing this on a computing cluster are provided. There are also scripts for collecting the final results and plotting ROC curves after the models have been fit for all data sets.
 
 There are seven different experiments:
 
