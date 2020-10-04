@@ -24,6 +24,9 @@ There are seven different experiments:
 * `07_proteomics_heter` - longitudinal proteomics data set [1] modeling with a heterogeneous disease effect
 * `08_rna-seq` - analysis of longitudinal RNA-seq data from CD4+ cells [2]
 
+## Data
+The `data` directory contains the preprocessed longitudinal proteomics data [1].
+
 ## References 
 
 *[1]* Liu *et al.* Temporal expression profiling of plasma proteins reveals oxidative stress in early stages of Type 1 Diabetes progression (2018). *Journal of proteomics* 172: 100-110. doi:10.1016/j.jprot.2017.10.004
