@@ -7,7 +7,7 @@ Tutorials in html format, package documentation and installation instructions ca
 ## Reproducibility
 The `reproducibility` directory contains codes for reproducing the experiments in the manuscript using `lgpr` version `0.33`, which can be installed via
 
-```
+```r
 devtools::install_github('jtimonen/lgpr', ref = "v0")
 ```
 
