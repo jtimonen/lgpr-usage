@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1</span>
       </span>
     </div>
 
@@ -195,23 +195,20 @@ binomial), <code>"binomial"</code> or <code>"bb"</code> (beta binomial).</p></td
     <tr>
       <th>c_hat</th>
       <td><p>The GP mean. Must be a vector of length <code>dim(data)[1]</code>, or
-a real number defining a constant GP mean. If <code>NULL</code>, this is set to</p><ul>
-<li><p><code>c_hat = 0</code>, if <code>likelihood</code> is <code>"gaussian"</code>, because
-   with Gaussian likelihood the response variable is by default centered to
-   have zero mean.</p></li>
+a real number defining a constant GP mean. If not specified, this is set to</p><ul>
+<li><p><code>c_hat = 0</code>, if <code>likelihood</code> is <code>"gaussian"</code>,</p></li>
 <li><p><code>c_hat = </code> <code><a href='https://rdrr.io/r/base/Log.html'>log(mean(y))</a></code> if <code>likelihood</code> is
    <code>"poisson"</code> or <code>"nb"</code>,</p></li>
 <li><p><code>c_hat = </code> <code><a href='https://rdrr.io/r/base/Log.html'>log(p/(1-p))</a></code>, where
-   <code>p = mean(y/num_trials)</code> if <code>likelihood</code> is <code>"binomial"</code>,</p></li>
-</ul><p>where <code>y</code> denotes the response variable. You can modify this vector to
-account for normalization between data points. With Gaussian likelihood
-though, do not modify this argument, normalize the data beforehand instead.</p></td>
+   <code>p = mean(y/num_trials)</code> if <code>likelihood</code> is <code>"binomial"</code>
+   or <code>"bb"</code>,</p></li>
+</ul><p>where <code>y</code> denotes the response variable.</p></td>
     </tr>
     <tr>
       <th>num_trials</th>
       <td><p>This argument (number of trials) is only needed when
-likelihood is binomial or beta binomial. Must have length one or equal
-to number of data points. Setting <code>num_trials=1</code> and
+likelihood is <code>"binomial"</code> or <code>"bb"</code>. Must have length one or
+equal to the number of data points. Setting <code>num_trials=1</code> and
 <code>likelihood="binomial"</code> corresponds to Bernoulli observation model.</p></td>
     </tr>
     <tr>
@@ -233,7 +230,9 @@ where likelihood is ignored?</p></td>
     <tr>
       <th>sample_f</th>
       <td><p>Determines if the latent function values are be sampled
-(must be <code>TRUE</code> if likelihood is not <code>"gaussian"</code>).</p></td>
+(must be <code>TRUE</code> if likelihood is not <code>"gaussian"</code>). If this is
+<code>TRUE</code>, the response variable will be normalized to have zero mean
+and unit variance.</p></td>
     </tr>
     </table>
 

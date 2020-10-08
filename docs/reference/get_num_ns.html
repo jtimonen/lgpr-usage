@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Graphical posterior or prior predictive checks — ppc • lgpr</title>
+<title>Get number of nonstationary model components — get_num_ns • lgpr</title>
 
 
 <!-- jquery -->
@@ -41,11 +41,11 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Graphical posterior or prior predictive checks — ppc" />
-<meta property="og:description" content="Graphical posterior or prior predictive checks" />
+<meta property="og:title" content="Get number of nonstationary model components — get_num_ns" />
+<meta property="og:description" content="Get number of nonstationary model components" />
 
 
-<meta name="robots" content="noindex">
+
 
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-info" data-toggle="tooltip" data-placement="bottom" title="Development version">1.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1</span>
       </span>
     </div>
 
@@ -135,47 +135,29 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Graphical posterior or prior predictive checks</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/MethodsFit.R'><code>R/MethodsFit.R</code></a></small>
-    <div class="hidden name"><code>ppc.Rd</code></div>
+    <h1>Get number of nonstationary model components</h1>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/utils.R'><code>R/utils.R</code></a></small>
+    <div class="hidden name"><code>get_num_ns.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Graphical posterior or prior predictive checks</p>
+    <p>Get number of nonstationary model components</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ppc</span>(<span class='kw'>fit</span>, <span class='kw'>data</span>, fun = <span class='fu'><a href='defaults.html'>default_ppc_fun</a></span>(<span class='kw'>fit</span>), <span class='kw'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>get_num_ns</span>(<span class='kw'>stan_input</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>fit</th>
-      <td><p>an object of class <a href='lgpfit-class.html'>lgpfit</a></p></td>
-    </tr>
-    <tr>
-      <th>data</th>
-      <td><p>the original data frame</p></td>
-    </tr>
-    <tr>
-      <th>fun</th>
-      <td><p><code>bayesplot</code> function name</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>additional arguments passed to the default
-<code><a href='https://mc-stan.org/bayesplot/reference/pp_check.html'>pp_check</a></code> method in
-<code>bayesplot</code></p></td>
+      <th>stan_input</th>
+      <td><p>a list containing an element named <code>components</code></p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a <code>ggplot</code> object</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p>Introduction to graphical posterior predictive
-checks: <a href='here'>https://cran.r-project.org/web/packages/bayesplot/vignettes/graphical-ppcs.html</a></p></div>
+    <p>an integer</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

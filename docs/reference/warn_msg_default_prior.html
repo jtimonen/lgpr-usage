@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Compute a zero-sum kernel matrix — sim.kernel_zerosum • lgpr</title>
+<title>Warning message about using a default prior — warn_msg_default_prior • lgpr</title>
 
 
 <!-- jquery -->
@@ -41,11 +41,11 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Compute a zero-sum kernel matrix — sim.kernel_zerosum" />
-<meta property="og:description" content="Compute a zero-sum kernel matrix" />
+<meta property="og:title" content="Warning message about using a default prior — warn_msg_default_prior" />
+<meta property="og:description" content="Warning message about using a default prior" />
 
 
-<meta name="robots" content="noindex">
+
 
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-info" data-toggle="tooltip" data-placement="bottom" title="Development version">1.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1</span>
       </span>
     </div>
 
@@ -135,41 +135,34 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Compute a zero-sum kernel matrix</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/simulate.R'><code>R/simulate.R</code></a></small>
-    <div class="hidden name"><code>sim.kernel_zerosum.Rd</code></div>
+    <h1>Warning message about using a default prior</h1>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/utils.R'><code>R/utils.R</code></a></small>
+    <div class="hidden name"><code>warn_msg_default_prior.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Compute a zero-sum kernel matrix</p>
+    <p>Warning message about using a default prior</p>
     </div>
 
-    <pre class="usage"><span class='fu'>sim.kernel_zerosum</span>(<span class='kw'>x1</span>, <span class='kw'>x2</span>, <span class='kw'>M</span>, alpha = <span class='fl'>1</span>)</pre>
+    <pre class="usage"><span class='fu'>warn_msg_default_prior</span>(<span class='kw'>desc</span>, <span class='kw'>name</span>, <span class='kw'>model_desc</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x1</th>
-      <td><p>(integer) vector of length n</p></td>
+      <th>desc</th>
+      <td><p>parameter description</p></td>
     </tr>
     <tr>
-      <th>x2</th>
-      <td><p>(integer) vector of length m</p></td>
+      <th>name</th>
+      <td><p>parameter name</p></td>
     </tr>
     <tr>
-      <th>M</th>
-      <td><p>number of categories</p></td>
-    </tr>
-    <tr>
-      <th>alpha</th>
-      <td><p>marginal std (default = 1)</p></td>
+      <th>model_desc</th>
+      <td><p>model description</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>A (binary) kernel matrix of size n x m</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

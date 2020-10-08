@@ -75,7 +75,7 @@ sample_model." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1</span>
       </span>
     </div>
 
@@ -198,23 +198,20 @@ binomial), <code>"binomial"</code> or <code>"bb"</code> (beta binomial).</p></td
     <tr>
       <th>c_hat</th>
       <td><p>The GP mean. Must be a vector of length <code>dim(data)[1]</code>, or
-a real number defining a constant GP mean. If <code>NULL</code>, this is set to</p><ul>
-<li><p><code>c_hat = 0</code>, if <code>likelihood</code> is <code>"gaussian"</code>, because
-   with Gaussian likelihood the response variable is by default centered to
-   have zero mean.</p></li>
+a real number defining a constant GP mean. If not specified, this is set to</p><ul>
+<li><p><code>c_hat = 0</code>, if <code>likelihood</code> is <code>"gaussian"</code>,</p></li>
 <li><p><code>c_hat = </code> <code><a href='https://rdrr.io/r/base/Log.html'>log(mean(y))</a></code> if <code>likelihood</code> is
    <code>"poisson"</code> or <code>"nb"</code>,</p></li>
 <li><p><code>c_hat = </code> <code><a href='https://rdrr.io/r/base/Log.html'>log(p/(1-p))</a></code>, where
-   <code>p = mean(y/num_trials)</code> if <code>likelihood</code> is <code>"binomial"</code>,</p></li>
-</ul><p>where <code>y</code> denotes the response variable. You can modify this vector to
-account for normalization between data points. With Gaussian likelihood
-though, do not modify this argument, normalize the data beforehand instead.</p></td>
+   <code>p = mean(y/num_trials)</code> if <code>likelihood</code> is <code>"binomial"</code>
+   or <code>"bb"</code>,</p></li>
+</ul><p>where <code>y</code> denotes the response variable.</p></td>
     </tr>
     <tr>
       <th>num_trials</th>
       <td><p>This argument (number of trials) is only needed when
-likelihood is binomial or beta binomial. Must have length one or equal
-to number of data points. Setting <code>num_trials=1</code> and
+likelihood is <code>"binomial"</code> or <code>"bb"</code>. Must have length one or
+equal to the number of data points. Setting <code>num_trials=1</code> and
 <code>likelihood="binomial"</code> corresponds to Bernoulli observation model.</p></td>
     </tr>
     <tr>
@@ -236,7 +233,9 @@ where likelihood is ignored?</p></td>
     <tr>
       <th>sample_f</th>
       <td><p>Determines if the latent function values are be sampled
-(must be <code>TRUE</code> if likelihood is not <code>"gaussian"</code>).</p></td>
+(must be <code>TRUE</code> if likelihood is not <code>"gaussian"</code>). If this is
+<code>TRUE</code>, the response variable will be normalized to have zero mean
+and unit variance.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -277,19 +276,53 @@ where likelihood is ignored?</p></td>
 
     
 
-<p>The <code>priors</code> argument must be a named list. Possible allowed names are</p><ul>
+<p>The <code>priors</code> argument must be a named list, like
+<code><a href='https://rdrr.io/r/base/list.html'>list(alpha=student_t(4), wrp=igam(30,10))</a></code>. See examples in tutorials.
+Possible allowed names are</p><ul>
 <li><p><code>"alpha"</code> = component magnitude parameters</p></li>
 <li><p><code>"ell"</code> = component lengthscale parameters</p></li>
 <li><p><code>"wrp"</code> = input warping steepness parameters</p></li>
 <li><p><code>"sigma"</code> = noise magnitude (Gaussian obs. model)</p></li>
-<li><p><code>"phi"</code> = inverse overdispersion (NB obs. model)</p></li>
-<li><p><code>"gamma"</code> = overdispersion (Beta-binomial obs. model)</p></li>
+<li><p><code>"phi"</code> = inv. overdispersion (negative binomial obs. model)</p></li>
+<li><p><code>"gamma"</code> = overdispersion (beta-binomial obs. model)</p></li>
 <li><p><code>"beta"</code> = heterogeneity parameters</p></li>
 <li><p><code>"effect_time"</code> = uncertain effect time parameters</p></li>
 <li><p><code>"effect_time_info"</code> = additional options for the above</p></li>
-</ul><p>It is recommended to use the <code><a href='priors.html'>priors</a></code> functions to define
-the list elements. If a parameter of a model is not given in this list,
-a default prior will be used for it. See examples in tutorials.</p>
+</ul><p>See <code><a href='priors.html'>priors</a></code> for functions that can be
+used to define the list elements. If a parameter of a model is not given
+in this list, a default prior will be used for it.</p>
+    <h2 class="hasAnchor" id="when-to-not-use-default-priors"><a class="anchor" href="#when-to-not-use-default-priors"></a>When to not use default priors</h2>
+
+    
+
+
+<p>It is not recommended to use default priors blindly. Rather, priors should
+be specified according to the knowledge about the problem at hand, as in any
+Bayesian analysis. In <code>lgpr</code> this is especially important when</p><ol>
+<li><p>Using a non-Gaussian likelihood or otherwise setting
+ <code>sample_f = TRUE</code>. In this case the response variable is not
+ normalized, so the scale on which the data varies must be taken into
+ account when defining priors of the signal magnitude parameters
+ <code>alpha</code> and possible noise parameters (<code>sigma</code>, <code>phi</code>,
+ <code>gamma</code>). Also it should be checked if <code>c_hat</code> is set in a
+ sensible way.</p></li>
+<li><p>Using a model that contains a <code>gp_ns(x)</code> or <code>gp_vm(x)</code>
+ expression in its formula. In this case the corresponding covariate
+ <code>x</code> is not normalized, and the prior for the input warping steepness
+ parameter <code>wrp</code> must be set according to the expected width of the
+ window in which the nonstationary effect of <code>x</code> occurs. By default,
+ the width of this window is about 36, which has been set assuming that
+ the unit of <code>x</code> is months.</p></li>
+</ol>
+
+    <h2 class="hasAnchor" id="more-advice-on-defining-models"><a class="anchor" href="#more-advice-on-defining-models"></a>More advice on defining models</h2>
+
+    
+
+
+<p>See the
+<a href='https://jtimonen.github.io/lgpr-usage/index.html'>Defining a model</a>
+tutorial.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other main functions: 
