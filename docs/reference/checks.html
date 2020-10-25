@@ -45,6 +45,7 @@
 <meta property="og:description" content="
 
 check_type checks if argument has correct class
+check_function checks if argument is a function
 check_numeric checks if argument is numeric
 check_positive checks if argument is positive
 check_non_negative checks if argument is non-negative
@@ -105,7 +106,7 @@ check_null checks that arg is NULL
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
       </span>
     </div>
 
@@ -137,7 +138,7 @@ check_null checks that arg is NULL
       <a href="../tutorials/heter.html">Heterogeneous effects</a>
     </li>
     <li>
-      <a href="../tutorials/heter.html">Temporally uncertain effects</a>
+      <a href="../tutorials/uncrt.html">Temporally uncertain effects</a>
     </li>
     <li>
       <a href="../tutorials/bb.html">Discrete observation model</a>
@@ -175,6 +176,7 @@ check_null checks that arg is NULL
     
 <ul>
 <li><p><code>check_type</code> checks if argument has correct class</p></li>
+<li><p><code>check_function</code> checks if argument is a function</p></li>
 <li><p><code>check_numeric</code> checks if argument is numeric</p></li>
 <li><p><code>check_positive</code> checks if argument is positive</p></li>
 <li><p><code>check_non_negative</code> checks if argument is non-negative</p></li>
@@ -206,45 +208,47 @@ check_null checks that arg is NULL
 
     </div>
 
-    <pre class="usage"><span class='fu'>check_type</span><span class='op'>(</span><span class='va'>arg</span>, <span class='va'>allowed</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>check_type</span>(<span class='kw'>arg</span>, <span class='kw'>allowed</span>)
 
-<span class='fu'>check_numeric</span><span class='op'>(</span><span class='va'>arg</span><span class='op'>)</span>
+<span class='fu'>check_function</span>(<span class='kw'>arg</span>, <span class='kw'>arg_name</span>)
 
-<span class='fu'>check_positive</span><span class='op'>(</span><span class='va'>arg</span><span class='op'>)</span>
+<span class='fu'>check_numeric</span>(<span class='kw'>arg</span>)
 
-<span class='fu'>check_non_negative</span><span class='op'>(</span><span class='va'>arg</span><span class='op'>)</span>
+<span class='fu'>check_positive</span>(<span class='kw'>arg</span>)
 
-<span class='fu'>check_positive_all</span><span class='op'>(</span><span class='va'>arg</span><span class='op'>)</span>
+<span class='fu'>check_non_negative</span>(<span class='kw'>arg</span>)
 
-<span class='fu'>check_non_negative_all</span><span class='op'>(</span><span class='va'>arg</span><span class='op'>)</span>
+<span class='fu'>check_positive_all</span>(<span class='kw'>arg</span>)
 
-<span class='fu'>check_integer_all</span><span class='op'>(</span><span class='va'>arg</span><span class='op'>)</span>
+<span class='fu'>check_non_negative_all</span>(<span class='kw'>arg</span>)
 
-<span class='fu'>check_interval</span><span class='op'>(</span><span class='va'>arg</span>, <span class='va'>lower</span>, <span class='va'>upper</span><span class='op'>)</span>
+<span class='fu'>check_integer_all</span>(<span class='kw'>arg</span>)
 
-<span class='fu'>check_not_null</span><span class='op'>(</span><span class='va'>arg</span><span class='op'>)</span>
+<span class='fu'>check_interval</span>(<span class='kw'>arg</span>, <span class='kw'>lower</span>, <span class='kw'>upper</span>)
 
-<span class='fu'>check_null</span><span class='op'>(</span><span class='va'>arg</span>, reason <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
+<span class='fu'>check_not_null</span>(<span class='kw'>arg</span>)
 
-<span class='fu'>check_length</span><span class='op'>(</span><span class='va'>arg</span>, <span class='va'>expected</span><span class='op'>)</span>
+<span class='fu'>check_null</span>(<span class='kw'>arg</span>, reason = <span class='kw'>NULL</span>)
 
-<span class='fu'>check_length_1_or</span><span class='op'>(</span><span class='va'>arg</span>, <span class='va'>expected</span><span class='op'>)</span>
+<span class='fu'>check_length</span>(<span class='kw'>arg</span>, <span class='kw'>expected</span>)
 
-<span class='fu'>check_length_geq</span><span class='op'>(</span><span class='va'>arg</span>, <span class='va'>min_length</span><span class='op'>)</span>
+<span class='fu'>check_length_1_or</span>(<span class='kw'>arg</span>, <span class='kw'>expected</span>)
 
-<span class='fu'>check_lengths</span><span class='op'>(</span><span class='va'>a</span>, <span class='va'>b</span><span class='op'>)</span>
+<span class='fu'>check_length_geq</span>(<span class='kw'>arg</span>, <span class='kw'>min_length</span>)
 
-<span class='fu'>check_false</span><span class='op'>(</span><span class='va'>arg</span><span class='op'>)</span>
+<span class='fu'>check_lengths</span>(<span class='kw'>a</span>, <span class='kw'>b</span>)
 
-<span class='fu'>check_in_data</span><span class='op'>(</span><span class='va'>var_name</span>, <span class='va'>data</span><span class='op'>)</span>
+<span class='fu'>check_false</span>(<span class='kw'>arg</span>)
 
-<span class='fu'>check_all_leq</span><span class='op'>(</span><span class='va'>arg</span>, <span class='va'>maximums</span><span class='op'>)</span>
+<span class='fu'>check_in_data</span>(<span class='kw'>var_name</span>, <span class='kw'>data</span>)
 
-<span class='fu'>check_not_named</span><span class='op'>(</span><span class='va'>arg</span><span class='op'>)</span>
+<span class='fu'>check_all_leq</span>(<span class='kw'>arg</span>, <span class='kw'>maximums</span>)
 
-<span class='fu'>check_named</span><span class='op'>(</span><span class='va'>arg</span><span class='op'>)</span>
+<span class='fu'>check_not_named</span>(<span class='kw'>arg</span>)
 
-<span class='fu'>check_dim</span><span class='op'>(</span><span class='va'>arg</span>, <span class='va'>D</span><span class='op'>)</span></pre>
+<span class='fu'>check_named</span>(<span class='kw'>arg</span>)
+
+<span class='fu'>check_dim</span>(<span class='kw'>arg</span>, <span class='kw'>D</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -256,6 +260,10 @@ check_null checks that arg is NULL
     <tr>
       <th>allowed</th>
       <td><p>Allowed class names.</p></td>
+    </tr>
+    <tr>
+      <th>arg_name</th>
+      <td><p>argument name</p></td>
     </tr>
     <tr>
       <th>lower</th>
@@ -326,7 +334,7 @@ check_null checks that arg is NULL
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
       </span>
     </div>
 
@@ -106,7 +106,7 @@
       <a href="../tutorials/heter.html">Heterogeneous effects</a>
     </li>
     <li>
-      <a href="../tutorials/heter.html">Temporally uncertain effects</a>
+      <a href="../tutorials/uncrt.html">Temporally uncertain effects</a>
     </li>
     <li>
       <a href="../tutorials/bb.html">Discrete observation model</a>
@@ -144,18 +144,18 @@
     <p>Simulate latent function components for longitudinal data analysis</p>
     </div>
 
-    <pre class="usage"><span class='fu'>sim.create_f</span><span class='op'>(</span>
-  <span class='va'>X</span>,
-  <span class='va'>covariates</span>,
-  <span class='va'>relevances</span>,
-  <span class='va'>lengthscales</span>,
-  <span class='va'>X_affected</span>,
-  <span class='va'>dis_fun</span>,
-  <span class='va'>bin_kernel</span>,
-  <span class='va'>steepness</span>,
-  <span class='va'>vm_params</span>,
-  <span class='va'>force_zeromean</span>
-<span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>sim.create_f</span>(
+  <span class='kw'>X</span>,
+  <span class='kw'>covariates</span>,
+  <span class='kw'>relevances</span>,
+  <span class='kw'>lengthscales</span>,
+  <span class='kw'>X_affected</span>,
+  <span class='kw'>dis_fun</span>,
+  <span class='kw'>bin_kernel</span>,
+  <span class='kw'>steepness</span>,
+  <span class='kw'>vm_params</span>,
+  <span class='kw'>force_zeromean</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -243,7 +243,7 @@ component</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

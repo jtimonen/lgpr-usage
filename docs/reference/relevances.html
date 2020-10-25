@@ -47,7 +47,7 @@
 relevances returns a named vector with length equal to
   num_comps + 1
 relevances.default is the default method
-relevances.default_all returns a dataframe of size
+relevances.default_all returns a data.frame of size
   num_draws x num_comps + 1
 
 " />
@@ -82,7 +82,7 @@ relevances.default_all returns a dataframe of size
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
       </span>
     </div>
 
@@ -114,7 +114,7 @@ relevances.default_all returns a dataframe of size
       <a href="../tutorials/heter.html">Heterogeneous effects</a>
     </li>
     <li>
-      <a href="../tutorials/heter.html">Temporally uncertain effects</a>
+      <a href="../tutorials/uncrt.html">Temporally uncertain effects</a>
     </li>
     <li>
       <a href="../tutorials/bb.html">Discrete observation model</a>
@@ -154,17 +154,17 @@ relevances.default_all returns a dataframe of size
 <li><p><code>relevances</code> returns a named vector with length equal to
   <code>num_comps + 1</code></p></li>
 <li><p><code>relevances.default</code> is the default method</p></li>
-<li><p><code>relevances.default_all</code> returns a dataframe of size
+<li><p><code>relevances.default_all</code> returns a <code>data.frame</code> of size
   <code>num_draws</code> x <code>num_comps + 1</code></p></li>
 </ul>
 
     </div>
 
-    <pre class="usage"><span class='fu'>relevances</span><span class='op'>(</span><span class='va'>fit</span>, reduce <span class='op'>=</span> <span class='va'>mean</span>, <span class='va'>...</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>relevances</span>(<span class='kw'>fit</span>, reduce = <span class='fu'>function</span>(<span class='kw'>x</span>) <span class='kw'>base</span>::<span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='kw'>x</span>), <span class='kw'>...</span>)
 
-<span class='fu'>relevances.default</span><span class='op'>(</span><span class='va'>fit</span>, <span class='va'>reduce</span>, <span class='va'>...</span><span class='op'>)</span>
+<span class='fu'>relevances.default</span>(<span class='kw'>fit</span>, <span class='kw'>reduce</span>, <span class='kw'>...</span>)
 
-<span class='fu'>relevances.default.all</span><span class='op'>(</span><span class='va'>fit</span><span class='op'>)</span></pre>
+<span class='fu'>relevances.default.all</span>(<span class='kw'>fit</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -200,7 +200,7 @@ draw into one value</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

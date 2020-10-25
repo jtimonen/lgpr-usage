@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
       </span>
     </div>
 
@@ -106,7 +106,7 @@
       <a href="../tutorials/heter.html">Heterogeneous effects</a>
     </li>
     <li>
-      <a href="../tutorials/heter.html">Temporally uncertain effects</a>
+      <a href="../tutorials/uncrt.html">Temporally uncertain effects</a>
     </li>
     <li>
       <a href="../tutorials/bb.html">Discrete observation model</a>
@@ -144,26 +144,26 @@
     <p>This is a wrapper for <code>STAN_kernel_all</code></p>
     </div>
 
-    <pre class="usage"><span class='fu'>cpp_kernel_all</span><span class='op'>(</span>
-  <span class='va'>n1</span>,
-  <span class='va'>n2</span>,
-  <span class='va'>K_const</span>,
-  <span class='va'>components</span>,
-  <span class='va'>x1</span>,
-  <span class='va'>x2</span>,
-  <span class='va'>x1_unnorm</span>,
-  <span class='va'>x2_unnorm</span>,
-  <span class='va'>alpha</span>,
-  <span class='va'>ell</span>,
-  <span class='va'>wrp</span>,
-  <span class='va'>beta</span>,
-  <span class='va'>teff</span>,
-  <span class='va'>vm_params</span>,
-  <span class='va'>idx1_expand</span>,
-  <span class='va'>idx2_expand</span>,
-  <span class='va'>teff_zero</span>,
-  STREAM <span class='op'>=</span> <span class='fu'>get_stream</span><span class='op'>(</span><span class='op'>)</span>
-<span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>cpp_kernel_all</span>(
+  <span class='kw'>n1</span>,
+  <span class='kw'>n2</span>,
+  <span class='kw'>K_const</span>,
+  <span class='kw'>components</span>,
+  <span class='kw'>x1</span>,
+  <span class='kw'>x2</span>,
+  <span class='kw'>x1_unnorm</span>,
+  <span class='kw'>x2_unnorm</span>,
+  <span class='kw'>alpha</span>,
+  <span class='kw'>ell</span>,
+  <span class='kw'>wrp</span>,
+  <span class='kw'>beta</span>,
+  <span class='kw'>teff</span>,
+  <span class='kw'>vm_params</span>,
+  <span class='kw'>idx1_expand</span>,
+  <span class='kw'>idx2_expand</span>,
+  <span class='kw'>teff_zero</span>,
+  STREAM = <span class='fu'>get_stream</span>()
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -261,7 +261,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>
