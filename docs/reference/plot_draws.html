@@ -86,7 +86,7 @@ plot_warp visualizes the input warping function for
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.7</span>
       </span>
     </div>
 
@@ -165,25 +165,25 @@ plot_warp visualizes the input warping function for
 
     </div>
 
-    <pre class="usage"><span class='fu'>plot_draws</span><span class='op'>(</span>
-  <span class='va'>fit</span>,
-  type <span class='op'>=</span> <span class='st'>"intervals"</span>,
-  regex_pars <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"alpha"</span>, <span class='st'>"ell"</span>, <span class='st'>"wrp"</span>, <span class='st'>"sigma"</span>, <span class='st'>"phi"</span>, <span class='st'>"gamma"</span><span class='op'>)</span>,
-  <span class='va'>...</span>
-<span class='op'>)</span>
+    <pre class="usage"><span class='fu'>plot_draws</span>(
+  <span class='kw'>fit</span>,
+  type = <span class='st'>"intervals"</span>,
+  regex_pars = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"alpha"</span>, <span class='st'>"ell"</span>, <span class='st'>"wrp"</span>, <span class='st'>"sigma"</span>, <span class='st'>"phi"</span>, <span class='st'>"gamma"</span>),
+  <span class='kw'>...</span>
+)
 
-<span class='fu'>plot_warp</span><span class='op'>(</span>
-  <span class='va'>fit</span>,
-  num_points <span class='op'>=</span> <span class='fl'>300</span>,
-  window_size <span class='op'>=</span> <span class='fl'>48</span>,
-  color <span class='op'>=</span> <span class='fu'><a href='colorset.html'>colorset</a></span><span class='op'>(</span><span class='st'>"red"</span>, <span class='st'>"dark"</span><span class='op'>)</span>,
-  alpha <span class='op'>=</span> <span class='fl'>0.5</span>,
-  color_scheme <span class='op'>=</span> <span class='st'>"brightblue"</span>
-<span class='op'>)</span>
+<span class='fu'>plot_warp</span>(
+  <span class='kw'>fit</span>,
+  num_points = <span class='fl'>300</span>,
+  window_size = <span class='fl'>48</span>,
+  color = <span class='fu'><a href='colorset.html'>colorset</a></span>(<span class='st'>"red"</span>, <span class='st'>"dark"</span>),
+  alpha = <span class='fl'>0.5</span>,
+  color_scheme = <span class='st'>"brightblue"</span>
+)
 
-<span class='fu'>plot_beta</span><span class='op'>(</span><span class='va'>fit</span>, type <span class='op'>=</span> <span class='st'>"dens"</span>, <span class='va'>...</span><span class='op'>)</span>
+<span class='fu'>plot_beta</span>(<span class='kw'>fit</span>, type = <span class='st'>"dens"</span>, <span class='kw'>...</span>)
 
-<span class='fu'>plot_effect_times</span><span class='op'>(</span><span class='va'>fit</span>, type <span class='op'>=</span> <span class='st'>"areas"</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+<span class='fu'>plot_effect_times</span>(<span class='kw'>fit</span>, type = <span class='st'>"areas"</span>, <span class='kw'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -249,7 +249,7 @@ plot_warp visualizes the input warping function for
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

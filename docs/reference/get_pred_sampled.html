@@ -44,12 +44,12 @@
 <meta property="og:title" content="Get predictions for a model where the latent function f was sampled — get_pred_sampled" />
 <meta property="og:description" content="These are helper functions for get_pred.sampled.
 Function get_pred.sampled.f_comp gets the draws of each
-  component of f on the normalized scale..
+  component of f on the normalized scale.
 Function get_pred.sampled.f gets draws of the total f
   on the normalized scale.
-Function get_pred.sampled.h gets draws of the total f.
-  maps them to unnormalized scale and through the inverse link function.
-  It applies reduce only after this transformation.
+Function get_pred.sampled.h gets draws of the total f,
+  adds c_hat to each draw, and then maps through the inverse
+  link function. It applies reduce only after this transformation.
 
 " />
 
@@ -83,7 +83,7 @@ Function get_pred.sampled.h gets draws of the total f.
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.7</span>
       </span>
     </div>
 
@@ -149,21 +149,21 @@ Function get_pred.sampled.h gets draws of the total f.
     <div class="ref-description">
     <p>These are helper functions for <code><a href='get_pred.html'>get_pred.sampled</a></code>.</p><ul>
 <li><p>Function <code>get_pred.sampled.f_comp</code> gets the draws of each
-  component of <code>f</code> on the normalized scale..</p></li>
+  component of <code>f</code> on the normalized scale.</p></li>
 <li><p>Function <code>get_pred.sampled.f</code> gets draws of the total <code>f</code>
   on the normalized scale.</p></li>
-<li><p>Function <code>get_pred.sampled.h</code> gets draws of the total <code>f</code>.
-  maps them to unnormalized scale and through the inverse link function.
-  It applies <code>reduce</code> only after this transformation.</p></li>
+<li><p>Function <code>get_pred.sampled.h</code> gets draws of the total <code>f</code>,
+  adds <code>c_hat</code> to each draw, and then maps through the inverse
+  link function. It applies <code>reduce</code> only after this transformation.</p></li>
 </ul>
 
     </div>
 
-    <pre class="usage"><span class='fu'>get_pred.sampled.f_comp</span><span class='op'>(</span><span class='va'>fit</span>, <span class='va'>draws</span>, <span class='va'>reduce</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>get_pred.sampled.f_comp</span>(<span class='kw'>fit</span>, <span class='kw'>draws</span>, <span class='kw'>reduce</span>)
 
-<span class='fu'>get_pred.sampled.f</span><span class='op'>(</span><span class='va'>fit</span>, <span class='va'>draws</span>, <span class='va'>reduce</span><span class='op'>)</span>
+<span class='fu'>get_pred.sampled.f</span>(<span class='kw'>fit</span>, <span class='kw'>draws</span>, <span class='kw'>reduce</span>)
 
-<span class='fu'>get_pred.sampled.h</span><span class='op'>(</span><span class='va'>fit</span>, <span class='va'>draws</span>, <span class='va'>reduce</span><span class='op'>)</span></pre>
+<span class='fu'>get_pred.sampled.h</span>(<span class='kw'>fit</span>, <span class='kw'>draws</span>, <span class='kw'>reduce</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -210,7 +210,7 @@ list of such arrays for <code>get_pred.sampled.f_comp</code>)</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>
