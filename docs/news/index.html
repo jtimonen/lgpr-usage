@@ -73,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.6</span>
       </span>
     </div>
 
@@ -138,6 +138,14 @@
     <div id="lgpr-10" class="section level1">
 <h1 class="page-header" data-toc-text="1.0">
 <a href="#lgpr-10" class="anchor"></a>lgpr 1.0</h1>
+<div id="106" class="section level2">
+<h2 class="hasAnchor">
+<a href="<a href='https://github.com/jtimonen/lgpr/issues/106'>#106</a>" class="anchor"></a>1.0.6</h2>
+<ul>
+<li>Fix bug in <code><a href="../reference/get_pred.html">get_pred()</a></code>, which was caused by not adding the GP mean to the sampled signal. This was causing postprocessing functions like <code><a href="../reference/relevances.html">relevances()</a></code> and <code><a href="../reference/plot_pred.html">plot_pred()</a></code> to give erroneous results if the GP mean was not a vector of zeros and <code>sample_f = TRUE</code>.</li>
+<li>Small edits in documentation and verbose information messages.</li>
+</ul>
+</div>
 <div id="105" class="section level2">
 <h2 class="hasAnchor">
 <a href="<a href='https://github.com/jtimonen/lgpr/issues/105'>#105</a>" class="anchor"></a>1.0.5</h2>
@@ -225,7 +233,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Visualizing model predictions or inferred covariate effects — plot_pred • lgpr</title>
+<title>Helper function for plot_warp — plot_warp_helper • lgpr</title>
 
 
 <!-- jquery -->
@@ -41,16 +41,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Visualizing model predictions or inferred covariate effects — plot_pred" />
-<meta property="og:description" content="
-
-Predictions at data points can be visualized using plot_pred.
-    Out-of-sample predictions can be visualized by giving the pred
-    and x arguments.
-The total signal f or any of its
-  additive components can be plotted using plot_f.
-
-" />
+<meta property="og:title" content="Helper function for plot_warp — plot_warp_helper" />
+<meta property="og:description" content="Helper function for plot_warp" />
 
 
 
@@ -82,7 +74,7 @@ The total signal f or any of its
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.3</span>
       </span>
     </div>
 
@@ -108,10 +100,13 @@ The total signal f or any of its
       <a href="../tutorials/basic.html">Basic usage</a>
     </li>
     <li>
+      <a href="../tutorials/syntax.html">Defining a model</a>
+    </li>
+    <li>
       <a href="../tutorials/heter.html">Heterogeneous effects</a>
     </li>
     <li>
-      <a href="../tutorials/uncrt.html">Temporally uncertain effects</a>
+      <a href="../tutorials/heter.html">Temporally uncertain effects</a>
     </li>
     <li>
       <a href="../tutorials/bb.html">Discrete observation model</a>
@@ -140,112 +135,37 @@ The total signal f or any of its
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Visualizing model predictions or inferred covariate effects</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/plot_pred.R'><code>R/plot_pred.R</code></a></small>
-    <div class="hidden name"><code>plot_pred.Rd</code></div>
+    <h1>Helper function for plot_warp</h1>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/plot_helper.R'><code>R/plot_helper.R</code></a></small>
+    <div class="hidden name"><code>plot_warp_helper.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    
-<ul>
-<li><p>Predictions at data points can be visualized using <code>plot_pred</code>.
-    Out-of-sample predictions can be visualized by giving the <code>pred</code>
-    and <code>x</code> arguments.</p></li>
-<li><p>The total signal <code>f</code> or any of its
-  additive components can be plotted using <code>plot_f</code>.</p></li>
-</ul>
-
+    <p>Helper function for plot_warp</p>
     </div>
 
-    <pre class="usage"><span class='fu'>plot_pred</span><span class='op'>(</span>
-  <span class='va'>fit</span>,
-  x <span class='op'>=</span> <span class='cn'>NULL</span>,
-  pred <span class='op'>=</span> <span class='cn'>NULL</span>,
-  group_by <span class='op'>=</span> <span class='st'>"id"</span>,
-  t_name <span class='op'>=</span> <span class='st'>"age"</span>,
-  draws <span class='op'>=</span> <span class='cn'>NULL</span>,
-  reduce <span class='op'>=</span> <span class='va'>mean</span>,
-  MULT_STD <span class='op'>=</span> <span class='fl'>2</span>,
-  <span class='va'>...</span>
-<span class='op'>)</span>
-
-<span class='fu'>plot_f</span><span class='op'>(</span>
-  <span class='va'>fit</span>,
-  x <span class='op'>=</span> <span class='cn'>NULL</span>,
-  pred <span class='op'>=</span> <span class='cn'>NULL</span>,
-  group_by <span class='op'>=</span> <span class='st'>"id"</span>,
-  t_name <span class='op'>=</span> <span class='st'>"age"</span>,
-  draws <span class='op'>=</span> <span class='cn'>NULL</span>,
-  reduce <span class='op'>=</span> <span class='va'>mean</span>,
-  MULT_STD <span class='op'>=</span> <span class='fl'>2</span>,
-  comp_idx <span class='op'>=</span> <span class='cn'>NULL</span>,
-  color_by <span class='op'>=</span> <span class='cn'>NA</span>,
-  <span class='va'>...</span>
-<span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>plot_warp_helper</span><span class='op'>(</span><span class='va'>par_summary</span>, <span class='va'>dis_age</span>, color_scheme <span class='op'>=</span> <span class='st'>"brightblue"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>fit</th>
-      <td><p>An object of class <a href='lgpfit-class.html'>lgpfit</a>.</p></td>
+      <th>par_summary</th>
+      <td><p>summary of warping parameter</p></td>
     </tr>
     <tr>
-      <th>x</th>
-      <td><p>A data frame of prediction points, containing at least the
-variables used as covariates in the model. This must be specified if
-<code>pred</code> is not <code>NULL</code>.</p></td>
+      <th>dis_age</th>
+      <td><p>the x-axis values</p></td>
     </tr>
     <tr>
-      <th>pred</th>
-      <td><p>An object of class <a href='GaussianPrediction-class.html'>GaussianPrediction</a> or
-<a href='Prediction-class.html'>Prediction</a>.</p></td>
-    </tr>
-    <tr>
-      <th>group_by</th>
-      <td><p>name of the grouping variable</p></td>
-    </tr>
-    <tr>
-      <th>t_name</th>
-      <td><p>name of the x-axis variable</p></td>
-    </tr>
-    <tr>
-      <th>draws</th>
-      <td><p>only has effect if <code>pred</code> is <code>NULL</code></p></td>
-    </tr>
-    <tr>
-      <th>reduce</th>
-      <td><p>only has effect if <code>pred</code> is <code>NULL</code></p></td>
-    </tr>
-    <tr>
-      <th>MULT_STD</th>
-      <td><p>a multiplier for standard deviation</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>additional arguments to <code><a href='plot_api_g.html'>plot_api_g</a></code> or
-<code><a href='plot_api_c.html'>plot_api_c</a></code></p></td>
-    </tr>
-    <tr>
-      <th>comp_idx</th>
-      <td><p>Index of component to plot. The total sum is plotted
-if this is <code>NULL</code>.</p></td>
-    </tr>
-    <tr>
-      <th>color_by</th>
-      <td><p>name of coloring factor</p></td>
+      <th>color_scheme</th>
+      <td><p>name of <code>bayesplot</code> color scheme</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a <code><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></code> object</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p>Other main plot functions: 
-<code><a href='plot_components.html'>plot_components</a>()</code>,
-<code><a href='plot_data.html'>plot_data</a>()</code>,
-<code><a href='plot_sim.html'>plot_sim</a>()</code></p></div>
+    <p>a <code>ggplot</code> object</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
