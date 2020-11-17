@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.8</span>
       </span>
     </div>
 
@@ -151,7 +151,12 @@
       <td><p>A named list with the following possible fields:</p><ul>
 <li><p><code>delta</code> Amount of added jitter to ensure positive definite
   covariance matrices.</p></li>
-</ul></td>
+<li><p><code>do_yrng</code> Should random numbers be drawn from the predictive
+  distribution (one for each posterior draw). This can be set to true
+  in order to do prior or posterior predictive sampling, and only has
+  any effect if <code>sample_f = TRUE</code>.</p></li>
+</ul><p>If <code>options</code> is <code>NULL</code>, default options are used. The defaults
+are equivalent to <code>options = list(delta = 1e-8, do_yrng = FALSE)</code>.</p></td>
     </tr>
     </table>
 

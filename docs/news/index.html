@@ -73,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.8</span>
       </span>
     </div>
 
@@ -138,6 +138,13 @@
     <div id="lgpr-10" class="section level1">
 <h1 class="page-header" data-toc-text="1.0">
 <a href="#lgpr-10" class="anchor"></a>lgpr 1.0</h1>
+<div id="108" class="section level2">
+<h2 class="hasAnchor">
+<a href="<a href='https://github.com/jtimonen/lgpr/issues/108'>#108</a>" class="anchor"></a>1.0.8</h2>
+<ul>
+<li>Add option <code>do_yrng</code> which controls whether to do draws from the predictive distribution. This was previously always done if <code>sample_f</code> was <code>TRUE</code>. That is now considered a bug because it is unnecessary work if the <code>y_rng</code> draws are not needed. So the default is now <code>do_yrng = FALSE</code>, since <code>do_yrng = TRUE</code> can cause errors with the negative binomial model due to numerical problems (see <a href="https://discourse.mc-stan.org/t/numerical-stability-of-gps-with-negative-binomial-likelihood/19343/5">here</a>). These problems should be addressed in a future release to allow more stable prior and posterior predictive sampling.</li>
+</ul>
+</div>
 <div id="107" class="section level2">
 <h2 class="hasAnchor">
 <a href="<a href='https://github.com/jtimonen/lgpr/issues/107'>#107</a>" class="anchor"></a>1.0.7</h2>
