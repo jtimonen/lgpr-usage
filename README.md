@@ -1,5 +1,5 @@
 # Using the lgpr package
-This repository contains tutorials and experiments with the R package **lgpr** (https://github.com/jtimonen/lgpr). 
+This repository contains code for experiments with the R package **lgpr** (https://github.com/jtimonen/lgpr). 
 
 ## Getting started
 Tutorials in html format, package documentation and installation instructions can be found [here](https://jtimonen.github.io/lgpr-usage/).
