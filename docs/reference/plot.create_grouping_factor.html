@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Add layers to a grouped or componentwise plot — add_layer • lgpr</title>
+<title>Create grouping factor, used e.g. by plot_pred — plot.create_grouping_factor • lgpr</title>
 
 
 <!-- jquery -->
@@ -41,8 +41,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Add layers to a grouped or componentwise plot — add_layer" />
-<meta property="og:description" content="Add layers to a grouped or componentwise plot" />
+<meta property="og:title" content="Create grouping factor, used e.g. by plot_pred — plot.create_grouping_factor" />
+<meta property="og:description" content="Create grouping factor, used e.g. by plot_pred" />
 
 
 
@@ -132,77 +132,37 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Add layers to a grouped or componentwise plot</h1>
+    <h1>Create grouping factor, used e.g. by plot_pred</h1>
     <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/plot_api.R'><code>R/plot_api.R</code></a></small>
-    <div class="hidden name"><code>add_layer.Rd</code></div>
+    <div class="hidden name"><code>plot.create_grouping_factor.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Add layers to a grouped or componentwise plot</p>
+    <p>Create grouping factor, used e.g. by plot_pred</p>
     </div>
 
-    <pre class="usage"><span class='fu'>add_c_layer_line</span>(<span class='kw'>h</span>, <span class='kw'>df</span>, <span class='kw'>x_name</span>, <span class='kw'>group_by</span>, <span class='kw'>color_by</span>, <span class='kw'>alpha</span>)
-
-<span class='fu'>add_c_layer_ribbon</span>(<span class='kw'>h</span>, <span class='kw'>df</span>, <span class='kw'>x_name</span>, <span class='kw'>group_by</span>, <span class='kw'>color_by</span>, <span class='kw'>alpha</span>)
-
-<span class='fu'>add_g_layer_ribbon</span>(<span class='kw'>h</span>, <span class='kw'>df</span>, <span class='kw'>x_name</span>, <span class='kw'>group_by</span>, <span class='kw'>color</span>, <span class='kw'>alpha</span>)
-
-<span class='fu'>add_g_layer_fit</span>(<span class='kw'>h</span>, <span class='kw'>df</span>, <span class='kw'>x_name</span>, <span class='kw'>group_by</span>, <span class='kw'>color</span>, <span class='kw'>alpha</span>)
-
-<span class='fu'>add_g_layer_signal</span>(<span class='kw'>h</span>, <span class='kw'>df</span>, <span class='kw'>x_name</span>, <span class='kw'>group_by</span>, <span class='kw'>color</span>)
-
-<span class='fu'>add_g_layer_faceting</span>(<span class='kw'>h</span>, <span class='kw'>facet_by</span>, <span class='kw'>nrow</span>, <span class='kw'>ncol</span>)</pre>
+    <pre class="usage"><span class='co'># S3 method for create_grouping_factor</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>x</span>, <span class='kw'>group_by</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>h</th>
-      <td><p>a ggplot object</p></td>
-    </tr>
-    <tr>
-      <th>df</th>
-      <td><p>a data frame containing the things to add</p></td>
-    </tr>
-    <tr>
-      <th>x_name</th>
-      <td><p>name of the x-axis variable</p></td>
+      <th>x</th>
+      <td><p>A data frame of prediction points, containing at least the
+variables used as covariates in the model. This must be specified if
+<code>pred</code> is not <code>NULL</code>.</p></td>
     </tr>
     <tr>
       <th>group_by</th>
-      <td><p>name of the grouping factor</p></td>
-    </tr>
-    <tr>
-      <th>color_by</th>
-      <td><p>name of the coloring factor</p></td>
-    </tr>
-    <tr>
-      <th>alpha</th>
-      <td><p>opacity</p></td>
-    </tr>
-    <tr>
-      <th>color</th>
-      <td><p>color</p></td>
-    </tr>
-    <tr>
-      <th>facet_by</th>
-      <td><p>factor to use for faceting</p></td>
-    </tr>
-    <tr>
-      <th>nrow</th>
-      <td><p>number of rows, an argument for
-<code><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></code></p></td>
-    </tr>
-    <tr>
-      <th>ncol</th>
-      <td><p>number of columns, an argument for
-<code><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>facet_wrap</a></code></p></td>
+      <td><p>name of the grouping variable (use <code>group_by=NA</code>
+to avoid grouping)</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a modified ggplot object</p>
+    <p>a factor</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
