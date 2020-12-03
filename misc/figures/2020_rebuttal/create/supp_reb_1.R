@@ -1,5 +1,5 @@
 
-res <- readRDS('rocs_1_to_8.rds')
+res <- readRDS('roc_noise.rds')
 
 auc1 <- rep(0, 8)
 auc2 <- rep(0, 8)
