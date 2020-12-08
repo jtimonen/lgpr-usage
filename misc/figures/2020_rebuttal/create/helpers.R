@@ -57,3 +57,9 @@ create_rel_plot <- function(res, cnames) {
   return(plt)
 }
 
+# Helper function
+get_noise_rel <- function(res, noise_idx) {
+  r <- res$LGPR_rel[,noise_idx]
+  return(r)
+}
+
