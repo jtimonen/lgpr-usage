@@ -1,0 +1,27 @@
+
+===== 1B =====
+
+Accuracies (diseaseAge relevant):
+   lgpr (0.80): 0.859
+   lonGP: 0.724
+   lgpr (0.95): 0.958
+ 
+Accuracies (diseaseAge not relevant):
+   lgpr (0.80): 0.909
+   lonGP: 0.839
+   lgpr (0.95): 0.941
+
+
+
+===== 1C =====
+
+Accuracies (diseaseAge relevant):
+   lgpr (0.80): 0.821
+   lonGP: 0.701
+   lgpr (0.95): 0.904
+ 
+Accuracies (diseaseAge not relevant):
+   lgpr (0.80): 0.912
+   lonGP: 0.853
+   lgpr (0.95): 0.94
+
