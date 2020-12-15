@@ -23,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -40,13 +40,13 @@
      inkscape:window-height="1017"
      id="namedview1613"
      showgrid="false"
-     inkscape:zoom="0.76638655"
-     inkscape:cx="363.4752"
-     inkscape:cy="447.8965"
+     inkscape:zoom="1.0838343"
+     inkscape:cx="471.69357"
+     inkscape:cy="305.2547"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g11530"
+     inkscape:current-layer="g9773"
      fit-margin-left="2"
      fit-margin-top="2"
      fit-margin-bottom="2"
@@ -9162,25 +9162,25 @@
       <path
          inkscape:connector-curvature="0"
          style="fill:#f0f0f0;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.86734605"
-         d="m 389.05074,336.25689 h 14.98882 v -14.98883 h -14.98882 z m 0,0"
+         d="M 363.55218,331.229 H 378.541 v -14.98883 h -14.98882 z m 0,0"
          id="path9759" />
       <path
          inkscape:connector-curvature="0"
          style="fill:#a6cce3;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.86734605"
-         d="m 389.66379,335.64006 h 13.75896 v -13.75895 h -13.75896 z m 0,0"
+         d="m 364.16523,330.61217 h 13.75896 v -13.75895 h -13.75896 z m 0,0"
          id="path9761" />
       <path
          inkscape:connector-curvature="0"
          style="fill:#f0f0f0;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.86734605"
-         d="m 389.05074,352.90737 h 14.98882 v -14.98883 h -14.98882 z m 0,0"
+         d="M 363.55218,347.87948 H 378.541 v -14.98883 h -14.98882 z m 0,0"
          id="path9763" />
       <path
          inkscape:connector-curvature="0"
          style="fill:#1e78b3;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.86734605"
-         d="m 389.66379,352.29431 h 13.75896 v -13.75895 h -13.75896 z m 0,0"
+         d="m 364.16523,347.26642 h 13.75896 v -13.75895 h -13.75896 z m 0,0"
          id="path9765" />
       <g
-         transform="matrix(0.96648505,0,0,0.96648505,0.58222581,9.594892)"
+         transform="matrix(0.96648505,0,0,0.96648505,-24.916337,4.5670063)"
          style="fill:#000000;fill-opacity:1"
          id="g9773">
         <text
@@ -9193,22 +9193,26 @@
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.89284563px;line-height:2.0999999;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.49330285"
              y="333.58905"
              x="423.52765"
-             sodipodi:role="line">96</tspan><tspan
+             sodipodi:role="line">96  <tspan
+   style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic'"
+   id="tspan2763">(16 individuals, 6 time points)</tspan></tspan><tspan
              id="tspan12611"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.89284563px;line-height:2.0999999;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.49330285"
              y="350.16403"
              x="423.52765"
-             sodipodi:role="line">126</tspan></text>
+             sodipodi:role="line">216 <tspan
+   style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic'"
+   id="tspan2765">(24 individuals, 9 time points)</tspan></tspan></text>
       </g>
       <text
          id="text12619"
-         y="316.73682"
-         x="391.21237"
+         y="311.70892"
+         x="365.71381"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.51204824px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.51675445"
          xml:space="preserve"><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.26807117px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.51675445"
-           y="316.73682"
-           x="391.21237"
+           y="311.70892"
+           x="365.71381"
            id="tspan12617"
            sodipodi:role="line">Number of data points</tspan></text>
       <text
@@ -9225,7 +9229,7 @@
    id="tspan14315"
    style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#282828;fill-opacity:1">MODEL 1:</tspan><tspan
    style="fill:#282828;fill-opacity:1"
-   id="tspan14179"> </tspan>all covariates</tspan></text>
+   id="tspan14179" />all covariates</tspan></text>
       <text
          id="text12619-7-1"
          y="199.19441"
@@ -9239,16 +9243,16 @@
            sodipodi:role="line"><tspan
    style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold'"
    id="tspan14297"><tspan
-   style="fill:#282828;fill-opacity:1"
-   id="tspan14299">MODEL 2:</tspan> </tspan><tspan
+     style="fill:#282828;fill-opacity:1"
+     id="tspan14299">MODEL 2:</tspan></tspan><tspan
    id="tspan12712"
    style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic'">z<tspan
    id="tspan12716"
-   style="font-size:64.99999762%;baseline-shift:sub">1</tspan> <tspan
+   style="font-size:64.99999762%;baseline-shift:sub">1</tspan><tspan
    id="tspan12732"
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif">and</tspan> x<tspan
    id="tspan12718"
-   style="font-size:64.99999762%;baseline-shift:sub">1</tspan> </tspan>missing</tspan></text>
+   style="font-size:64.99999762%;baseline-shift:sub">1</tspan></tspan>missing</tspan></text>
       <text
          id="text12619-7-1-6"
          y="310.47153"
@@ -9261,7 +9265,7 @@
            id="tspan12617-0-1-0"
            sodipodi:role="line"><tspan
    style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#282828;fill-opacity:1"
-   id="tspan14305">MODEL 3:</tspan> <tspan
+   id="tspan14305">MODEL 3:</tspan><tspan
    id="tspan12724"
    style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic'">z</tspan><tspan
    id="tspan12720"
@@ -9271,7 +9275,7 @@
    id="tspan12722"
    style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64.99999762%;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic';baseline-shift:sub">1</tspan><tspan
    id="tspan12728"
-   style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic'"> <tspan
+   style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic'"><tspan
    id="tspan12734"
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif">and</tspan> id </tspan>missing</tspan></text>
       <text
