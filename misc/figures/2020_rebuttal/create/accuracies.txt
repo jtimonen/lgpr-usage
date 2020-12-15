@@ -1,5 +1,20 @@
+===== Setup i) ====
 
-===== 1B =====
+Accuracies (diseaseAge relevant):
+   lgpr (0.80): 0.814
+   lonGP: 0.65
+   lgpr (0.95): 0.898
+ 
+Accuracies (diseaseAge not relevant):
+   lgpr (0.80): 0.87
+   lonGP: 0.752
+   lgpr (0.95): 0.888
+ 
+Runtimes: 
+   lgpr: 58 min 21 s (+- 1 min 33 s) 
+   lonGP: 4 h 40 min 11 s (+- 1h 43 min 10 s) 
+
+===== Setup ii) =====
 
 Accuracies (diseaseAge relevant):
    lgpr (0.80): 0.859
@@ -11,9 +26,7 @@ Accuracies (diseaseAge not relevant):
    lonGP: 0.839
    lgpr (0.95): 0.941
 
-
-
-===== 1C =====
+===== Setup iii)  =====
 
 Accuracies (diseaseAge relevant):
    lgpr (0.80): 0.821
