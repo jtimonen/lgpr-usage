@@ -1,0 +1,13 @@
+  <!--/.ADDED BY HAND-->
+  <div>
+  <img src="fig1.png" alt="Overview image" width = 710>
+  </div>
+  <!--/.ADDED BY HAND -->
+  
+  <!--/.EDITED BY HAND-->
+  <div id="getting-started" class="section level2">
+  <h2 class="hasAnchor">
+  <a href="#getting-started" class="anchor"></a>Getting started</h2>
+  <p>See Overview, Tutorials and Documentation.</p>
+  </div>
+  <!--/.EDITED BY HAND-->

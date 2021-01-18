@@ -88,7 +88,7 @@ each parameter draw (defined by draws), or other parameter set
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.11</span>
       </span>
     </div>
 
@@ -172,6 +172,7 @@ each parameter draw (defined by <code>draws</code>), or other parameter set
     <pre class="usage"><span class='fu'>pred</span>(
   <span class='kw'>fit</span>,
   <span class='kw'>x</span>,
+  c_hat_pred = <span class='kw'>NULL</span>,
   reduce = <span class='fu'>function</span>(<span class='kw'>x</span>) <span class='kw'>base</span>::<span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='kw'>x</span>),
   draws = <span class='kw'>NULL</span>,
   verbose = <span class='fl'>TRUE</span>,
@@ -180,7 +181,7 @@ each parameter draw (defined by <code>draws</code>), or other parameter set
 
 <span class='fu'>pred.gaussian</span>(<span class='kw'>fit</span>, <span class='kw'>x</span>, <span class='kw'>reduce</span>, <span class='kw'>draws</span>, <span class='kw'>verbose</span>, STREAM = <span class='fu'>get_stream</span>())
 
-<span class='fu'>pred.kr</span>(<span class='kw'>fit</span>, <span class='kw'>x</span>, <span class='kw'>reduce</span>, <span class='kw'>draws</span>, <span class='kw'>verbose</span>, STREAM = <span class='fu'>get_stream</span>())</pre>
+<span class='fu'>pred.kr</span>(<span class='kw'>fit</span>, <span class='kw'>x</span>, <span class='kw'>c_hat_pred</span>, <span class='kw'>reduce</span>, <span class='kw'>draws</span>, <span class='kw'>verbose</span>, STREAM = <span class='fu'>get_stream</span>())</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -193,6 +194,15 @@ each parameter draw (defined by <code>draws</code>), or other parameter set
       <th>x</th>
       <td><p>A data frame of points where the predictions are computed.
 The function <code><a href='new_x.html'>new_x</a></code> provides an easy way to create it.</p></td>
+    </tr>
+    <tr>
+      <th>c_hat_pred</th>
+      <td><p>This is only used if the latent signal <code>f</code> was
+sampled. This input contains the values added to the sum <code>f</code> before
+passing through inverse link function. Must be a vector with length equal to
+the number of prediction points. If original <code>c_hat</code> was constant,
+then <code>c_hat_pred</code> can be ignored, in which case this will by default
+use the same constant.</p></td>
     </tr>
     <tr>
       <th>reduce</th>

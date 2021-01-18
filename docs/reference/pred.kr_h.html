@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Helper function for plot_warp — plot_warp_helper • lgpr</title>
+<title>Map the sum f from pred.kr_compute to h — pred.kr_h • lgpr</title>
 
 
 <!-- jquery -->
@@ -41,8 +41,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Helper function for plot_warp — plot_warp_helper" />
-<meta property="og:description" content="Helper function for plot_warp" />
+<meta property="og:title" content="Map the sum f from pred.kr_compute to h — pred.kr_h" />
+<meta property="og:description" content="Map the sum f from pred.kr_compute to h" />
 
 
 
@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.11</span>
       </span>
     </div>
 
@@ -100,13 +100,10 @@
       <a href="../tutorials/basic.html">Basic usage</a>
     </li>
     <li>
-      <a href="../tutorials/syntax.html">Defining a model</a>
-    </li>
-    <li>
       <a href="../tutorials/heter.html">Heterogeneous effects</a>
     </li>
     <li>
-      <a href="../tutorials/heter.html">Temporally uncertain effects</a>
+      <a href="../tutorials/uncrt.html">Temporally uncertain effects</a>
     </li>
     <li>
       <a href="../tutorials/bb.html">Discrete observation model</a>
@@ -135,37 +132,46 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Helper function for plot_warp</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/plot_helper.R'><code>R/plot_helper.R</code></a></small>
-    <div class="hidden name"><code>plot_warp_helper.Rd</code></div>
+    <h1>Map the sum f from pred.kr_compute to h</h1>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/pred.R'><code>R/pred.R</code></a></small>
+    <div class="hidden name"><code>pred.kr_h.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Helper function for plot_warp</p>
+    <p>Map the sum f from pred.kr_compute to h</p>
     </div>
 
-    <pre class="usage"><span class='fu'>plot_warp_helper</span><span class='op'>(</span><span class='va'>par_summary</span>, <span class='va'>dis_age</span>, color_scheme <span class='op'>=</span> <span class='st'>"brightblue"</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>pred.kr_h</span>(<span class='kw'>fit</span>, <span class='kw'>f</span>, <span class='kw'>c_hat_pred</span>, <span class='kw'>verbose</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>par_summary</th>
-      <td><p>summary of warping parameter</p></td>
+      <th>fit</th>
+      <td><p>An object of class <a href='lgpfit-class.html'>lgpfit</a>.</p></td>
     </tr>
     <tr>
-      <th>dis_age</th>
-      <td><p>the x-axis values</p></td>
+      <th>f</th>
+      <td><p>an array of shape (num_draws, num_pred_points)</p></td>
     </tr>
     <tr>
-      <th>color_scheme</th>
-      <td><p>name of <code>bayesplot</code> color scheme</p></td>
+      <th>c_hat_pred</th>
+      <td><p>This is only used if the latent signal <code>f</code> was
+sampled. This input contains the values added to the sum <code>f</code> before
+passing through inverse link function. Must be a vector with length equal to
+the number of prediction points. If original <code>c_hat</code> was constant,
+then <code>c_hat_pred</code> can be ignored, in which case this will by default
+use the same constant.</p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>Should more information and a progress bar be printed?</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a <code>ggplot</code> object</p>
+    <p>an array with same shape as <code>f</code></p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -182,7 +188,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>
