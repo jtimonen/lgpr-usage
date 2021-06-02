@@ -1,4 +1,4 @@
-id,age,diseaseAge,group,sex,
+id,age,diseaseAge,group,sex
 1,11.105,NaN,0,0
 1,24.608,NaN,0,0
 1,35.975,NaN,0,0
