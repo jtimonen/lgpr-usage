@@ -73,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -135,6 +135,23 @@
       <small>Source: <a href='https://github.com/jtimonen/lgpr/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="lgpr-11" class="section level1">
+<h1 class="page-header" data-toc-text="1.1">
+<a href="#lgpr-11" class="anchor"></a>lgpr 1.1</h1>
+<div id="110" class="section level2">
+<h2 class="hasAnchor">
+<a href="<a href='https://github.com/jtimonen/lgpr/issues/110'>#110</a>" class="anchor"></a>1.1.0</h2>
+<ul>
+<li>Adds <code><a href="../reference/prior_pred.html">prior_pred()</a></code> for prior predictive sampling and <code><a href="../reference/prior_pred.html">sample_param_prior()</a></code> for sampling from the parameter prior.</li>
+<li>Adds <code><a href="../reference/read_proteomics_data.html">read_proteomics_data()</a></code> function.</li>
+<li>Relax data type checking, to require that they only inherit from factor or numeric. Allow also <code>tibble</code>s and <code>data.table</code>s to be passed as data.</li>
+<li>Adds more methods for <code>lgpfit</code> and <code>lgpmodel</code> objects, see their documentation.</li>
+<li>Lot of improvements internally. Kernel computations in functions like <code><a href="../reference/pred.html">pred()</a></code> should take a lot less memory now. Two separete main Stan models now. One for latent GP (signal where f is sampled) and other for GP with marginalized f.</li>
+<li>Improved documentation.</li>
+<li>Improve verbose messages to user.</li>
+</ul>
+</div>
+</div>
     <div id="lgpr-10" class="section level1">
 <h1 class="page-header" data-toc-text="1.0">
 <a href="#lgpr-10" class="anchor"></a>lgpr 1.0</h1>
@@ -142,7 +159,7 @@
 <h2 class="hasAnchor">
 <a href="<a href='https://github.com/jtimonen/lgpr/issues/1013'>#1013</a>" class="anchor"></a>1.0.13</h2>
 <ul>
-<li>Fix bug that ignored the <code>group_by</code> argument in <code><a href="../reference/get_teff_obs.html">get_teff_obs()</a></code> and caused at least <code><a href="../reference/new_x.html">new_x()</a></code> to not work if the subject identifier variable was called something else than <code>id</code> (see <a href="https://github.com/jtimonen/lgpr/issues/22">issue <a href='https://github.com/jtimonen/lgpr/issues/22'>#22</a></a>).</li>
+<li>Fix bug that ignored the <code>group_by</code> argument in <code>get_teff_obs()</code> and caused at least <code><a href="../reference/new_x.html">new_x()</a></code> to not work if the subject identifier variable was called something else than <code>id</code> (see <a href="https://github.com/jtimonen/lgpr/issues/22">issue <a href='https://github.com/jtimonen/lgpr/issues/22'>#22</a></a>).</li>
 </ul>
 </div>
 <div id="1012" class="section level2">
@@ -249,7 +266,7 @@
 <li>Component relevance assessment is now separated from model fitting into the <code><a href="../reference/relevances.html">relevances()</a></code> function and selection into <code><a href="../reference/select.html">select()</a></code>.</li>
 <li>Easier prior specification with <code><a href="../reference/priors.html">normal()</a></code>, <code><a href="../reference/priors.html">log_normal()</a></code>, <code><a href="../reference/priors.html">student_t()</a></code> etc.</li>
 <li>Better prediction and plotting functionality with <code><a href="../reference/get_pred.html">get_pred()</a></code>, <code><a href="../reference/pred.html">pred()</a></code>, <code><a href="../reference/plot_pred.html">plot_pred()</a></code>, and <code><a href="../reference/plot_pred.html">plot_f()</a></code>.</li>
-<li>Extensive argument checking (see <code><a href="../reference/checks.html">check_positive_all()</a></code> etc.) to give users informative error messages</li>
+<li>Extensive argument checking (see <code>check_positive_all()</code> etc.) to give users informative error messages</li>
 </ul>
 </div>
 <div id="automated-testing" class="section level3">

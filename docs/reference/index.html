@@ -73,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -182,39 +182,33 @@ into account</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="component_info.html">component_info()</a></code> <code><a href="component_info.html">component_names()</a></code> </p>
-        </td>
-        <td><p>Information about the model components</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="create_model.html">create_model()</a></code> </p>
         </td>
         <td><p>Create a model</p></td>
       </tr><tr>
         
         <td>
+          <p><code><a href="draw_pred.html">draw_pred()</a></code> </p>
+        </td>
+        <td><p>Draw pseudo-observations from a predictive distribution</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="fit_summary.html">fit_summary()</a></code> </p>
         </td>
-        <td><p>Posterior summary</p></td>
+        <td><p>Print a fit summary.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="get_draws.html">get_draws()</a></code> <code><a href="get_draws.html">get_draws.catch()</a></code> <code><a href="get_draws.html">get_num_draws()</a></code> </p>
+          <p><code><a href="get_draws.html">get_draws()</a></code> </p>
         </td>
-        <td><p>Extract posterior draws</p></td>
+        <td><p>Extract parameter draws from lgpfit or stanfit</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="get_pred.html">get_pred()</a></code> <code><a href="get_pred.html">get_pred.gaussian()</a></code> <code><a href="get_pred.html">get_pred.sampled()</a></code> </p>
+          <p><code><a href="get_pred.html">get_pred()</a></code> </p>
         </td>
-        <td><p>Extract model predictions</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_y_rng.html">get_y_rng()</a></code> </p>
-        </td>
-        <td><p>Extract posterior or prior predictive distribution draws</p></td>
+        <td><p>Extract model predictions and function posteriors</p></td>
       </tr><tr>
         
         <td>
@@ -224,9 +218,9 @@ into account</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="model_summary.html">model_summary()</a></code> <code><a href="model_summary.html">model_summary.brief()</a></code> </p>
+          <p><code><a href="model_summary.html">model_summary()</a></code> <code><a href="model_summary.html">param_summary()</a></code> </p>
         </td>
-        <td><p>Print a model summary</p></td>
+        <td><p>Print a model summary.</p></td>
       </tr><tr>
         
         <td>
@@ -242,15 +236,9 @@ into account</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="param_summary.html">param_summary()</a></code> <code><a href="param_summary.html">prior_summary()</a></code> </p>
+          <p><code><a href="plot_draws.html">plot_draws()</a></code> <code><a href="plot_draws.html">plot_beta()</a></code> <code><a href="plot_draws.html">plot_warp()</a></code> <code><a href="plot_draws.html">plot_effect_times()</a></code> </p>
         </td>
-        <td><p>Parameter summary (priors etc.)</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot_draws.html">plot_draws()</a></code> <code><a href="plot_draws.html">plot_warp()</a></code> <code><a href="plot_draws.html">plot_beta()</a></code> <code><a href="plot_draws.html">plot_effect_times()</a></code> </p>
-        </td>
-        <td><p>Visualize the distribution of the obtained parameter draws</p></td>
+        <td><p>Visualize the distribution of parameter draws</p></td>
       </tr><tr>
         
         <td>
@@ -272,7 +260,7 @@ into account</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="plot_sim.html">plot_sim()</a></code> <code><a href="plot_sim.html">plot_sim.data()</a></code> <code><a href="plot_sim.html">plot_sim.component()</a></code> <code><a href="plot_sim.html">plot_sim.component.df()</a></code> </p>
+          <p><code><a href="plot_sim.html">plot_sim()</a></code> </p>
         </td>
         <td><p>Visualize an lgpsim object (simulated data)</p></td>
       </tr><tr>
@@ -280,17 +268,29 @@ into account</p></td>
         <td>
           <p><code><a href="ppc.html">ppc()</a></code> </p>
         </td>
-        <td><p>Graphical posterior or prior predictive checks</p></td>
+        <td><p>Graphical posterior predictive checks</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="pred.html">pred()</a></code> <code><a href="pred.html">pred.gaussian()</a></code> <code><a href="pred.html">pred.kr()</a></code> </p>
+          <p><code><a href="pred.html">pred()</a></code> </p>
         </td>
-        <td><p>Computing out-of-sample predictions</p></td>
+        <td><p>Posterior predictions and function posteriors</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="relevances.html">relevances()</a></code> <code><a href="relevances.html">relevances.default()</a></code> <code><a href="relevances.html">relevances.default.all()</a></code> </p>
+          <p><code><a href="prior_pred.html">prior_pred()</a></code> <code><a href="prior_pred.html">sample_param_prior()</a></code> </p>
+        </td>
+        <td><p>Prior (predictive) sampling</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="read_proteomics_data.html">read_proteomics_data()</a></code> </p>
+        </td>
+        <td><p>Function for reading the built-in proteomics data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="relevances.html">relevances()</a></code> </p>
         </td>
         <td><p>Assess component relevances</p></td>
       </tr><tr>
@@ -346,16 +346,23 @@ into account</p></td>
       <tr>
         
         <td>
-          <p><code><a href="GaussianPrediction-class.html">GaussianPrediction-class</a></code> </p>
+          <p><code><a href="GaussianPrediction-class.html">show(<i>&lt;GaussianPrediction&gt;</i>)</a></code> <code><a href="GaussianPrediction-class.html">component_names(<i>&lt;GaussianPrediction&gt;</i>)</a></code> <code><a href="GaussianPrediction-class.html">num_components(<i>&lt;GaussianPrediction&gt;</i>)</a></code> <code><a href="GaussianPrediction-class.html">num_paramsets(<i>&lt;GaussianPrediction&gt;</i>)</a></code> <code><a href="GaussianPrediction-class.html">num_evalpoints(<i>&lt;GaussianPrediction&gt;</i>)</a></code> </p>
         </td>
-        <td><p>An S4 class to represent an analytically computed posterior or prior
-predictive distribution (Gaussian) of an additive GP model</p></td>
+        <td><p>An S4 class to represent analytically computed predictive distributions
+(conditional on hyperparameters) of an additive GP model</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="Prediction-class.html">Prediction-class</a></code> </p>
+          <p><code><a href="KernelComputer-class.html">show(<i>&lt;KernelComputer&gt;</i>)</a></code> </p>
         </td>
-        <td><p>An S4 class to represent general additive model predictions</p></td>
+        <td><p>An S4 class to represent input for kernel matrix computations</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="Prediction-class.html">show(<i>&lt;Prediction&gt;</i>)</a></code> <code><a href="Prediction-class.html">component_names(<i>&lt;Prediction&gt;</i>)</a></code> <code><a href="Prediction-class.html">num_components(<i>&lt;Prediction&gt;</i>)</a></code> <code><a href="Prediction-class.html">num_paramsets(<i>&lt;Prediction&gt;</i>)</a></code> <code><a href="Prediction-class.html">num_evalpoints(<i>&lt;Prediction&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>An S4 class to represent prior or posterior
+draws from an additive function distribution.</p></td>
       </tr><tr>
         
         <td>
@@ -377,18 +384,6 @@ predictive distribution (Gaussian) of an additive GP model</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="add_layer.html">add_c_layer_line()</a></code> <code><a href="add_layer.html">add_c_layer_ribbon()</a></code> <code><a href="add_layer.html">add_g_layer_ribbon()</a></code> <code><a href="add_layer.html">add_g_layer_fit()</a></code> <code><a href="add_layer.html">add_g_layer_signal()</a></code> <code><a href="add_layer.html">add_g_layer_faceting()</a></code> </p>
-        </td>
-        <td><p>Add layers to a grouped or componentwise plot</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="add_to_columns.html">add_to_columns()</a></code> </p>
-        </td>
-        <td><p>Add a vector to each column of an array</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="adjusted_c_hat.html">adjusted_c_hat()</a></code> </p>
         </td>
         <td><p>Set the GP mean vector, taking TMM or other normalization
@@ -396,148 +391,51 @@ into account</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="apply_reduce.html">apply_reduce()</a></code> </p>
+          <p><code><a href="apply_scaling.html">apply_scaling()</a></code> </p>
         </td>
-        <td><p>Apply possible reduction to rows of an array</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="arr3_select.html">arr3_select()</a></code> </p>
-        </td>
-        <td><p>Select an element along the first dimension of an array, and only drop
-the first dimension</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="arr3_to_list.html">arr3_to_list()</a></code> </p>
-        </td>
-        <td><p>Format a 3-dimensional array into a list of 2-dimensional arrays</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="array_to_arraylist.html">array_to_arraylist()</a></code> </p>
-        </td>
-        <td><p>Array transformation utility</p></td>
+        <td><p>Apply variable scaling</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="as_character.html">as.character(<i>&lt;lgpexpr&gt;</i>)</a></code> <code><a href="as_character.html">as.character(<i>&lt;lgpterm&gt;</i>)</a></code> <code><a href="as_character.html">as.character(<i>&lt;lgpformula&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Character representations of different S4 objects</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="call_fun.html">call_fun()</a></code> </p>
-        </td>
-        <td><p>A linter-friendly way to call a function</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="check_allowed.html">check_allowed()</a></code> </p>
-        </td>
-        <td><p>Check if argument is one of the allowed options</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="check_response.html">check_response()</a></code> </p>
-        </td>
-        <td><p>Check that the response is numeric and compatibile with observation model</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="check_term_covariates.html">check_term_covariates()</a></code> </p>
-        </td>
-        <td><p>Helper for converting an lgpterm to numeric representation for Stan</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="check_term_factors.html">check_term_factors()</a></code> </p>
-        </td>
-        <td><p>Helper for converting an lgpterm to numeric representation for Stan</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="checks.html">check_type()</a></code> <code><a href="checks.html">check_function()</a></code> <code><a href="checks.html">check_numeric()</a></code> <code><a href="checks.html">check_positive()</a></code> <code><a href="checks.html">check_non_negative()</a></code> <code><a href="checks.html">check_positive_all()</a></code> <code><a href="checks.html">check_non_negative_all()</a></code> <code><a href="checks.html">check_integer_all()</a></code> <code><a href="checks.html">check_interval()</a></code> <code><a href="checks.html">check_not_null()</a></code> <code><a href="checks.html">check_null()</a></code> <code><a href="checks.html">check_length()</a></code> <code><a href="checks.html">check_length_1_or()</a></code> <code><a href="checks.html">check_length_geq()</a></code> <code><a href="checks.html">check_lengths()</a></code> <code><a href="checks.html">check_false()</a></code> <code><a href="checks.html">check_in_data()</a></code> <code><a href="checks.html">check_all_leq()</a></code> <code><a href="checks.html">check_not_named()</a></code> <code><a href="checks.html">check_named()</a></code> <code><a href="checks.html">check_dim()</a></code> </p>
-        </td>
-        <td><p>Argument validation</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="class_info.html">class_info()</a></code> </p>
-        </td>
-        <td><p>Class info for show methods</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="class_info_pred.html">class_info_pred()</a></code> </p>
-        </td>
-        <td><p>Class info for show methods</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="color_palette.html">color_palette()</a></code> <code><a href="color_palette.html">fill_palette()</a></code> </p>
-        </td>
-        <td><p>A color palettes</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="colorset.html">colorset()</a></code> </p>
-        </td>
-        <td><p>Plot colors to use</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="component_info.html">component_info()</a></code> <code><a href="component_info.html">component_names()</a></code> </p>
-        </td>
-        <td><p>Information about the model components</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="covariate_info.html">covariate_info()</a></code> <code><a href="covariate_info.html">covariate_info.cat()</a></code> <code><a href="covariate_info.html">covariate_info.cont()</a></code> </p>
-        </td>
-        <td><p>Information about covariates used in a model</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="cpp_gp_posterior.html">cpp_gp_posterior()</a></code> </p>
-        </td>
-        <td><p>Compute all componentwise GP posteriors of a model</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="cpp_kernel_all.html">cpp_kernel_all()</a></code> </p>
-        </td>
-        <td><p>Compute all kernel matrices of a model</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="cpp_kernel_const_all.html">cpp_kernel_const_all()</a></code> </p>
-        </td>
-        <td><p>Compute all constant kernel matrices of a model</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="cpp_var_mask.html">cpp_var_mask()</a></code> </p>
-        </td>
-        <td><p>Variance masking function</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="cpp_warp_input.html">cpp_warp_input()</a></code> </p>
-        </td>
-        <td><p>Input warping function</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_components_encoding.html">create_components_encoding()</a></code> </p>
-        </td>
-        <td><p>Create the components integer array</p></td>
+        <td><p>Character representations of different formula objects</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="create_model.html">create_model()</a></code> </p>
         </td>
         <td><p>Create a model</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_model.covs_and_comps.html">create_model.covs_and_comps()</a></code> </p>
+        </td>
+        <td><p>Parse the covariates and model components from given data and formula</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_model.formula.html">create_model.formula()</a></code> </p>
+        </td>
+        <td><p>Create a model formula</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_model.likelihood.html">create_model.likelihood()</a></code> </p>
+        </td>
+        <td><p>Parse the response variable and its likelihood model</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_model.options.html">create_model.options()</a></code> </p>
+        </td>
+        <td><p>Parse the given modeling options</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_model.prior.html">create_model.prior()</a></code> </p>
+        </td>
+        <td><p>Parse given prior</p></td>
       </tr><tr>
         
         <td>
@@ -549,19 +447,7 @@ the first dimension</p></td>
         <td>
           <p><code><a href="create_scaling.html">create_scaling()</a></code> </p>
         </td>
-        <td><p>Create the function that does a standardizing transform and its inverse</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="data_types.html">data_types()</a></code> </p>
-        </td>
-        <td><p>Get type of each data column</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="defaults.html">default_vm_params()</a></code> <code><a href="defaults.html">default_prior()</a></code> <code><a href="defaults.html">default_prior_common()</a></code> <code><a href="defaults.html">default_prior_effect_time_info()</a></code> <code><a href="defaults.html">default_ppc_fun()</a></code> </p>
-        </td>
-        <td><p>Default priors and parameter values</p></td>
+        <td><p>Create a standardizing transform</p></td>
       </tr><tr>
         
         <td>
@@ -571,135 +457,39 @@ the first dimension</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="dollar.html">dollar()</a></code> </p>
+          <p><code><a href="draw_pred.html">draw_pred()</a></code> </p>
         </td>
-        <td><p>A safer alternative for the dollar operator</p></td>
+        <td><p>Draw pseudo-observations from a predictive distribution</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="enclose_fun.html">enclose_fun()</a></code> </p>
+          <p><code><a href="example_fit.html">example_fit()</a></code> </p>
         </td>
-        <td><p>Paste function and argument enclosed in parentheses</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ensure_2dim.html">ensure_2dim()</a></code> </p>
-        </td>
-        <td><p>Ensure that v is 2-dimensional</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ensure_len.html">ensure_len()</a></code> </p>
-        </td>
-        <td><p>Ensure vector has expected length</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="fill_prior.html">fill_prior()</a></code> </p>
-        </td>
-        <td><p>Fill a partially defined prior</p></td>
+        <td><p>Quick way to create an example lgpfit, useful for debugging</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="fit_summary.html">fit_summary()</a></code> </p>
         </td>
-        <td><p>Posterior summary</p></td>
+        <td><p>Print a fit summary.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="formula_to_advanced.html">formula_to_advanced()</a></code> <code><a href="formula_to_advanced.html">rhs_to_advanced()</a></code> </p>
+          <p><code><a href="get_draws.html">get_draws()</a></code> </p>
         </td>
-        <td><p>Parse a model formula that uses the common formula syntax</p></td>
+        <td><p>Extract parameter draws from lgpfit or stanfit</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="get_chat.html">get_chat()</a></code> </p>
+          <p><code><a href="get_pred.html">get_pred()</a></code> </p>
         </td>
-        <td><p>Get the used GP mean vector</p></td>
+        <td><p>Extract model predictions and function posteriors</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="get_draws.html">get_draws()</a></code> <code><a href="get_draws.html">get_draws.catch()</a></code> <code><a href="get_draws.html">get_num_draws()</a></code> </p>
+          <p><code><a href="kernel.html">kernel_eq()</a></code> <code><a href="kernel.html">kernel_ns()</a></code> <code><a href="kernel.html">kernel_zerosum()</a></code> <code><a href="kernel.html">kernel_bin()</a></code> <code><a href="kernel.html">kernel_cat()</a></code> <code><a href="kernel.html">kernel_varmask()</a></code> <code><a href="kernel.html">kernel_beta()</a></code> </p>
         </td>
-        <td><p>Extract posterior draws</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_kernel_pars.html">get_kernel_pars()</a></code> </p>
-        </td>
-        <td><p>Extract kernel parameter draws</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_num_ns.html">get_num_ns()</a></code> </p>
-        </td>
-        <td><p>Get number of nonstationary model components</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_pred.html">get_pred()</a></code> <code><a href="get_pred.html">get_pred.gaussian()</a></code> <code><a href="get_pred.html">get_pred.sampled()</a></code> </p>
-        </td>
-        <td><p>Extract model predictions</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_pred_gaussian.html">get_pred.gaussian.f_comp()</a></code> <code><a href="get_pred_gaussian.html">get_pred.gaussian.f()</a></code> <code><a href="get_pred_gaussian.html">get_pred.gaussian.y()</a></code> </p>
-        </td>
-        <td><p>Get analytic posterior or predictive distributions</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_pred_sampled.html">get_pred.sampled.f_comp()</a></code> <code><a href="get_pred_sampled.html">get_pred.sampled.f()</a></code> <code><a href="get_pred_sampled.html">get_pred.sampled.h()</a></code> </p>
-        </td>
-        <td><p>Get predictions for a model where the latent function f was sampled</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_sim_components.html">get_sim_components()</a></code> </p>
-        </td>
-        <td><p>Get simulated components from an lgpsim object</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_teff_obs.html">get_teff_obs()</a></code> </p>
-        </td>
-        <td><p>Get observed effect times from a data frame</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_y.html">get_y()</a></code> <code><a href="get_y.html">get_y_name()</a></code> </p>
-        </td>
-        <td><p>Get response variable measurements</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_y_rng.html">get_y_rng()</a></code> </p>
-        </td>
-        <td><p>Extract posterior or prior predictive distribution draws</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="idx_expand.html">create_idx_expand()</a></code> <code><a href="idx_expand.html">create_idx_expand_picker()</a></code> <code><a href="idx_expand.html">map_factor_to_caseid()</a></code> <code><a href="idx_expand.html">map_caseid_to_row()</a></code> </p>
-        </td>
-        <td><p>Creating the idx_expand input for Stan</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="is_advanced_formula.html">is_advanced_formula()</a></code> </p>
-        </td>
-        <td><p>Check if formula is in advanced format.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="kernel_matrices.html">kernel_matrices()</a></code> <code><a href="kernel_matrices.html">kernel_matrices_const()</a></code> <code><a href="kernel_matrices.html">kernel_matrices_create_input()</a></code> </p>
-        </td>
-        <td><p>Kernel matrix computation using the C++ functions of the package namespace</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="large_data_msg.html">large_data_msg()</a></code> </p>
-        </td>
-        <td><p>Display a runtime estimation message if starting to analyse a large data set</p></td>
+        <td><p>Compute a kernel matrix (covariance matrix)</p></td>
       </tr><tr>
         
         <td>
@@ -715,7 +505,7 @@ the first dimension</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="lgpfit-class.html">lgpfit-class</a></code> </p>
+          <p><code><a href="lgpfit-class.html">show(<i>&lt;lgpfit&gt;</i>)</a></code> <code><a href="lgpfit-class.html">component_names(<i>&lt;lgpfit&gt;</i>)</a></code> <code><a href="lgpfit-class.html">postproc(<i>&lt;lgpfit&gt;</i>)</a></code> <code><a href="lgpfit-class.html">contains_postproc(<i>&lt;lgpfit&gt;</i>)</a></code> <code><a href="lgpfit-class.html">clear_postproc(<i>&lt;lgpfit&gt;</i>)</a></code> <code><a href="lgpfit-class.html">get_model(<i>&lt;lgpfit&gt;</i>)</a></code> <code><a href="lgpfit-class.html">get_stanfit(<i>&lt;lgpfit&gt;</i>)</a></code> <code><a href="lgpfit-class.html">is_f_sampled(<i>&lt;lgpfit&gt;</i>)</a></code> <code><a href="lgpfit-class.html">plot(<i>&lt;lgpfit&gt;</i>,<i>&lt;missing&gt;</i>)</a></code> </p>
         </td>
         <td><p>An S4 class to represent the output of the <code>lgp</code> function</p></td>
       </tr><tr>
@@ -727,9 +517,9 @@ the first dimension</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="lgpmodel-class.html">lgpmodel-class</a></code> </p>
+          <p><code><a href="lgpmodel-class.html">show(<i>&lt;lgpmodel&gt;</i>)</a></code> <code><a href="lgpmodel-class.html">parameter_info(<i>&lt;lgpmodel&gt;</i>)</a></code> <code><a href="lgpmodel-class.html">component_info(<i>&lt;lgpmodel&gt;</i>)</a></code> <code><a href="lgpmodel-class.html">covariate_info(<i>&lt;lgpmodel&gt;</i>)</a></code> <code><a href="lgpmodel-class.html">component_names(<i>&lt;lgpmodel&gt;</i>)</a></code> <code><a href="lgpmodel-class.html">is_f_sampled(<i>&lt;lgpmodel&gt;</i>)</a></code> </p>
         </td>
-        <td><p>An S4 class to represent an lgp model</p></td>
+        <td><p>An S4 class to represent an additive GP model</p></td>
       </tr><tr>
         
         <td>
@@ -747,11 +537,11 @@ the first dimension</p></td>
         <td>
           <p><code><a href="lgpscaling-class.html">lgpscaling-class</a></code> </p>
         </td>
-        <td><p>An S4 class to represent variable scaling and its inverse</p></td>
+        <td><p>An S4 class to represent variable scaling</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="lgpsim-class.html">lgpsim-class</a></code> </p>
+          <p><code><a href="lgpsim-class.html">show(<i>&lt;lgpsim&gt;</i>)</a></code> <code><a href="lgpsim-class.html">plot(<i>&lt;lgpsim&gt;</i>,<i>&lt;missing&gt;</i>)</a></code> </p>
         </td>
         <td><p>An S4 class to represent a data set simulated using the additive GP
 formalism</p></td>
@@ -764,57 +554,9 @@ formalism</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="likelihood_encoding.html">likelihood_list()</a></code> <code><a href="likelihood_encoding.html">likelihood_as_str()</a></code> <code><a href="likelihood_encoding.html">likelihood_as_int()</a></code> <code><a href="likelihood_encoding.html">is_bin_or_bb()</a></code> <code><a href="likelihood_encoding.html">is_pois_or_nb()</a></code> </p>
+          <p><code><a href="model_summary.html">model_summary()</a></code> <code><a href="model_summary.html">param_summary()</a></code> </p>
         </td>
-        <td><p>Integer encoding of likelihod function names</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="link.html">link()</a></code> <code><a href="link.html">link_inv()</a></code> <code><a href="link.html">divide_by_num_trials()</a></code> </p>
-        </td>
-        <td><p>Link functions and their inverses</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="list_if_named.html">list_if_named()</a></code> </p>
-        </td>
-        <td><p>Wrap list into a list of length 1 if the original list is named</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="list_to_matrix.html">list_to_matrix()</a></code> </p>
-        </td>
-        <td><p>List elements to matrix rows</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="make_draw_df.html">make_draw_df()</a></code> </p>
-        </td>
-        <td><p>Helper function for creating plot data frames from prediction objects</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="matrix_to_list.html">matrix_to_list()</a></code> </p>
-        </td>
-        <td><p>Matrix rows to a list</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="minus.html">minus.append()</a></code> <code><a href="minus.html">minus.prepend()</a></code> </p>
-        </td>
-        <td><p>Add minus to a string depending on options</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="model_getters.html">get_stan_input()</a></code> <code><a href="model_getters.html">get_data()</a></code> <code><a href="model_getters.html">get_num_obs()</a></code> <code><a href="model_getters.html">is_f_sampled()</a></code> <code><a href="model_getters.html">is_yrng_done()</a></code> <code><a href="model_getters.html">get_obs_model()</a></code> <code><a href="model_getters.html">get_num_trials()</a></code> </p>
-        </td>
-        <td><p>Functions that access model properties</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="model_summary.html">model_summary()</a></code> <code><a href="model_summary.html">model_summary.brief()</a></code> </p>
-        </td>
-        <td><p>Print a model summary</p></td>
+        <td><p>Print a model summary.</p></td>
       </tr><tr>
         
         <td>
@@ -824,117 +566,9 @@ formalism</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="normalize_rows.html">normalize_rows()</a></code> </p>
-        </td>
-        <td><p>Normalize matrix or data frame rows so that they sum to 1</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="null_if_all_nan.html">null_if_all_nan()</a></code> </p>
-        </td>
-        <td><p>Return NULL if vector contains only NaN values</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="object_to_model.html">object_to_model()</a></code> </p>
-        </td>
-        <td><p>Helper function for generic functions</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="operations.html">`+`(<i>&lt;lgprhs&gt;</i>,<i>&lt;lgprhs&gt;</i>)</a></code> <code><a href="operations.html">`+`(<i>&lt;lgpterm&gt;</i>,<i>&lt;lgpterm&gt;</i>)</a></code> <code><a href="operations.html">`+`(<i>&lt;lgprhs&gt;</i>,<i>&lt;lgpterm&gt;</i>)</a></code> <code><a href="operations.html">`*`(<i>&lt;lgpterm&gt;</i>,<i>&lt;lgpterm&gt;</i>)</a></code> </p>
         </td>
         <td><p>Operations on formula terms and expressions</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="param_summary.html">param_summary()</a></code> <code><a href="param_summary.html">prior_summary()</a></code> </p>
-        </td>
-        <td><p>Parameter summary (priors etc.)</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_covs_and_comps.html">parse_covs_and_comps()</a></code> </p>
-        </td>
-        <td><p>Parse the covariates and model components from given data and formula</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_expr.html">parse_expr()</a></code> </p>
-        </td>
-        <td><p>Parse a string representation of one formula expression</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_formula.html">parse_formula()</a></code> </p>
-        </td>
-        <td><p>Create a model formula</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_formula_advanced.html">parse_formula_advanced()</a></code> </p>
-        </td>
-        <td><p>Parse a model formula that uses the advanced formula syntax</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_likelihood.html">parse_likelihood()</a></code> </p>
-        </td>
-        <td><p>Parse the given observation model</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_options.html">parse_options()</a></code> </p>
-        </td>
-        <td><p>Parse the given modeling options</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_prior.html">parse_prior()</a></code> </p>
-        </td>
-        <td><p>Parse given prior</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_prior_full.html">parse_prior_full()</a></code> <code><a href="parse_prior_full.html">parse_prior_full_pos()</a></code> <code><a href="parse_prior_full.html">parse_prior_full_unit()</a></code> <code><a href="parse_prior_full.html">parse_prior_full_teff()</a></code> </p>
-        </td>
-        <td><p>Parse a fully defined prior</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_prior_single.html">parse_prior_single()</a></code> </p>
-        </td>
-        <td><p>Parse the given prior for a single parameter type</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_response.html">parse_response()</a></code> </p>
-        </td>
-        <td><p>Parse the response variable from given data and formula</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_rhs.html">parse_rhs()</a></code> </p>
-        </td>
-        <td><p>Parse a string representation of the right-hand side of a formula</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_term.html">parse_term()</a></code> </p>
-        </td>
-        <td><p>Parse a string representation of one formula term</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="pick_one_row_each.html">pick_one_row_each()</a></code> </p>
-        </td>
-        <td><p>For each unique value of a factor, pick one row from data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot.create_grouping_factor.html">plot(<i>&lt;create_grouping_factor&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>Create grouping factor, used e.g. by plot_pred</p></td>
       </tr><tr>
         
         <td>
@@ -951,30 +585,6 @@ their own panel</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="plot_api_g_add_effect_times.html">plot_api_g_add_effect_times()</a></code> </p>
-        </td>
-        <td><p>Add real or observed disease effect times to a grouped plot</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot_api_g_create.html">plot_api_g_create()</a></code> </p>
-        </td>
-        <td><p>Initialize a grouped plot</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot_api_g_create_aes.html">plot_api_g_create_aes()</a></code> </p>
-        </td>
-        <td><p>Helper function for plot_grouped</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot_color_palette.html">plot_color_palette()</a></code> </p>
-        </td>
-        <td><p>Visualize a color palette</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="plot_components.html">plot_components()</a></code> </p>
         </td>
         <td><p>Visualize all model components</p></td>
@@ -987,45 +597,9 @@ their own panel</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="plot_data_add_highlight_factor.html">plot_data_add_highlight_factor()</a></code> </p>
+          <p><code><a href="plot_draws.html">plot_draws()</a></code> <code><a href="plot_draws.html">plot_beta()</a></code> <code><a href="plot_draws.html">plot_warp()</a></code> <code><a href="plot_draws.html">plot_effect_times()</a></code> </p>
         </td>
-        <td><p>Add factor to data frame for highlighting in plot</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot_data_aes.html">plot_data_aes()</a></code> </p>
-        </td>
-        <td><p>Create aes for plot_data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot_data_num_colors.html">plot_data_num_colors()</a></code> </p>
-        </td>
-        <td><p>Get number of distinct colors needsd by plot_data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot_data_titles.html">plot_data_titles()</a></code> </p>
-        </td>
-        <td><p>Create titles for plot_data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot_draws.html">plot_draws()</a></code> <code><a href="plot_draws.html">plot_warp()</a></code> <code><a href="plot_draws.html">plot_beta()</a></code> <code><a href="plot_draws.html">plot_effect_times()</a></code> </p>
-        </td>
-        <td><p>Visualize the distribution of the obtained parameter draws</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot_f.create.html">plot_f.create.df_line()</a></code> <code><a href="plot_f.create.html">plot_f.create.df_ribbon()</a></code> <code><a href="plot_f.create.html">plot_f.create.line_arr()</a></code> </p>
-        </td>
-        <td><p>Helper functions for plot_f</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot_f.get_color_fac.html">plot_f.get_color_fac()</a></code> </p>
-        </td>
-        <td><p>Helper function for plot_f</p></td>
+        <td><p>Visualize the distribution of parameter draws</p></td>
       </tr><tr>
         
         <td>
@@ -1047,100 +621,33 @@ their own panel</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="plot_pred.create.html">plot_pred.create.df_line()</a></code> <code><a href="plot_pred.create.html">plot_pred.create.df_ribbon()</a></code> </p>
-        </td>
-        <td><p>Helper functions for plot_pred</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot_pred.create_input.html">plot_pred.create_input()</a></code> </p>
-        </td>
-        <td><p>Helper function for plot_pred and plot_f</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot_sim.html">plot_sim()</a></code> <code><a href="plot_sim.html">plot_sim.data()</a></code> <code><a href="plot_sim.html">plot_sim.component()</a></code> <code><a href="plot_sim.html">plot_sim.component.df()</a></code> </p>
+          <p><code><a href="plot_sim.html">plot_sim()</a></code> </p>
         </td>
         <td><p>Visualize an lgpsim object (simulated data)</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="plot_sim_data_title.html">plot_sim.data.title()</a></code> <code><a href="plot_sim_data_title.html">plot_sim.data.title_teff()</a></code> </p>
-        </td>
-        <td><p>Helpers for plot_sim.data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="position_hyper_params.html">position_hyper_params()</a></code> </p>
-        </td>
-        <td><p>Position the hyper parameters from a list to a vector that goes to Stan</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="ppc.html">ppc()</a></code> </p>
         </td>
-        <td><p>Graphical posterior or prior predictive checks</p></td>
+        <td><p>Graphical posterior predictive checks</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="pred.html">pred()</a></code> <code><a href="pred.html">pred.gaussian()</a></code> <code><a href="pred.html">pred.kr()</a></code> </p>
+          <p><code><a href="pred.html">pred()</a></code> </p>
         </td>
-        <td><p>Computing out-of-sample predictions</p></td>
+        <td><p>Posterior predictions and function posteriors</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="pred.gaussian.f_to_y.html">pred.gaussian.f_to_y()</a></code> </p>
+          <p><code><a href="prior_pred.html">prior_pred()</a></code> <code><a href="prior_pred.html">sample_param_prior()</a></code> </p>
         </td>
-        <td><p>Tranform distribution of f to distribution of y</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="pred.gaussian_compute.html">pred.gaussian_compute()</a></code> </p>
-        </td>
-        <td><p>Compute analytic out-of-sample predictions</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="pred.kr_compute.html">pred.kr_compute()</a></code> </p>
-        </td>
-        <td><p>Compute out-of-sample predictions using kernel regression on
-sampled function values</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="pred.kr_h.html">pred.kr_h()</a></code> </p>
-        </td>
-        <td><p>Map the sum f from pred.kr_compute to h</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="pred_kernels.html">pred_kernels()</a></code> </p>
-        </td>
-        <td><p>Compute all kernel matrices required for computing predictions</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="prior_df.html">prior_to_df()</a></code> <code><a href="prior_df.html">prior_to_df_pos()</a></code> <code><a href="prior_df.html">prior_to_df_unit()</a></code> <code><a href="prior_df.html">prior_to_df_unit()</a></code> <code><a href="prior_df.html">prior_to_df_teff()</a></code> </p>
-        </td>
-        <td><p>Convert the Stan input encoding of a prior to a human-readable format</p></td>
+        <td><p>Prior (predictive) sampling</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="prior_to_num.html">prior_to_num()</a></code> </p>
         </td>
-        <td><p>Parse the given prior to numeric format</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="prior_to_str.html">prior_to_str()</a></code> </p>
-        </td>
-        <td><p>Human-readable prior statement</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="prior_type_names.html">prior_type_names()</a></code> </p>
-        </td>
-        <td><p>Names of allowed  prior types</p></td>
+        <td><p>Convert given prior to numeric format</p></td>
       </tr><tr>
         
         <td>
@@ -1150,69 +657,21 @@ sampled function values</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="progbar.html">progbar_header()</a></code> <code><a href="progbar.html">progbar_print()</a></code> </p>
+          <p><code><a href="read_proteomics_data.html">read_proteomics_data()</a></code> </p>
         </td>
-        <td><p>Progress bar for iterative functions</p></td>
+        <td><p>Function for reading the built-in proteomics data</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="reduce_factors_expr.html">reduce_factors_expr()</a></code> </p>
-        </td>
-        <td><p>Check for certain expressions in a term</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="reduce_factors_gp.html">reduce_factors_gp()</a></code> </p>
-        </td>
-        <td><p>Check for gp expressions in a term</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="reduce_rows.html">reduce_rows()</a></code> </p>
-        </td>
-        <td><p>Check that each row of array is identical</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="relevances.html">relevances()</a></code> <code><a href="relevances.html">relevances.default()</a></code> <code><a href="relevances.html">relevances.default.all()</a></code> </p>
+          <p><code><a href="relevances.html">relevances()</a></code> </p>
         </td>
         <td><p>Assess component relevances</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="relevances_default.html">relevances.default.noise()</a></code> <code><a href="relevances_default.html">relevances.default.comp()</a></code> </p>
+          <p><code><a href="s4_generics.html">parameter_info()</a></code> <code><a href="s4_generics.html">component_info()</a></code> <code><a href="s4_generics.html">covariate_info()</a></code> <code><a href="s4_generics.html">component_names()</a></code> <code><a href="s4_generics.html">get_model()</a></code> <code><a href="s4_generics.html">is_f_sampled()</a></code> <code><a href="s4_generics.html">get_stanfit()</a></code> <code><a href="s4_generics.html">postproc()</a></code> <code><a href="s4_generics.html">contains_postproc()</a></code> <code><a href="s4_generics.html">clear_postproc()</a></code> <code><a href="s4_generics.html">num_paramsets()</a></code> <code><a href="s4_generics.html">num_evalpoints()</a></code> <code><a href="s4_generics.html">num_components()</a></code> </p>
         </td>
-        <td><p>Helper functions for relevances.default</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="rep_df.html">rep_df()</a></code> </p>
-        </td>
-        <td><p>Repeat a data frame vertically</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="repvec.html">repvec()</a></code> </p>
-        </td>
-        <td><p>Repeat a vector as a rows of an array</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="rhs_to_terms.html">rhs_to_terms()</a></code> </p>
-        </td>
-        <td><p>Split a formula to terms</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="rhs_variables.html">rhs_variables()</a></code> </p>
-        </td>
-        <td><p>Get names of all variables appearing on formula right-hand side</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="row_vars.html">row_vars()</a></code> </p>
-        </td>
-        <td><p>Compute row variances for a 2-dimensional array</p></td>
+        <td><p>S4 generics for lgpfit, lgpmodel, and other objects</p></td>
       </tr><tr>
         
         <td>
@@ -1222,69 +681,15 @@ sampled function values</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="scale_color.html">scale_color()</a></code> <code><a href="scale_color.html">scale_fill()</a></code> </p>
-        </td>
-        <td><p>A color scale.</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="select.html">select()</a></code> <code><a href="select.html">select_freq()</a></code> <code><a href="select.html">select.integrate()</a></code> <code><a href="select.html">select_freq.integrate()</a></code> </p>
         </td>
         <td><p>Select relevant components</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="select.helper.html">select.all_thresholds()</a></code> <code><a href="select.helper.html">select_freq.all_thresholds()</a></code> <code><a href="select.helper.html">select.compute_integral()</a></code> <code><a href="select.helper.html">select.all_draws()</a></code> <code><a href="select.helper.html">select.one_draw()</a></code> <code><a href="select.helper.html">result_df()</a></code> </p>
+          <p><code><a href="show.html">show(<i>&lt;lgpformula&gt;</i>)</a></code> <code><a href="show.html">show(<i>&lt;lgprhs&gt;</i>)</a></code> <code><a href="show.html">show(<i>&lt;lgpterm&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Helper functions for component selection</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="select_factors_and.html">select_factors_and()</a></code> </p>
-        </td>
-        <td><p>Select data columns which are factors or have a certain name</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="select_row.html">select_row()</a></code> </p>
-        </td>
-        <td><p>Select named row of an array</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="set_c_hat.html">set_c_hat()</a></code> </p>
-        </td>
-        <td><p>Set c_hat (non-gaussian observation models)</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="set_num_trials.html">set_num_trials()</a></code> </p>
-        </td>
-        <td><p>Set num_trials (binomial and beta-binomial observation models)</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="show.html">show(<i>&lt;lgpformula&gt;</i>)</a></code> <code><a href="show.html">show(<i>&lt;lgprhs&gt;</i>)</a></code> <code><a href="show.html">show(<i>&lt;lgpterm&gt;</i>)</a></code> <code><a href="show.html">show(<i>&lt;lgpsim&gt;</i>)</a></code> <code><a href="show.html">show(<i>&lt;lgpmodel&gt;</i>)</a></code> <code><a href="show.html">show(<i>&lt;lgpfit&gt;</i>)</a></code> <code><a href="show.html">show(<i>&lt;GaussianPrediction&gt;</i>)</a></code> <code><a href="show.html">show(<i>&lt;Prediction&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>Printing S4 object info using the show generic</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.apply_obs_onset_fun.html">sim.apply_obs_onset_fun()</a></code> </p>
-        </td>
-        <td><p>Check if trying to simulate onset happening after measurement interval</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.check_covariates.html">sim.check_covariates()</a></code> </p>
-        </td>
-        <td><p>Input check for the covariates-related arguments of <code>simulate_data</code></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.check_too_far.html">sim.check_too_far()</a></code> </p>
-        </td>
-        <td><p>Check if trying to simulate onset happening after measurement interval</p></td>
+        <td><p>Printing formula object info using the show generic</p></td>
       </tr><tr>
         
         <td>
@@ -1296,176 +701,19 @@ sampled function values</p></td>
         <td>
           <p><code><a href="sim.create_x.html">sim.create_x()</a></code> </p>
         </td>
-        <td><p>Simulate an input data frame X</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.create_x_D.html">sim.create_x_D()</a></code> </p>
-        </td>
-        <td><p>Helper function for sim.create_x</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.create_x_check.html">sim.create_x_check()</a></code> </p>
-        </td>
-        <td><p>Input check helper function for sim.create_x</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.create_x_dis_age.html">sim.create_x_dis_age()</a></code> </p>
-        </td>
-        <td><p>Helper function for sim.create_x</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.create_x_other.html">sim.create_x_other()</a></code> </p>
-        </td>
-        <td><p>Helper function for sim.create_x</p></td>
+        <td><p>Create an input data frame X for simulated data</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="sim.create_y.html">sim.create_y()</a></code> </p>
         </td>
-        <td><p>Generate noisy observations</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.data_to_observed.html">sim.data_to_observed()</a></code> </p>
-        </td>
-        <td><p>Real generated disease ages to observed ones</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.disease_effect.html">sim.disease_effect()</a></code> </p>
-        </td>
-        <td><p>Draw disease component from a parameteric form</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.draw_categorical.html">sim.draw_categorical()</a></code> </p>
-        </td>
-        <td><p>Independently draw categorical variables for each individual</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.draw_components.html">sim.draw_components()</a></code> </p>
-        </td>
-        <td><p>Draw realizations of multivariate normals</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.draw_continuous.html">sim.draw_continuous()</a></code> </p>
-        </td>
-        <td><p>Indepedently draw continuous variables for each individual</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.draw_measurement_times.html">sim.draw_measurement_times()</a></code> </p>
-        </td>
-        <td><p>Draw the age covariate</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.generate_names.html">sim.generate_names()</a></code> </p>
-        </td>
-        <td><p>Generate names for covariates</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.kernel_beta.html">sim.kernel_beta()</a></code> </p>
-        </td>
-        <td><p>Compute the multiplier matrix K_beta (to enable heterogeneous
-disease effect)</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.kernel_bin.html">sim.kernel_bin()</a></code> </p>
-        </td>
-        <td><p>Compute a binary kernel matrix</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.kernel_ns.html">sim.kernel_ns()</a></code> </p>
-        </td>
-        <td><p>Compute a nonstationary kernel matrix using input warping</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.kernel_se.html">sim.kernel_se()</a></code> </p>
-        </td>
-        <td><p>Compute a squared exponential kernel matrix</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.kernel_var_mask.html">sim.kernel_var_mask()</a></code> </p>
-        </td>
-        <td><p>Compute the variance mask kernel matrix</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.kernel_zerosum.html">sim.kernel_zerosum()</a></code> </p>
-        </td>
-        <td><p>Compute a zero-sum kernel matrix</p></td>
+        <td><p>Simulate noisy observations</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="sim.kernels.html">sim.kernels()</a></code> </p>
         </td>
         <td><p>Compute all kernel matrices when simulating data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.name_components.html">sim.name_components()</a></code> </p>
-        </td>
-        <td><p>Create names for all components based on covariate names and types</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.onsets_to_dis_age.html">sim.onsets_to_dis_age()</a></code> </p>
-        </td>
-        <td><p>Compute the disease-related ages</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.parse_t_obs.html">sim.parse_t_obs()</a></code> </p>
-        </td>
-        <td><p>Parse the t_observed argument of <code>simulate_data</code></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.rtgeom.html">sim.rtgeom()</a></code> </p>
-        </td>
-        <td><p>Sample from the 'truncated geometric' distribution</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.scale_relevances.html">sim.scale_relevances()</a></code> </p>
-        </td>
-        <td><p>Scale the effect sizes</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.var_mask.html">sim.var_mask()</a></code> </p>
-        </td>
-        <td><p>Variance masking function</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sim.warp_input.html">sim.warp_input()</a></code> </p>
-        </td>
-        <td><p>Input warping function</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="simplify_list.html">simplify_list()</a></code> </p>
-        </td>
-        <td><p>Return first list element if the list has length is one</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="simplify_str.html">simplify_str()</a></code> </p>
-        </td>
-        <td><p>Remove quotes and whitespace from a string</p></td>
       </tr><tr>
         
         <td>
@@ -1481,48 +729,6 @@ disease effect)</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="split_formula.html">split_formula()</a></code> </p>
-        </td>
-        <td><p>Split formula into left and right-hand side</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="squeeze_second_dim.html">squeeze_second_dim()</a></code> </p>
-        </td>
-        <td><p>Squeeze the second dimension of an array</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="stan_data_components.html">stan_data_components()</a></code> </p>
-        </td>
-        <td><p>Create model components data for Stan input</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="stan_data_covariates.html">stan_data_covariates()</a></code> </p>
-        </td>
-        <td><p>Create covariate data for Stan input</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="term_names.html">term_names()</a></code> </p>
-        </td>
-        <td><p>Map a list of terms to their "names"</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="term_to_numeric.html">term_to_numeric()</a></code> </p>
-        </td>
-        <td><p>An lgpterm to numeric representation for Stan</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="term_variables.html">term_variables()</a></code> </p>
-        </td>
-        <td><p>Get names of all variables appearing in a term</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="testdata_001.html">testdata_001</a></code> </p>
         </td>
         <td><p>A very small artificial test data, used mostly for unit tests</p></td>
@@ -1535,33 +741,21 @@ disease effect)</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="to_long_format.html">to_long_format()</a></code> </p>
-        </td>
-        <td><p>Data frame and additional information to long format</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="validate.html">check_lgpexpr()</a></code> <code><a href="validate.html">check_lgpformula()</a></code> <code><a href="validate.html">check_lgpscaling()</a></code> <code><a href="validate.html">check_GaussianPrediction()</a></code> <code><a href="validate.html">check_Prediction()</a></code> </p>
+          <p><code><a href="validate.html">validate_lgpexpr()</a></code> <code><a href="validate.html">validate_lgpformula()</a></code> <code><a href="validate.html">validate_lgpscaling()</a></code> <code><a href="validate.html">validate_lgpfit()</a></code> <code><a href="validate.html">validate_GaussianPrediction()</a></code> <code><a href="validate.html">validate_Prediction()</a></code> </p>
         </td>
         <td><p>Validate S4 class objects</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="validate_dimension_list.html">validate_dimension_list()</a></code> </p>
+          <p><code><a href="var_mask.html">var_mask()</a></code> </p>
         </td>
-        <td><p>Check that all listed dimensions are equal</p></td>
+        <td><p>Variance masking function</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="validate_lengths.html">validate_lengths()</a></code> </p>
+          <p><code><a href="warp_input.html">warp_input()</a></code> </p>
         </td>
-        <td><p>Check that arguments have equal lengths</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="warn_msg_default_prior.html">warn_msg_default_prior()</a></code> </p>
-        </td>
-        <td><p>Warning message about using a default prior</p></td>
+        <td><p>Input warping function</p></td>
       </tr>
     </tbody>
     </table>

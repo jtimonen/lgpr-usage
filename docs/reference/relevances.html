@@ -42,15 +42,7 @@
   
 
 <meta property="og:title" content="Assess component relevances — relevances" />
-<meta property="og:description" content="
-
-relevances returns a named vector with length equal to
-  num_comps + 1
-relevances.default is the default method
-relevances.default_all returns a data.frame of size
-  num_draws x num_comps + 1
-
-" />
+<meta property="og:description" content="Assess component relevances" />
 
 
 
@@ -82,7 +74,7 @@ relevances.default_all returns a data.frame of size
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -141,27 +133,15 @@ relevances.default_all returns a data.frame of size
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Assess component relevances</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/relevances.R'><code>R/relevances.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/main-relevances.R'><code>R/main-relevances.R</code></a></small>
     <div class="hidden name"><code>relevances.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    
-<ul>
-<li><p><code>relevances</code> returns a named vector with length equal to
-  <code>num_comps + 1</code></p></li>
-<li><p><code>relevances.default</code> is the default method</p></li>
-<li><p><code>relevances.default_all</code> returns a <code>data.frame</code> of size
-  <code>num_draws</code> x <code>num_comps + 1</code></p></li>
-</ul>
-
+    <p>Assess component relevances</p>
     </div>
 
-    <pre class="usage"><span class='fu'>relevances</span><span class='op'>(</span><span class='va'>fit</span>, reduce <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'>base</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span>
-
-<span class='fu'>relevances.default</span><span class='op'>(</span><span class='va'>fit</span>, <span class='va'>reduce</span>, <span class='va'>...</span><span class='op'>)</span>
-
-<span class='fu'>relevances.default.all</span><span class='op'>(</span><span class='va'>fit</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>relevances</span><span class='op'>(</span><span class='va'>fit</span>, reduce <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'>base</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>, verbose <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -172,8 +152,12 @@ relevances.default_all returns a data.frame of size
     </tr>
     <tr>
       <th>reduce</th>
-      <td><p>a function to apply to reduce the relevances in each
-draw into one value</p></td>
+      <td><p>a function to apply to reduce the relevances given each
+parameter draw into one value</p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>Can this print any messages?</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -181,6 +165,9 @@ draw into one value</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>a named vector with length equal to <code>num_comps + 1</code></p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

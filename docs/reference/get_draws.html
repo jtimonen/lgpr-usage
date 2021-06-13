@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Extract posterior draws — get_draws • lgpr</title>
+<title>Extract parameter draws from lgpfit or stanfit — get_draws • lgpr</title>
 
 
 <!-- jquery -->
@@ -41,16 +41,9 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Extract posterior draws — get_draws" />
-<meta property="og:description" content="These functions use extract with
-permuted = FALSE and inc_warmup = FALSE. Chains are stacked
-so that the return value is always a 2-dimensional array.
-get_draws extracts posterior draws after warmup
-get_draws.catch function calls get_draws but catches
-errors and returns NULL if an error occurs.
-get_num_draws returns totals number of post-warmup draws
-
-" />
+<meta property="og:title" content="Extract parameter draws from lgpfit or stanfit — get_draws" />
+<meta property="og:description" content="Uses extract
+with permuted = FALSE and inc_warmup = FALSE." />
 
 
 
@@ -82,7 +75,7 @@ get_num_draws returns totals number of post-warmup draws
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -140,40 +133,29 @@ get_num_draws returns totals number of post-warmup draws
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Extract posterior draws</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/MethodsFit.R'><code>R/MethodsFit.R</code></a></small>
+    <h1>Extract parameter draws from lgpfit or stanfit</h1>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/methods-lgpfit.R'><code>R/methods-lgpfit.R</code></a></small>
     <div class="hidden name"><code>get_draws.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>These functions use <code><a href='https://mc-stan.org/rstan/reference/stanfit-method-extract.html'>extract</a></code> with
-<code>permuted = FALSE</code> and <code>inc_warmup = FALSE</code>. Chains are stacked
-so that the return value is always a 2-dimensional array.</p><ul>
-<li><p><code>get_draws</code> extracts posterior draws after warmup</p></li>
-<li><p><code>get_draws.catch</code> function calls <code>get_draws</code> but catches
-errors and returns NULL if an error occurs.</p></li>
-<li><p><code>get_num_draws</code> returns totals number of post-warmup draws</p></li>
-</ul>
-
+    <p>Uses <code><a href='https://mc-stan.org/rstan/reference/stanfit-method-extract.html'>extract</a></code>
+with <code>permuted = FALSE</code> and <code>inc_warmup = FALSE</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_draws</span><span class='op'>(</span><span class='va'>fit</span>, draws <span class='op'>=</span> <span class='cn'>NULL</span>, reduce <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span>
-
-<span class='fu'>get_draws.catch</span><span class='op'>(</span><span class='va'>fit</span>, draws <span class='op'>=</span> <span class='cn'>NULL</span>, reduce <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span>
-
-<span class='fu'>get_num_draws</span><span class='op'>(</span><span class='va'>fit</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_draws</span><span class='op'>(</span><span class='va'>object</span>, draws <span class='op'>=</span> <span class='cn'>NULL</span>, reduce <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>fit</th>
-      <td><p>an object of class <a href='lgpfit-class.html'>lgpfit</a></p></td>
+      <th>object</th>
+      <td><p>An object of class <a href='lgpfit-class.html'>lgpfit</a> or <code>stanfit</code>.</p></td>
     </tr>
     <tr>
       <th>draws</th>
-      <td><p>Indices of parameter draws to return use. All post-warmup
-draws are returned if this is <code>NULL</code>.</p></td>
+      <td><p>Indices of the parameter draws. <code>NULL</code> corresponds to
+all post-warmup draws.</p></td>
     </tr>
     <tr>
       <th>reduce</th>
@@ -183,18 +165,23 @@ one set of parameters. Ignored if <code>NULL</code>, or if <code>draws</code> is
     </tr>
     <tr>
       <th>...</th>
-      <td><p>additional keyword arguments to <code><a href='https://mc-stan.org/rstan/reference/stanfit-method-extract.html'>rstan::extract</a></code></p></td>
+      <td><p>Additional arguments to <code><a href='https://mc-stan.org/rstan/reference/stanfit-method-extract.html'>rstan::extract()</a></code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>an array of shape <code>num_param_sets</code> x <code>num_params</code></p>
+    <p>The return value is always a 2-dimensional array of shape
+<code>num_param_sets</code> x <code>num_params</code>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other fit postprocessing functions: 
-<code><a href='fit_summary.html'>fit_summary</a>()</code>,
-<code><a href='get_y_rng.html'>get_y_rng</a>()</code></p></div>
+    <div class='dont-index'><p>Other main functions: 
+<code><a href='create_model.html'>create_model</a>()</code>,
+<code><a href='draw_pred.html'>draw_pred</a>()</code>,
+<code><a href='lgp.html'>lgp</a>()</code>,
+<code><a href='pred.html'>pred</a>()</code>,
+<code><a href='prior_pred.html'>prior_pred</a>()</code>,
+<code><a href='sample_model.html'>sample_model</a>()</code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -45,7 +45,7 @@
 <meta property="og:description" content="
 
 The sample_model function takes an lgpmodel
-  object, fits it using  sampling, and
+  object, fits it using sampling, and
   returns an object of class lgpfit.
 The optimize_model function takes an lgpmodel
   object and fits it using optimizing.
@@ -82,7 +82,7 @@ The optimize_model function takes an lgpmodel
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -141,7 +141,7 @@ The optimize_model function takes an lgpmodel
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Fitting a model</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/lgpr.R'><code>R/lgpr.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/main-fit_model.R'><code>R/main-fit_model.R</code></a></small>
     <div class="hidden name"><code>sample_model.Rd</code></div>
     </div>
 
@@ -149,7 +149,7 @@ The optimize_model function takes an lgpmodel
     
 <ul>
 <li><p>The <code>sample_model</code> function takes an <a href='lgpmodel-class.html'>lgpmodel</a>
-  object, fits it using  <code><a href='https://mc-stan.org/rstan/reference/stanmodel-method-sampling.html'>sampling</a></code>, and
+  object, fits it using <code><a href='https://mc-stan.org/rstan/reference/stanmodel-method-sampling.html'>sampling</a></code>, and
   returns an object of class <a href='lgpfit-class.html'>lgpfit</a>.</p></li>
 <li><p>The <code>optimize_model</code> function takes an <a href='lgpmodel-class.html'>lgpmodel</a>
   object and fits it using <code><a href='https://mc-stan.org/rstan/reference/stanmodel-method-optimizing.html'>optimizing</a></code>.</p></li>
@@ -157,7 +157,13 @@ The optimize_model function takes an lgpmodel
 
     </div>
 
-    <pre class="usage"><span class='fu'>sample_model</span><span class='op'>(</span><span class='va'>model</span>, <span class='va'>...</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>sample_model</span><span class='op'>(</span>
+  <span class='va'>model</span>,
+  verbose <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  quiet <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  skip_postproc <span class='op'>=</span> <span class='fu'><a href='s4_generics.html'>is_f_sampled</a></span><span class='op'>(</span><span class='va'>model</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
 <span class='fu'>optimize_model</span><span class='op'>(</span><span class='va'>model</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
@@ -167,6 +173,22 @@ The optimize_model function takes an lgpmodel
     <tr>
       <th>model</th>
       <td><p>An object of class <a href='lgpmodel-class.html'>lgpmodel</a>.</p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>Can messages be printed?</p></td>
+    </tr>
+    <tr>
+      <th>quiet</th>
+      <td><p>Should all output messages be suppressed? You need to set
+also <code>refresh=0</code> if you want to suppress also the progress update
+messages from <code><a href='https://mc-stan.org/rstan/reference/stanmodel-method-sampling.html'>sampling</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>skip_postproc</th>
+      <td><p>Should all postprocessing be skipped? If this is
+<code>TRUE</code>, the returned <a href='lgpfit-class.html'>lgpfit</a> object will likely be
+much smaller (if <code>sample_f=FALSE</code>).</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -179,7 +201,11 @@ The optimize_model function takes an lgpmodel
 
     <div class='dont-index'><p>Other main functions: 
 <code><a href='create_model.html'>create_model</a>()</code>,
-<code><a href='lgp.html'>lgp</a>()</code></p></div>
+<code><a href='draw_pred.html'>draw_pred</a>()</code>,
+<code><a href='get_draws.html'>get_draws</a>()</code>,
+<code><a href='lgp.html'>lgp</a>()</code>,
+<code><a href='pred.html'>pred</a>()</code>,
+<code><a href='prior_pred.html'>prior_pred</a>()</code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

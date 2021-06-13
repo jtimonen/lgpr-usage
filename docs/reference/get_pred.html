@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Extract model predictions — get_pred • lgpr</title>
+<title>Extract model predictions and function posteriors — get_pred • lgpr</title>
 
 
 <!-- jquery -->
@@ -41,8 +41,9 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Extract model predictions — get_pred" />
-<meta property="og:description" content="Extract model predictions" />
+<meta property="og:title" content="Extract model predictions and function posteriors — get_pred" />
+<meta property="og:description" content="NOTE: It is not recommended for users to call this. Use
+pred instead." />
 
 
 
@@ -74,7 +75,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -132,38 +133,40 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Extract model predictions</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/pred_get.R'><code>R/pred_get.R</code></a></small>
+    <h1>Extract model predictions and function posteriors</h1>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/main-get_pred.R'><code>R/main-get_pred.R</code></a></small>
     <div class="hidden name"><code>get_pred.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Extract model predictions</p>
+    <p><em>NOTE:</em> It is not recommended for users to call this. Use
+<code><a href='pred.html'>pred</a></code> instead.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_pred</span><span class='op'>(</span><span class='va'>fit</span>, draws <span class='op'>=</span> <span class='cn'>NULL</span>, reduce <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
-
-<span class='fu'>get_pred.gaussian</span><span class='op'>(</span><span class='va'>fit</span>, <span class='va'>draws</span>, <span class='va'>reduce</span><span class='op'>)</span>
-
-<span class='fu'>get_pred.sampled</span><span class='op'>(</span><span class='va'>fit</span>, <span class='va'>draws</span>, <span class='va'>reduce</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_pred</span><span class='op'>(</span><span class='va'>fit</span>, draws <span class='op'>=</span> <span class='cn'>NULL</span>, reduce <span class='op'>=</span> <span class='cn'>NULL</span>, verbose <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>fit</th>
-      <td><p>an object of class <a href='lgpfit-class.html'>lgpfit</a></p></td>
+      <td><p>An object of class <a href='lgpfit-class.html'>lgpfit</a>.</p></td>
     </tr>
     <tr>
       <th>draws</th>
-      <td><p>Indices of parameter draws to return use. All post-warmup
-draws are returned if this is <code>NULL</code>.</p></td>
+      <td><p>Indices of parameter draws to use, or <code>NULL</code> to use all
+draws.</p></td>
     </tr>
     <tr>
       <th>reduce</th>
-      <td><p>Function used to reduce all parameter draws into
-one set of parameters. Ignored if <code>NULL</code>, or if <code>draws</code> is not
-<code>NULL</code>.</p></td>
+      <td><p>Reduction for parameters draws. Can be a function that
+is applied to reduce all parameter draws into one parameter set, or
+<code>NULL</code> (no reduction). Has no effect if <code>draws</code> is specified.</p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>Should more information and a possible progress bar be
+printed?</p></td>
     </tr>
     </table>
 
@@ -171,11 +174,6 @@ one set of parameters. Ignored if <code>NULL</code>, or if <code>draws</code> is
 
     <p>an object of class <a href='GaussianPrediction-class.html'>GaussianPrediction</a> or
 <a href='Prediction-class.html'>Prediction</a></p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p>Other prediction extraction functions: 
-<code><a href='get_pred_gaussian.html'>get_pred_gaussian</a></code>,
-<code><a href='get_pred_sampled.html'>get_pred_sampled</a></code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

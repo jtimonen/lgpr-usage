@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -133,7 +133,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Visualize an lgpsim object (simulated data)</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/plot_sim.R'><code>R/plot_sim.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/methods-lgpsim.R'><code>R/methods-lgpsim.R</code></a></small>
     <div class="hidden name"><code>plot_sim.Rd</code></div>
     </div>
 
@@ -151,13 +151,7 @@
   color_by <span class='op'>=</span> <span class='cn'>NA</span>,
   verbose <span class='op'>=</span> <span class='cn'>TRUE</span>,
   <span class='va'>...</span>
-<span class='op'>)</span>
-
-<span class='fu'>plot_sim.data</span><span class='op'>(</span><span class='va'>simdata</span>, <span class='va'>group_by</span>, <span class='va'>x_name</span>, <span class='va'>h_name</span>, <span class='va'>y_name</span>, <span class='va'>verbose</span>, <span class='va'>...</span><span class='op'>)</span>
-
-<span class='fu'>plot_sim.component</span><span class='op'>(</span><span class='va'>simdata</span>, <span class='va'>comp_idx</span>, <span class='va'>group_by</span>, <span class='va'>x_name</span>, <span class='va'>color_by</span>, <span class='va'>verbose</span>, <span class='va'>...</span><span class='op'>)</span>
-
-<span class='fu'>plot_sim.component.df</span><span class='op'>(</span><span class='va'>simdata</span>, <span class='va'>x_name</span>, <span class='va'>group_by</span>, <span class='va'>color_by</span>, <span class='va'>comp_idx</span><span class='op'>)</span></pre>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -176,7 +170,7 @@
     </tr>
     <tr>
       <th>h_name</th>
-      <td><p>name of the signal in <code>simdata$components</code></p></td>
+      <td><p>name of the signal in <code>simdata$components</code> ("h" or "f")</p></td>
     </tr>
     <tr>
       <th>y_name</th>
@@ -205,12 +199,6 @@ If this is NULL, the data and total signal are shown.</p></td>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>a <code><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></code> object</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p>Other main plot functions: 
-<code><a href='plot_components.html'>plot_components</a>()</code>,
-<code><a href='plot_data.html'>plot_data</a>()</code>,
-<code><a href='plot_pred.html'>plot_pred</a>()</code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

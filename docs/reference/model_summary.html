@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Print a model summary — model_summary • lgpr</title>
+<title>Print a model summary. — model_summary • lgpr</title>
 
 
 <!-- jquery -->
@@ -41,8 +41,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Print a model summary — model_summary" />
-<meta property="og:description" content="Print a model summary" />
+<meta property="og:title" content="Print a model summary. — model_summary" />
+<meta property="og:description" content="Print a model summary." />
 
 
 
@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -132,39 +132,35 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Print a model summary</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/MethodsModel.R'><code>R/MethodsModel.R</code></a></small>
+    <h1>Print a model summary.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/methods-lgpmodel.R'><code>R/methods-lgpmodel.R</code></a></small>
     <div class="hidden name"><code>model_summary.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Print a model summary</p>
+    <p>Print a model summary.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>model_summary</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>model_summary</span><span class='op'>(</span><span class='va'>object</span>, digits <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span>
 
-<span class='fu'>model_summary.brief</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span></pre>
+<span class='fu'>param_summary</span><span class='op'>(</span><span class='va'>object</span>, digits <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>object</th>
-      <td><p>an object of class <a href='lgpmodel-class.html'>lgpmodel</a> or
-<a href='lgpfit-class.html'>lgpfit</a></p></td>
+      <td><p>a model or fit</p></td>
+    </tr>
+    <tr>
+      <th>digits</th>
+      <td><p>number of digits to round floats to</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    
-<ul>
-<li><p><code>model_summary.brief</code> returns a string</p></li>
-<li><p><code>model_summary</code> prints the summary and
-returns <code>object</code> invisibly
-  and returns <code>object</code> invisibly</p></li>
-</ul>
-
+    <p><code>object</code> invisibly.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

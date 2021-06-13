@@ -6,8 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>An S4 class to represent an analytically computed posterior or prior
-predictive distribution (Gaussian) of an additive GP model — GaussianPrediction-class • lgpr</title>
+<title>An S4 class to represent analytically computed predictive distributions
+(conditional on hyperparameters) of an additive GP model — GaussianPrediction-class • lgpr</title>
 
 
 <!-- jquery -->
@@ -42,10 +42,10 @@ predictive distribution (Gaussian) of an additive GP model — GaussianPredictio
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="An S4 class to represent an analytically computed posterior or prior
-predictive distribution (Gaussian) of an additive GP model — GaussianPrediction-class" />
-<meta property="og:description" content="An S4 class to represent an analytically computed posterior or prior
-predictive distribution (Gaussian) of an additive GP model" />
+<meta property="og:title" content="An S4 class to represent analytically computed predictive distributions
+(conditional on hyperparameters) of an additive GP model — GaussianPrediction-class" />
+<meta property="og:description" content="An S4 class to represent analytically computed predictive distributions
+(conditional on hyperparameters) of an additive GP model" />
 
 
 
@@ -77,7 +77,7 @@ predictive distribution (Gaussian) of an additive GP model" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -135,19 +135,54 @@ predictive distribution (Gaussian) of an additive GP model" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>An S4 class to represent an analytically computed posterior or prior
-predictive distribution (Gaussian) of an additive GP model</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/AllClasses.R'><code>R/AllClasses.R</code></a></small>
+    <h1>An S4 class to represent analytically computed predictive distributions
+(conditional on hyperparameters) of an additive GP model</h1>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/aaa.R'><code>R/aaa.R</code></a>, <a href='https://github.com/jtimonen/lgpr/blob/master/R/methods-Prediction.R'><code>R/methods-Prediction.R</code></a></small>
     <div class="hidden name"><code>GaussianPrediction-class.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>An S4 class to represent an analytically computed posterior or prior
-predictive distribution (Gaussian) of an additive GP model</p>
+    <p>An S4 class to represent analytically computed predictive distributions
+(conditional on hyperparameters) of an additive GP model</p>
     </div>
 
+    <pre class="usage"><span class='co'># S4 method for GaussianPrediction</span>
+<span class='fu'><a href='show.html'>show</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
 
+<span class='co'># S4 method for GaussianPrediction</span>
+<span class='fu'><a href='s4_generics.html'>component_names</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
 
+<span class='co'># S4 method for GaussianPrediction</span>
+<span class='fu'><a href='s4_generics.html'>num_components</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
+
+<span class='co'># S4 method for GaussianPrediction</span>
+<span class='fu'><a href='s4_generics.html'>num_paramsets</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
+
+<span class='co'># S4 method for GaussianPrediction</span>
+<span class='fu'><a href='s4_generics.html'>num_evalpoints</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span></pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>object</th>
+      <td><p>GaussianPrediction object for which to apply a
+class method.</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="methods-by-generic-"><a class="anchor" href="#methods-by-generic-"></a>Methods (by generic)</h2>
+
+    
+<ul>
+<li><p><code>show</code>: Print a summary about the object.</p></li>
+<li><p><code>component_names</code>: Get names of components.</p></li>
+<li><p><code>num_components</code>: Get number of components.</p></li>
+<li><p><code>num_paramsets</code>: Get number of parameter combinations
+(different parameter vectors) using which predictions were computed.</p></li>
+<li><p><code>num_evalpoints</code>: Get number of points where
+predictions were computed.</p></li>
+</ul>
     <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
 
     
@@ -164,6 +199,9 @@ predictive distribution (Gaussian) of an additive GP model</p>
 <dt><code>y_mean</code></dt><dd><p>predictive mean (on original data scale)</p></dd>
 
 <dt><code>y_std</code></dt><dd><p>predictive standard deviation (on original data scale)</p></dd>
+
+<dt><code>x</code></dt><dd><p>a data frame of points (covariate values) where the
+function posteriors or predictive distributions have been evaluated</p></dd>
 
 </dl>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>

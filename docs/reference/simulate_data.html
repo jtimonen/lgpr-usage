@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -133,7 +133,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Generate an artificial longitudinal data set</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/simulate.R'><code>R/simulate.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/misc-simulate.R'><code>R/misc-simulate.R</code></a></small>
     <div class="hidden name"><code>simulate_data.Rd</code></div>
     </div>
 
@@ -177,7 +177,8 @@
     </tr>
     <tr>
       <th>t_data</th>
-      <td><p>Measurement times.</p></td>
+      <td><p>Measurement times (same for each individual, unless
+<code>t_jitter &gt; 0</code> in which case they are perturbed).</p></td>
     </tr>
     <tr>
       <th>covariates</th>
@@ -227,19 +228,18 @@ measurement times.</p></td>
     </tr>
     <tr>
       <th>noise_type</th>
-      <td><p>Either "gaussian", "poisson", "nb" (negative binomial) or
-"binomial".</p></td>
+      <td><p>Either "gaussian", "poisson", "nb" (negative binomial),
+"binomial", or "bb" (beta-binomial).</p></td>
     </tr>
     <tr>
       <th>snr</th>
       <td><p>The desired signal-to-noise ratio. This argument is valid
-only with <br />
-<code>noise_type = "gaussian"</code>.</p></td>
+only when <code>noise_type</code> is <code>"gaussian"</code>.</p></td>
     </tr>
     <tr>
       <th>phi</th>
       <td><p>The inverse overdispersion parameter for negative binomial data.
-The variance is g + g^2/phi.</p></td>
+The variance is <code>g + g^2/phi</code>.</p></td>
     </tr>
     <tr>
       <th>gamma</th>
@@ -322,7 +322,7 @@ component) be forced to have a zero mean?</p></td>
     <pre class="examples"><div class='input'><span class='co'># Generate Gaussian data</span>
 <span class='va'>dat</span> <span class='op'>&lt;-</span> <span class='fu'>simulate_data</span><span class='op'>(</span>N <span class='op'>=</span> <span class='fl'>4</span>, t_data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span>, <span class='fl'>12</span>, <span class='fl'>24</span>, <span class='fl'>36</span>, <span class='fl'>48</span><span class='op'>)</span>, snr <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span>
 
-<span class='co'># Generate negative binomially distributed count data</span>
+<span class='co'># Generate negative binomially (NB) distributed count data</span>
 <span class='va'>dat</span> <span class='op'>&lt;-</span> <span class='fu'>simulate_data</span><span class='op'>(</span>
   N <span class='op'>=</span> <span class='fl'>6</span>, t_data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>10</span>, by <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>, noise_type <span class='op'>=</span> <span class='st'>"nb"</span>,
   phi <span class='op'>=</span> <span class='fl'>2</span>

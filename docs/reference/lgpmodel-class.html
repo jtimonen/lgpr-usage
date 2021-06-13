@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>An S4 class to represent an lgp model — lgpmodel-class • lgpr</title>
+<title>An S4 class to represent an additive GP model — lgpmodel-class • lgpr</title>
 
 
 <!-- jquery -->
@@ -41,8 +41,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="An S4 class to represent an lgp model — lgpmodel-class" />
-<meta property="og:description" content="An S4 class to represent an lgp model" />
+<meta property="og:title" content="An S4 class to represent an additive GP model — lgpmodel-class" />
+<meta property="og:description" content="An S4 class to represent an additive GP model" />
 
 
 
@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -132,17 +132,61 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>An S4 class to represent an lgp model</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/AllClasses.R'><code>R/AllClasses.R</code></a></small>
+    <h1>An S4 class to represent an additive GP model</h1>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/aaa.R'><code>R/aaa.R</code></a>, <a href='https://github.com/jtimonen/lgpr/blob/master/R/methods-lgpmodel.R'><code>R/methods-lgpmodel.R</code></a></small>
     <div class="hidden name"><code>lgpmodel-class.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>An S4 class to represent an lgp model</p>
+    <p>An S4 class to represent an additive GP model</p>
     </div>
 
+    <pre class="usage"><span class='co'># S4 method for lgpmodel</span>
+<span class='fu'><a href='show.html'>show</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
 
+<span class='co'># S4 method for lgpmodel</span>
+<span class='fu'><a href='s4_generics.html'>parameter_info</a></span><span class='op'>(</span><span class='va'>object</span>, digits <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span>
 
+<span class='co'># S4 method for lgpmodel</span>
+<span class='fu'><a href='s4_generics.html'>component_info</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
+
+<span class='co'># S4 method for lgpmodel</span>
+<span class='fu'><a href='s4_generics.html'>covariate_info</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
+
+<span class='co'># S4 method for lgpmodel</span>
+<span class='fu'><a href='s4_generics.html'>component_names</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
+
+<span class='co'># S4 method for lgpmodel</span>
+<span class='fu'><a href='s4_generics.html'>is_f_sampled</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span></pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>object</th>
+      <td><p>The object for which to apply a class method.</p></td>
+    </tr>
+    <tr>
+      <th>digits</th>
+      <td><p>number of digits to show for floating point numbers</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="methods-by-generic-"><a class="anchor" href="#methods-by-generic-"></a>Methods (by generic)</h2>
+
+    
+<ul>
+<li><p><code>show</code>: Print information and summary about the object.
+Returns <code>object</code> invisibly.</p></li>
+<li><p><code>parameter_info</code>: Get a parameter summary (bounds and
+priors). Returns a <code>data.frame</code>.</p></li>
+<li><p><code>component_info</code>: Get a data frame with information about each model
+component.</p></li>
+<li><p><code>covariate_info</code>: Get covariate information.</p></li>
+<li><p><code>component_names</code>: Get names of model components.</p></li>
+<li><p><code>is_f_sampled</code>: Determine if inference of the model requires sampling
+the latent signal <code>f</code> (and its components).</p></li>
+</ul>
     <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
 
     
@@ -152,7 +196,7 @@
 
 <dt><code>data</code></dt><dd><p>The original unmodified data.</p></dd>
 
-<dt><code>stan_dat</code></dt><dd><p>The data to be given as input to <code><a href='https://mc-stan.org/rstan/reference/stanmodel-method-sampling.html'>rstan::sampling</a></code></p></dd>
+<dt><code>stan_input</code></dt><dd><p>The data to be given as input to <code><a href='https://mc-stan.org/rstan/reference/stanmodel-method-sampling.html'>rstan::sampling</a></code></p></dd>
 
 <dt><code>var_names</code></dt><dd><p>List of variable names grouped by type.</p></dd>
 
@@ -160,7 +204,7 @@
 <ul>
 <li><p><code>y</code> - Response variable normalization function and its
   inverse operation. Must be an <a href='lgpscaling-class.html'>lgpscaling</a> object.</p></li>
-<li><p><code>x_cont</code> - Continous covariate normalization functions and
+<li><p><code>x_cont</code> - Continuous covariate normalization functions and
   their inverse operations. Must be a named list with each element is an
   <a href='lgpscaling-class.html'>lgpscaling</a> object.</p></li>
 </ul></p></dd>
@@ -173,14 +217,11 @@
 
 <dt><code>info</code></dt><dd><p>Other info in text format.</p></dd>
 
-<dt><code>stan_model_name</code></dt><dd><p>Name of Stan model.</p></dd>
+<dt><code>sample_f</code></dt><dd><p>Whether the signal <code>f</code> is sampled or marginalized.</p></dd>
 
 <dt><code>full_prior</code></dt><dd><p>Complete prior information.</p></dd>
 
 </dl>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='model_getters.html'>model_getters</a></code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

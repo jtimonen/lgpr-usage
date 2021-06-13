@@ -42,8 +42,8 @@
   
 
 <meta property="og:title" content="Main function of the lgpr package — lgp" />
-<meta property="og:description" content="Creates a model by calling create_model and fits by calling
-sample_model." />
+<meta property="og:description" content="Creates an additive Gaussian process model using
+create_model and fits it using sample_model." />
 
 
 
@@ -75,7 +75,7 @@ sample_model." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -134,13 +134,13 @@ sample_model." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Main function of the lgpr package</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/lgpr.R'><code>R/lgpr.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/main-fit_model.R'><code>R/main-fit_model.R</code></a></small>
     <div class="hidden name"><code>lgp.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Creates a model by calling <code><a href='create_model.html'>create_model</a></code> and fits by calling
-<code><a href='sample_model.html'>sample_model</a></code>.</p>
+    <p>Creates an additive Gaussian process model using
+<code><a href='create_model.html'>create_model</a></code> and fits it using <code><a href='sample_model.html'>sample_model</a></code>.</p>
     </div>
 
     <pre class="usage"><span class='fu'>lgp</span><span class='op'>(</span>
@@ -154,6 +154,8 @@ sample_model." />
   prior_only <span class='op'>=</span> <span class='cn'>FALSE</span>,
   verbose <span class='op'>=</span> <span class='cn'>FALSE</span>,
   sample_f <span class='op'>=</span> <span class='op'>!</span><span class='op'>(</span><span class='va'>likelihood</span> <span class='op'>==</span> <span class='st'>"gaussian"</span><span class='op'>)</span>,
+  quiet <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  skip_postproc <span class='op'>=</span> <span class='va'>sample_f</span>,
   <span class='va'>...</span>
 <span class='op'>)</span></pre>
 
@@ -194,15 +196,18 @@ binomial), <code>"binomial"</code> or <code>"bb"</code> (beta binomial).</p></td
     </tr>
     <tr>
       <th>c_hat</th>
-      <td><p>The GP mean. Must be a vector of length <code>dim(data)[1]</code>, or
-a real number defining a constant GP mean. If not specified, this is set to</p><ul>
-<li><p><code>c_hat = 0</code>, if <code>likelihood</code> is <code>"gaussian"</code>,</p></li>
+      <td><p>The GP mean. This should only be given if <code>sample_f</code> is
+<code>TRUE</code>, otherwise the GP will always have zero mean. If <code>sample_f</code>
+is <code>TRUE</code>, the given <code>c_hat</code> can be a vector of length
+<code>dim(data)[1]</code>, or a real number defining a constant GP mean. If not
+specified and <code>sample_f</code> is <code>TRUE</code>, <code>c_hat</code> is set to</p><ul>
+<li><p><code>c_hat = mean(y)</code>, if <code>likelihood</code> is <code>"gaussian"</code>,</p></li>
 <li><p><code>c_hat = </code> <code><a href='https://rdrr.io/r/base/Log.html'>log(mean(y))</a></code> if <code>likelihood</code> is
    <code>"poisson"</code> or <code>"nb"</code>,</p></li>
 <li><p><code>c_hat = </code> <code><a href='https://rdrr.io/r/base/Log.html'>log(p/(1-p))</a></code>, where
    <code>p = mean(y/num_trials)</code> if <code>likelihood</code> is <code>"binomial"</code>
    or <code>"bb"</code>,</p></li>
-</ul><p>where <code>y</code> denotes the response variable.</p></td>
+</ul><p>where <code>y</code> denotes the response variable measurements.</p></td>
     </tr>
     <tr>
       <th>num_trials</th>
@@ -216,30 +221,42 @@ equal to the number of data points. Setting <code>num_trials=1</code> and
       <td><p>A named list with the following possible fields:</p><ul>
 <li><p><code>delta</code> Amount of added jitter to ensure positive definite
   covariance matrices.</p></li>
-<li><p><code>do_yrng</code> Should random numbers be drawn from the predictive
-  distribution (one for each posterior draw). This can be set to true
-  in order to do prior or posterior predictive sampling, and only has
-  any effect if <code>sample_f = TRUE</code>.</p></li>
+<li><p><code>vm_params</code> Variance mask function parameters (numeric
+  vector of length 2).</p></li>
 </ul><p>If <code>options</code> is <code>NULL</code>, default options are used. The defaults
-are equivalent to <code>options = list(delta = 1e-8, do_yrng = FALSE)</code>.</p></td>
+are equivalent to
+<code>options = list(delta = 1e-8,  vm_params = c(0.025, 1))</code>.</p></td>
     </tr>
     <tr>
       <th>prior_only</th>
-      <td><p>Should sampling be done in prior mode,
-where likelihood is ignored? This can be used to do prior predictive
-sampling, with <code>options = list(do_yrng = TRUE)</code> and
-<code>sample_f = TRUE</code>.</p></td>
+      <td><p>Should likelihood be ignored? See also
+<code><a href='prior_pred.html'>sample_param_prior</a></code> which can be used for any
+<a href='lgpmodel-class.html'>lgpmodel</a>, and whose runtime is independent of the number of
+observations.</p></td>
     </tr>
     <tr>
       <th>verbose</th>
-      <td><p>Should more verbose output be printed?</p></td>
+      <td><p>Can messages be printed during model creation? Has no
+effect if <code>quiet=TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>sample_f</th>
-      <td><p>Determines if the latent function values are be sampled
+      <td><p>Determines if the latent function values are sampled
 (must be <code>TRUE</code> if likelihood is not <code>"gaussian"</code>). If this is
 <code>TRUE</code>, the response variable will be normalized to have zero mean
 and unit variance.</p></td>
+    </tr>
+    <tr>
+      <th>quiet</th>
+      <td><p>Should all output messages be suppressed? You need to set
+also <code>refresh=0</code> if you want to suppress also the progress update
+messages from <code><a href='https://mc-stan.org/rstan/reference/stanmodel-method-sampling.html'>sampling</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>skip_postproc</th>
+      <td><p>Should all postprocessing be skipped? If this is
+<code>TRUE</code>, the returned <a href='lgpfit-class.html'>lgpfit</a> object will likely be
+much smaller (if <code>sample_f=FALSE</code>).</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -323,6 +340,10 @@ Bayesian analysis. In <code>lgpr</code> this is especially important when</p><ol
 
     <div class='dont-index'><p>Other main functions: 
 <code><a href='create_model.html'>create_model</a>()</code>,
+<code><a href='draw_pred.html'>draw_pred</a>()</code>,
+<code><a href='get_draws.html'>get_draws</a>()</code>,
+<code><a href='pred.html'>pred</a>()</code>,
+<code><a href='prior_pred.html'>prior_pred</a>()</code>,
 <code><a href='sample_model.html'>sample_model</a>()</code></p></div>
 
   </div>

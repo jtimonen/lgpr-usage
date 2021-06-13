@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -133,7 +133,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Create a model</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/model.R'><code>R/model.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/main-create_model.R'><code>R/main-create_model.R</code></a></small>
     <div class="hidden name"><code>create_model.Rd</code></div>
     </div>
 
@@ -191,15 +191,18 @@ binomial), <code>"binomial"</code> or <code>"bb"</code> (beta binomial).</p></td
     </tr>
     <tr>
       <th>c_hat</th>
-      <td><p>The GP mean. Must be a vector of length <code>dim(data)[1]</code>, or
-a real number defining a constant GP mean. If not specified, this is set to</p><ul>
-<li><p><code>c_hat = 0</code>, if <code>likelihood</code> is <code>"gaussian"</code>,</p></li>
+      <td><p>The GP mean. This should only be given if <code>sample_f</code> is
+<code>TRUE</code>, otherwise the GP will always have zero mean. If <code>sample_f</code>
+is <code>TRUE</code>, the given <code>c_hat</code> can be a vector of length
+<code>dim(data)[1]</code>, or a real number defining a constant GP mean. If not
+specified and <code>sample_f</code> is <code>TRUE</code>, <code>c_hat</code> is set to</p><ul>
+<li><p><code>c_hat = mean(y)</code>, if <code>likelihood</code> is <code>"gaussian"</code>,</p></li>
 <li><p><code>c_hat = </code> <code><a href='https://rdrr.io/r/base/Log.html'>log(mean(y))</a></code> if <code>likelihood</code> is
    <code>"poisson"</code> or <code>"nb"</code>,</p></li>
 <li><p><code>c_hat = </code> <code><a href='https://rdrr.io/r/base/Log.html'>log(p/(1-p))</a></code>, where
    <code>p = mean(y/num_trials)</code> if <code>likelihood</code> is <code>"binomial"</code>
    or <code>"bb"</code>,</p></li>
-</ul><p>where <code>y</code> denotes the response variable.</p></td>
+</ul><p>where <code>y</code> denotes the response variable measurements.</p></td>
     </tr>
     <tr>
       <th>num_trials</th>
@@ -213,27 +216,26 @@ equal to the number of data points. Setting <code>num_trials=1</code> and
       <td><p>A named list with the following possible fields:</p><ul>
 <li><p><code>delta</code> Amount of added jitter to ensure positive definite
   covariance matrices.</p></li>
-<li><p><code>do_yrng</code> Should random numbers be drawn from the predictive
-  distribution (one for each posterior draw). This can be set to true
-  in order to do prior or posterior predictive sampling, and only has
-  any effect if <code>sample_f = TRUE</code>.</p></li>
+<li><p><code>vm_params</code> Variance mask function parameters (numeric
+  vector of length 2).</p></li>
 </ul><p>If <code>options</code> is <code>NULL</code>, default options are used. The defaults
-are equivalent to <code>options = list(delta = 1e-8, do_yrng = FALSE)</code>.</p></td>
+are equivalent to
+<code>options = list(delta = 1e-8,  vm_params = c(0.025, 1))</code>.</p></td>
     </tr>
     <tr>
       <th>prior_only</th>
-      <td><p>Should sampling be done in prior mode,
-where likelihood is ignored? This can be used to do prior predictive
-sampling, with <code>options = list(do_yrng = TRUE)</code> and
-<code>sample_f = TRUE</code>.</p></td>
+      <td><p>Should likelihood be ignored? See also
+<code><a href='prior_pred.html'>sample_param_prior</a></code> which can be used for any
+<a href='lgpmodel-class.html'>lgpmodel</a>, and whose runtime is independent of the number of
+observations.</p></td>
     </tr>
     <tr>
       <th>verbose</th>
-      <td><p>Should more verbose output be printed?</p></td>
+      <td><p>Should some informative messages be printed?</p></td>
     </tr>
     <tr>
       <th>sample_f</th>
-      <td><p>Determines if the latent function values are be sampled
+      <td><p>Determines if the latent function values are sampled
 (must be <code>TRUE</code> if likelihood is not <code>"gaussian"</code>). If this is
 <code>TRUE</code>, the response variable will be normalized to have zero mean
 and unit variance.</p></td>
@@ -243,7 +245,11 @@ and unit variance.</p></td>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other main functions: 
+<code><a href='draw_pred.html'>draw_pred</a>()</code>,
+<code><a href='get_draws.html'>get_draws</a>()</code>,
 <code><a href='lgp.html'>lgp</a>()</code>,
+<code><a href='pred.html'>pred</a>()</code>,
+<code><a href='prior_pred.html'>prior_pred</a>()</code>,
 <code><a href='sample_model.html'>sample_model</a>()</code></p></div>
 
   </div>

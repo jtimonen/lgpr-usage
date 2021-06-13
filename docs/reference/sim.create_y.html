@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Generate noisy observations — sim.create_y • lgpr</title>
+<title>Simulate noisy observations — sim.create_y • lgpr</title>
 
 
 <!-- jquery -->
@@ -41,8 +41,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Generate noisy observations — sim.create_y" />
-<meta property="og:description" content="Generate noisy observations" />
+<meta property="og:title" content="Simulate noisy observations — sim.create_y" />
+<meta property="og:description" content="Simulate noisy observations" />
 
 
 
@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -132,13 +132,13 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Generate noisy observations</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/simulate.R'><code>R/simulate.R</code></a></small>
+    <h1>Simulate noisy observations</h1>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/misc-simulate.R'><code>R/misc-simulate.R</code></a></small>
     <div class="hidden name"><code>sim.create_y.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Generate noisy observations</p>
+    <p>Simulate noisy observations</p>
     </div>
 
     <pre class="usage"><span class='fu'>sim.create_y</span><span class='op'>(</span><span class='va'>noise_type</span>, <span class='va'>f</span>, <span class='va'>snr</span>, <span class='va'>phi</span>, <span class='va'>gamma</span>, <span class='va'>N_trials</span><span class='op'>)</span></pre>
@@ -148,8 +148,8 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>noise_type</th>
-      <td><p>Either "gaussian", "poisson", "nb" (negative binomial) or
-"binomial".</p></td>
+      <td><p>Either "gaussian", "poisson", "nb" (negative binomial),
+"binomial", or "bb" (beta-binomial).</p></td>
     </tr>
     <tr>
       <th>f</th>
@@ -158,13 +158,12 @@
     <tr>
       <th>snr</th>
       <td><p>The desired signal-to-noise ratio. This argument is valid
-only with <br />
-<code>noise_type = "gaussian"</code>.</p></td>
+only when <code>noise_type</code> is <code>"gaussian"</code>.</p></td>
     </tr>
     <tr>
       <th>phi</th>
       <td><p>The inverse overdispersion parameter for negative binomial data.
-The variance is g + g^2/phi.</p></td>
+The variance is <code>g + g^2/phi</code>.</p></td>
     </tr>
     <tr>
       <th>gamma</th>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Posterior summary — fit_summary • lgpr</title>
+<title>Print a fit summary. — fit_summary • lgpr</title>
 
 
 <!-- jquery -->
@@ -41,8 +41,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Posterior summary — fit_summary" />
-<meta property="og:description" content="Posterior summary" />
+<meta property="og:title" content="Print a fit summary. — fit_summary" />
+<meta property="og:description" content="Print a fit summary." />
 
 
 
@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -132,20 +132,16 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Posterior summary</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/MethodsFit.R'><code>R/MethodsFit.R</code></a></small>
+    <h1>Print a fit summary.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/methods-lgpfit.R'><code>R/methods-lgpfit.R</code></a></small>
     <div class="hidden name"><code>fit_summary.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Posterior summary</p>
+    <p>Print a fit summary.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>fit_summary</span><span class='op'>(</span>
-  <span class='va'>fit</span>,
-  ignore_pars <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"f_post"</span>, <span class='st'>"f_latent"</span>, <span class='st'>"eta"</span>, <span class='st'>"y_rng_disc"</span>, <span class='st'>"y_rng_cont"</span>, <span class='st'>"teff_raw"</span>,
-    <span class='st'>"lp__"</span><span class='op'>)</span>
-<span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>fit_summary</span><span class='op'>(</span><span class='va'>fit</span>, ignore_pars <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"f_latent"</span>, <span class='st'>"eta"</span>, <span class='st'>"teff_raw"</span>, <span class='st'>"lp__"</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -156,18 +152,13 @@
     </tr>
     <tr>
       <th>ignore_pars</th>
-      <td><p>names of parameters and generated quantities to ingore</p></td>
+      <td><p>parameters and generated quantities to ignore from output</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a character representation</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p>Other fit postprocessing functions: 
-<code><a href='get_draws.html'>get_draws</a>()</code>,
-<code><a href='get_y_rng.html'>get_y_rng</a>()</code></p></div>
+    <p><code>object</code> invisibly.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

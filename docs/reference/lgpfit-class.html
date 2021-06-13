@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -133,7 +133,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>An S4 class to represent the output of the <code>lgp</code> function</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/AllClasses.R'><code>R/AllClasses.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/aaa.R'><code>R/aaa.R</code></a>, <a href='https://github.com/jtimonen/lgpr/blob/master/R/methods-lgpfit.R'><code>R/methods-lgpfit.R</code></a></small>
     <div class="hidden name"><code>lgpfit-class.Rd</code></div>
     </div>
 
@@ -141,8 +141,77 @@
     <p>An S4 class to represent the output of the <code>lgp</code> function</p>
     </div>
 
+    <pre class="usage"><span class='co'># S4 method for lgpfit</span>
+<span class='fu'><a href='show.html'>show</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
 
+<span class='co'># S4 method for lgpfit</span>
+<span class='fu'><a href='s4_generics.html'>component_names</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
 
+<span class='co'># S4 method for lgpfit</span>
+<span class='fu'><a href='s4_generics.html'>postproc</a></span><span class='op'>(</span><span class='va'>object</span>, verbose <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+
+<span class='co'># S4 method for lgpfit</span>
+<span class='fu'><a href='s4_generics.html'>contains_postproc</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
+
+<span class='co'># S4 method for lgpfit</span>
+<span class='fu'><a href='s4_generics.html'>clear_postproc</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
+
+<span class='co'># S4 method for lgpfit</span>
+<span class='fu'><a href='s4_generics.html'>get_model</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
+
+<span class='co'># S4 method for lgpfit</span>
+<span class='fu'><a href='s4_generics.html'>get_stanfit</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
+
+<span class='co'># S4 method for lgpfit</span>
+<span class='fu'><a href='s4_generics.html'>is_f_sampled</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
+
+<span class='co'># S4 method for lgpfit,missing</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span></pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>object</th>
+      <td><p>The object for which to apply a class method.</p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>Can the method print any messages?</p></td>
+    </tr>
+    <tr>
+      <th>x</th>
+      <td><p>an lgpfit object to visualize</p></td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td><p>unused argument</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="methods-by-generic-"><a class="anchor" href="#methods-by-generic-"></a>Methods (by generic)</h2>
+
+    
+<ul>
+<li><p><code>show</code>: Print information and summary about the fit object.</p></li>
+<li><p><code>component_names</code>: Get names of model components.</p></li>
+<li><p><code>postproc</code>: Apply postprocessing. Returns an updated
+lgpfit object (copies data).</p></li>
+<li><p><code>contains_postproc</code>: Check if object contains postprocessing information.</p></li>
+<li><p><code>clear_postproc</code>: Returns an updated (copies data)
+lgpfit object without any postprocessing information.</p></li>
+<li><p><code>get_model</code>: Get the stored <a href='lgpmodel-class.html'>lgpmodel</a> object.
+Various properties of the returned object can be accessed as explained
+in the documentation of <a href='lgpmodel-class.html'>lgpmodel</a>.</p></li>
+<li><p><code>get_stanfit</code>: Get the stored <code><a href='https://mc-stan.org/rstan/reference/stanfit-class.html'>stanfit</a></code> object.
+Various properties of the returned object can be accessed or plotted
+as explained
+<a href='https://cran.r-project.org/web/packages/rstan/vignettes/stanfit-objects.html'>here</a>
+or in the documentation of <code><a href='https://mc-stan.org/rstan/reference/stanfit-class.html'>stanfit</a></code>.</p></li>
+<li><p><code>is_f_sampled</code>: Determine if inference was done by sampling
+the latent signal <code>f</code> (and its components).</p></li>
+<li><p><code>plot</code>: Visualize parameter draws using <code><a href='plot_draws.html'>plot_draws</a></code>.</p></li>
+</ul>
     <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
 
     
@@ -152,14 +221,19 @@
 
 <dt><code>model</code></dt><dd><p>An object of class <code>lgpmodel</code>.</p></dd>
 
+<dt><code>num_draws</code></dt><dd><p>Total number of parameter draws.</p></dd>
+
+<dt><code>postproc_results</code></dt><dd><p>A named list containing possible postprocessing
+results.</p></dd>
+
 </dl>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>All methods that work on <a href='lgpmodel-class.html'>lgpmodel</a>
-objects work also on lgpfit objects.</p>
-<p>For complete info on accessing the properties of the
-<code>stan_fit</code> slot, see
-<a href='https://cran.r-project.org/web/packages/rstan/vignettes/stanfit-objects.html'>here</a>.</p></div>
+    <div class='dont-index'><p>For extracting parameter draws, see <code><a href='get_draws.html'>get_draws</a></code>,
+or the <code>rstan</code> methods for <code>stanfit</code> objects.</p>
+<p>For more detailed plotting functions, see <code><a href='plot_draws.html'>plot_draws</a></code>,
+<code><a href='plot_draws.html'>plot_beta</a></code>, <code><a href='plot_draws.html'>plot_warp</a></code>,
+<code><a href='plot_draws.html'>plot_effect_times</a></code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

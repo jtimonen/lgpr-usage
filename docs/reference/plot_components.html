@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -133,7 +133,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Visualize all model components</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/plot_pred.R'><code>R/plot_pred.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/main-plot_pred.R'><code>R/main-plot_pred.R</code></a></small>
     <div class="hidden name"><code>plot_components.Rd</code></div>
     </div>
 
@@ -143,13 +143,13 @@
 
     <pre class="usage"><span class='fu'>plot_components</span><span class='op'>(</span>
   <span class='va'>fit</span>,
-  x <span class='op'>=</span> <span class='cn'>NULL</span>,
   pred <span class='op'>=</span> <span class='cn'>NULL</span>,
   group_by <span class='op'>=</span> <span class='st'>"id"</span>,
   t_name <span class='op'>=</span> <span class='st'>"age"</span>,
-  draws <span class='op'>=</span> <span class='cn'>NULL</span>,
-  reduce <span class='op'>=</span> <span class='va'>mean</span>,
   MULT_STD <span class='op'>=</span> <span class='fl'>2</span>,
+  verbose <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  draws <span class='op'>=</span> <span class='cn'>NULL</span>,
+  reduce <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'>base</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
   color_by <span class='op'>=</span> <span class='cn'>NA</span>,
   no_err <span class='op'>=</span> <span class='cn'>FALSE</span>,
   ylim <span class='op'>=</span> <span class='cn'>NULL</span>,
@@ -157,6 +157,7 @@
   nrow <span class='op'>=</span> <span class='cn'>NULL</span>,
   ncol <span class='op'>=</span> <span class='cn'>NULL</span>,
   gg_add <span class='op'>=</span> <span class='cn'>NULL</span>,
+  x <span class='op'>=</span> <span class='cn'>NULL</span>,
   <span class='va'>...</span>
 <span class='op'>)</span></pre>
 
@@ -168,15 +169,10 @@
       <td><p>An object of class <a href='lgpfit-class.html'>lgpfit</a>.</p></td>
     </tr>
     <tr>
-      <th>x</th>
-      <td><p>A data frame of prediction points, containing at least the
-variables used as covariates in the model. This must be specified if
-<code>pred</code> is not <code>NULL</code>.</p></td>
-    </tr>
-    <tr>
       <th>pred</th>
       <td><p>An object of class <a href='GaussianPrediction-class.html'>GaussianPrediction</a> or
-<a href='Prediction-class.html'>Prediction</a>.</p></td>
+<a href='Prediction-class.html'>Prediction</a>. If <code>pred=NULL</code>, the <code><a href='pred.html'>pred</a></code>
+function is called with the given <code>reduce</code> and <code>draws</code> arguments.</p></td>
     </tr>
     <tr>
       <th>group_by</th>
@@ -188,16 +184,20 @@ to avoid grouping)</p></td>
       <td><p>name of the x-axis variable</p></td>
     </tr>
     <tr>
+      <th>MULT_STD</th>
+      <td><p>a multiplier for standard deviation</p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>Can this print any messages?</p></td>
+    </tr>
+    <tr>
       <th>draws</th>
-      <td><p>only has effect if <code>pred</code> is <code>NULL</code></p></td>
+      <td><p>Only has effect if <code>pred=NULL</code>.</p></td>
     </tr>
     <tr>
       <th>reduce</th>
-      <td><p>only has effect if <code>pred</code> is <code>NULL</code></p></td>
-    </tr>
-    <tr>
-      <th>MULT_STD</th>
-      <td><p>a multiplier for standard deviation</p></td>
+      <td><p>Only has effect if <code>pred=NULL</code>.</p></td>
     </tr>
     <tr>
       <th>color_by</th>
@@ -233,6 +233,11 @@ components + 1. See the <code>no_err</code> argument of <code><a href='plot_api_
       <td><p>additional ggplot obejct to add to each plot</p></td>
     </tr>
     <tr>
+      <th>x</th>
+      <td><p>Deprecated argument. This is now taken from the <code>pred</code>
+object to ensure compatibility.</p></td>
+    </tr>
+    <tr>
       <th>...</th>
       <td><p>additional arguments to <code><a href='plot_api_c.html'>plot_api_c</a></code></p></td>
     </tr>
@@ -244,9 +249,8 @@ components + 1. See the <code>no_err</code> argument of <code><a href='plot_api_
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other main plot functions: 
-<code><a href='plot_data.html'>plot_data</a>()</code>,
-<code><a href='plot_pred.html'>plot_pred</a>()</code>,
-<code><a href='plot_sim.html'>plot_sim</a>()</code></p></div>
+<code><a href='plot_draws.html'>plot_draws</a>()</code>,
+<code><a href='plot_pred.html'>plot_pred</a>()</code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

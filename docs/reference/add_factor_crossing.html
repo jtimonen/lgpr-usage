@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -133,7 +133,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Add a crossing of two factors to a data frame</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/utils_data.R'><code>R/utils_data.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/main-datautil.R'><code>R/main-datautil.R</code></a></small>
     <div class="hidden name"><code>add_factor_crossing.Rd</code></div>
     </div>
 
@@ -141,13 +141,13 @@
     <p>Add a crossing of two factors to a data frame</p>
     </div>
 
-    <pre class="usage"><span class='fu'>add_factor_crossing</span><span class='op'>(</span><span class='va'>df</span>, <span class='va'>fac1</span>, <span class='va'>fac2</span>, <span class='va'>new_name</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>add_factor_crossing</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>fac1</span>, <span class='va'>fac2</span>, <span class='va'>new_name</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>df</th>
+      <th>data</th>
       <td><p>a data frame</p></td>
     </tr>
     <tr>
@@ -169,17 +169,12 @@
     <p>a data frame</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other data utilities: 
+    <div class='dont-index'><p>Other data frame handling functions: 
 <code><a href='add_dis_age.html'>add_dis_age</a>()</code>,
 <code><a href='add_factor.html'>add_factor</a>()</code>,
-<code><a href='data_types.html'>data_types</a>()</code>,
-<code><a href='get_teff_obs.html'>get_teff_obs</a>()</code>,
+<code><a href='adjusted_c_hat.html'>adjusted_c_hat</a>()</code>,
 <code><a href='new_x.html'>new_x</a>()</code>,
-<code><a href='pick_one_row_each.html'>pick_one_row_each</a>()</code>,
-<code><a href='rep_df.html'>rep_df</a>()</code>,
-<code><a href='select_factors_and.html'>select_factors_and</a>()</code>,
-<code><a href='split.html'>split</a>()</code>,
-<code><a href='to_long_format.html'>to_long_format</a>()</code></p></div>
+<code><a href='split.html'>split</a>()</code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Graphical posterior or prior predictive checks — ppc • lgpr</title>
+<title>Graphical posterior predictive checks — ppc • lgpr</title>
 
 
 <!-- jquery -->
@@ -41,8 +41,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Graphical posterior or prior predictive checks — ppc" />
-<meta property="og:description" content="Graphical posterior or prior predictive checks" />
+<meta property="og:title" content="Graphical posterior predictive checks — ppc" />
+<meta property="og:description" content="Graphical posterior predictive checks" />
 
 
 
@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -132,31 +132,37 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Graphical posterior or prior predictive checks</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/MethodsFit.R'><code>R/MethodsFit.R</code></a></small>
+    <h1>Graphical posterior predictive checks</h1>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/main-ppc.R'><code>R/main-ppc.R</code></a></small>
     <div class="hidden name"><code>ppc.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Graphical posterior or prior predictive checks</p>
+    <p>Graphical posterior predictive checks</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ppc</span><span class='op'>(</span><span class='va'>fit</span>, <span class='va'>data</span>, fun <span class='op'>=</span> <span class='fu'><a href='defaults.html'>default_ppc_fun</a></span><span class='op'>(</span><span class='va'>fit</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>ppc</span><span class='op'>(</span><span class='va'>fit</span>, data <span class='op'>=</span> <span class='cn'>NULL</span>, fun <span class='op'>=</span> <span class='fu'>default_ppc_fun</span><span class='op'>(</span><span class='va'>fit</span><span class='op'>)</span>, verbose <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>fit</th>
-      <td><p>an object of class <a href='lgpfit-class.html'>lgpfit</a></p></td>
+      <td><p>An object of class <a href='lgpfit-class.html'>lgpfit</a> that can been created
+with <code>sample_f=TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>data</th>
-      <td><p>the original data frame</p></td>
+      <td><p>the original data frame (deprecated argument with no
+effect, now obtained from fit object)</p></td>
     </tr>
     <tr>
       <th>fun</th>
       <td><p><code>bayesplot</code> function name</p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>Can this print any messages?</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -172,7 +178,9 @@
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Introduction to graphical posterior predictive checks:
-<a href='here'>https://cran.r-project.org/web/packages/bayesplot/vignettes/graphical-ppcs.html</a></p></div>
+<a href='here'>https://cran.r-project.org/web/packages/bayesplot/vignettes/graphical-ppcs.html</a>.
+Prior predictive check can be done by calling
+<code><a href='prior_pred.html'>prior_pred</a></code> and then <code><a href='https://mc-stan.org/bayesplot/reference/pp_check.html'>bayesplot::pp_check()</a></code>.</p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

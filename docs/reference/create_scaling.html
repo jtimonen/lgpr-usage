@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create the function that does a standardizing transform and its inverse — create_scaling • lgpr</title>
+<title>Create a standardizing transform — create_scaling • lgpr</title>
 
 
 <!-- jquery -->
@@ -41,8 +41,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Create the function that does a standardizing transform and its inverse — create_scaling" />
-<meta property="og:description" content="Create the function that does a standardizing transform and its inverse" />
+<meta property="og:title" content="Create a standardizing transform — create_scaling" />
+<meta property="og:description" content="Create a standardizing transform" />
 
 
 
@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -132,23 +132,23 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create the function that does a standardizing transform and its inverse</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/model.R'><code>R/model.R</code></a></small>
+    <h1>Create a standardizing transform</h1>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/main-create_model.R'><code>R/main-create_model.R</code></a></small>
     <div class="hidden name"><code>create_scaling.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Create the function that does a standardizing transform and its inverse</p>
+    <p>Create a standardizing transform</p>
     </div>
 
-    <pre class="usage"><span class='fu'>create_scaling</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>name</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>create_scaling</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>name</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>y</th>
-      <td><p>variable measurements</p></td>
+      <th>x</th>
+      <td><p>variable measurements (might contain <code>NA</code> or <code>NaN</code>)</p></td>
     </tr>
     <tr>
       <th>name</th>
@@ -159,6 +159,10 @@
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>an object of class <a href='lgpscaling-class.html'>lgpscaling</a></p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other variable scaling functions: 
+<code><a href='apply_scaling.html'>apply_scaling</a>()</code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -42,21 +42,13 @@
   
 
 <meta property="og:title" content="The 'lgpr' package. — lgpr-package" />
-<meta property="og:description" content="
-
-A package for Bayesian additive Gaussian process (GP) modeling with
-interpretable kernels designed for longitudinal data.
-Features inference of covariate effects
-  and covariate relevance assesment.
-Models can include non-stationary, heterogeneous and temporally
-uncertain effects.
-Bayesian inference of the model (hyper)parameters using
-rstan.
-Functions for visualizing longitudinal data,
-posterior draws, model predictions and inferred covariate effects are
-also provided.
-
-" />
+<meta property="og:description" content="Interpretable nonparametric modeling of longitudinal data
+using additive Gaussian process regression. Contains functionality
+for inferring covariate effects and assessing covariate relevances.
+Models are specified using a convenient formula syntax, and can include
+shared, group-specific, non-stationary, heterogeneous and temporally
+uncertain effects. Bayesian inference for model parameters is performed
+using Stan (rstan)." />
 
 
 
@@ -88,7 +80,7 @@ also provided.
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -147,52 +139,73 @@ also provided.
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>The 'lgpr' package.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/lgpr.R'><code>R/lgpr.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/aaa.R'><code>R/aaa.R</code></a></small>
     <div class="hidden name"><code>lgpr-package.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    
-<ul>
-<li><p>A package for Bayesian additive Gaussian process (GP) modeling with
-interpretable kernels designed for longitudinal data.</p></li>
-<li><p>Features inference of covariate effects
-  and covariate relevance assesment.</p></li>
-<li><p>Models can include non-stationary, heterogeneous and temporally
-uncertain effects.</p></li>
-<li><p>Bayesian inference of the model (hyper)parameters using
-<code><a href='https://mc-stan.org/rstan/reference/rstan.html'>rstan</a></code>.</p></li>
-<li><p>Functions for visualizing longitudinal data,
-posterior draws, model predictions and inferred covariate effects are
-also provided.</p></li>
-</ul>
-
+    <p>Interpretable nonparametric modeling of longitudinal data
+using additive Gaussian process regression. Contains functionality
+for inferring covariate effects and assessing covariate relevances.
+Models are specified using a convenient formula syntax, and can include
+shared, group-specific, non-stationary, heterogeneous and temporally
+uncertain effects. Bayesian inference for model parameters is performed
+using Stan (<code><a href='https://mc-stan.org/rstan/reference/rstan.html'>rstan</a></code>).</p>
     </div>
 
 
 
-    <h2 class="hasAnchor" id="overview"><a class="anchor" href="#overview"></a>Overview</h2>
+    <h2 class="hasAnchor" id="core-functions"><a class="anchor" href="#core-functions"></a>Core functions</h2>
 
     
 
-<p>See the documentation of</p><ul>
-<li><p><code><a href='lgp.html'>lgp</a></code> for info on how to specify and fit models</p></li>
-<li><p><code><a href='ppc.html'>ppc</a></code> for prior and posterior predictive checks</p></li>
-<li><p><code><a href='relevances.html'>relevances</a></code> for component/covariate relevance assessment</p></li>
-<li><p><code><a href='select.html'>select</a></code> for component/covariate selection</p></li>
-<li><p><code><a href='get_pred.html'>get_pred</a></code> for model predictions and inferred components
- at data points</p></li>
-<li><p><code><a href='pred.html'>pred</a></code> for computing out-of-sample predictions and
- inferred components</p></li>
-<li><p><code><a href='plot_pred.html'>plot_pred</a></code> and <code><a href='plot_pred.html'>plot_f</a></code> for visualizing
- predictions and inferred components</p></li>
+<p>Main functionality of the package consists of creating and fitting an
+additive GP model:</p><ul>
+<li><p><code><a href='lgp.html'>lgp</a></code>: Specify and fit an additive GP model with one
+ command.</p></li>
+<li><p><code><a href='create_model.html'>create_model</a></code>: Define an <a href='lgpmodel-class.html'>lgpmodel</a> object.</p></li>
+<li><p><code><a href='sample_model.html'>sample_model</a></code>: Fit a model by sampling the posterior
+ distribution of its parameters and create an <a href='lgpfit-class.html'>lgpfit</a> object.</p></li>
+<li><p><code><a href='pred.html'>pred</a></code>: Computing model predictions and inferred
+ covariate effects after fitting a model.</p></li>
+<li><p><code><a href='relevances.html'>relevances</a></code>: Assessing covariate relevances after
+ fitting a model.</p></li>
+<li><p><code><a href='prior_pred.html'>prior_pred</a></code>: Prior predictive sampling to check
+ if your prior makes sense.</p></li>
 </ul>
 
-    <h2 class="hasAnchor" id="tutorials"><a class="anchor" href="#tutorials"></a>Tutorials</h2>
+    <h2 class="hasAnchor" id="visualization"><a class="anchor" href="#visualization"></a>Visualization</h2>
 
     
 
-<p>See tutorials at <a href='https://jtimonen.github.io/lgpr-usage/index.html'>https://jtimonen.github.io/lgpr-usage/index.html</a>.</p>
+<ul>
+<li><p><code><a href='plot_pred.html'>plot_pred</a></code>: Plot model predictions.</p></li>
+<li><p><code><a href='plot_components.html'>plot_components</a></code>: Visualize inferred model components.</p></li>
+<li><p><code><a href='plot_draws.html'>plot_draws</a></code>: Visualizing parameter draws.</p></li>
+<li><p><code><a href='plot_data.html'>plot_data</a></code>: Visualizing data.</p></li>
+</ul>
+
+    <h2 class="hasAnchor" id="data"><a class="anchor" href="#data"></a>Data</h2>
+
+    
+
+<p>The data that you wish to analyze with <code>lgpr</code> should be in an R
+<code>data.frame</code> where columns correspond to measured variables and rows
+correspond to observations. Some functions that can help working with such
+data frames are:</p><ul>
+<li><p><code><a href='new_x.html'>new_x</a></code>: Creating new test points where the posterior
+ distribution of any function component or sum of all components, or the
+ posterior predictive distribution can be computed after model fitting.</p></li>
+<li><p>Other functions: <code><a href='add_factor.html'>add_factor</a></code>,
+ <code><a href='add_factor_crossing.html'>add_factor_crossing</a></code>, <code><a href='add_dis_age.html'>add_dis_age</a></code>,
+ <code><a href='adjusted_c_hat.html'>adjusted_c_hat</a></code>.</p></li>
+</ul>
+
+    <h2 class="hasAnchor" id="tutorials-and-case-studies"><a class="anchor" href="#tutorials-and-case-studies"></a>Tutorials and case studies</h2>
+
+    
+
+<p>See <a href='https://jtimonen.github.io/lgpr-usage/index.html'>https://jtimonen.github.io/lgpr-usage/index.html</a>.</p>
     <h2 class="hasAnchor" id="citation"><a class="anchor" href="#citation"></a>Citation</h2>
 
     
@@ -202,23 +215,19 @@ also provided.</p></li>
 
     
 
-<p>Bug reports, PRs, enchancement ideas or user experiences in general are
+<p>Bug reports, PRs, enhancement ideas or user experiences in general are
 welcome and appreciated. Create an issue in Github or email the author.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     
 <ol>
+<li><p>Timonen, J. et al. (2021).
+  <em>lgpr: an interpretable non-parametric method for inferring covariate
+  effects from longitudinal data</em>. Bioinformatics,
+  <a href='https://doi.org/10.1093/bioinformatics/btab021'>url</a>.</p></li>
 <li><p>Carpenter, B. et al. (2017).
   <em>Stan: A probabilistic programming language</em>. Journal of Statistical
    Software 76(1).</p></li>
-<li><p>Jonah Gabry, Ben Goodrich and Martin Lysy (2019).
-  <em>rstantools: Tools for Developing R Packages Interfacing with 'Stan'</em>.
-  R package version 2.0.0.</p></li>
-<li><p>Gabry, J. and Mahr, T. (2019).
-  <em>bayesplot: Plotting for Bayesian Models</em>. R package version 1.7.0,
-   http://mc-stan.org/bayesplot.</p></li>
-<li><p>Stan Development Team (2019). <em>RStan: the R interface to Stan.</em>
-  R package version 2.19.2. http://mc-stan.org/.</p></li>
 </ol>
 
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>

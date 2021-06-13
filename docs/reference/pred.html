@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Computing out-of-sample predictions — pred • lgpr</title>
+<title>Posterior predictions and function posteriors — pred • lgpr</title>
 
 
 <!-- jquery -->
@@ -41,22 +41,27 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Computing out-of-sample predictions — pred" />
+<meta property="og:title" content="Posterior predictions and function posteriors — pred" />
 <meta property="og:description" content="
 
-pred calls either pred.gaussian or
-  pred.kr depending on whether fit is for a model
-  that marginalized or sampled the latent signal f
-pred.gaussian computes analytic posterior or prior
-  predictive distribution and returns an object of class
-  GaussianPrediction
-pred.kr computes predictions using kernel regression for
-  the samples of f and returns an object of class
-  Prediction
-These also compute the predicted (distribution of the) total signal
-f and its additive components. All these are computed for
-each parameter draw (defined by draws), or other parameter set
-(obtained by a reduction defined by reduce)." />
+If fit is for a model that marginalizes the latent
+  signal f (i.e. is_f_sampled(fit) is FALSE), this
+  computes the analytic conditional posterior
+  distributions of each model component, their sum, and the conditional
+  predictive distribution. All these are computed for
+  each (hyper)parameter draw (defined by draws), or other parameter
+  set (obtained by a reduction defined by reduce). Results are stored
+  in a GaussianPrediction object which is then returned.
+If fit is for a model that samples the latent
+  signal f (i.e. is_f_sampled(fit) is TRUE), this will
+  extract these function samples, compute their sum, and a version of the
+  sum f that is transformed through the inverse link function.
+  If x is not NULL, the function draws are extrapolated
+  to the points specified by x using kernel regression.
+  Results are stored in a Prediction
+  object which is then returned.
+
+" />
 
 
 
@@ -88,7 +93,7 @@ each parameter draw (defined by draws), or other parameter set
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -146,42 +151,44 @@ each parameter draw (defined by draws), or other parameter set
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Computing out-of-sample predictions</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/pred.R'><code>R/pred.R</code></a></small>
+    <h1>Posterior predictions and function posteriors</h1>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/main-pred.R'><code>R/main-pred.R</code></a></small>
     <div class="hidden name"><code>pred.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
 <ul>
-<li><p><code>pred</code> calls either <code>pred.gaussian</code> or
-  <code>pred.kr</code> depending on whether <code>fit</code> is for a model
-  that marginalized or sampled the latent signal <code>f</code></p></li>
-<li><p><code>pred.gaussian</code> computes analytic posterior or prior
-  predictive distribution and returns an object of class
-  <a href='GaussianPrediction-class.html'>GaussianPrediction</a></p></li>
-<li><p><code>pred.kr</code> computes predictions using kernel regression for
-  the samples of <code>f</code> and returns an object of class
-  <a href='Prediction-class.html'>Prediction</a></p></li>
-</ul><p>These also compute the predicted (distribution of the) total signal
-<code>f</code> and its additive components. All these are computed for
-each parameter draw (defined by <code>draws</code>), or other parameter set
-(obtained by a reduction defined by <code>reduce</code>).</p>
+<li><p>If <code>fit</code> is for a model that marginalizes the latent
+  signal <code>f</code> (i.e. <code><a href='s4_generics.html'>is_f_sampled(fit)</a></code> is <code>FALSE</code>), this
+  computes the analytic conditional posterior
+  distributions of each model component, their sum, and the conditional
+  predictive distribution. All these are computed for
+  each (hyper)parameter draw (defined by <code>draws</code>), or other parameter
+  set (obtained by a reduction defined by <code>reduce</code>). Results are stored
+  in a <a href='GaussianPrediction-class.html'>GaussianPrediction</a> object which is then returned.</p></li>
+<li><p>If <code>fit</code> is for a model that samples the latent
+  signal <code>f</code> (i.e. <code><a href='s4_generics.html'>is_f_sampled(fit)</a></code> is <code>TRUE</code>), this will
+  extract these function samples, compute their sum, and a version of the
+  sum <code>f</code> that is transformed through the inverse link function.
+  If <code>x</code> is not <code>NULL</code>, the function draws are extrapolated
+  to the points specified by <code>x</code> using kernel regression.
+  Results are stored in a <a href='Prediction-class.html'>Prediction</a>
+  object which is then returned.</p></li>
+</ul>
+
     </div>
 
     <pre class="usage"><span class='fu'>pred</span><span class='op'>(</span>
   <span class='va'>fit</span>,
-  <span class='va'>x</span>,
-  c_hat_pred <span class='op'>=</span> <span class='cn'>NULL</span>,
+  x <span class='op'>=</span> <span class='cn'>NULL</span>,
   reduce <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'>base</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
   draws <span class='op'>=</span> <span class='cn'>NULL</span>,
   verbose <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  STREAM <span class='op'>=</span> <span class='fu'>get_stream</span><span class='op'>(</span><span class='op'>)</span>
-<span class='op'>)</span>
-
-<span class='fu'>pred.gaussian</span><span class='op'>(</span><span class='va'>fit</span>, <span class='va'>x</span>, <span class='va'>reduce</span>, <span class='va'>draws</span>, <span class='va'>verbose</span>, STREAM <span class='op'>=</span> <span class='fu'>get_stream</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
-
-<span class='fu'>pred.kr</span><span class='op'>(</span><span class='va'>fit</span>, <span class='va'>x</span>, <span class='va'>c_hat_pred</span>, <span class='va'>reduce</span>, <span class='va'>draws</span>, <span class='va'>verbose</span>, STREAM <span class='op'>=</span> <span class='fu'>get_stream</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
+  STREAM <span class='op'>=</span> <span class='fu'>get_stream</span><span class='op'>(</span><span class='op'>)</span>,
+  c_hat_pred <span class='op'>=</span> <span class='cn'>NULL</span>,
+  force <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -192,8 +199,31 @@ each parameter draw (defined by <code>draws</code>), or other parameter set
     </tr>
     <tr>
       <th>x</th>
-      <td><p>A data frame of points where the predictions are computed.
-The function <code><a href='new_x.html'>new_x</a></code> provides an easy way to create it.</p></td>
+      <td><p>A data frame of points where function posterior distributions
+and predictions should be computed or sampled.
+The function <code><a href='new_x.html'>new_x</a></code> provides an easy way to create it.
+If this is <code>NULL</code>, the data points are used.</p></td>
+    </tr>
+    <tr>
+      <th>reduce</th>
+      <td><p>Reduction for parameters draws. Can be a function that
+is applied to reduce all parameter draws into one parameter set, or
+<code>NULL</code> (no reduction). Has no effect if <code>draws</code> is specified.</p></td>
+    </tr>
+    <tr>
+      <th>draws</th>
+      <td><p>Indices of parameter draws to use, or <code>NULL</code> to use all
+draws.</p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>Should more information and a possible progress bar be
+printed?</p></td>
+    </tr>
+    <tr>
+      <th>STREAM</th>
+      <td><p>External pointer. By default obtained with
+<code><a href='https://mc-stan.org/rstan/reference/expose_stan_functions.html'>rstan::get_stream()</a></code>.</p></td>
     </tr>
     <tr>
       <th>c_hat_pred</th>
@@ -205,24 +235,10 @@ then <code>c_hat_pred</code> can be ignored, in which case this will by default
 use the same constant.</p></td>
     </tr>
     <tr>
-      <th>reduce</th>
-      <td><p>Reduction for parameters draws. Can be a function that
-is applied to reduce all parameter draws into one parameter set, or
-NULL (no reduction). Has no effect if <code>draws</code> is specified.</p></td>
-    </tr>
-    <tr>
-      <th>draws</th>
-      <td><p>Indices of parameter draws to use, or <code>NULL</code> to use all
-draws.</p></td>
-    </tr>
-    <tr>
-      <th>verbose</th>
-      <td><p>Should more information and a progress bar be printed?</p></td>
-    </tr>
-    <tr>
-      <th>STREAM</th>
-      <td><p>External pointer. By default obtained with
-<code><a href='https://mc-stan.org/rstan/reference/expose_stan_functions.html'>get_stream</a></code>.</p></td>
+      <th>force</th>
+      <td><p>This is by default <code>FALSE</code> to prevent unintended
+large computations that might crash R or take forever. Set it to <code>TRUE</code>
+try computing no matter what.</p></td>
     </tr>
     </table>
 
@@ -232,11 +248,13 @@ draws.</p></td>
 <a href='Prediction-class.html'>Prediction</a>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other prediction functions: 
-<code><a href='kernel_matrices.html'>kernel_matrices</a>()</code>,
-<code><a href='pred.gaussian_compute.html'>pred.gaussian_compute</a>()</code>,
-<code><a href='pred.kr_compute.html'>pred.kr_compute</a>()</code>,
-<code><a href='pred_kernels.html'>pred_kernels</a>()</code></p></div>
+    <div class='dont-index'><p>Other main functions: 
+<code><a href='create_model.html'>create_model</a>()</code>,
+<code><a href='draw_pred.html'>draw_pred</a>()</code>,
+<code><a href='get_draws.html'>get_draws</a>()</code>,
+<code><a href='lgp.html'>lgp</a>()</code>,
+<code><a href='prior_pred.html'>prior_pred</a>()</code>,
+<code><a href='sample_model.html'>sample_model</a>()</code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

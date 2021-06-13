@@ -37,7 +37,7 @@ create_new_html <- function() {
   
   html_old <- readLines("docs/index.html")
   num_lines <- length(html_old)
-  s1 <- "<p>R package for <strong>L</strong>ongitudinal <strong>G</strong>aussian <strong>P</strong>rocess <strong>R</strong>egression.</p>"
+  s1 <- "<p>R-package for interpretable nonparametric modeling of longitudinal data using additive Gaussian processes. Contains functionality for inferring covariate effects and assessing covariate relevances. Various models can be specified using a convenient formula syntax.</p>"
   s2 <- "<div id=\"requirements\" class=\"section level2\">"
   line1 <- which(html_old == s1)
   line2 <- which(html_old == s2)
