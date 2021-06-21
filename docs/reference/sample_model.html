@@ -44,10 +44,9 @@
 <meta property="og:title" content="Fitting a model — sample_model" />
 <meta property="og:description" content="
 
-The sample_model function takes an lgpmodel
-  object, fits it using sampling, and
-  returns an object of class lgpfit.
-The optimize_model function takes an lgpmodel
+sample_model takes an lgpmodel
+  object and fits it using sampling.
+optimize_model takes an lgpmodel
   object and fits it using optimizing.
 
 " />
@@ -82,7 +81,7 @@ The optimize_model function takes an lgpmodel
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.3</span>
       </span>
     </div>
 
@@ -90,7 +89,7 @@ The optimize_model function takes an lgpmodel
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -148,10 +147,9 @@ The optimize_model function takes an lgpmodel
     <div class="ref-description">
     
 <ul>
-<li><p>The <code>sample_model</code> function takes an <a href='lgpmodel-class.html'>lgpmodel</a>
-  object, fits it using <code><a href='https://mc-stan.org/rstan/reference/stanmodel-method-sampling.html'>sampling</a></code>, and
-  returns an object of class <a href='lgpfit-class.html'>lgpfit</a>.</p></li>
-<li><p>The <code>optimize_model</code> function takes an <a href='lgpmodel-class.html'>lgpmodel</a>
+<li><p><code>sample_model</code> takes an <a href='lgpmodel-class.html'>lgpmodel</a>
+  object and fits it using <code><a href='https://mc-stan.org/rstan/reference/stanmodel-method-sampling.html'>sampling</a></code>.</p></li>
+<li><p><code>optimize_model</code> takes an <a href='lgpmodel-class.html'>lgpmodel</a>
   object and fits it using <code><a href='https://mc-stan.org/rstan/reference/stanmodel-method-optimizing.html'>optimizing</a></code>.</p></li>
 </ul>
 
@@ -196,6 +194,18 @@ much smaller (if <code>sample_f=FALSE</code>).</p></td>
 <code><a href='https://mc-stan.org/rstan/reference/stanmodel-method-sampling.html'>sampling</a></code> or <code><a href='https://mc-stan.org/rstan/reference/stanmodel-method-optimizing.html'>optimizing</a></code>.</p></td>
     </tr>
     </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    
+<ul>
+<li><p><code>sample_model</code> returns an object of class <a href='lgpfit-class.html'>lgpfit</a>
+  containing the parameter draws, the original <code>model</code> object,
+  and possible postprocessing results. See documentation of
+  <a href='lgpfit-class.html'>lgpfit</a> for more information.</p></li>
+<li><p><code>optimize_model</code> directly returns the list returned by
+<code><a href='https://mc-stan.org/rstan/reference/stanmodel-method-optimizing.html'>optimizing</a></code>. See its documentation for more information.</p></li>
+</ul>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 

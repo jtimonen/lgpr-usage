@@ -42,23 +42,11 @@
   
 
 <meta property="og:title" content="Prior (predictive) sampling — prior_pred" />
-<meta property="og:description" content="
-
-The prior_pred function takes an
-  lgpmodel object, samples from the prior predictive
-  distribution and returns a list with fields
-y_draws: A matrix containing the prior predictive draws
-     as rows. Can be passed to bayesplot::pp_check() for
-     graphical prior predictive checking.
-pred_draws: an object of class Prediction,
-     containing prior draws of each model component and their sum
-param_draws: a stanfit object of prior parameter
-     draws (obtained by calling sample_param_prior internally)
-
-The sample_param_prior function takes an
-  lgpmodel object, samples only its parameter prior
-  using sampling and returns
-  an object of class stanfit.
+<meta property="og:description" content="These functions take an lgpmodel object, and
+prior_pred samples from the prior predictive distribution of
+  the model
+sample_param_prior samples only its parameter prior using
+  sampling
 
 " />
 
@@ -92,7 +80,7 @@ The sample_param_prior function takes an
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.3</span>
       </span>
     </div>
 
@@ -100,7 +88,7 @@ The sample_param_prior function takes an
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -156,23 +144,11 @@ The sample_param_prior function takes an
     </div>
 
     <div class="ref-description">
-    
-<ul>
-<li><p>The <code>prior_pred</code> function takes an
-  <a href='lgpmodel-class.html'>lgpmodel</a> object, samples from the prior predictive
-  distribution and returns a list with fields</p><ul>
-<li><p><code>y_draws</code>: A matrix containing the prior predictive draws
-     as rows. Can be passed to <code><a href='https://mc-stan.org/bayesplot/reference/pp_check.html'>bayesplot::pp_check()</a></code> for
-     graphical prior predictive checking.</p></li>
-<li><p><code>pred_draws</code>: an object of class <a href='Prediction-class.html'>Prediction</a>,
-     containing prior draws of each model component and their sum</p></li>
-<li><p><code>param_draws</code>: a <code>stanfit</code> object of prior parameter
-     draws (obtained by calling <code>sample_param_prior</code> internally)</p></li>
-</ul></li>
-<li><p>The <code>sample_param_prior</code> function takes an
-  <a href='lgpmodel-class.html'>lgpmodel</a> object, samples only its parameter prior
-  using <code><a href='https://mc-stan.org/rstan/reference/stanmodel-method-sampling.html'>sampling</a></code> and returns
-  an object of class <code><a href='https://mc-stan.org/rstan/reference/stanfit-class.html'>stanfit</a></code>.</p></li>
+    <p>These functions take an <a href='lgpmodel-class.html'>lgpmodel</a> object, and</p><ul>
+<li><p><code>prior_pred</code> samples from the prior predictive distribution of
+  the model</p></li>
+<li><p><code>sample_param_prior</code> samples only its parameter prior using
+  <code><a href='https://mc-stan.org/rstan/reference/stanmodel-method-sampling.html'>sampling</a></code></p></li>
 </ul>
 
     </div>
@@ -202,7 +178,9 @@ printed?</p></td>
     </tr>
     <tr>
       <th>quiet</th>
-      <td><p>Should all output be suppressed?</p></td>
+      <td><p>This forces <code>verbose</code> to be <code>FALSE</code>. If you want
+to suppress also the output from Stan, give the additional argument
+<code>refresh=0</code>.</p></td>
     </tr>
     <tr>
       <th>refresh</th>
@@ -218,6 +196,23 @@ printed?</p></td>
       <td><p>Additional arguments for <code><a href='https://mc-stan.org/rstan/reference/stanmodel-method-sampling.html'>sampling</a></code>.</p></td>
     </tr>
     </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    
+<ul>
+<li><p><code>prior_pred</code> returns a list with components</p><ul>
+<li><p><code>y_draws</code>: A matrix containing the prior predictive draws
+     as rows. Can be passed to <code><a href='https://mc-stan.org/bayesplot/reference/pp_check.html'>bayesplot::pp_check()</a></code> for
+     graphical prior predictive checking.</p></li>
+<li><p><code>pred_draws</code>: an object of class <a href='Prediction-class.html'>Prediction</a>,
+     containing prior draws of each model component and their sum</p></li>
+<li><p><code>param_draws</code>: a <code>stanfit</code> object of prior parameter
+     draws (obtained by calling <code>sample_param_prior</code> internally)</p></li>
+</ul></li>
+<li><p><code>sample_param_prior</code> returns
+  an object of class <code><a href='https://mc-stan.org/rstan/reference/stanfit-class.html'>stanfit</a></code></p></li>
+</ul>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 

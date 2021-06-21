@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Evaluate or extract function posterior distributions — posterior_f • lgpr</title>
+<title>Input warping function — cpp_warp_input • lgpr</title>
 
 
 <!-- jquery -->
@@ -41,12 +41,9 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Evaluate or extract function posterior distributions — posterior_f" />
-<meta property="og:description" content="Evaluates (or extracts) the posterior distribution of the
-total signal f and its additive components (or draws from these
-distributions). All these are computed for
-each parameter draw (defined by draws), or other parameter set
-(obtained by a reduction defined by reduce)." />
+<meta property="og:title" content="Input warping function — cpp_warp_input" />
+<meta property="og:description" content="This is a wrapper for STAN_warp_input, with some
+input validation added" />
 
 
 
@@ -78,7 +75,7 @@ each parameter draw (defined by draws), or other parameter set
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.6</span>
       </span>
     </div>
 
@@ -86,7 +83,7 @@ each parameter draw (defined by draws), or other parameter set
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -136,86 +133,38 @@ each parameter draw (defined by draws), or other parameter set
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Evaluate or extract function posterior distributions</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/main-posterior_f.R'><code>R/main-posterior_f.R</code></a></small>
-    <div class="hidden name"><code>posterior_f.Rd</code></div>
+    <h1>Input warping function</h1>
+    <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/stanfunctions.R'><code>R/stanfunctions.R</code></a></small>
+    <div class="hidden name"><code>cpp_warp_input.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Evaluates (or extracts) the posterior distribution of the
-total signal <code>f</code> and its additive components (or draws from these
-distributions). All these are computed for
-each parameter draw (defined by <code>draws</code>), or other parameter set
-(obtained by a reduction defined by <code>reduce</code>).</p>
+    <p>This is a wrapper for <code>STAN_warp_input</code>, with some
+input validation added</p>
     </div>
 
-    <pre class="usage"><span class='fu'>posterior_f</span><span class='op'>(</span>
-  <span class='va'>fit</span>,
-  x <span class='op'>=</span> <span class='cn'>NULL</span>,
-  reduce <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'>base</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>,
-  draws <span class='op'>=</span> <span class='cn'>NULL</span>,
-  verbose <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  STREAM <span class='op'>=</span> <span class='fu'>get_stream</span><span class='op'>(</span><span class='op'>)</span>,
-  debug_km <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  debug_dims <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  force <span class='op'>=</span> <span class='cn'>FALSE</span>
-<span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>cpp_warp_input</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>a</span>, STREAM <span class='op'>=</span> <span class='fu'>get_stream</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>fit</th>
-      <td><p>An object of class <a href='lgpfit-class.html'>lgpfit</a>.</p></td>
-    </tr>
-    <tr>
       <th>x</th>
-      <td><p>A data frame of points where function posterior distributions
-and predictions should be computed or sampled.
-The function <code><a href='new_x.html'>new_x</a></code> provides an easy way to create it.
-If this is NULL, the data points are used.</p></td>
+      <td><p>a numeric vector</p></td>
     </tr>
     <tr>
-      <th>reduce</th>
-      <td><p>Reduction for parameters draws. Can be a function that
-is applied to reduce all parameter draws into one parameter set, or
-NULL (no reduction). Has no effect if <code>draws</code> is specified.</p></td>
-    </tr>
-    <tr>
-      <th>draws</th>
-      <td><p>Indices of parameter draws to use, or <code>NULL</code> to use all
-draws.</p></td>
-    </tr>
-    <tr>
-      <th>verbose</th>
-      <td><p>Should more information and a possible progress bar be
-printed?</p></td>
+      <th>a</th>
+      <td><p>positive steepness parameter</p></td>
     </tr>
     <tr>
       <th>STREAM</th>
-      <td><p>External pointer. By default obtained with
-<code><a href='https://mc-stan.org/rstan/reference/expose_stan_functions.html'>get_stream</a></code>.</p></td>
-    </tr>
-    <tr>
-      <th>debug_km</th>
-      <td><p>Should this only return the required kernel matrices.
-Can be used for debugging or testing <code><a href='kernels_fpost.html'>kernels_fpost</a></code>.</p></td>
-    </tr>
-    <tr>
-      <th>debug_dims</th>
-      <td><p>Should this print dimensions of some variables.
-Can be used for debugging <code><a href='kernels_fpost.html'>kernels_fpost</a></code>.</p></td>
-    </tr>
-    <tr>
-      <th>force</th>
-      <td><p>This is by default <code>FALSE</code> to prevent unnecessarily
-large computations that might crash R or take forever.</p></td>
+      <td><p>an external pointer</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a named list</p>
+    <p>a vector</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
