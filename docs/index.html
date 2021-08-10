@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.4</span>
       </span>
     </div>
 
@@ -47,7 +47,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -75,11 +75,35 @@
     </li>
   </ul>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Vignettes
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/math.html">Mathematical description of lgpr models</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="reference/index.html">Documentation</a>
 </li>
 <li>
   <a href="news/index.html">News</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/math.html">Mathematical description of lgpr models</a>
+    </li>
+  </ul>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right"></ul>
@@ -123,19 +147,28 @@
 <div id="installing-from-cran" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installing-from-cran" class="anchor"></a>Installing from CRAN</h2>
-<p>The latest CRAN release can be installed simply via</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"lgpr"</span><span class="op">)</span></pre></div>
-</div>
-<div id="installing-from-source-github" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installing-from-source-github" class="anchor"></a>Installing from source (GitHub)</h2>
 <ul>
-<li>Install the latest development version of <em>lgpr</em> by running</li>
+<li>The latest released version that is available from CRAN can be installed simply via</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'devtools'</span><span class="op">)</span> <span class="co"># if you don't have devtools already</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">'jtimonen/lgpr'</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"lgpr"</span><span class="op">)</span></code></pre></div>
+<p>Installing from CRAN is probably the easiest option since they might have binaries for your system (so no need to build the package from source yourself).</p>
+</div>
+<div id="installing-from-source" class="section level2">
+<h2 class="hasAnchor">
+<a href="#installing-from-source" class="anchor"></a>Installing from source</h2>
+<ul>
+<li>The latest released version (which might not be in CRAN yet) can be installed via</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'devtools'</span><span class="op">)</span> <span class="co"># if you don't have devtools already</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">'jtimonen/lgpr'</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<ul>
+<li>The latest development version can be installed via</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">'jtimonen/lgpr'</span>, ref <span class="op">=</span> <span class="st">"develop"</span><span class="op">)</span></code></pre></div>
+<p>Github installations are source installations (they require a C++ compiler).</p>
 <ul>
 <li>If you have trouble installing the dependency <a href="https://mc-stan.org/rstan/">rstan</a>, see <a href="https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started">these instructions</a>
 </li>
@@ -196,9 +229,10 @@
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://cran.r-project.org/package=lgpr"><img src="https://www.r-pkg.org/badges/version/lgpr" alt="CRAN_Status_Badge"></a></li>
 <li><a href="https://www.travis-ci.com/github/jtimonen/lgpr"><img src="https://www.travis-ci.com/jtimonen/lgpr.svg?branch=master" alt="travis"></a></li>
 <li><a href="https://codecov.io/gh/jtimonen/lgpr"><img src="https://codecov.io/gh/jtimonen/lgpr/branch/master/graph/badge.svg" alt="coverage"></a></li>
+<li><a href="https://cran.r-project.org/package=lgpr"><img src="https://www.r-pkg.org/badges/version/lgpr" alt="CRAN_Status_Badge"></a></li>
+<li><a href="https://cran.r-project.org/package=lgpr"><img src="https://cranlogs.r-pkg.org/badges/grand-total/lgpr" alt="metacran downloads"></a></li>
 <li><a href="https://www.gnu.org/licenses/gpl-3.0.html"><img src="https://img.shields.io/badge/license-GPL%3E=3-lightgrey.svg" alt="license"></a></li>
 </ul>
 </div>

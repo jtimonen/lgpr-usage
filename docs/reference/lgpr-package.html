@@ -48,7 +48,7 @@ for inferring covariate effects and assessing covariate relevances.
 Models are specified using a convenient formula syntax, and can include
 shared, group-specific, non-stationary, heterogeneous and temporally
 uncertain effects. Bayesian inference for model parameters is performed
-using Stan (rstan). The modeling approach and methods
+using 'Stan' (rstan). The modeling approach and methods
 are described in detail in
 Timonen et al. (2021)." />
 
@@ -82,7 +82,7 @@ Timonen et al. (2021)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.4</span>
       </span>
     </div>
 
@@ -90,7 +90,7 @@ Timonen et al. (2021)." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -118,11 +118,35 @@ Timonen et al. (2021)." />
     </li>
   </ul>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Vignettes
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/math.html">Mathematical description of lgpr models</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../reference/index.html">Documentation</a>
 </li>
 <li>
   <a href="../news/index.html">News</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/math.html">Mathematical description of lgpr models</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -152,7 +176,7 @@ for inferring covariate effects and assessing covariate relevances.
 Models are specified using a convenient formula syntax, and can include
 shared, group-specific, non-stationary, heterogeneous and temporally
 uncertain effects. Bayesian inference for model parameters is performed
-using Stan (<code><a href='https://mc-stan.org/rstan/reference/rstan.html'>rstan</a></code>). The modeling approach and methods
+using 'Stan' (<code><a href='https://mc-stan.org/rstan/reference/rstan.html'>rstan</a></code>). The modeling approach and methods
 are described in detail in
 <a href='https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btab021/6104850'>Timonen et al. (2021)</a>.</p>
     </div>
@@ -193,7 +217,7 @@ additive GP model:</p><ul>
 
     
 
-<p>The data that you wish to analyze with <code>lgpr</code> should be in an R
+<p>The data that you wish to analyze with 'lgpr' should be in an <span style="R">R</span>
 <code>data.frame</code> where columns correspond to measured variables and rows
 correspond to observations. Some functions that can help working with such
 data frames are:</p><ul>
@@ -205,11 +229,15 @@ data frames are:</p><ul>
  <code><a href='adjusted_c_hat.html'>adjusted_c_hat</a></code>.</p></li>
 </ul>
 
-    <h2 class="hasAnchor" id="tutorials-and-case-studies"><a class="anchor" href="#tutorials-and-case-studies"></a>Tutorials and case studies</h2>
+    <h2 class="hasAnchor" id="vignettes-and-tutorials"><a class="anchor" href="#vignettes-and-tutorials"></a>Vignettes and tutorials</h2>
 
     
 
-<p>See <a href='https://jtimonen.github.io/lgpr-usage/index.html'>https://jtimonen.github.io/lgpr-usage/index.html</a>.</p>
+<p>See <a href='https://jtimonen.github.io/lgpr-usage/index.html'>https://jtimonen.github.io/lgpr-usage/index.html</a>. The
+tutorials focus on code and use cases, whereas the
+"Mathematical description of lgpr models" vignette
+(<a href='https://cran.r-project.org/package=lgpr/vignettes/math.html'>https://cran.r-project.org/package=lgpr/vignettes/math.html</a>)
+describes the statistical models and how they can be customized in 'lgpr'.</p>
     <h2 class="hasAnchor" id="citation"><a class="anchor" href="#citation"></a>Citation</h2>
 
     

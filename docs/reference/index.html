@@ -73,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.4</span>
       </span>
     </div>
 
@@ -81,7 +81,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -109,11 +109,35 @@
     </li>
   </ul>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Vignettes
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/math.html">Mathematical description of lgpr models</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../reference/index.html">Documentation</a>
 </li>
 <li>
   <a href="../news/index.html">News</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/math.html">Mathematical description of lgpr models</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -214,7 +238,7 @@ into account</p></td>
         <td>
           <p><code><a href="lgp.html">lgp()</a></code> </p>
         </td>
-        <td><p>Main function of the lgpr package</p></td>
+        <td><p>Main function of the 'lgpr' package</p></td>
       </tr><tr>
         
         <td>
@@ -346,6 +370,26 @@ into account</p></td>
       <tr>
         
         <td>
+          <p><code><a href="GaussianPrediction-class.html">show(<i>&lt;GaussianPrediction&gt;</i>)</a></code> <code><a href="GaussianPrediction-class.html">component_names(<i>&lt;GaussianPrediction&gt;</i>)</a></code> <code><a href="GaussianPrediction-class.html">num_components(<i>&lt;GaussianPrediction&gt;</i>)</a></code> <code><a href="GaussianPrediction-class.html">num_paramsets(<i>&lt;GaussianPrediction&gt;</i>)</a></code> <code><a href="GaussianPrediction-class.html">num_evalpoints(<i>&lt;GaussianPrediction&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>An S4 class to represent analytically computed predictive distributions
+(conditional on hyperparameters) of an additive GP model</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="KernelComputer-class.html">show(<i>&lt;KernelComputer&gt;</i>)</a></code> <code><a href="KernelComputer-class.html">num_components(<i>&lt;KernelComputer&gt;</i>)</a></code> <code><a href="KernelComputer-class.html">num_evalpoints(<i>&lt;KernelComputer&gt;</i>)</a></code> <code><a href="KernelComputer-class.html">num_paramsets(<i>&lt;KernelComputer&gt;</i>)</a></code> <code><a href="KernelComputer-class.html">component_names(<i>&lt;KernelComputer&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>An S4 class to represent input for kernel matrix computations</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="Prediction-class.html">show(<i>&lt;Prediction&gt;</i>)</a></code> <code><a href="Prediction-class.html">component_names(<i>&lt;Prediction&gt;</i>)</a></code> <code><a href="Prediction-class.html">num_components(<i>&lt;Prediction&gt;</i>)</a></code> <code><a href="Prediction-class.html">num_paramsets(<i>&lt;Prediction&gt;</i>)</a></code> <code><a href="Prediction-class.html">num_evalpoints(<i>&lt;Prediction&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>An S4 class to represent prior or posterior
+draws from an additive function distribution.</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="add_dis_age.html">add_dis_age()</a></code> </p>
         </td>
         <td><p>Easily add the disease-related age variable to a data frame</p></td>
@@ -383,6 +427,12 @@ into account</p></td>
       </tr><tr>
         
         <td>
+          <p><code><a href="create_model.html">create_model()</a></code> </p>
+        </td>
+        <td><p>Create a model</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="create_model.covs_and_comps.html">create_model.covs_and_comps()</a></code> </p>
         </td>
         <td><p>Parse the covariates and model components from given data and formula</p></td>
@@ -410,12 +460,6 @@ into account</p></td>
           <p><code><a href="create_model.prior.html">create_model.prior()</a></code> </p>
         </td>
         <td><p>Parse given prior</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_model.html">create_model()</a></code> </p>
-        </td>
-        <td><p>Create a model</p></td>
       </tr><tr>
         
         <td>
@@ -455,13 +499,6 @@ into account</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="GaussianPrediction-class.html">show(<i>&lt;GaussianPrediction&gt;</i>)</a></code> <code><a href="GaussianPrediction-class.html">component_names(<i>&lt;GaussianPrediction&gt;</i>)</a></code> <code><a href="GaussianPrediction-class.html">num_components(<i>&lt;GaussianPrediction&gt;</i>)</a></code> <code><a href="GaussianPrediction-class.html">num_paramsets(<i>&lt;GaussianPrediction&gt;</i>)</a></code> <code><a href="GaussianPrediction-class.html">num_evalpoints(<i>&lt;GaussianPrediction&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>An S4 class to represent analytically computed predictive distributions
-(conditional on hyperparameters) of an additive GP model</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="get_draws.html">get_draws()</a></code> </p>
         </td>
         <td><p>Extract parameter draws from lgpfit or stanfit</p></td>
@@ -480,15 +517,9 @@ into account</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="KernelComputer-class.html">show(<i>&lt;KernelComputer&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>An S4 class to represent input for kernel matrix computations</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="lgp.html">lgp()</a></code> </p>
         </td>
-        <td><p>Main function of the lgpr package</p></td>
+        <td><p>Main function of the 'lgpr' package</p></td>
       </tr><tr>
         
         <td>
@@ -632,19 +663,6 @@ their own panel</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="Prediction-class.html">show(<i>&lt;Prediction&gt;</i>)</a></code> <code><a href="Prediction-class.html">component_names(<i>&lt;Prediction&gt;</i>)</a></code> <code><a href="Prediction-class.html">num_components(<i>&lt;Prediction&gt;</i>)</a></code> <code><a href="Prediction-class.html">num_paramsets(<i>&lt;Prediction&gt;</i>)</a></code> <code><a href="Prediction-class.html">num_evalpoints(<i>&lt;Prediction&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>An S4 class to represent prior or posterior
-draws from an additive function distribution.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="priors.html">uniform()</a></code> <code><a href="priors.html">normal()</a></code> <code><a href="priors.html">student_t()</a></code> <code><a href="priors.html">gam()</a></code> <code><a href="priors.html">igam()</a></code> <code><a href="priors.html">log_normal()</a></code> <code><a href="priors.html">bet()</a></code> </p>
-        </td>
-        <td><p>Prior definitions</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="prior_pred.html">prior_pred()</a></code> <code><a href="prior_pred.html">sample_param_prior()</a></code> </p>
         </td>
         <td><p>Prior (predictive) sampling</p></td>
@@ -654,6 +672,12 @@ draws from an additive function distribution.</p></td>
           <p><code><a href="prior_to_num.html">prior_to_num()</a></code> </p>
         </td>
         <td><p>Convert given prior to numeric format</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="priors.html">uniform()</a></code> <code><a href="priors.html">normal()</a></code> <code><a href="priors.html">student_t()</a></code> <code><a href="priors.html">gam()</a></code> <code><a href="priors.html">igam()</a></code> <code><a href="priors.html">log_normal()</a></code> <code><a href="priors.html">bet()</a></code> </p>
+        </td>
+        <td><p>Prior definitions</p></td>
       </tr><tr>
         
         <td>

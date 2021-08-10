@@ -73,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.4</span>
       </span>
     </div>
 
@@ -81,7 +81,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -109,11 +109,35 @@
     </li>
   </ul>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Vignettes
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/math.html">Mathematical description of lgpr models</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../reference/index.html">Documentation</a>
 </li>
 <li>
   <a href="../news/index.html">News</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/math.html">Mathematical description of lgpr models</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -139,6 +163,14 @@
 <h1 class="page-header" data-toc-text="1.1">
 <a href="#lgpr-11" class="anchor"></a>lgpr 1.1<small> Unreleased </small>
 </h1>
+<div id="114" class="section level2">
+<h2 class="hasAnchor">
+<a href="<a href='https://github.com/jtimonen/lgpr/issues/114'>#114</a>" class="anchor"></a>1.1.4</h2>
+<ul>
+<li>New vignette about mathematical description of models.</li>
+<li>Prediction and function posterior computation at <code>P</code> points where <code>P</code> is larger than number of data points should be now much faster and take less memory, as <code>P</code> x <code>P</code> matrices are not computed.</li>
+</ul>
+</div>
 <div id="113" class="section level2">
 <h2 class="hasAnchor">
 <a href="<a href='https://github.com/jtimonen/lgpr/issues/113'>#113</a>" class="anchor"></a>1.1.3</h2>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Main function of the lgpr package — lgp • lgpr</title>
+<title>Main function of the 'lgpr' package — lgp • lgpr</title>
 
 
 <!-- jquery -->
@@ -41,9 +41,13 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Main function of the lgpr package — lgp" />
+<meta property="og:title" content="Main function of the 'lgpr' package — lgp" />
 <meta property="og:description" content="Creates an additive Gaussian process model using
-create_model and fits it using sample_model." />
+create_model and fits it using sample_model.
+See the &quot;Mathematical description of lgpr models&quot; vignette
+(https://cran.r-project.org/package=lgpr/vignettes/math.html)
+for more information about the connection between different options
+and the created statistical model." />
 
 
 
@@ -75,7 +79,7 @@ create_model and fits it using sample_model." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.4</span>
       </span>
     </div>
 
@@ -83,7 +87,7 @@ create_model and fits it using sample_model." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -111,11 +115,35 @@ create_model and fits it using sample_model." />
     </li>
   </ul>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Vignettes
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/math.html">Mathematical description of lgpr models</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../reference/index.html">Documentation</a>
 </li>
 <li>
   <a href="../news/index.html">News</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/math.html">Mathematical description of lgpr models</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -133,14 +161,18 @@ create_model and fits it using sample_model." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Main function of the lgpr package</h1>
+    <h1>Main function of the 'lgpr' package</h1>
     <small class="dont-index">Source: <a href='https://github.com/jtimonen/lgpr/blob/master/R/main-fit_model.R'><code>R/main-fit_model.R</code></a></small>
     <div class="hidden name"><code>lgp.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>Creates an additive Gaussian process model using
-<code><a href='create_model.html'>create_model</a></code> and fits it using <code><a href='sample_model.html'>sample_model</a></code>.</p>
+<code><a href='create_model.html'>create_model</a></code> and fits it using <code><a href='sample_model.html'>sample_model</a></code>.
+See the "Mathematical description of lgpr models" vignette
+(<a href='https://cran.r-project.org/package=lgpr/vignettes/math.html'>https://cran.r-project.org/package=lgpr/vignettes/math.html</a>)
+for more information about the connection between different options
+and the created statistical model.</p>
     </div>
 
     <pre class="usage"><span class='fu'>lgp</span><span class='op'>(</span>

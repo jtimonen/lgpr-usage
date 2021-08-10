@@ -93,7 +93,7 @@ If fit is for a model that samples the latent
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.4</span>
       </span>
     </div>
 
@@ -101,7 +101,7 @@ If fit is for a model that samples the latent
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -129,11 +129,35 @@ If fit is for a model that samples the latent
     </li>
   </ul>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Vignettes
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/math.html">Mathematical description of lgpr models</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../reference/index.html">Documentation</a>
 </li>
 <li>
   <a href="../news/index.html">News</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/math.html">Mathematical description of lgpr models</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -187,7 +211,8 @@ If fit is for a model that samples the latent
   verbose <span class='op'>=</span> <span class='cn'>TRUE</span>,
   STREAM <span class='op'>=</span> <span class='fu'>get_stream</span><span class='op'>(</span><span class='op'>)</span>,
   c_hat_pred <span class='op'>=</span> <span class='cn'>NULL</span>,
-  force <span class='op'>=</span> <span class='cn'>FALSE</span>
+  force <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  debug_kc <span class='op'>=</span> <span class='cn'>FALSE</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -239,6 +264,12 @@ use the same constant.</p></td>
       <td><p>This is by default <code>FALSE</code> to prevent unintended
 large computations that might crash R or take forever. Set it to <code>TRUE</code>
 try computing no matter what.</p></td>
+    </tr>
+    <tr>
+      <th>debug_kc</th>
+      <td><p>If this is <code>TRUE</code>, this only returns a
+<a href='KernelComputer-class.html'>KernelComputer</a> object that is created internally. Meant for
+debugging.</p></td>
     </tr>
     </table>
 
