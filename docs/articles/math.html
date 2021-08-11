@@ -86,18 +86,6 @@
 <li>
   <a href="../news/index.html">News</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-<li>
-      <a href="../articles/math.html">Mathematical description of lgpr models</a>
-    </li>
-  </ul>
-</li>
       </ul>
 <ul class="nav navbar-nav navbar-right"></ul>
 </div>
@@ -115,7 +103,7 @@
       <h1 data-toc-skip>Mathematical description of lgpr models</h1>
                         <h4 class="author">Juho Timonen</h4>
             
-            <h4 class="date">9th August 2021</h4>
+            <h4 class="date">11th August 2021</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/jtimonen/lgpr/blob/master/vignettes/math.Rmd"><code>vignettes/math.Rmd</code></a></small>
       <div class="hidden name"><code>math.Rmd</code></div>
@@ -127,13 +115,13 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jtimonen/lgpr">lgpr</a></span><span class="op">)</span>
 <span class="co">#&gt; Attached lgpr 1.1.4, using rstan 2.21.2. Type ?lgpr to get started.</span></code></pre></div>
-<p>This vignette describes mathematically the statistical models of <code>lgpr</code>. We study the different arguments of the <code><a href="../reference/lgp.html">lgp()</a></code> or <code><a href="../reference/create_model.html">create_model()</a></code> modeling functions and what parts of the probabilistic model they customize. This is a concise description, and the original publication (<span class="citation">Timonen et al. (2021)</span>) has more information about the actual motivation for the used modeling approaches, and the <a href="https://jtimonen.github.io/lgpr-usage/">tutorials</a> for code examples.</p>
+<p>This vignette describes mathematically the statistical models of <code>lgpr</code>. We study the different arguments of the <code><a href="../reference/lgp.html">lgp()</a></code> or <code><a href="../reference/create_model.html">create_model()</a></code> modeling functions and what parts of the probabilistic model they customize. This is a concise description, and the original publication (<span class="citation">Timonen et al. (2021)</span>) has more information about the actual motivation for the used modeling approaches, and the <a href="https://jtimonen.github.io/lgpr-usage/">tutorials</a> have code examples.</p>
 <div id="bayesian-gp-regression" class="section level2">
 <h2 class="hasAnchor">
 <a href="#bayesian-gp-regression" class="anchor"></a>1. Bayesian GP regression</h2>
 <p>The models in <code>lgpr</code> are models for the conditional distribution <span class="math display">\[
-p(y \mid f(\textbf{x}), \theta),
-\]</span> of response variable <span class="math inline">\(y\)</span> given covariates <span class="math inline">\(\textbf{x}\)</span>, where <span class="math inline">\(\theta_{\text{obs}}\)</span> is a possible parameter of the observation model (like the magnitude of observation noise). The function <span class="math inline">\(f\)</span> has a GP prior <span class="math display">\[
+p(y \mid f(\textbf{x}), \theta_{\text{obs}}),
+\]</span> of response variable <span class="math inline">\(y\)</span> given covariates <span class="math inline">\(\textbf{x}\)</span>, where <span class="math inline">\(\theta_{\text{obs}}\)</span> is a possible parameter of the observation model (like the magnitude of observation noise). The function <span class="math inline">\(f\)</span> has a Gaussian Process (GP) prior <span class="math display">\[
 f \sim \mathcal{GP}(0, k\left(\textbf{x}, \textbf{x}' \mid \theta_{\text{GP}})\right),
 \]</span></p>
 <p>with covariance (kernel) function <span class="math inline">\(k(\textbf{x}, \textbf{x}' \mid \theta_{\text{GP}})\)</span> that has hyperparameters <span class="math inline">\(\theta_{\text{GP}}\)</span>. In addition to the GP prior for <span class="math inline">\(f\)</span>, there is a parameter prior distribution <span class="math inline">\(p(\theta)\)</span> for <span class="math inline">\(\theta = \left\{ \theta_{\text{GP}}, \theta_{\text{obs}} \right\}\)</span>. Given <span class="math inline">\(N\)</span> observations <span class="math inline">\(\mathcal{D} = \{y_n, \textbf{x}_n\}_{n=1}^N\)</span> the probabilistic models in <code>lgpr</code> have the form <span class="math display">\[\begin{align}
@@ -184,30 +172,9 @@ p\left(\textbf{f} \mid \theta\right) = \mathcal{N}\left(\textbf{f} \mid \textbf{
 </tbody>
 </table>
 </div>
-<div id="model-inference" class="section level2">
-<h2 class="hasAnchor">
-<a href="#model-inference" class="anchor"></a>3. Model inference</h2>
-<p>After the model is defined, <code>lgpr</code> uses the MCMC methods of Stan to obtain draws from the joint posterior <span class="math inline">\(p\left(\theta, \textbf{f} \mid \mathcal{D}\right)\)</span> or the marginal posterior of parameters, i.e.  <span class="math inline">\(p\left(\theta \mid \mathcal{D}\right)\)</span>. Which one of these is done is determined by the <code>sample_f</code> argument of <code><a href="../reference/lgp.html">lgp()</a></code> or <code><a href="../reference/create_model.html">create_model()</a></code>.</p>
-<div id="with-sample_f-true" class="section level3">
-<h3 class="hasAnchor">
-<a href="#with-sample_f-true" class="anchor"></a>With sample_f = TRUE</h3>
-<p>This option is always possible but not recommended if <code>likelihood == "gaussian"</code>. The joint posterior that is sampled from is <span class="math display">\[\begin{equation}
-p\left(\theta, \textbf{f} \mid \mathcal{D}\right) \propto p\left(\theta, \textbf{f}\right) \cdot p(\textbf{y} \mid \textbf{f}, \theta) \\
-\end{equation}\]</span> and sampling requires evaluating the right-hand side and its gradient thousands of times.</p>
-</div>
-<div id="with-sample_f-false" class="section level3">
-<h3 class="hasAnchor">
-<a href="#with-sample_f-false" class="anchor"></a>With sample_f = FALSE</h3>
-<p>This option is only possible, and is automatically selected by default, if <code>likelihood == "gaussian"</code>. This is because <span class="math inline">\(p\left(\theta \mid \mathcal{D}\right)\)</span> is analytically available only in this case. The distribution that is sampled from is <span class="math display">\[\begin{equation}
-p\left(\theta \mid \mathcal{D}\right) \propto p\left(\theta\right) \cdot p(\textbf{y} \mid \theta) \\
-\end{equation}\]</span> and now sampling requires repeatedly evaluating the right-hand side of this equation and its gradient. This analytical marginalization reduces the MCMC dimension by <span class="math inline">\(N\)</span> and likely improves sampling efficiency. The likelihood is <span class="math display">\[\begin{equation}
-p\left(\textbf{y} \mid \theta\right) = \mathcal{N}\left(\textbf{y} \mid \textbf{0}, \textbf{K} + \sigma^2 \textbf{I} \right).
-\end{equation}\]</span></p>
-</div>
-</div>
 <div id="the-likelihood-argument-and-observation-models" class="section level2">
 <h2 class="hasAnchor">
-<a href="#the-likelihood-argument-and-observation-models" class="anchor"></a>4. The <code>likelihood</code> argument and observation models</h2>
+<a href="#the-likelihood-argument-and-observation-models" class="anchor"></a>3. The <code>likelihood</code> argument and observation models</h2>
 <p>The terms <strong>observation model</strong> and <strong>likelihood</strong> are used to refer to the same formula, i.e. <span class="math inline">\(p(y_n \mid f(\textbf{x}_n), \theta_{\text{obs}})\)</span>, though the former means it as a function of <span class="math inline">\(\textbf{y}\)</span> and the latter as a function of <span class="math inline">\(\theta\)</span>. There are currently five observation models available and they all involve an inverse link function transformation <span class="math display">\[
 h_n = g^{-1}\left(  f(\textbf{x}_n)+ \hat{c}_n \right)
 \]</span> where <span class="math inline">\(g\)</span> is determined by the <code>likelihood</code> argument and <span class="math inline">\(\hat{c}_n\)</span> by the <code>c_hat</code> argument. The below table shows what the link function is in different cases, and what parameter the corresponding observation model has.</p>
@@ -267,11 +234,11 @@ y_n \sim \text{Binomial}(h_n, \eta_n),
 \rho_n \sim \text{Beta}\left(h_n \cdot \frac{1 - \gamma}{\gamma}, \  (1-h_n) \cdot \frac{1 - \gamma}{\gamma}\right),
 \]</span> and the parameter <span class="math inline">\(\gamma \in [0, 1]\)</span> controls overdispersion so that <span class="math inline">\(\gamma \rightarrow 0\)</span> corresponds to the binomial model.</p></li>
 </ul>
-<p>When using the Gaussian observation model with <code>sample_f=TRUE</code> the continuous response <span class="math inline">\(y\)</span> is normalized to unit variance and zero mean, and <span class="math inline">\(\hat{c}_n = 0\)</span> for all <span class="math inline">\(n\)</span> is set. In this case the <code>c_hat</code> argument has no effect. With <code>sample_f = TRUE</code>, sensible defaults are used. See the documentation of the <code>c_hat</code> argument of <code><a href="../reference/lgp.html">lgp()</a></code> for exact details.</p>
+<p>When using the Gaussian observation model with <code>sample_f=TRUE</code> the continuous response <span class="math inline">\(y\)</span> is normalized to unit variance and zero mean, and <span class="math inline">\(\hat{c}_n = 0\)</span> for all <span class="math inline">\(n\)</span> is set. In this case the <code>c_hat</code> argument has no effect. With <code>sample_f = TRUE</code>, sensible defaults are used. See the documentation of the <code>c_hat</code> argument of <code><a href="../reference/lgp.html">lgp()</a></code> for exact details and the <a href="#model-inference">5. Model inference</a> section for information about the <code>sample_f</code> argument.</p>
 </div>
 <div id="the-formula-argument-and-kernel-functions" class="section level2">
 <h2 class="hasAnchor">
-<a href="#the-formula-argument-and-kernel-functions" class="anchor"></a>5. The <code>formula</code> argument and kernel functions</h2>
+<a href="#the-formula-argument-and-kernel-functions" class="anchor"></a>4. The <code>formula</code> argument and kernel functions</h2>
 <div id="additive-gp-regression" class="section level3">
 <h3 class="hasAnchor">
 <a href="#additive-gp-regression" class="anchor"></a>Additive GP regression</h3>
@@ -285,11 +252,8 @@ f^{(j)} \sim \mathcal{GP}\left(0, \alpha_j^2 k_j(\textbf{x}, \textbf{x}' \mid \t
 <h3 class="hasAnchor">
 <a href="#formulas-and-terms" class="anchor"></a>Formulas and terms</h3>
 <p>The number of components <span class="math inline">\(J\)</span> is equal to the number of terms in your <code>formula</code>. Terms are separated by a plus sign. An example formula with three terms could be</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">my_formula</span> <span class="op">&lt;-</span> <span class="va">y</span> <span class="op">~</span> <span class="fu">gp</span><span class="op">(</span><span class="va">age</span><span class="op">)</span> <span class="op">+</span> <span class="fu">gp</span><span class="op">(</span><span class="va">age</span><span class="op">)</span><span class="op">*</span><span class="fu">zs</span><span class="op">(</span><span class="va">id</span><span class="op">)</span> <span class="op">+</span> <span class="fu">categ</span><span class="op">(</span><span class="va">group</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_formula</span><span class="op">)</span>
-<span class="co">#&gt; y ~ gp(age) + gp(age) * zs(id) + categ(group)</span></code></pre></div>
-<p>where <code>age</code>, <code>id</code> and <code>group</code> are columns of <code>data</code>. Each formula term defines what the corresponding kernel <span class="math inline">\(k_j\)</span> will be like, and what covariates and parameters it depends on. Each term adds one <span class="math inline">\(\alpha\)</span> parameter in the GP parameter vector <span class="math inline">\(\theta_{\text{GP}}\)</span>, and possible additional parameters depending on the term.</p>
+<pre><code>y ~ gp(age) + gp(age)*zs(id) + categ(group)</code></pre>
+<p>where <code>y</code>, <code>age</code>, <code>id</code> and <code>group</code> have to be columns of <code>data</code>. Each formula term defines what the corresponding kernel <span class="math inline">\(k_j\)</span> will be like, and what covariates and parameters it depends on. Each term adds one <span class="math inline">\(\alpha\)</span> parameter in the GP parameter vector <span class="math inline">\(\theta_{\text{GP}}\)</span>, and possible additional parameters depending on the term.</p>
 </div>
 <div id="expressions-and-kernels" class="section level3">
 <h3 class="hasAnchor">
@@ -364,7 +328,31 @@ k_{\text{EQ}}(x,x' \mid \theta_{\text{GP}}) = \exp \left( -\frac{(x-x')^2}{2 \el
 <div id="heterogeneous-effects-and-covariate-uncertainty" class="section level3">
 <h3 class="hasAnchor">
 <a href="#heterogeneous-effects-and-covariate-uncertainty" class="anchor"></a>Heterogeneous effects and covariate uncertainty</h3>
-<p>There are also the <code>het()</code> and <code>unc()</code> expressions. They cannot be alone in a term but have to be multiplied by EQ, NS and VM. They are not actually kernels alone but edit the covariate or kernel of their term and add additional parameters. See the tutorials for example use cases and <span class="citation">Timonen et al. (2021)</span> for their mathematical definition.</p>
+<p>There are also the <code>het()</code> and <code>unc()</code> expressions. They cannot be alone in a term but have to be multiplied by EQ, NS or VM. They are not actually kernels alone but edit the covariate or kernel of their term and add additional parameters. See the tutorials for example use cases and <span class="citation">Timonen et al. (2021)</span> for their mathematical definition.</p>
+</div>
+</div>
+<div id="model-inference" class="section level2">
+<h2 class="hasAnchor">
+<a href="#model-inference" class="anchor"></a>5. Model inference</h2>
+<p>After the model is defined, <code>lgpr</code> uses the MCMC methods of Stan to obtain draws from the joint posterior <span class="math inline">\(p\left(\theta, \textbf{f} \mid \mathcal{D}\right)\)</span> or the marginal posterior of parameters, i.e.  <span class="math inline">\(p\left(\theta \mid \mathcal{D}\right)\)</span>. Which one of these is done is determined by the <code>sample_f</code> argument of <code><a href="../reference/lgp.html">lgp()</a></code> or <code><a href="../reference/create_model.html">create_model()</a></code>.</p>
+<div id="with-sample_f-true" class="section level3">
+<h3 class="hasAnchor">
+<a href="#with-sample_f-true" class="anchor"></a>With sample_f = TRUE</h3>
+<p>This option is always possible but not recommended with <code>likelihood = "gaussian"</code>. The joint posterior that is sampled from is <span class="math display">\[\begin{equation}
+p\left(\theta, \textbf{f} \mid \mathcal{D}\right) \propto p\left(\theta, \textbf{f}\right) \cdot p(\textbf{y} \mid \textbf{f}, \theta) \\
+\end{equation}\]</span> and sampling requires evaluating the right-hand side and its gradient thousands of times.</p>
+</div>
+<div id="with-sample_f-false" class="section level3">
+<h3 class="hasAnchor">
+<a href="#with-sample_f-false" class="anchor"></a>With sample_f = FALSE</h3>
+<p>This option is only possible (and is automatically selected by default) if <code>likelihood = "gaussian"</code>. This is because <span class="math display">\[\begin{equation}
+p\left(\textbf{y} \mid \theta\right) = \mathcal{N}\left(\textbf{y} \mid \textbf{0}, \textbf{K} + \sigma^2 \textbf{I} \right)
+\end{equation}\]</span> is analytically available only in this case. The distribution that is sampled from is <span class="math display">\[\begin{equation}
+p\left(\theta \mid \mathcal{D}\right) \propto p\left(\theta\right) \cdot p(\textbf{y} \mid \theta) \\
+\end{equation}\]</span> and now sampling requires repeatedly evaluating the right-hand side of this equation and its gradient. This analytical marginalization reduces the MCMC dimension by <span class="math inline">\(N\)</span> and likely improves sampling efficiency. The conditional posterior <span class="math inline">\(p\left(\textbf{f} \mid \theta, \mathcal{D}\right)\)</span> also has an analytical form for a fixed <span class="math inline">\(\theta\)</span>, so draws from the marginal posterior <span class="math inline">\(p\left(\textbf{f} \mid \mathcal{D}\right)\)</span> could be obtained by first drawing <span class="math inline">\(\theta\)</span> and then <span class="math inline">\(\textbf{f}\)</span>, according to the process <span class="math display">\[\begin{align}
+\theta &amp;\sim p\left(\theta \mid \mathcal{D}\right) \\
+\textbf{f} &amp; \sim p\left(\textbf{f} \mid \theta, \mathcal{D}\right).
+\end{align}\]</span> By combining these, we again have draws from the joint posterior <span class="math inline">\(p\left(\theta, \textbf{f} \mid \mathcal{D}\right)\)</span>, but likely with less computational effort.</p>
 </div>
 </div>
 <div id="references" class="section level2 unnumbered">
