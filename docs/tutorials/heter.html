@@ -11,7 +11,7 @@
 
 <meta name="author" content="Juho Timonen" />
 
-<meta name="date" content="2021-08-11" />
+<meta name="date" content="2021-09-23" />
 
 <title>Disease effect heterogeneity modeling in lgpr</title>
 
@@ -1548,14 +1548,14 @@ div.tocify {
 
 <h1 class="title toc-ignore">Disease effect heterogeneity modeling in lgpr</h1>
 <h4 class="author">Juho Timonen</h4>
-<h4 class="date">2021-08-11</h4>
+<h4 class="date">2021-09-23</h4>
 
 </div>
 
 
 <pre class="r"><code>require(&quot;lgpr&quot;)
 # Loading required package: lgpr
-# Attached lgpr 1.1.4, using rstan 2.21.2. Type ?lgpr to get started.
+# Attached lgpr 1.1.5, using rstan 2.21.2. Type ?lgpr to get started.
 require(&quot;ggplot2&quot;)
 # Loading required package: ggplot2
 require(&quot;rstan&quot;)
@@ -1623,7 +1623,6 @@ simData@effect_times
             iter         = 2000,
             chains       = 4,
             cores        = 4)
-# Computations will require creating and handling 96 x 96 matrices 28000 times.
 # Computing analytic function posteriors... 
 # |   10%|   20%|   30%|   40%|   50%|   60%|   70%|   80%|   90%|  100%| 
 # ======================================================================  
@@ -1659,7 +1658,7 @@ simData@effect_times
 # beta[1,8] 0.21    0.01 0.31 0.00 0.00 0.05 0.28  1.00  2291    1
 # sigma[1]  0.48    0.00 0.06 0.37 0.44 0.48 0.52  0.61  2500    1
 # 
-# Samples were drawn using NUTS(diag_e) at Tue Aug 10 22:16:53 2021.
+# Samples were drawn using NUTS(diag_e) at Thu Sep 23 16:21:18 2021.
 # For each parameter, n_eff is a crude measure of effective sample size,
 # and Rhat is the potential scale reduction factor on split chains (at 
 # convergence, Rhat=1).</code></pre>
@@ -1708,7 +1707,7 @@ simData@effect_times
 # id                     1 2 3 4 5 6 7 8
 # beta_or_teff_param_idx 1 2 3 4 5 6 7 8
 # 
-# Created on Tue Aug 10 22:07:15 2021 with lgpr 1.1.4.</code></pre>
+# Created on Thu Sep 23 16:11:50 2021 with lgpr 1.1.5.</code></pre>
 <div id="visualizing-the-individual-specific-effect-magnitudes" class="section level2" number="3.1">
 <h2 number="3.1"><span class="header-section-number">3.1</span> Visualizing the individual-specific effect magnitudes</h2>
 <p>We can visualize the posterior distribution of the individual-specific disease effect magnitude parameters for each case individual. We see that for individuals 1-4 the parameters are close to 1 (affected individuals) and for individuals 5-8 there is considerable posterior mass close to 0.</p>
@@ -1747,25 +1746,26 @@ plot_f(fit, pred = p, comp_idx = 3, color_by = &#39;diseaseAge&#39;)</code></pre
 # 
 # other attached packages:
 # [1] rstan_2.21.2         StanHeaders_2.21.0-7 ggplot2_3.3.5       
-# [4] lgpr_1.1.4           rmarkdown_2.8       
+# [4] lgpr_1.1.5           rmarkdown_2.8       
 # 
 # loaded via a namespace (and not attached):
-#  [1] tidyselect_1.1.1   xfun_0.23          bslib_0.2.5.1      reshape2_1.4.4    
-#  [5] purrr_0.3.4        V8_3.4.2           colorspace_2.0-2   vctrs_0.3.8       
-#  [9] generics_0.1.0     htmltools_0.5.1.1  stats4_4.1.0       loo_2.4.1         
-# [13] yaml_2.2.1         utf8_1.2.2         rlang_0.4.11       pkgbuild_1.2.0    
-# [17] jquerylib_0.1.4    pillar_1.6.2       glue_1.4.2         withr_2.4.2       
-# [21] plyr_1.8.6         matrixStats_0.60.0 lifecycle_1.0.0    stringr_1.4.0     
-# [25] munsell_0.5.0      gtable_0.3.0       codetools_0.2-18   evaluate_0.14     
-# [29] labeling_0.4.2     inline_0.3.19      knitr_1.33         callr_3.7.0       
-# [33] ps_1.6.0           parallel_4.1.0     curl_4.3.2         bayesplot_1.8.1   
-# [37] fansi_0.5.0        highr_0.9          rstantools_2.1.1   Rcpp_1.0.7        
-# [41] scales_1.1.1       RcppParallel_5.1.4 jsonlite_1.7.2     farver_2.1.0      
-# [45] gridExtra_2.3      digest_0.6.27      stringi_1.7.3      processx_3.5.2    
-# [49] dplyr_1.0.7        grid_4.1.0         cli_3.0.1          tools_4.1.0       
-# [53] magrittr_2.0.1     sass_0.4.0         tibble_3.1.3       crayon_1.4.1      
-# [57] pkgconfig_2.0.3    MASS_7.3-54        ellipsis_0.3.2     prettyunits_1.1.1 
-# [61] ggridges_0.5.3     R6_2.5.0           compiler_4.1.0</code></pre>
+#  [1] Rcpp_1.0.7         prettyunits_1.1.1  ps_1.6.0           assertthat_0.2.1  
+#  [5] digest_0.6.27      utf8_1.2.2         V8_3.4.2           R6_2.5.0          
+#  [9] plyr_1.8.6         ggridges_0.5.3     stats4_4.1.0       evaluate_0.14     
+# [13] highr_0.9          pillar_1.6.2       rlang_0.4.11       curl_4.3.2        
+# [17] callr_3.7.0        jquerylib_0.1.4    labeling_0.4.2     stringr_1.4.0     
+# [21] loo_2.4.1          munsell_0.5.0      compiler_4.1.0     xfun_0.23         
+# [25] pkgconfig_2.0.3    pkgbuild_1.2.0     rstantools_2.1.1   htmltools_0.5.1.1 
+# [29] tidyselect_1.1.1   tibble_3.1.3       gridExtra_2.3      codetools_0.2-18  
+# [33] matrixStats_0.60.0 fansi_0.5.0        crayon_1.4.1       dplyr_1.0.7       
+# [37] withr_2.4.2        MASS_7.3-54        grid_4.1.0         jsonlite_1.7.2    
+# [41] gtable_0.3.0       lifecycle_1.0.0    DBI_1.1.1          magrittr_2.0.1    
+# [45] scales_1.1.1       RcppParallel_5.1.4 cli_3.0.1          stringi_1.7.3     
+# [49] reshape2_1.4.4     farver_2.1.0       bslib_0.2.5.1      ellipsis_0.3.2    
+# [53] generics_0.1.0     vctrs_0.3.8        tools_4.1.0        glue_1.4.2        
+# [57] purrr_0.3.4        processx_3.5.2     parallel_4.1.0     yaml_2.2.1        
+# [61] inline_0.3.19      colorspace_2.0-2   bayesplot_1.8.1    knitr_1.33        
+# [65] sass_0.4.0</code></pre>
 </div>
 
 
