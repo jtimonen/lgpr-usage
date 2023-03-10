@@ -1,5 +1,4 @@
 require(pkgdown)
-#setwd("~/Work/research/LGPR/lgpr-usage")
 orig_dir <- getwd()
 
 # Rename current docs dir
