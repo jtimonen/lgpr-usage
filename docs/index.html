@@ -27,6 +27,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -39,18 +41,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.2.1</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="reference/lgpr-package.html">Overview</a>
 </li>
@@ -106,139 +102,122 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="lgpr" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#lgpr" class="anchor"></a>lgpr</h1></div>
-
-<p>R-package for interpretable nonparametric modeling of longitudinal
-data using additive Gaussian processes. Contains functionality for
-inferring covariate effects and assessing covariate relevances. Various
-models can be specified using a convenient formula syntax.</p>
-<div id="getting-started" class="section level2">
-<h2 class="hasAnchor">
-<a href="#getting-started" class="anchor"></a>Getting started</h2>
-<p>See overview, tutorials, vignettes and documentation at <a href="https://jtimonen.github.io/lgpr-usage/index.html" class="uri">https://jtimonen.github.io/lgpr-usage/index.html</a>.</p>
+<div class="section level1">
+<div class="page-header"><h1 id="lgpr">lgpr<a class="anchor" aria-label="anchor" href="#lgpr"></a>
+</h1></div>
+<p><a href="https://app.travis-ci.com/github/jtimonen/lgpr" class="external-link"><img src="https://app.travis-ci.com/jtimonen/lgpr.svg?branch=master" alt="travis"></a> <a href="https://app.codecov.io/gh/jtimonen/lgpr" class="external-link"><img src="https://codecov.io/gh/jtimonen/lgpr/branch/master/graph/badge.svg" alt="coverage"></a> <a href="https://cran.r-project.org/package=lgpr" class="external-link"><img src="https://www.r-pkg.org/badges/version/lgpr" alt="CRAN_Status_Badge"></a> <a href="https://cran.r-project.org/package=lgpr" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/lgpr" alt="metacran downloads"></a> <a href="https://www.gnu.org/licenses/gpl-3.0.html" class="external-link"><img src="https://img.shields.io/badge/license-GPL%3E=3-lightgrey.svg" alt="license"></a></p>
+<p>R-package for interpretable nonparametric modeling of longitudinal data using additive Gaussian processes. Contains functionality for inferring covariate effects and assessing covariate relevances. Various models can be specified using a convenient formula syntax.</p>
+<div class="section level2">
+<h2 id="getting-started">Getting started<a class="anchor" aria-label="anchor" href="#getting-started"></a>
+</h2>
+<p>See overview, tutorials, vignettes and documentation at <a href="https://jtimonen.github.io/lgpr-usage/index.html" class="external-link uri">https://jtimonen.github.io/lgpr-usage/index.html</a>.</p>
 </div>
-<div id="requirements" class="section level2">
-<h2 class="hasAnchor">
-<a href="#requirements" class="anchor"></a>Requirements</h2>
+<div class="section level2">
+<h2 id="requirements">Requirements<a class="anchor" aria-label="anchor" href="#requirements"></a>
+</h2>
 <ul>
 <li>The package should work on all major operating systems.</li>
 <li>R 3.4 or later is required, R 4.0.2 or later is recommended</li>
 </ul>
 </div>
-<div id="installing-from-cran" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installing-from-cran" class="anchor"></a>Installing from CRAN</h2>
+<div class="section level2">
+<h2 id="installing-from-cran">Installing from CRAN<a class="anchor" aria-label="anchor" href="#installing-from-cran"></a>
+</h2>
 <ul>
-<li>The latest released version that is available from CRAN can be
-installed simply via</li>
+<li>The latest released version that is available from CRAN can be installed simply via</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"lgpr"</span><span class="op">)</span></code></pre></div>
-<p>Installing from CRAN is probably the easiest option since they might
-have binaries for your system (so no need to build the package from
-source yourself).</p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"lgpr"</span><span class="op">)</span></span></code></pre></div>
+<p>Installing from CRAN is probably the easiest option since they might have binaries for your system (so no need to build the package from source yourself).</p>
 </div>
-<div id="installing-from-source" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installing-from-source" class="anchor"></a>Installing from source</h2>
+<div class="section level2">
+<h2 id="installing-from-source">Installing from source<a class="anchor" aria-label="anchor" href="#installing-from-source"></a>
+</h2>
 <ul>
-<li>The latest released version (which might not be in CRAN yet) can be
-installed via</li>
+<li>The latest released version (which might not be in CRAN yet) can be installed via</li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'devtools'</span><span class="op">)</span> <span class="co"># if you don't have devtools already</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">'jtimonen/lgpr'</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'devtools'</span><span class="op">)</span> <span class="co"># if you don't have devtools already</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">'jtimonen/lgpr'</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <ul>
 <li>The latest development version can be installed via</li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">'jtimonen/lgpr'</span>, ref <span class="op">=</span> <span class="st">"develop"</span><span class="op">)</span></code></pre></div>
-<p>Github installations are source installations (they require a C++
-compiler).</p>
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">'jtimonen/lgpr'</span>, ref <span class="op">=</span> <span class="st">"develop"</span><span class="op">)</span></span></code></pre></div>
+<p>Github installations are source installations (they require a C++ compiler).</p>
 <ul>
-<li>If you have trouble installing the dependency <a href="https://mc-stan.org/rstan/">rstan</a>, see <a href="https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started">these
-instructions</a>
+<li>If you have trouble installing the dependency <a href="https://mc-stan.org/rstan/" class="external-link">rstan</a>, see <a href="https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started" class="external-link">these instructions</a>
 </li>
-<li>Installing from source requires that you have your toolchain setup
-properly. See the instructions for:
+<li>Installing from source requires that you have your toolchain setup properly. See the instructions for:
 <ul>
-<li><a href="https://github.com/stan-dev/rstan/wiki/Configuring-C-Toolchain-for-Linux">Linux</a></li>
-<li><a href="https://github.com/stan-dev/rstan/wiki/Configuring-C---Toolchain-for-Windows">Windows</a></li>
-<li><a href="https://github.com/stan-dev/rstan/wiki/Configuring-C---Toolchain-for-Mac">Mac</a></li>
+<li><a href="https://github.com/stan-dev/rstan/wiki/Configuring-C-Toolchain-for-Linux" class="external-link">Linux</a></li>
+<li><a href="https://github.com/stan-dev/rstan/wiki/Configuring-C---Toolchain-for-Windows" class="external-link">Windows</a></li>
+<li><a href="https://github.com/stan-dev/rstan/wiki/Configuring-C---Toolchain-for-Mac" class="external-link">Mac</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div id="real-data-and-reproducing-the-experiments" class="section level2">
-<h2 class="hasAnchor">
-<a href="#real-data-and-reproducing-the-experiments" class="anchor"></a>Real data and reproducing the experiments</h2>
-<p>For code to reproduce the experiments of our manuscript see <a href="https://github.com/jtimonen/lgpr-usage" class="uri">https://github.com/jtimonen/lgpr-usage</a>. Preprocessed
-longitudinal proteomics data is also provided there. See also the
-built-in <code><a href="reference/read_proteomics_data.html">read_proteomics_data()</a></code> function.</p>
+<div class="section level2">
+<h2 id="real-data-and-reproducing-the-experiments">Real data and reproducing the experiments<a class="anchor" aria-label="anchor" href="#real-data-and-reproducing-the-experiments"></a>
+</h2>
+<p>For code to reproduce the experiments of our manuscript see <a href="https://github.com/jtimonen/lgpr-usage" class="external-link uri">https://github.com/jtimonen/lgpr-usage</a>. Preprocessed longitudinal proteomics data is also provided there. See also the built-in <code><a href="reference/read_proteomics_data.html">read_proteomics_data()</a></code> function.</p>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=lgpr">https://​cloud.r-project.org/​package=lgpr</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/jtimonen/lgpr/">https://​github.com/​jtimonen/​lgpr/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/jtimonen/lgpr/issues">https://​github.com/​jtimonen/​lgpr/​issues</a>
-</li>
+<li><a href="https://cloud.r-project.org/package=lgpr" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/jtimonen/lgpr/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/jtimonen/lgpr/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li>GPL (&gt;=3)</li>
 </ul>
 </div>
+
 <div class="community">
-<h2>Community</h2>
+<h2 data-toc-skip>Community</h2>
 <ul class="list-unstyled">
 <li><a href="CONTRIBUTING.html">Contributing guide</a></li>
 </ul>
 </div>
+
 <div class="citation">
-<h2>Citation</h2>
+<h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li><a href="authors.html">Citing lgpr</a></li>
-</ul>
-</div>
-<div class="developers">
-<h2>Developers</h2>
-<ul class="list-unstyled">
-<li>Juho Timonen <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-2341-6765" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="authors.html#citation">Citing lgpr</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li><a href="https://app.travis-ci.com/github/jtimonen/lgpr"><img src="https://app.travis-ci.com/jtimonen/lgpr.svg?branch=master" alt="travis"></a></li>
-<li><a href="https://codecov.io/gh/jtimonen/lgpr"><img src="https://codecov.io/gh/jtimonen/lgpr/branch/master/graph/badge.svg" alt="coverage"></a></li>
-<li><a href="https://cran.r-project.org/package=lgpr"><img src="https://www.r-pkg.org/badges/version/lgpr" alt="CRAN_Status_Badge"></a></li>
-<li><a href="https://cran.r-project.org/package=lgpr"><img src="https://cranlogs.r-pkg.org/badges/grand-total/lgpr" alt="metacran downloads"></a></li>
-<li><a href="https://www.gnu.org/licenses/gpl-3.0.html"><img src="https://img.shields.io/badge/license-GPL%3E=3-lightgrey.svg" alt="license"></a></li>
+<li>Juho Timonen <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-2341-6765" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li><a href="authors.html">More about authors...</a></li>
 </ul>
 </div>
-</div>
+
+
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Juho Timonen.</p>
+  <p></p>
+<p>Developed by Juho Timonen.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
@@ -246,6 +225,8 @@ built-in <code><a href="reference/read_proteomics_data.html">read_proteomics_dat
 
   
 
+
+  
 
   </body>
 </html>

@@ -20,6 +20,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -32,18 +34,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lgpr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.2.1</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../reference/lgpr-package.html">Overview</a>
 </li>
@@ -97,15 +93,16 @@
 
       
 
-      </header><script src="math_files/header-attrs-2.18/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Mathematical description of lgpr models</h1>
-                        <h4 class="author">Juho Timonen</h4>
+                        <h4 data-toc-skip class="author">Juho
+Timonen</h4>
             
-            <h4 class="date">11th August 2021</h4>
+            <h4 data-toc-skip class="date">11th August 2021</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/jtimonen/lgpr/blob/master/vignettes/math.Rmd"><code>vignettes/math.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/jtimonen/lgpr/blob/HEAD/vignettes/math.Rmd" class="external-link"><code>vignettes/math.Rmd</code></a></small>
       <div class="hidden name"><code>math.Rmd</code></div>
 
     </div>
@@ -113,18 +110,18 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jtimonen/lgpr">lgpr</a></span><span class="op">)</span>
-<span class="co">#&gt; Attached lgpr 1.2.0, using rstan 2.21.5. Type ?lgpr to get started.</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jtimonen/lgpr" class="external-link">lgpr</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Attached lgpr 1.2.1, using rstan 2.21.8. Type ?lgpr to get started.</span></span></code></pre></div>
 <p>This vignette describes mathematically the statistical models of
 <code>lgpr</code>. We study the different arguments of the
 <code><a href="../reference/lgp.html">lgp()</a></code> or <code><a href="../reference/create_model.html">create_model()</a></code> modeling functions and
 what parts of the probabilistic model they customize. This is a concise
 description, and the original publication (<span class="citation">Timonen et al. (2021)</span>) has more information
-about the actual motivation for the used modeling approaches, and the <a href="https://jtimonen.github.io/lgpr-usage/">tutorials</a> have code
+about the actual motivation for the used modeling approaches, and the <a href="https://jtimonen.github.io/lgpr-usage/" class="external-link">tutorials</a> have code
 examples.</p>
-<div id="bayesian-gp-regression" class="section level2">
-<h2 class="hasAnchor">
-<a href="#bayesian-gp-regression" class="anchor"></a>1. Bayesian GP regression</h2>
+<div class="section level2">
+<h2 id="bayesian-gp-regression">1. Bayesian GP regression<a class="anchor" aria-label="anchor" href="#bayesian-gp-regression"></a>
+</h2>
 <p>The models in <code>lgpr</code> are models for the conditional
 distribution <span class="math display">\[
 p(y \mid f(\textbf{x}), \theta_{\text{obs}}),
@@ -163,9 +160,9 @@ N\)</span> matrix <span class="math inline">\(\textbf{K}\)</span> has
 entries <span class="math inline">\(\{ \textbf{K} \}_{in} =
 k(\textbf{x}_i, \textbf{x}_n \mid \theta_{\text{GP}})\)</span>.</p>
 </div>
-<div id="connection-between-lgpr-arguments-and-different-model-parts" class="section level2">
-<h2 class="hasAnchor">
-<a href="#connection-between-lgpr-arguments-and-different-model-parts" class="anchor"></a>2. Connection between lgpr arguments and different model parts</h2>
+<div class="section level2">
+<h2 id="connection-between-lgpr-arguments-and-different-model-parts">2. Connection between lgpr arguments and different model parts<a class="anchor" aria-label="anchor" href="#connection-between-lgpr-arguments-and-different-model-parts"></a>
+</h2>
 <p>The below table shows which parts of the above mathematical
 description are affected by which arguments to <code><a href="../reference/lgp.html">lgp()</a></code> or
 <code><a href="../reference/create_model.html">create_model()</a></code>. You can read more about them in the
@@ -211,9 +208,9 @@ documentation of said functions.</p>
 </tbody>
 </table>
 </div>
-<div id="the-likelihood-argument-and-observation-models" class="section level2">
-<h2 class="hasAnchor">
-<a href="#the-likelihood-argument-and-observation-models" class="anchor"></a>3. The <code>likelihood</code> argument and observation models</h2>
+<div class="section level2">
+<h2 id="the-likelihood-argument-and-observation-models">3. The <code>likelihood</code> argument and observation models<a class="anchor" aria-label="anchor" href="#the-likelihood-argument-and-observation-models"></a>
+</h2>
 <p>The terms <strong>observation model</strong> and
 <strong>likelihood</strong> are used to refer to the same formula,
 i.e. <span class="math inline">\(p(y_n \mid f(\textbf{x}_n),
@@ -310,12 +307,12 @@ for exact details and the <a href="#model-inference">5. Model
 inference</a> section for information about the <code>sample_f</code>
 argument.</p>
 </div>
-<div id="the-formula-argument-and-kernel-functions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#the-formula-argument-and-kernel-functions" class="anchor"></a>4. The <code>formula</code> argument and kernel functions</h2>
-<div id="additive-gp-regression" class="section level3">
-<h3 class="hasAnchor">
-<a href="#additive-gp-regression" class="anchor"></a>Additive GP regression</h3>
+<div class="section level2">
+<h2 id="the-formula-argument-and-kernel-functions">4. The <code>formula</code> argument and kernel functions<a class="anchor" aria-label="anchor" href="#the-formula-argument-and-kernel-functions"></a>
+</h2>
+<div class="section level3">
+<h3 id="additive-gp-regression">Additive GP regression<a class="anchor" aria-label="anchor" href="#additive-gp-regression"></a>
+</h3>
 <p>The GP models of <code>lgpr</code> are additive, so that <span class="math display">\[\begin{equation}
 k(\textbf{x}, \textbf{x}' \mid \theta_{\text{GP}})  = \sum_{j=1}^J
 \alpha_j^2 k_j(\textbf{x}, \textbf{x}' \mid \theta_{\text{GP}}).
@@ -326,14 +323,14 @@ f^{(j)} \sim \mathcal{GP}\left(0, \alpha_j^2 k_j(\textbf{x},
 \textbf{x}' \mid \theta_{\text{GP}}) \right),
 \end{equation}\]</span> independently from other components.</p>
 </div>
-<div id="formulas-and-terms" class="section level3">
-<h3 class="hasAnchor">
-<a href="#formulas-and-terms" class="anchor"></a>Formulas and terms</h3>
+<div class="section level3">
+<h3 id="formulas-and-terms">Formulas and terms<a class="anchor" aria-label="anchor" href="#formulas-and-terms"></a>
+</h3>
 <p>The number of components <span class="math inline">\(J\)</span> is
 equal to the number of terms in your <code>formula</code>. Terms are
 separated by a plus sign. An example formula with three terms could
 be</p>
-<pre><code>y ~ gp(age) + gp(age)*zs(id) + categ(group)</code></pre>
+<pre><code><span><span class="va">y</span> <span class="op">~</span> <span class="fu">gp</span><span class="op">(</span><span class="va">age</span><span class="op">)</span> <span class="op">+</span> <span class="fu">gp</span><span class="op">(</span><span class="va">age</span><span class="op">)</span><span class="op">*</span><span class="fu">zs</span><span class="op">(</span><span class="va">id</span><span class="op">)</span> <span class="op">+</span> <span class="fu">categ</span><span class="op">(</span><span class="va">group</span><span class="op">)</span></span></code></pre>
 <p>where <code>y</code>, <code>age</code>, <code>id</code> and
 <code>group</code> have to be columns of <code>data</code>. Each formula
 term defines what the corresponding kernel <span class="math inline">\(k_j\)</span> will be like, and what covariates and
@@ -341,10 +338,10 @@ parameters it depends on. Each term adds one <span class="math inline">\(\alpha\
 vector <span class="math inline">\(\theta_{\text{GP}}\)</span>, and
 possible additional parameters depending on the term.</p>
 </div>
-<div id="expressions-and-kernels" class="section level3">
-<h3 class="hasAnchor">
-<a href="#expressions-and-kernels" class="anchor"></a>Expressions and kernels</h3>
-<p>Each term is a product (separated by <code><a href="https://rdrr.io/r/base/Arithmetic.html">*</a></code>) of what we call
+<div class="section level3">
+<h3 id="expressions-and-kernels">Expressions and kernels<a class="anchor" aria-label="anchor" href="#expressions-and-kernels"></a>
+</h3>
+<p>Each term is a product (separated by <code>*</code>) of what we call
 expressions. At this point we are not using standard R formula
 terminology because terms in <code>lgpr</code> are parsed in a custom
 way. Each expression corresponds to one kernel, and the kernel <span class="math inline">\(k_j\)</span> is the product of all the kernels in
@@ -437,18 +434,18 @@ warping steepness parameter <span class="math inline">\(a\)</span> to
 <span class="math inline">\(\theta_{\text{GP}}\)</span>.</p></li>
 </ul>
 </div>
-<div id="masking-missing-covariates" class="section level3">
-<h3 class="hasAnchor">
-<a href="#masking-missing-covariates" class="anchor"></a>Masking missing covariates</h3>
+<div class="section level3">
+<h3 id="masking-missing-covariates">Masking missing covariates<a class="anchor" aria-label="anchor" href="#masking-missing-covariates"></a>
+</h3>
 <p>All kernels that work with continuous covariates are actually also
 multiplied by a binary mask (BIN) kernel <span class="math inline">\(k_{\text{BIN}}(x,x')\)</span> which returns
 <span class="math inline">\(0\)</span> if either <span class="math inline">\(x\)</span> or <span class="math inline">\(x'\)</span> is missing and <span class="math inline">\(1\)</span> if they are both available. Missing
 data should be encoded as <code>NA</code> or <code>NaN</code> in
 <code>data</code>.</p>
 </div>
-<div id="heterogeneous-effects-and-covariate-uncertainty" class="section level3">
-<h3 class="hasAnchor">
-<a href="#heterogeneous-effects-and-covariate-uncertainty" class="anchor"></a>Heterogeneous effects and covariate uncertainty</h3>
+<div class="section level3">
+<h3 id="heterogeneous-effects-and-covariate-uncertainty">Heterogeneous effects and covariate uncertainty<a class="anchor" aria-label="anchor" href="#heterogeneous-effects-and-covariate-uncertainty"></a>
+</h3>
 <p>There are also the <code>het()</code> and <code>unc()</code>
 expressions. They cannot be alone in a term but have to be multiplied by
 EQ, NS or VM. They are not actually kernels alone but edit the covariate
@@ -457,9 +454,9 @@ for example use cases and <span class="citation">Timonen et al.
 (2021)</span> for their mathematical definition.</p>
 </div>
 </div>
-<div id="model-inference" class="section level2">
-<h2 class="hasAnchor">
-<a href="#model-inference" class="anchor"></a>5. Model inference</h2>
+<div class="section level2">
+<h2 id="model-inference">5. Model inference<a class="anchor" aria-label="anchor" href="#model-inference"></a>
+</h2>
 <p>After the model is defined, <code>lgpr</code> uses the MCMC methods
 of Stan to obtain draws from the joint posterior <span class="math inline">\(p\left(\theta, \textbf{f} \mid
 \mathcal{D}\right)\)</span> or the marginal posterior of parameters,
@@ -467,9 +464,9 @@ i.e.  <span class="math inline">\(p\left(\theta \mid
 \mathcal{D}\right)\)</span>. Which one of these is done is determined by
 the <code>sample_f</code> argument of <code><a href="../reference/lgp.html">lgp()</a></code> or
 <code><a href="../reference/create_model.html">create_model()</a></code>.</p>
-<div id="with-sample_f-true" class="section level3">
-<h3 class="hasAnchor">
-<a href="#with-sample_f-true" class="anchor"></a>With sample_f = TRUE</h3>
+<div class="section level3">
+<h3 id="with-sample_f-true">With sample_f = TRUE<a class="anchor" aria-label="anchor" href="#with-sample_f-true"></a>
+</h3>
 <p>This option is always possible but not recommended with
 <code>likelihood = "gaussian"</code>. The joint posterior that is
 sampled from is <span class="math display">\[\begin{equation}
@@ -478,9 +475,9 @@ p\left(\theta, \textbf{f} \mid \mathcal{D}\right) \propto p\left(\theta,
 \end{equation}\]</span> and sampling requires evaluating the right-hand
 side and its gradient thousands of times.</p>
 </div>
-<div id="with-sample_f-false" class="section level3">
-<h3 class="hasAnchor">
-<a href="#with-sample_f-false" class="anchor"></a>With sample_f = FALSE</h3>
+<div class="section level3">
+<h3 id="with-sample_f-false">With sample_f = FALSE<a class="anchor" aria-label="anchor" href="#with-sample_f-false"></a>
+</h3>
 <p>This option is only possible (and is automatically selected by
 default) if <code>likelihood = "gaussian"</code>. This is because <span class="math display">\[\begin{equation}
 p\left(\textbf{y} \mid \theta\right) = \mathcal{N}\left(\textbf{y} \mid
@@ -506,15 +503,15 @@ joint posterior <span class="math inline">\(p\left(\theta, \textbf{f}
 effort.</p>
 </div>
 </div>
-<div id="references" class="section level2 unnumbered">
-<h2 class="hasAnchor">
-<a href="#references" class="anchor"></a>References</h2>
+<div class="section level2 unnumbered">
+<h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-timonen2021" class="csl-entry">
 Timonen, Juho, Henrik Mannerström, Aki Vehtari, and Harri Lähdesmäki.
 2021. <span>“Lgpr: An Interpretable Non-Parametric Method for Inferring
 Covariate Effects from Longitudinal Data.”</span>
-<em>Bioinformatics</em> 37 (13): 1860–67. <a href="https://doi.org/10.1093/bioinformatics/btab021">https://doi.org/10.1093/bioinformatics/btab021</a>.
+<em>Bioinformatics</em> 37 (13): 1860–67. <a href="https://doi.org/10.1093/bioinformatics/btab021" class="external-link">https://doi.org/10.1093/bioinformatics/btab021</a>.
 </div>
 </div>
 </div>
@@ -531,11 +528,13 @@ Covariate Effects from Longitudinal Data.”</span>
 
 
       <footer><div class="copyright">
-  <p>Developed by Juho Timonen.</p>
+  <p></p>
+<p>Developed by Juho Timonen.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
@@ -543,6 +542,8 @@ Covariate Effects from Longitudinal Data.”</span>
 
   
 
+
+  
 
   </body>
 </html>
