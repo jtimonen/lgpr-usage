@@ -43,9 +43,6 @@
     <loc>/reference/adjusted_c_hat.html</loc>
   </url>
   <url>
-    <loc>/reference/apply_reduce.html</loc>
-  </url>
-  <url>
     <loc>/reference/apply_scaling.html</loc>
   </url>
   <url>
@@ -98,9 +95,6 @@
   </url>
   <url>
     <loc>/reference/kernel.html</loc>
-  </url>
-  <url>
-    <loc>/reference/kernels_fpost.html</loc>
   </url>
   <url>
     <loc>/reference/lgp.html</loc>
@@ -167,9 +161,6 @@
   </url>
   <url>
     <loc>/reference/plot_sim.html</loc>
-  </url>
-  <url>
-    <loc>/reference/posterior_f.html</loc>
   </url>
   <url>
     <loc>/reference/ppc.html</loc>
