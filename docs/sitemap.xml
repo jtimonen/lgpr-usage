@@ -4,9 +4,6 @@
     <loc>/404.html</loc>
   </url>
   <url>
-    <loc>/CONTRIBUTING.html</loc>
-  </url>
-  <url>
     <loc>/articles/index.html</loc>
   </url>
   <url>
@@ -16,19 +13,13 @@
     <loc>/authors.html</loc>
   </url>
   <url>
+    <loc>/CONTRIBUTING.html</loc>
+  </url>
+  <url>
     <loc>/index.html</loc>
   </url>
   <url>
     <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GaussianPrediction-class.html</loc>
-  </url>
-  <url>
-    <loc>/reference/KernelComputer-class.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Prediction-class.html</loc>
   </url>
   <url>
     <loc>/reference/add_dis_age.html</loc>
@@ -85,6 +76,9 @@
     <loc>/reference/fit_summary.html</loc>
   </url>
   <url>
+    <loc>/reference/GaussianPrediction-class.html</loc>
+  </url>
+  <url>
     <loc>/reference/get_draws.html</loc>
   </url>
   <url>
@@ -95,6 +89,9 @@
   </url>
   <url>
     <loc>/reference/kernel.html</loc>
+  </url>
+  <url>
+    <loc>/reference/KernelComputer-class.html</loc>
   </url>
   <url>
     <loc>/reference/lgp.html</loc>
@@ -169,13 +166,16 @@
     <loc>/reference/pred.html</loc>
   </url>
   <url>
+    <loc>/reference/Prediction-class.html</loc>
+  </url>
+  <url>
+    <loc>/reference/priors.html</loc>
+  </url>
+  <url>
     <loc>/reference/prior_pred.html</loc>
   </url>
   <url>
     <loc>/reference/prior_to_num.html</loc>
-  </url>
-  <url>
-    <loc>/reference/priors.html</loc>
   </url>
   <url>
     <loc>/reference/read_proteomics_data.html</loc>

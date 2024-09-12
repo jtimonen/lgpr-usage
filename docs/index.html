@@ -107,6 +107,7 @@
 </h1></div>
 <p><a href="https://app.travis-ci.com/github/jtimonen/lgpr" class="external-link"><img src="https://app.travis-ci.com/jtimonen/lgpr.svg?branch=master" alt="travis"></a> <a href="https://app.codecov.io/gh/jtimonen/lgpr" class="external-link"><img src="https://codecov.io/gh/jtimonen/lgpr/branch/master/graph/badge.svg" alt="coverage"></a> <a href="https://cran.r-project.org/package=lgpr" class="external-link"><img src="https://www.r-pkg.org/badges/version/lgpr" alt="CRAN_Status_Badge"></a> <a href="https://cran.r-project.org/package=lgpr" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/lgpr" alt="metacran downloads"></a> <a href="https://www.gnu.org/licenses/gpl-3.0.html" class="external-link"><img src="https://img.shields.io/badge/license-GPL%3E=3-lightgrey.svg" alt="license"></a></p>
 <p>R-package for interpretable nonparametric modeling of longitudinal data using additive Gaussian processes. Contains functionality for inferring covariate effects and assessing covariate relevances. Various models can be specified using a convenient formula syntax.</p>
+<p><strong>NOTE:</strong> <a href="https://github.com/jtimonen/lgpr2" class="external-link">lgpr2</a> has been released! It allows scaling to larger data as it uses approximate Gaussian processes. Unfortunately it doesn’t have all the special modeling features included in this package.</p>
 <div class="section level2">
 <h2 id="getting-started">Getting started<a class="anchor" aria-label="anchor" href="#getting-started"></a>
 </h2>
@@ -117,7 +118,7 @@
 </h2>
 <ul>
 <li>The package should work on all major operating systems.</li>
-<li>R 3.4 or later is required, R 4.0.2 or later is recommended</li>
+<li>R 3.4 or later is required, R 4.2 or later is recommended</li>
 </ul>
 </div>
 <div class="section level2">
@@ -156,6 +157,16 @@
 </ul>
 </li>
 </ul>
+</div>
+<div class="section level2">
+<h2 id="using-r--42">Using R &lt; 4.2<a class="anchor" aria-label="anchor" href="#using-r--42"></a>
+</h2>
+<p>If you are using <code>R</code> version 4.1 or earlier, you can get an error</p>
+<pre><code>cc1plus.exe: out of memory allocating 65536 bytes
+make: *** [C:/PROGRA~1/R/R-40~1.2/etc/i386/Makeconf:227: stanExports_lgp_latent.o] Error 1</code></pre>
+<p>because both 64-bit and 32-bit versions of the package are getting installed. To disable this and resolve error, ugrade to latest R or install the version that has <code>Biarch: false</code> by</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">'jtimonen/lgpr'</span>, ref <span class="op">=</span> <span class="st">"no-biarch"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="real-data-and-reproducing-the-experiments">Real data and reproducing the experiments<a class="anchor" aria-label="anchor" href="#real-data-and-reproducing-the-experiments"></a>
