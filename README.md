@@ -1,4 +1,7 @@
+**NOTE:** [lgpr2](https://github.com/jtimonen/lgpr2) has been released! It allows scaling to larger data as it uses approximate Gaussian processes. 
+
 # Using the lgpr package
+
 This repository contains code for experiments with the R package **lgpr** (https://github.com/jtimonen/lgpr). 
 
 ## Getting started
